@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers | Smartspace Living</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --success: #27ae60;
+            --danger: #e74c3c;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .offers-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 2rem auto;
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Featured Offers */
+        .featured-offers {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .offers-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .featured-card {
+            background: var(--card-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.1);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--danger);
+            color: var(--accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+
+        .card-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .featured-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-discount {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--secondary);
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .card-description {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-features {
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-icon {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .countdown {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 8px;
+            border-radius: 8px;
+            min-width: 50px;
+        }
+
+        .countdown-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* All Offers Grid */
+        .all-offers {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .offer-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .offer-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .offer-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .offer-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .offer-card:hover .offer-icon {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .offer-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .offer-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .offer-original {
+            text-decoration: line-through;
+            opacity: 0.6;
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .offer-savings {
+            background: var(--success);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .offer-features {
+            margin-bottom: 2rem;
+        }
+
+        .offer-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .offer-feature i {
+            color: var(--secondary);
+        }
+
+        /* Seasonal Offers */
+        .seasonal-offers {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .seasonal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .seasonal-card {
+            background: var(--card-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+
+        .seasonal-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .seasonal-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, #c19b2e 100%);
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .seasonal-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .seasonal-body {
+            padding: 2rem;
+        }
+
+        .seasonal-features {
+            margin-bottom: 2rem;
+        }
+
+        .seasonal-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 8px;
+        }
+
+        .seasonal-feature i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Membership Section */
+        .membership-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .membership-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .membership-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid var(--secondary);
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .membership-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 1rem 0;
+        }
+
+        .membership-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .membership-feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .membership-feature:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .membership-feature i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .btn-large {
+            padding: 18px 35px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .seasonal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .membership-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+      <div id="siteHeader">
+        <!-- <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-palette"></i>
+                    SmartspaceLiving
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header> -->
+    </div>
+
+    <!-- Hero Section -->
+    <section class="offers-hero">
+        <div class="hero-badge">
+            <i class="fas fa-bolt"></i> LIMITED TIME OFFERS
+        </div>
+        <div class="hero-content">
+            <h1>Exclusive Design Offers</h1>
+            <div class="gold-divider"></div>
+            <p>Discover premium interior design deals and special packages crafted for your dream space</p>
+        </div>
+    </section>
+
+    <!-- Featured Offers -->
+    <section class="featured-offers">
+        <div class="offers-container">
+            <div class="section-header">
+                <h2>Featured Deals</h2>
+                <p>Our most popular offers with exclusive benefits and limited availability</p>
+            </div>
+
+            <div class="featured-grid">
+                <!-- Featured Offer 1 -->
+                <div class="featured-card">
+                    <div class="card-badge">MOST POPULAR</div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Complete Home Makeover">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Complete Home Makeover</div>
+                                <div class="card-discount">35% OFF</div>
+                            </div>
+                        </div>
+                        <p class="card-description">Transform your entire home with our comprehensive interior design package. Includes living room, bedroom, and kitchen design.</p>
+                        
+                        <div class="card-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check feature-icon"></i>
+                                <span>3D Visualization & Planning</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check feature-icon"></i>
+                                <span>Premium Material Selection</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check feature-icon"></i>
+                                <span>Custom Furniture Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check feature-icon"></i>
+                                <span>Project Management Included</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="countdown" id="countdown1">
+                                <div class="countdown-item">
+                                    <div class="countdown-number">05</div>
+                                    <div class="countdown-label">Days</div>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-number">12</div>
+                                    <div class="countdown-label">Hours</div>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-number">45</div>
+                                    <div class="countdown-label">Min</div>
+                                </div>
+                            </div>
+                            <button class="btn-primary">Claim Offer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Offer 2 -->
+                <div class="featured-card">
+                    <div class="card-badge">EXCLUSIVE</div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Luxury Kitchen Package">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Luxury Kitchen Package</div>
+                                <div class="card-discount">25% OFF</div>
+                            </div>
+                        </div>
+                        <p class="card-description">Premium modular kitchen design with smart storage solutions and high-end appliances. Create your dream cooking space.</p>
+                        
+                        <div class="card-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check feature-icon"></i>
+                                <span>German Modular Kitchen</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check feature-icon"></i>
+                                <span>Smart Storage Solutions</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check feature-icon"></i>
+                                <span>Premium Appliances</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check feature-icon"></i>
+                                <span>Quartz Countertops</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="countdown" id="countdown2">
+                                <div class="countdown-item">
+                                    <div class="countdown-number">03</div>
+                                    <div class="countdown-label">Days</div>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-number">08</div>
+                                    <div class="countdown-label">Hours</div>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-number">30</div>
+                                    <div class="countdown-label">Min</div>
+                                </div>
+                            </div>
+                            <button class="btn-primary">Claim Offer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Offers Grid -->
+    <section class="all-offers">
+        <div class="offers-container">
+            <div class="section-header">
+                <h2>All Special Offers</h2>
+                <p>Explore our range of exclusive deals and packages</p>
+            </div>
+
+            <div class="offers-grid">
+                <!-- Offer 1 -->
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3>Bedroom Bliss Package</h3>
+                    <div class="offer-price">
+                        ₹2.5 Lakhs <span class="offer-original">₹3.5 Lakhs</span>
+                    </div>
+                    <div class="offer-savings">Save ₹1 Lakh</div>
+                    
+                    <div class="offer-features">
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Custom Wardrobe Design</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Premium Bed & Mattress</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Lighting Design</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Wall Treatment</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" style="width: 100%;">Get This Deal</button>
+                </div>
+
+                <!-- Offer 2 -->
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Living Room Makeover</h3>
+                    <div class="offer-price">
+                        ₹1.8 Lakhs <span class="offer-original">₹2.5 Lakhs</span>
+                    </div>
+                    <div class="offer-savings">Save ₹70,000</div>
+                    
+                    <div class="offer-features">
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Entertainment Unit</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Sofa Set & Center Table</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>False Ceiling with Lighting</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Wall Paneling</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" style="width: 100%;">Get This Deal</button>
+                </div>
+
+                <!-- Offer 3 -->
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <h3>Luxury Bathroom Package</h3>
+                    <div class="offer-price">
+                        ₹1.2 Lakhs <span class="offer-original">₹1.8 Lakhs</span>
+                    </div>
+                    <div class="offer-savings">Save ₹60,000</div>
+                    
+                    <div class="offer-features">
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Premium Sanitaryware</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Modern Tiling</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Storage Solutions</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Lighting & Accessories</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" style="width: 100%;">Get This Deal</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Offers -->
+    <section class="seasonal-offers">
+        <div class="offers-container">
+            <div class="section-header">
+                <h2>Seasonal Specials</h2>
+                <p>Limited time offers for specific seasons and occasions</p>
+            </div>
+
+            <div class="seasonal-grid">
+                <!-- Seasonal 1 -->
+                <div class="seasonal-card">
+                    <div class="seasonal-header">
+                        <h3>Festive Season Offer</h3>
+                        <p>Diwali Special - Light Up Your Home</p>
+                    </div>
+                    <div class="seasonal-body">
+                        <div class="seasonal-features">
+                            <div class="seasonal-feature">
+                                <i class="fas fa-gift"></i>
+                                <div>
+                                    <strong>Free Lighting Package</strong>
+                                    <p>Premium decorative lighting worth ₹25,000</p>
+                                </div>
+                            </div>
+                            <div class="seasonal-feature">
+                                <i class="fas fa-palette"></i>
+                                <div>
+                                    <strong>Color Consultation</strong>
+                                    <p>Festive color schemes and themes</p>
+                                </div>
+                            </div>
+                            <div class="seasonal-feature">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Priority Completion</strong>
+                                    <p>Guaranteed completion before festivities</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">Book Festive Package</button>
+                    </div>
+                </div>
+
+                <!-- Seasonal 2 -->
+                <div class="seasonal-card">
+                    <div class="seasonal-header">
+                        <h3>Monsoon Ready Home</h3>
+                        <p>Weather-Proof Your Space</p>
+                    </div>
+                    <div class="seasonal-body">
+                        <div class="seasonal-features">
+                            <div class="seasonal-feature">
+                                <i class="fas fa-umbrella"></i>
+                                <div>
+                                    <strong>Waterproofing</strong>
+                                    <p>Complete waterproofing solutions</p>
+                                </div>
+                            </div>
+                            <div class="seasonal-feature">
+                                <i class="fas fa-wind"></i>
+                                <div>
+                                    <strong>Ventilation Upgrade</strong>
+                                    <p>Improved air circulation systems</p>
+                                </div>
+                            </div>
+                            <div class="seasonal-feature">
+                                <i class="fas fa-tint"></i>
+                                <div>
+                                    <strong>Moisture Control</strong>
+                                    <p>Anti-mold and dampness treatment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">Weather-Proof My Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section class="membership-section">
+        <div class="membership-content">
+            <div class="section-header">
+                <h2>Elite Design Membership</h2>
+                <p>Join our exclusive membership program for year-round benefits</p>
+            </div>
+
+            <div class="membership-card">
+                <div class="membership-badge">RECOMMENDED</div>
+                <h3>Smartspace Elite</h3>
+                <div class="membership-price">₹50,000/year</div>
+                <p>Premium membership with exclusive access to deals, priority services, and special privileges</p>
+                
+                <div class="membership-features">
+                    <div class="membership-feature">
+                        <i class="fas fa-star"></i>
+                        <h4>Priority Booking</h4>
+                        <p>Jump the queue for all services</p>
+                    </div>
+                    <div class="membership-feature">
+                        <i class="fas fa-percentage"></i>
+                        <h4>15% Off All Services</h4>
+                        <p>Year-round discount on all projects</p>
+                    </div>
+                    <div class="membership-feature">
+                        <i class="fas fa-gem"></i>
+                        <h4>Exclusive Access</h4>
+                        <p>First access to new collections</p>
+                    </div>
+                    <div class="membership-feature">
+                        <i class="fas fa-headset"></i>
+                        <h4>Dedicated Support</h4>
+                        <p>Personal design consultant</p>
+                    </div>
+                </div>
+                
+                <button class="btn-primary btn-large">Become a Member</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 style="color: #000000;">Ready to Transform Your Space?</h2>
+            <p>Contact our design experts to learn more about these exclusive offers and find the perfect package for your home</p>
+            <button class="btn-primary btn-large">Schedule Free Consultation</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <div id="siteFooter">
+    
+    </div> 
+
+      <!-- Script to load header and footer -->
+  <script>
+    // Load Header
+  fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('siteHeader').innerHTML = data;
+
+    // Run header JS only after it's loaded
+    const menuToggle = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  });
+
+
+    // Load Footer
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error("Footer not found");
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('siteFooter').innerHTML = data;
+      })
+      .catch(error => console.error("Footer load error:", error));
+  </script>
+
+    <script>
+        // // Theme Toggle
+        // const themeToggle = document.getElementById('themeToggle');
+        // const body = document.body;
+
+        // themeToggle.addEventListener('click', () => {
+        //     body.classList.toggle('dark-theme');
+        //     const icon = themeToggle.querySelector('i');
+        //     if (body.classList.contains('dark-theme')) {
+        //         icon.classList.remove('fa-sun');
+        //         icon.classList.add('fa-moon');
+        //     } else {
+        //         icon.classList.remove('fa-moon');
+        //         icon.classList.add('fa-sun');
+        //     }
+        // });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const countdowns = [
+                { element: 'countdown1', days: 5, hours: 12, minutes: 45 },
+                { element: 'countdown2', days: 3, hours: 8, minutes: 30 }
+            ];
+
+            countdowns.forEach(countdown => {
+                const element = document.getElementById(countdown.element);
+                if (element) {
+                    const daysElement = element.querySelector('.countdown-item:nth-child(1) .countdown-number');
+                    const hoursElement = element.querySelector('.countdown-item:nth-child(2) .countdown-number');
+                    const minutesElement = element.querySelector('.countdown-item:nth-child(3) .countdown-number');
+
+                    let days = countdown.days;
+                    let hours = countdown.hours;
+                    let minutes = countdown.minutes;
+
+                    // Simulate countdown (in real implementation, use actual target dates)
+                    minutes--;
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        if (hours < 0) {
+                            hours = 23;
+                            days--;
+                        }
+                    }
+
+                    daysElement.textContent = days.toString().padStart(2, '0');
+                    hoursElement.textContent = hours.toString().padStart(2, '0');
+                    minutesElement.textContent = minutes.toString().padStart(2, '0');
+
+                    // Update the countdown object for next iteration
+                    countdown.days = days;
+                    countdown.hours = hours;
+                    countdown.minutes = minutes;
+                }
+            });
+        }
+
+        // Update countdown every minute
+        setInterval(updateCountdown, 60000);
+
+        // Add animation to cards on scroll
+        const cards = document.querySelectorAll('.featured-card, .offer-card, .seasonal-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Add click effects to buttons
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'translateY(-1px)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-3px)';
+                }, 150);
+                
+                // Show success message (in real implementation, this would submit a form)
+                const originalText = this.textContent;
+                this.textContent = 'Offer Claimed!';
+                this.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = 'var(--secondary)';
+                }, 2000);
+            });
+        });
+
+        // Initialize countdown on load
+        document.addEventListener('DOMContentLoaded', updateCountdown);
+    </script>
+</body>
+</html>

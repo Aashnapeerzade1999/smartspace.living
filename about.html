@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Smartspace Living | Premium Interior Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .light-theme {
+            --bg-color: var(--bg-light);
+            --text-color: var(--text-light);
+            --card-color: var(--card-light);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 10px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: rotate(15deg);
+        }
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--accent);
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .gold-divider {
+            width: 120px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 2.5rem auto;
+            animation: expandWidth 1s ease-out 0.6s both;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .story-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .story-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .values-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .values-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            padding: 3rem 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .value-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            background: var(--card-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 2rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .member-role {
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .member-bio {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stats-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-card {
+            padding: 2.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .process-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .process-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            padding: 2.5rem;
+            background: var(--card-color);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .process-step p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.3rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 120px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .values-grid,
+            .team-grid,
+            .stats-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .story-content h2,
+            .values-container h2,
+            .team-container h2,
+            .stats-container h2,
+            .process-container h2,
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .btn-primary {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<script src="js/script.js" defer></script>
+
+<body class="dark-theme">
+    <!-- Header -->
+    <div id="siteHeader">
+        <!-- <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-palette"></i>
+                    SmartspaceLiving
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header> -->
+    </div>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>Crafting Dreams Into Reality</h1>
+            <div class="gold-divider"></div>
+            <p>With over 12 years of excellence, we transform spaces into personalized sanctuaries that reflect your unique style and enhance your lifestyle.</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-container">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Founded in 2012 by visionary interior designer Ananya Sharma, Smartspace Living began as a small studio with a big dream: to revolutionize interior design in India by blending traditional craftsmanship with contemporary aesthetics.</p>
+                <p>What started as a passion project in a Mumbai apartment has grown into one of India's most trusted interior design firms, with projects spanning across 25+ cities and a team of 50+ creative professionals.</p>
+                <p>Our journey has been guided by a simple philosophy: every space tells a story, and we're here to help you write yours. From cozy apartments to luxury villas, corporate offices to boutique hotels, we've had the privilege of transforming over 500 spaces into beautiful, functional environments.</p>
+            </div>
+            <div class="story-image">
+                <img src="https://officesnapshots.com/wp-content/uploads/2018/02/microsoft-turn-10-studios-redmond-bh-architects-10.jpg" alt="Our Design Studio">
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <h2>Our Values</h2>
+            <div class="gold-divider"></div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We constantly push boundaries with creative solutions, smart technology integration, and cutting-edge design trends to deliver spaces that are both beautiful and functional.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>Our love for design drives everything we do. We pour our hearts into every project, ensuring each space reflects our commitment to excellence and attention to detail.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe the best designs emerge from strong partnerships. We work closely with our clients, listening to their needs and visions to create spaces that truly feel like home.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>From material selection to final execution, we maintain the highest standards of quality. We use premium materials and work with skilled artisans to ensure lasting beauty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2>Meet Our Leadership</h2>
+            <div class="gold-divider"></div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80" alt="Ananya Sharma">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ananya Sharma</h3>
+                        <div class="member-role">Founder & Creative Director</div>
+                        <p class="member-bio">With a Master's in Interior Architecture and 15 years of experience, Ananya leads our creative vision with passion and precision.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Raj Malhotra">
+                    </div>
+                    <div class="member-info">
+                        <h3>Raj Malhotra</h3>
+                        <div class="member-role">Head of Operations</div>
+                        <p class="member-bio">Raj ensures seamless project execution with his expertise in project management and client relations spanning 12 years.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.Yduq1xxfRg2_10z6dyJvCwAAAA?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Priya Patel">
+                    </div>
+                    <div class="member-info">
+                        <h3>Priya Patel</h3>
+                        <div class="member-role">Senior Interior Designer</div>
+                        <p class="member-bio">Priya specializes in residential spaces and brings 10 years of experience in creating warm, functional family homes.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Arjun Kapoor">
+                    </div>
+                    <div class="member-info">
+                        <h3>Arjun Kapoor</h3>
+                        <div class="member-role">Commercial Design Lead</div>
+                        <p class="member-bio">Arjun excels in creating innovative commercial spaces that boost productivity and reflect brand identity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <h2>Our Impact in Numbers</h2>
+            <div class="gold-divider"></div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="500">0+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="25">0+</div>
+                    <div class="stat-label">Cities Covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="98">0%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="12">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="50">0+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <!-- <div class="stat-card">
+                    <div class="stat-number" data-count="1000">0+</div>
+                    <div class="stat-label">Happy Families</div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <h2>Our Design Process</h2>
+            <div class="gold-divider"></div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Consultation</h3>
+                    <p>We begin with understanding your vision, lifestyle, and requirements through detailed discussions and site visits.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Design Development</h3>
+                    <p>Our team creates detailed 3D designs, material boards, and layouts for your approval before execution.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Execution</h3>
+                    <p>Skilled craftsmen bring designs to life with precision, using quality materials and strict quality control.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Handover</h3>
+                    <p>We deliver your dream space with comprehensive after-service support and maintenance guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 style="color: #000000;">Ready to Begin Your Design Journey?</h2>
+            <p>Let's collaborate to create a space that tells your unique story. Our team is ready to bring your vision to life with the same passion and dedication that has defined our work for over a decade.</p>
+            <button class="btn-primary" onclick="scheduleConsultation()">
+                <i class="fas fa-calendar-check" style="margin-right: 10px;"></i>
+                Start Your Project Today
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <div id="siteFooter">
+    
+    </div> 
+
+    <script>
+      
+
+
+        // Stats Counter Animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (target === 98 ? '%' : (target === 12 ? '' : '+'));
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (target === 98 ? '%' : (target === 12 ? '' : '+'));
+                    }
+                }, 40);
+            });
+        }
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    if (entry.target.classList.contains('stats-section')) {
+                        animateStats();
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // CTA Function
+        function scheduleConsultation() {
+            alert('Thank you for your interest! Our team will contact you shortly to schedule a consultation.');
+            // In a real application, this would open a form or redirect to a contact page
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeThemeToggle();
+            
+            // Animate stats when page loads
+            setTimeout(animateStats, 1000);
+        });
+
+       
+    </script>
+      <!-- Script to load header and footer -->
+  <script>
+    // Load Header
+  fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('siteHeader').innerHTML = data;
+
+    // Run header JS only after it's loaded
+    const menuToggle = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  });
+
+
+    // Load Footer
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error("Footer not found");
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('siteFooter').innerHTML = data;
+      })
+      .catch(error => console.error("Footer load error:", error));
+  </script>
+</body>
+</html>

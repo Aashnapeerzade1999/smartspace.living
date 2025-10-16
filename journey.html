@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Smartspace Living</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .portfolio-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 2rem auto;
+        }
+
+        /* Portfolio Filters */
+        .portfolio-filters {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            background: var(--card-color);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-item.hidden {
+            display: none;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .portfolio-img {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: var(--accent);
+            padding: 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--secondary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Project Details */
+        .project-details {
+            padding: 3rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .detail-card {
+            background: var(--card-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .detail-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .detail-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            margin: 3rem 0;
+        }
+
+        .testimonial-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimonial-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -40px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -40px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background: var(--secondary);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.7;
+        }
+
+        /* Project Modal */
+        .project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .project-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--card-color);
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--secondary);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-img {
+                height: 250px;
+            }
+
+            .testimonial-text {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-couch"></i>
+                Smartspace Living
+            </a>
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#" class="active">Portfolio</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <div class="hero-content">
+            <h1>Our Portfolio</h1>
+            <div class="gold-divider"></div>
+            <p>Explore our exquisite interior design projects that transform spaces into luxurious living experiences</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Filters -->
+    <section class="portfolio-filters">
+        <h2>Filter by Category</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="residential">Residential</button>
+            <button class="filter-btn" data-filter="commercial">Commercial</button>
+            <button class="filter-btn" data-filter="luxury">Luxury Villas</button>
+            <button class="filter-btn" data-filter="office">Office Spaces</button>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-grid" id="portfolioGrid">
+        <!-- Project 1 -->
+        <div class="portfolio-item" data-category="luxury">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Luxury Penthouse">
+            </div>
+            <div class="portfolio-overlay">
+                <h3>Skyline Penthouse</h3>
+                <p>Modern luxury with panoramic city views</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Luxury</span>
+                    <span class="tag">Modern</span>
+                    <span class="tag">Residential</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="portfolio-item" data-category="commercial">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Corporate Office">
+            </div>
+            <div class="portfolio-overlay">
+                <h3>Corporate Headquarters</h3>
+                <p>Productive and inspiring workspace design</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Commercial</span>
+                    <span class="tag">Office</span>
+                    <span class="tag">Minimalist</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="portfolio-item" data-category="residential">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Family Apartment">
+            </div>
+            <div class="portfolio-overlay">
+                <h3>Urban Family Apartment</h3>
+                <p>Functional design for modern family living</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Residential</span>
+                    <span class="tag">Family</span>
+                    <span class="tag">Contemporary</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="portfolio-item" data-category="luxury">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Beach Villa">
+            </div>
+            <div class="portfolio-overlay">
+                <h3>Oceanfront Villa</h3>
+                <p>Luxury beachside living with natural elements</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Luxury</span>
+                    <span class="tag">Villa</span>
+                    <span class="tag">Coastal</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="portfolio-item" data-category="office">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Creative Studio">
+            </div>
+            <div class="portfolio-overlay">
+                <h3>Creative Studio Space</h3>
+                <p>Inspiring environment for creative professionals</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Office</span>
+                    <span class="tag">Creative</span>
+                    <span class="tag">Industrial</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="portfolio-item" data-category="residential">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1600566753151-384129cf4e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Modern Townhouse">
+            </div>
+            <div class="portfolio-overlay">
+                <h3>Contemporary Townhouse</h3>
+                <p>Smart space utilization in urban setting</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Residential</span>
+                    <span class="tag">Urban</span>
+                    <span class="tag">Smart Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="details-container">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: var(--secondary);">Our Design Philosophy</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Aesthetic Excellence</h3>
+                    <p>We believe in creating spaces that are not only functional but also visually stunning, blending form and function seamlessly.</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-ruler-combined"></i>
+                    <h3>Precision & Detail</h3>
+                    <p>Every element is carefully considered and meticulously executed to ensure perfection in every detail.</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainable Design</h3>
+                    <p>We incorporate eco-friendly materials and practices to create beautiful spaces that respect our environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2>Client Testimonials</h2>
+            <div class="gold-divider" style="background: var(--accent);"></div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-text">Smartspace Living transformed our apartment beyond recognition. Their attention to detail and creative vision created a space that is both beautiful and perfectly functional for our family.</p>
+                    <p class="testimonial-author">- Priya Sharma, Mumbai</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">The team understood our vision perfectly and executed it with precision. Our new office space has improved employee morale and productivity significantly.</p>
+                    <p class="testimonial-author">- Rajesh Kumar, Delhi</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">Working with Smartspace Living was a seamless experience from start to finish. They delivered our dream home on time and within budget.</p>
+                    <p class="testimonial-author">- Anjali Patel, Bangalore</p>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Let's discuss how we can bring your vision to life with our premium interior design services.</p>
+            <button class="btn-primary">Schedule a Consultation</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Smartspace Living</h3>
+                <p>Transforming spaces into luxurious living experiences with innovative design solutions.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Portfolio</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="#">Residential Design</a>
+                <a href="#">Commercial Design</a>
+                <a href="#">Space Planning</a>
+                <a href="#">Custom Furniture</a>
+                <a href="#">Renovation</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Design Street, Mumbai</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> info@smartspaceliving.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Smartspace Living. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalTitle" style="color: var(--secondary); margin-bottom: 1rem;">Project Title</h2>
+                <div class="gold-divider" style="margin: 1rem 0;"></div>
+                <div id="modalGallery" class="modal-gallery">
+                    <!-- Gallery images will be inserted here -->
+                </div>
+                <p id="modalDescription" style="margin-bottom: 1.5rem;"></p>
+                <div id="modalDetails">
+                    <!-- Project details will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+
+        // Portfolio Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.classList.add('hidden');
+                        }, 400);
+                    }
+                });
+            });
+        });
+
+        // Testimonial Slider
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Auto-advance slides every 5 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Project Modal
+        const projectModal = document.getElementById('projectModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalGallery = document.getElementById('modalGallery');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalDetails = document.getElementById('modalDetails');
+
+        // Sample project data
+        const projects = {
+            'Skyline Penthouse': {
+                description: 'A stunning penthouse with panoramic city views, featuring a seamless blend of modern luxury and functional design. This project showcases our ability to maximize space while maintaining an airy, open feel.',
+                images: [
+                    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+                    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+                    'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                ],
+                details: '<p><strong>Location:</strong> Mumbai</p><p><strong>Area:</strong> 3,200 sq.ft.</p><p><strong>Duration:</strong> 4 months</p><p><strong>Style:</strong> Modern Luxury</p>'
+            },
+            'Corporate Headquarters': {
+                description: 'An innovative workspace designed to foster creativity and collaboration while maintaining a professional atmosphere. This project demonstrates our expertise in commercial interior design.',
+                images: [
+                    'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
+                    'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
+                    'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80'
+                ],
+                details: '<p><strong>Location:</strong> Delhi</p><p><strong>Area:</strong> 15,000 sq.ft.</p><p><strong>Duration:</strong> 6 months</p><p><strong>Style:</strong> Contemporary Professional</p>'
+            }
+        };
+
+        // Open modal when portfolio item is clicked
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const title = item.querySelector('h3').textContent;
+                if (projects[title]) {
+                    openModal(title, projects[title]);
+                }
+            });
+        });
+
+        function openModal(title, project) {
+            modalTitle.textContent = title;
+            modalDescription.textContent = project.description;
+            modalDetails.innerHTML = project.details;
+            
+            // Clear previous gallery
+            modalGallery.innerHTML = '';
+            
+            // Add images to gallery
+            project.images.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = title;
+                modalGallery.appendChild(img);
+            });
+            
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside content
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Add animation to portfolio items on scroll
+        const portfolioObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        portfolioItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            portfolioObserver.observe(item);
+        });
+    </script>
+</body>
+</html>

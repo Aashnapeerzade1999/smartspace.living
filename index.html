@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/index.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Smartspace Living - Premium Interior Design Solutions</title>
+    <style>
+    /* Dark Theme Base */
+    :root {
+      --primary: #000000;
+      --secondary: #D4AF37;
+      --accent: #FFFFFF;
+      --bg-dark: #0a0a0a;
+      --bg-card: #1a1a1a;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --border: rgba(212, 175, 55, 0.2);
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    body {
+      font-family: 'Playfair Display', 'Times New Roman', serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: var(--transition);
+    }
+
+    /* Enhanced Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.95) 100%), 
+                  url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    .hero-content {
+      text-align: center;
+      color: var(--text-primary);
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 2rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-content h2 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      background: linear-gradient(45deg, #D4AF37, #FFD700, #F0E68C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #D4AF37, #FFD700);
+      color: #000;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #D4AF37;
+      border: 2px solid #D4AF37;
+    }
+
+    .btn-secondary:hover {
+      background: #D4AF37;
+      color: #000;
+      transform: translateY(-3px);
+    }
+
+    /* Enhanced Services Section */
+    .services {
+      padding: 100px 2rem;
+      background: var(--bg-dark);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--secondary);
+    }
+
+    .section-title p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+      border-color: var(--secondary);
+    }
+
+    .service-img {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-img img {
+      transform: scale(1.1);
+    }
+
+    .service-content {
+      padding: 2rem;
+      position: relative;
+    }
+
+    .service-content h3 {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .service-content p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-tag {
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--secondary);
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .service-link {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s ease;
+    }
+
+    .service-link:hover {
+      gap: 1rem;
+    }
+
+    /* Enhanced Portfolio Section */
+    .portfolio {
+      padding: 100px 2rem;
+      background: var(--bg-dark);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      height: 400px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.95));
+      color: white;
+      padding: 2rem;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    /* Enhanced Process Section */
+    .process {
+      padding: 100px 2rem;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: var(--text-primary);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background: var(--bg-card);
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .process-step:hover {
+      transform: translateY(-5px);
+      border-color: var(--secondary);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--secondary);
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .process-step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    .process-step p {
+      opacity: 0.8;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* Enhanced Testimonials */
+    .testimonials {
+      padding: 100px 2rem;
+      background: var(--bg-dark);
+    }
+
+    .testimonials-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .testimonial-slider {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+
+    .testimonial-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .testimonial-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .testimonial-text {
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .testimonial-text::before,
+    .testimonial-text::after {
+      content: '"';
+      font-size: 4rem;
+      color: var(--secondary);
+      opacity: 0.3;
+      position: absolute;
+    }
+
+    .testimonial-text::before {
+      top: -20px;
+      left: -40px;
+    }
+
+    .testimonial-text::after {
+      bottom: -40px;
+      right: -40px;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--secondary);
+      font-size: 1.1rem;
+    }
+
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: var(--secondary);
+      transform: scale(1.2);
+    }
+
+    /* Enhanced CTA Section */
+    .cta-section {
+      padding: 100px 2rem;
+      background: linear-gradient(135deg, var(--secondary) 0%, #c19b2e 100%);
+      color: #000;
+      text-align: center;
+    }
+
+    .cta-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .cta-section .btn-primary {
+      background: #000;
+      color: var(--secondary);
+    }
+
+    .cta-section .btn-primary:hover {
+      background: #333;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Stats Counter */
+    .stats-section {
+      padding: 80px 2rem;
+      background: var(--bg-dark);
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      padding: 2rem;
+      background: var(--bg-card);
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .stat-item:hover {
+      border-color: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+      
+      .services-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+      /* Brands Section */
+        .brands-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .brands-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .brands-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .brand-item {
+            padding: 2rem;
+            background: var(--card-color);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        .brand-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .brand-item img {
+            max-width: 100%;
+            height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .brand-item:hover img {
+            filter: grayscale(0%);
+        }
+  </style>
+
+  </head>
+  <body class="dark-theme">
+
+    <!-- Header -->
+    <div id="siteHeader"></div>
+
+    <style>
+/* ===== Welcome Popup ===== */
+.welcome-popup {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.9); display:flex; justify-content:center; align-items:center;
+  opacity:0; visibility:hidden; z-index:9999; transition:0.5s ease;
+}
+.welcome-popup.active { opacity:1; visibility:visible; }
+
+.welcome-content {
+  position: relative; background: linear-gradient(135deg,#0a0a0a,#1a1a1a);
+  color:#fff; border-radius:25px; padding:2rem; text-align:center;
+  max-width:500px; width:90%; max-height:55vh; overflow:hidden;
+  transform: scale(0.8); opacity:0; transition:0.5s ease;
+  display:flex; flex-direction:column; justify-content:center;
+  border:1px solid rgba(212,175,55,0.3); box-shadow:0 20px 40px rgba(0,0,0,0.7);
+}
+.welcome-popup.active .welcome-content { transform: scale(1); opacity:1; }
+
+/* Floating elements */
+.floating-elements { position:absolute; width:100%; height:100%; top:0; left:0; overflow:hidden; z-index:1; }
+.floating-element { position:absolute; border-radius:50%; background:rgba(212,175,55,0.1); animation:float 10s infinite ease-in-out; }
+.floating-element:nth-child(1){width:70px;height:70px;top:10%;left:10%;}
+.floating-element:nth-child(2){width:50px;height:50px;top:70%;left:80%; animation-delay:2s;}
+.floating-element:nth-child(3){width:40px;height:40px;top:40%;left:85%; animation-delay:4s;}
+.floating-element:nth-child(4){width:60px;height:60px;top:80%;left:20%; animation-delay:6s;}
+@keyframes float {0%,100%{transform:translateY(0);}33%{transform:translateY(-15px);}66%{transform:translateY(8px);}}
+
+/* Logo */
+.logo-container img { width:80px;height:80px;border-radius:50%;border:3px solid #D4AF37; box-shadow:0 0 20px rgba(212,175,55,0.4); animation:pulse 3s infinite; margin-bottom:1rem; }
+@keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.05);box-shadow:0 0 30px rgba(212,175,55,0.6);}}
+
+/* Text & buttons */
+h2 { font-size:2rem; margin-bottom:0.8rem; background:linear-gradient(45deg,#D4AF37,#FFD700); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:700; }
+p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
+.welcome-buttons { display:flex; flex-direction:column; gap:1rem; margin-bottom:1rem; }
+.welcome-btn { padding:12px 25px; border-radius:50px; font-weight:600; font-size:1rem; cursor:pointer; border:none; display:flex; align-items:center; justify-content:center; gap:8px; text-transform:uppercase; transition:0.3s ease; }
+.welcome-btn.primary { background:linear-gradient(45deg,#D4AF37,#FFD700); color:#000; }
+.welcome-btn.primary:hover { transform:translateY(-3px); box-shadow:0 10px 20px rgba(212,175,55,0.5); }
+.welcome-btn.secondary { background:transparent; color:#D4AF37; border:2px solid #D4AF37; }
+.welcome-btn.secondary:hover { background:#D4AF37;color:#000; transform:translateY(-3px); }
+
+.close-popup { position:absolute; top:15px; right:15px; background:rgba(255,255,255,0.1); border:none; color:#D4AF37; width:35px; height:35px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:0.3s ease; }
+.close-popup:hover { background:rgba(212,175,55,0.2); transform:rotate(90deg); }
+
+.gold-divider { height:2px;width:60px;margin:1rem auto; background:linear-gradient(90deg,transparent,#D4AF37,transparent); z-index:2; }
+
+/* Responsive */
+@media(max-width:480px){ .welcome-content{max-height:60vh;padding:1.5rem;} h2{font-size:1.5rem;} p{font-size:0.9rem;} .logo-container img{width:60px;height:60px;} .welcome-btn{padding:8px 15px;font-size:0.85rem;} }
+</style>
+
+    <div class="welcome-popup" id="welcome-popup">
+      <div class="welcome-content">
+        <div class="floating-elements">
+          <div class="floating-element"></div>
+          <div class="floating-element"></div>
+          <div class="floating-element"></div>
+          <div class="floating-element"></div>
+        </div>
+
+        <div class="logo-container">
+          <img src="assets/logos/logo.jpg" alt="Logo">
+        </div>
+        <div class="gold-divider"></div>
+        <h3
+          style="color: #FFFFFF !important; font-size: 2rem;margin-top: -30px;">Welcome
+          to Smartspace Living</h3>
+
+        <p>Luxury meets functionality. Explore your extraordinary living
+          spaces.</p>
+
+        <div class="welcome-buttons">
+          <button class="welcome-btn primary" id="claim-offers"><i
+              class="fas fa-gift"></i> Claim Offers</button>
+          <button class="welcome-btn secondary" id="get-estimate"><i
+              class="fas fa-calculator"></i> Get Estimate</button>
+        </div>
+
+        <button class="close-popup" id="close-welcome"><i
+            class="fas fa-times"></i></button>
+      </div>
+    </div>
+
+    <script>
+const popup = document.getElementById('welcome-popup');
+const closeBtn = document.getElementById('close-welcome');
+const claimBtn = document.getElementById('claim-offers');
+const estimateBtn = document.getElementById('get-estimate');
+
+function closePopup(){ popup.classList.remove('active'); setTimeout(()=>popup.style.display='none',500); }
+document.addEventListener('DOMContentLoaded', ()=>{ setTimeout(()=>popup.classList.add('active'),500); });
+
+closeBtn.onclick = closePopup;
+popup.onclick = e=>{ if(e.target===popup) closePopup(); }
+document.onkeydown = e=>{ if(e.key==='Escape') closePopup(); }
+
+claimBtn.onclick = () => {
+  closePopup();
+  window.location.href = 'offers.html'; // Redirect to offers page
+}
+
+estimateBtn.onclick = () => {
+  closePopup();
+  window.location.href = 'price_calculator.html'; // Redirect to estimate page
+}
+
+</script>
+
+    <!-- Page Content -->
+    <main>
+      <!-- Enhanced Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Crafting Extraordinary Living Spaces</h2>
+          <p>Where luxury meets functionality. Experience bespoke interior
+            design solutions that transform your vision into breathtaking
+            reality, creating spaces that inspire and elevate your
+            lifestyle.</p>
+          <div class="hero-buttons">
+            <button class="btn-primary">
+              <i class="fas fa-calendar-check"></i> Book Free Design
+              Consultation
+            </button>
+            <button class="btn-secondary">
+              <i class="fas fa-play-circle"></i> Watch Our Design Story
+            </button>
+          </div>
+          <div
+            style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <div style="text-align: center;">
+              <div
+                style="font-size: 2rem; color: #D4AF37; font-weight: bold;">500+</div>
+              <div style="font-size: 0.9rem; opacity: 0.8;">Projects
+                Completed</div>
+            </div>
+            <div style="text-align: center;">
+              <div
+                style="font-size: 2rem; color: #D4AF37; font-weight: bold;">98%</div>
+              <div style="font-size: 0.9rem; opacity: 0.8;">Client
+                Satisfaction</div>
+            </div>
+            <div style="text-align: center;">
+              <div
+                style="font-size: 2rem; color: #D4AF37; font-weight: bold;">12+</div>
+              <div style="font-size: 0.9rem; opacity: 0.8;">Years
+                Experience</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enhanced Services Section -->
+      <section class="services">
+        <div class="section-title">
+          <h2>Our Premium Design Services</h2>
+          <p>Comprehensive interior design solutions tailored to transform every
+            corner of your space into a masterpiece</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Modular Kitchen">
+            </div>
+            <div class="service-content">
+              <h3>Luxury Modular Kitchen Designs</h3>
+              <p>Transform your kitchen into a culinary paradise with our
+                bespoke modular designs that combine German engineering with
+                exquisite aesthetics.</p>
+              <div class="service-features">
+                <span class="feature-tag">Smart Storage</span>
+                <span class="feature-tag">Premium Materials</span>
+                <span class="feature-tag">Ergonomic Design</span>
+              </div>
+              <a href="#" class="service-link">
+                Explore Kitchen Designs <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80"
+                alt="Wardrobe Designs">
+            </div>
+            <div class="service-content">
+              <h3>Custom Wardrobe Solutions</h3>
+              <p>Maximize your storage space with our intelligent wardrobe
+                designs that blend organization with luxury, creating
+                clutter-free living spaces.</p>
+              <div class="service-features">
+                <span class="feature-tag">Custom Fit</span>
+                <span class="feature-tag">Premium Finishes</span>
+                <span class="feature-tag">Smart Organization</span>
+              </div>
+              <a href="#" class="service-link">
+                View Wardrobe Gallery <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-img">
+              <img
+                src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Living Room Designs">
+            </div>
+            <div class="service-content">
+              <h3>Signature Living Room Designs</h3>
+              <p>Create captivating living spaces that reflect your personality
+                while providing ultimate comfort and functionality for everyday
+                living.</p>
+              <div class="service-features">
+                <span class="feature-tag">Custom Furniture</span>
+                <span class="feature-tag">Lighting Design</span>
+                <span class="feature-tag">Space Planning</span>
+              </div>
+              <a href="#" class="service-link">
+                Discover Living Rooms <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Brands Section -->
+      <section class="brands-section">
+        <div class="brands-container">
+          <h2>Trusted Brands</h2>
+          <div class="gold-divider"></div>
+          <p>We partner with the world's leading furniture and decor brands</p>
+
+          <div class="brands-grid">
+            <div class="brand-item">
+              <img src="assets/logos/asianpaints.jpg" alt="asian paints">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/godrej.jpg" alt="Godrej">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/centuryply.jpg" alt="centuryply">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/Wakefit.png" alt="Wakefit">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/Urban.jpg" alt="Urban Ladder">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/sainikmr.jpg" alt="Sainic-MR">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/saintgobbain.jpg" alt="saintgobbain">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/royale touche.jpg" alt="Royal touche">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/hettich.jpg" alt="hettich">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/jaquar.jpg" alt="jaquar">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/norisys.jpg" alt="norisys">
+            </div>
+            <div class="brand-item">
+              <img src="assets/logos/kohler.jpg" alt="kohler">
+            </div>
+          </div>
+        </section>
+        <!-- Stats Section -->
+        <section class="stats-section">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number" data-count="500">0</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="250">0</div>
+              <div class="stat-label">Happy Families</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="12">0</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="25">0</div>
+              <div class="stat-label">Awards Won</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Enhanced Portfolio Section -->
+        <section class="portfolio">
+          <div class="portfolio-container">
+            <div class="section-title">
+              <h2>Our Design Masterpieces</h2>
+              <p>Explore our curated collection of stunning interior
+                transformations that showcase our design expertise</p>
+            </div>
+
+            <div class="portfolio-grid">
+              <div class="portfolio-item">
+                <img
+                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  alt="Modern Apartment">
+                <div class="portfolio-overlay">
+                  <h3>Seaside Luxury Apartment</h3>
+                  <p>Contemporary design with panoramic ocean views and smart
+                    space optimization</p>
+                  <div style="margin-top: 1rem;">
+                    <span class="feature-tag"
+                      style="background: rgba(255,255,255,0.1); color: white;">Mumbai</span>
+                    <span class="feature-tag"
+                      style="background: rgba(255,255,255,0.1); color: white;">3
+                      BHK</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio-item">
+                <img
+                  src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  alt="Luxury Villa">
+                <div class="portfolio-overlay">
+                  <h3>Heritage Villa Restoration</h3>
+                  <p>Blending traditional architecture with modern luxury
+                    amenities</p>
+                  <div style="margin-top: 1rem;">
+                    <span class="feature-tag"
+                      style="background: rgba(255,255,255,0.1); color: white;">Alibaug</span>
+                    <span class="feature-tag"
+                      style="background: rgba(255,255,255,0.1); color: white;">Villa</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio-item">
+                <img
+                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  alt="Compact Studio">
+                <div class="portfolio-overlay">
+                  <h3>Urban Studio Transformation</h3>
+                  <p>Maximized functionality in 450 sq ft with multi-purpose
+                    furniture</p>
+                  <div style="margin-top: 1rem;">
+                    <span class="feature-tag"
+                      style="background: rgba(255,255,255,0.1); color: white;">Lower
+                      Parel</span>
+                    <span class="feature-tag"
+                      style="background: rgba(255,255,255,0.1); color: white;">Studio</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Enhanced Process Section -->
+        <section class="process">
+          <div class="section-title">
+            <h2 style="color: var(--secondary);">Our Design Journey</h2>
+            <p style="color: var(--text-secondary);">A meticulous 6-step process
+              that ensures perfection from concept to completion</p>
+          </div>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>Discovery & Vision</h3>
+              <p>In-depth consultation to understand your lifestyle,
+                preferences, and vision for the perfect space</p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>Concept Creation</h3>
+              <p>Our designers craft mood boards, layouts, and 3D visualizations
+                to bring your vision to life</p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>Detailed Planning</h3>
+              <p>Comprehensive technical drawings, material selection, and
+                project timeline development</p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>Precision Execution</h3>
+              <p>Expert craftsmen and project managers bring the design to
+                reality with meticulous attention</p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">5</div>
+              <h3>Quality Assurance</h3>
+              <p>Rigorous quality checks and finishing touches to ensure
+                perfection in every detail</p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">6</div>
+              <h3>Dream Handover</h3>
+              <p>Final walkthrough and handover of your transformed space with
+                ongoing support</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Enhanced Testimonials -->
+        <section class="testimonials">
+          <div class="testimonials-container">
+            <div class="section-title">
+              <h2>Voices of Delighted Clients</h2>
+              <p>Discover why homeowners across Mumbai trust Smartspace Living
+                for their interior design needs</p>
+            </div>
+
+            <div class="testimonial-slider">
+              <div class="testimonial-slide active">
+                <p
+                  class="testimonial-text">"Smartspace Living transformed our 3BHK apartment beyond our wildest dreams. Their attention to detail and creative space solutions made our home both beautiful and incredibly functional. The team was professional, punctual, and delivered exceptional quality."</p>
+                <p class="testimonial-author">- Priya Sharma, South Mumbai</p>
+                <div style="margin-top: 1rem; color: var(--secondary);">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+
+              <div class="testimonial-slide">
+                <p
+                  class="testimonial-text">"From the initial consultation to the final handover, the experience was seamless. Our modular kitchen is not just aesthetically stunning but also incredibly practical. The smart storage solutions have changed how we use our kitchen space completely."</p>
+                <p class="testimonial-author">- Rajesh Kumar, Bandra West</p>
+                <div style="margin-top: 1rem; color: var(--secondary);">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+
+              <div class="testimonial-slide">
+                <p
+                  class="testimonial-text">"The designers at Smartspace Living understood our vision perfectly and executed it with precision. Our living room is now the heart of our home, and we receive compliments from every visitor. The project was completed on time and within budget."</p>
+                <p class="testimonial-author">- Anjali Patel, Powai</p>
+                <div style="margin-top: 1rem; color: var(--secondary);">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-dots">
+              <span class="dot active" data-slide="0"></span>
+              <span class="dot" data-slide="1"></span>
+              <span class="dot" data-slide="2"></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Enhanced CTA Section -->
+        <section class="cta-section">
+          <div class="cta-content">
+            <h2>Ready to Begin Your Design Journey?</h2>
+            <p>Schedule a complimentary consultation with our design experts and
+              take the first step towards your dream space</p>
+            <button class="btn-primary">
+              <i class="fas fa-calendar-alt"></i> Book Free Design Consultation
+            </button>
+            <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+              <i class="fas fa-shield-alt"></i> 100% Satisfaction Guarantee •
+              <i class="fas fa-clock"></i> 30-Minute Response Time •
+              <i class="fas fa-home"></i> Free Site Visit Included
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <div id="siteFooter"></div>
+
+      <script>
+    // Enhanced Testimonial Slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        currentSlide = (n + slides.length) % slides.length;
+        
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    // Auto slide every 5 seconds
+    setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000);
+
+    // Dot click events
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Animate stats counter
+                if (entry.target.classList.contains('stats-section')) {
+                    animateStats();
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections for fade-in animation
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('fade-in');
+        observer.observe(section);
+    });
+
+    // Stats Counter Animation
+    function animateStats() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-count'));
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    stat.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    stat.textContent = Math.floor(current) + '+';
+                }
+            }, 50);
+        });
+    }
+
+    // Enhanced button interactions
+    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+        button.addEventListener('click', function() {
+            // Ripple effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add ripple effect styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .btn-primary, .btn-secondary {
+            position: relative;
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+      <script>
+    // Your existing JavaScript for header/footer loading
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => { 
+        document.getElementById('siteHeader').innerHTML = data; 
+        initNav();
+      });
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => { 
+        document.getElementById('siteFooter').innerHTML = data;
+      });
+
+    </script>
+    </main>
+
+    <!-- Footer -->
+    <div id="siteFooter"></div>
+
+    <script>
+    // Load Header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => { document.getElementById('siteHeader').innerHTML = data; });
+
+   fetch('footer.html')
+  .then(response => response.text())
+  .then(data => { 
+      document.getElementById('siteFooter').innerHTML = data;
+
+      // ---- Theme toggle inside footer (if any) ----
+      const themeToggle = document.getElementById('themeToggle');
+      // if (themeToggle) {
+      //     themeToggle.addEventListener('click', () => {
+      //         const body = document.body;
+      //         if (body.classList.contains('light-theme')) {
+      //             body.classList.remove('light-theme');
+      //             body.classList.add('dark-theme');
+      //             themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      //             localStorage.setItem('theme', 'dark');
+      //         } else {
+      //             body.classList.remove('dark-theme');
+      //             body.classList.add('light-theme');
+      //             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      //             localStorage.setItem('theme', 'light');
+      //         }
+      //     });
+      // }
+  });
+
+  
+//     // Testimonial Slider
+// let currentSlide = 0;
+// const slides = document.querySelectorAll('.testimonial-slide');
+// const dots = document.querySelectorAll('.dot');
+
+function showSlide(n) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    currentSlide = (n + slides.length) % slides.length;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+// Auto slide every 5 seconds
+setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 5000);
+
+// Dot click events
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        showSlide(index);
+    });
+});
+
+
+// Observe all sections for fade-in animation
+document.querySelectorAll('section').forEach(section => {
+    section.classList.add('fade-in');
+    observer.observe(section);
+});
+</script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Testimonial Slider
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        currentSlide = (n + slides.length) % slides.length;
+        
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+    
+    // Auto-advance slides every 5 seconds
+    setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000);
+
+
+});
+</script>
+    <script>
+/* Helper to execute scripts inside fetched HTML */
+function runFetchedScripts(container) {
+  // Execute inline scripts
+  container.querySelectorAll('script').forEach(oldScript => {
+    const newScript = document.createElement('script');
+    if (oldScript.src) {
+      // External script: load it
+      newScript.src = oldScript.src;
+      newScript.defer = oldScript.defer || false;
+    } else {
+      // Inline script: copy content
+      newScript.textContent = oldScript.textContent;
+    }
+    document.body.appendChild(newScript);
+    oldScript.remove();
+  });
+}
+
+/* initNav: attach all nav listeners, safe to call multiple times */
+function initNav() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
+  const nav = document.getElementById('mainNav');
+  const body = document.body;
+  if (!nav) return;
+
+  // Remove previous handlers to avoid duplicates (idempotent)
+  nav.querySelectorAll('[data-listener]').forEach(el => el.removeAttribute('data-listener'));
+
+  // Mobile open
+  if (mobileMenu && !mobileMenu.dataset.listenerAttached) {
+    mobileMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nav.classList.add('active');
+      body.style.overflow = 'hidden';
+    });
+    mobileMenu.dataset.listenerAttached = 'true';
+  }
+
+  // Mobile close
+  if (closeMenu && !closeMenu.dataset.listenerAttached) {
+    closeMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nav.classList.remove('active');
+      body.style.overflow = '';
+      resetDropdowns();
+    });
+    closeMenu.dataset.listenerAttached = 'true';
+  }
+
+  function resetDropdowns() {
+    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.dropdown-toggle i').forEach(icon => icon.style.transform = 'rotate(0)');
+  }
+
+  // Delegated mobile dropdown toggles
+  document.addEventListener('click', function mobileDropdownHandler(e) {
+    const toggle = e.target.closest('.dropdown-toggle');
+    if (!toggle) return;
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const dropdown = toggle.nextElementSibling;
+      if (!dropdown || !dropdown.classList.contains('dropdown')) return;
+      // close others
+      document.querySelectorAll('.dropdown.active').forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
+      const isActive = dropdown.classList.toggle('active');
+      const icon = toggle.querySelector('i');
+      if (icon) icon.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0)';
+    }
+  });
+
+  // Close mobile menu / dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      if (!e.target.closest('#mainNav') && !e.target.closest('#mobileMenu')) {
+        nav.classList.remove('active');
+        body.style.overflow = '';
+        resetDropdowns();
+      }
+    }
+  });
+
+  // Debounced resize handler to reset mobile states
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.innerWidth > 768 && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        body.style.overflow = '';
+      }
+      resetDropdowns();
+    }, 120);
+  });
+
+  // Desktop dropdown alignment on hover/focus
+  document.querySelectorAll('nav ul li').forEach(li => {
+    const dropdown = li.querySelector('.dropdown');
+    if (!dropdown) return;
+    li.addEventListener('mouseenter', () => {
+      if (window.innerWidth <= 768) return;
+      dropdown.style.left = '';
+      dropdown.style.right = '';
+      const rect = dropdown.getBoundingClientRect();
+      const overflowRight = rect.right - window.innerWidth;
+      const overflowLeft = rect.left;
+      if (overflowRight > 0 && overflowLeft >= 0) {
+        dropdown.style.left = 'auto';
+        dropdown.style.right = '0';
+      } else {
+        dropdown.style.left = '0';
+        dropdown.style.right = 'auto';
+      }
+    });
+    // keyboard support
+    const link = li.querySelector('a, button');
+    if (link) {
+      link.addEventListener('focus', () => {
+        if (window.innerWidth <= 768) return;
+        dropdown.style.left = '';
+        dropdown.style.right = '';
+        const rect = dropdown.getBoundingClientRect();
+        const overflowRight = rect.right - window.innerWidth;
+        if (overflowRight > 0) {
+          dropdown.style.left = 'auto';
+          dropdown.style.right = '0';
+        } else {
+          dropdown.style.left = '0';
+          dropdown.style.right = 'auto';
+        }
+      });
+    }
+  });
+}
+
+/* --- Fetch header and footer safely and init nav after insertion --- */
+function loadPartial(id, path, cb) {
+  fetch(path)
+    .then(r => {
+      if (!r.ok) throw new Error('Failed to load ' + path);
+      return r.text();
+    })
+    .then(html => {
+      const container = document.getElementById(id);
+      if (!container) return;
+      container.innerHTML = html;
+      // execute inline/external scripts inside the fetched HTML
+      runFetchedScripts(container);
+      // callback (e.g., initNav)
+      if (typeof cb === 'function') cb();
+    })
+    .catch(err => console.error(err));
+}
+
+/* Usage: load header then initNav */
+loadPartial('siteHeader', 'header.html', initNav);
+loadPartial('siteFooter', 'footer.html', function() {
+  // if footer has scripts that need init, call here
+});
+</script>
+
+  </body>

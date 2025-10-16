@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery | Smartspace Living</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Light Theme Variables */
+        .light-theme {
+            --bg-color: var(--bg-light);
+            --text-color: var(--text-light);
+            --card-color: var(--card-light);
+        }
+
+        /* Dark Theme Variables */
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .gallery-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 2rem auto;
+        }
+
+        /* Gallery Filters */
+        .gallery-filters {
+            padding: 3rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .filters-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .filter-section {
+            margin-bottom: 2rem;
+        }
+
+        .filter-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .city-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .city-btn {
+            background: var(--card-color);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-color);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .city-btn.active, .city-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Gallery Grid */
+        .gallery-section {
+            padding: 2rem;
+            background: var(--bg-color);
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            background: var(--card-color);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .gallery-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: var(--accent);
+            padding: 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .gallery-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .gallery-location i {
+            color: var(--secondary);
+        }
+
+        .gallery-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--secondary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stats-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.7;
+        }
+
+        /* Project Modal */
+        .project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .project-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--card-color);
+            max-width: 1000px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--secondary);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .city-buttons {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Single Header Placeholder -->
+    <div id="siteHeader">
+        <!-- Fallback header if external header fails to load -->
+     
+    </div>
+
+    <!-- Hero Section -->
+    <section class="gallery-hero">
+        <div class="hero-content">
+            <h1>Our Mumbai Projects</h1>
+            <div class="gold-divider"></div>
+            <p>Explore our exquisite interior design projects across Mumbai and Navi Mumbai</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="gallery-filters">
+        <div class="filters-container">
+            <!-- City Filter -->
+            <div class="filter-section">
+                <h3>Select Location</h3>
+                <div class="city-buttons">
+                    <button class="city-btn active" data-city="all">All Locations</button>
+                    <button class="city-btn" data-city="south-mumbai">South Mumbai</button>
+                    <button class="city-btn" data-city="western-suburbs">Western Suburbs</button>
+                    <button class="city-btn" data-city="central-mumbai">Central Mumbai</button>
+                    <button class="city-btn" data-city="navi-mumbai">Navi Mumbai</button>
+                    <button class="city-btn" data-city="thane">Thane</button>
+                </div>
+            </div>
+
+            <!-- Project Type Filter -->
+            <div class="filter-section">
+                <h3>Project Type</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-type="all">All Projects</button>
+                    <button class="filter-btn" data-type="residential">Residential</button>
+                    <button class="filter-btn" data-type="commercial">Commercial</button>
+                    <button class="filter-btn" data-type="luxury">Luxury</button>
+                    <button class="filter-btn" data-type="office">Office Spaces</button>
+                </div>
+            </div>
+
+            <!-- BHK Filter -->
+            <div class="filter-section">
+                <h3>Property Type</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-bhk="all">All Types</button>
+                    <button class="filter-btn" data-bhk="1">1 BHK</button>
+                    <button class="filter-btn" data-bhk="2">2 BHK</button>
+                    <button class="filter-btn" data-bhk="3">3 BHK</button>
+                    <button class="filter-btn" data-bhk="4">4 BHK</button>
+                    <button class="filter-btn" data-bhk="villa">Villa</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Project items will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <h2>Our Mumbai Presence</h2>
+            <div class="gold-divider"></div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Locations Covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 style="color: #000000;">Ready to Transform Your Space?</h2>
+            <p>Let's discuss how we can bring your vision to life with our premium interior design services.</p>
+            <button class="btn-primary" onclick="scheduleConsultation()">Schedule a Consultation</button>
+        </div>
+    </section>
+
+    <!-- Single Footer Placeholder -->
+    <div id="siteFooter">
+        <!-- Fallback footer if external footer fails to load -->
+       
+    </div>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalTitle" style="color: var(--secondary); margin-bottom: 1rem;">Project Title</h2>
+                <div class="gold-divider" style="margin: 1rem 0;"></div>
+                <div id="modalGallery" class="modal-gallery">
+                    <!-- Gallery images will be inserted here -->
+                </div>
+                <p id="modalDescription" style="margin-bottom: 1.5rem;"></p>
+                
+                <div class="project-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p id="modalLocation">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div>
+                            <h4>Property Type</h4>
+                            <p id="modalType">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <div>
+                            <h4>Area</h4>
+                            <p id="modalArea">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div>
+                            <h4>Completion</h4>
+                            <p id="modalDate">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        function initializeThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const isDark = body.classList.contains('dark-theme');
+                    
+                    if (isDark) {
+                        body.classList.remove('dark-theme');
+                        body.classList.add('light-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        body.classList.remove('light-theme');
+                        body.classList.add('dark-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+
+                // Load saved theme
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                if (savedTheme === 'light') {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+        }
+
+        // Project Data
+        const projects = [
+            {
+                id: 1,
+                title: "Luxury Sea-Facing Apartment",
+                location: "South Mumbai",
+                city: "south-mumbai",
+                type: "residential",
+                bhk: "3",
+                area: "1800 sq. ft.",
+                completion: "Jan 2023",
+                description: "A stunning sea-facing apartment in South Mumbai with panoramic views and luxurious finishes.",
+                images: [
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Luxury", "Sea View", "Modern"]
+            },
+            {
+                id: 2,
+                title: "Corporate Office - Bandra Kurla Complex",
+                location: "Central Mumbai",
+                city: "central-mumbai",
+                type: "commercial",
+                bhk: "office",
+                area: "5000 sq. ft.",
+                completion: "Mar 2023",
+                description: "Modern corporate office space in BKC designed for productivity and collaboration.",
+                images: [
+                    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+                    "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+                ],
+                tags: ["Corporate", "BKC", "Office"]
+            }
+            // Add more projects as needed...
+        ];
+
+        // Filter Variables
+        let currentCity = 'all';
+        let currentType = 'all';
+        let currentBhk = 'all';
+
+        // Initialize Gallery
+        function initializeGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            if (!galleryGrid) return;
+
+            galleryGrid.innerHTML = '';
+
+            const filteredProjects = projects.filter(project => {
+                return (currentCity === 'all' || project.city === currentCity) &&
+                       (currentType === 'all' || project.type === currentType) &&
+                       (currentBhk === 'all' || project.bhk === currentBhk);
+            });
+
+            if (filteredProjects.length === 0) {
+                galleryGrid.innerHTML = `
+                    <div class="no-projects" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <h3 style="color: var(--secondary); margin-bottom: 1rem;">No Projects Found</h3>
+                        <p>Try adjusting your filters to see more projects.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredProjects.forEach(project => {
+                const projectElement = document.createElement('div');
+                projectElement.className = 'gallery-item';
+                projectElement.setAttribute('data-id', project.id);
+                
+                projectElement.innerHTML = `
+                    <div class="gallery-img">
+                        <img src="${project.images[0]}" alt="${project.title}" loading="lazy">
+                    </div>
+                    <div class="gallery-content">
+                        <h3>${project.title}</h3>
+                        <div class="gallery-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${project.location}</span>
+                        </div>
+                        <p>${project.area} • Completed ${project.completion}</p>
+                        <div class="gallery-tags">
+                            ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>${project.title}</h3>
+                        <p>${project.description.substring(0, 100)}...</p>
+                        <button class="btn-primary" onclick="openProjectModal(${project.id})">View Project</button>
+                    </div>
+                `;
+                
+                galleryGrid.appendChild(projectElement);
+            });
+        }
+
+        // Filter Functions
+        function initializeFilters() {
+            // City filter
+            document.querySelectorAll('.city-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCity = this.getAttribute('data-city');
+                    initializeGallery();
+                });
+            });
+
+            // Type filter
+            document.querySelectorAll('.filter-btn[data-type]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn[data-type]').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentType = this.getAttribute('data-type');
+                    initializeGallery();
+                });
+            });
+
+            // BHK filter
+            document.querySelectorAll('.filter-btn[data-bhk]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn[data-bhk]').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentBhk = this.getAttribute('data-bhk');
+                    initializeGallery();
+                });
+            });
+        }
+
+        // Project Modal Functions
+        function openProjectModal(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalDescription').textContent = project.description;
+            document.getElementById('modalLocation').textContent = project.location;
+            document.getElementById('modalType').textContent = getPropertyType(project.bhk);
+            document.getElementById('modalArea').textContent = project.area;
+            document.getElementById('modalDate').textContent = project.completion;
+
+            const modalGallery = document.getElementById('modalGallery');
+            modalGallery.innerHTML = '';
+            
+            project.images.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = project.title;
+                img.loading = 'lazy';
+                modalGallery.appendChild(img);
+            });
+            
+            document.getElementById('projectModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function getPropertyType(bhk) {
+            const types = {
+                '1': '1 BHK Apartment',
+                '2': '2 BHK Apartment',
+                '3': '3 BHK Apartment',
+                '4': '4 BHK Apartment',
+                'villa': 'Villa',
+                'office': 'Office Space',
+                'shop': 'Retail Store'
+            };
+            return types[bhk] || 'Property';
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // CTA Function
+        function scheduleConsultation() {
+            alert('Thank you for your interest! Our team will contact you shortly to schedule a consultation.');
+            // In a real application, this would open a form or redirect to a contact page
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeThemeToggle();
+            initializeGallery();
+            initializeFilters();
+
+            // Modal event listeners
+            document.getElementById('modalClose').addEventListener('click', closeProjectModal);
+            document.getElementById('projectModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('projectModal')) {
+                    closeProjectModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeProjectModal();
+                }
+            });
+        });
+
+        // Simple header/footer loading (commented out as files don't exist)
+        
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+                initializeThemeToggle(); // Re-initialize theme toggle after loading header
+            })
+            .catch(error => console.log('Header not found, using fallback'));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteFooter').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not found, using fallback'));
+      
+    </script>
+</body>
+</html>

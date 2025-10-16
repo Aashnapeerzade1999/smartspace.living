@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Smartspace Living | Premium Interior Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .light-theme {
+            --bg-color: var(--bg-light);
+            --text-color: var(--text-light);
+            --card-color: var(--card-light);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 10px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: rotate(15deg);
+        }
+
+        /* Hero Section */
+        .policy-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--accent);
+            opacity: 0.95;
+        }
+
+        .gold-divider {
+            width: 120px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 2.5rem auto;
+        }
+
+        /* Policy Content */
+        .policy-content {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .policy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            margin-bottom: 4rem;
+            background: var(--card-color);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .policy-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .policy-section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary);
+        }
+
+        .policy-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .policy-section ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .policy-section strong {
+            color: var(--secondary);
+        }
+
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .policy-hero {
+                min-height: 40vh;
+                padding: 8rem 2rem 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .policy-section {
+                padding: 2rem;
+            }
+
+            .policy-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .policy-section {
+                padding: 1.5rem;
+            }
+
+            .policy-section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+    <div id="siteHeader">
+        <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-palette"></i>
+                    SmartspaceLiving
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="policy-hero">
+        <div class="hero-content">
+            <h1>Privacy Policy</h1>
+            <div class="gold-divider"></div>
+            <p>Your privacy is important to us. Learn how we protect and manage your personal information.</p>
+        </div>
+    </section>
+
+    <!-- Policy Content -->
+    <section class="policy-content">
+        <div class="policy-container">
+            <div class="policy-section">
+                <h2>1. Information We Collect</h2>
+                <p>At Smartspace Living, we collect information to provide better services to all our users. The types of personal information we collect include:</p>
+                
+                <h3>Personal Information</h3>
+                <ul>
+                    <li><strong>Contact Information:</strong> Name, email address, phone number, residential address</li>
+                    <li><strong>Project Details:</strong> Property specifications, design preferences, budget information</li>
+                    <li><strong>Communication Data:</strong> Records of our conversations, emails, and project discussions</li>
+                    <li><strong>Payment Information:</strong> Billing address, payment history (processed securely through payment gateways)</li>
+                </ul>
+
+                <h3>Automatically Collected Information</h3>
+                <ul>
+                    <li><strong>Website Usage:</strong> IP address, browser type, device information, pages visited</li>
+                    <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience and analyze site traffic</li>
+                    <li><strong>Location Data:</strong> General location information for service area verification</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>2. How We Use Your Information</h2>
+                <p>We use the information we collect for various purposes, including:</p>
+                
+                <ul>
+                    <li>To provide and maintain our interior design services</li>
+                    <li>To process your project requests and manage our relationship with you</li>
+                    <li>To communicate with you about project updates, appointments, and service information</li>
+                    <li>To personalize your experience and provide tailored design recommendations</li>
+                    <li>To process payments and prevent fraudulent transactions</li>
+                    <li>To improve our website, services, and customer experience</li>
+                    <li>To comply with legal obligations and protect our rights</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>3. Information Sharing and Disclosure</h2>
+                <p>We respect your privacy and do not sell your personal information. We may share your information with:</p>
+                
+                <h3>Service Providers</h3>
+                <ul>
+                    <li>Architects and contractors involved in your project</li>
+                    <li>Payment processors for secure transaction handling</li>
+                    <li>Cloud storage providers for data security and backup</li>
+                    <li>Communication platforms for project coordination</li>
+                </ul>
+
+                <h3>Legal Requirements</h3>
+                <p>We may disclose your information when required by law or to:</p>
+                <ul>
+                    <li>Comply with legal obligations and court orders</li>
+                    <li>Protect our rights, property, or safety</li>
+                    <li>Prevent fraud or security issues</li>
+                    <li>Respond to government requests</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>4. Data Security</h2>
+                <p>We implement appropriate security measures to protect your personal information:</p>
+                
+                <ul>
+                    <li>Encryption of sensitive data during transmission and storage</li>
+                    <li>Regular security assessments and vulnerability testing</li>
+                    <li>Access controls and authentication mechanisms</li>
+                    <li>Secure data centers with physical security measures</li>
+                    <li>Regular staff training on data protection practices</li>
+                </ul>
+
+                <p>While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>5. Your Rights and Choices</h2>
+                <p>You have the following rights regarding your personal information:</p>
+                
+                <ul>
+                    <li><strong>Access:</strong> Request copies of your personal information</li>
+                    <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
+                    <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+                    <li><strong>Objection:</strong> Object to processing of your personal information</li>
+                    <li><strong>Restriction:</strong> Request restriction of processing your information</li>
+                    <li><strong>Portability:</strong> Request transfer of your data to another organization</li>
+                </ul>
+
+                <p>To exercise these rights, please contact us using the information provided below.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>6. Cookies and Tracking Technologies</h2>
+                <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information.</p>
+                
+                <h3>Types of Cookies We Use</h3>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Necessary for the website to function properly</li>
+                    <li><strong>Performance Cookies:</strong> Help us understand how visitors interact with our website</li>
+                    <li><strong>Functionality Cookies:</strong> Enable enhanced functionality and personalization</li>
+                    <li><strong>Targeting Cookies:</strong> Used to deliver relevant advertisements</li>
+                </ul>
+
+                <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>7. Data Retention</h2>
+                <p>We will retain your personal information only for as long as necessary for the purposes set out in this Privacy Policy.</p>
+                
+                <ul>
+                    <li><strong>Active Projects:</strong> Retained during project duration and 7 years after completion</li>
+                    <li><strong>Inquiries:</strong> Retained for 3 years from last contact</li>
+                    <li><strong>Financial Records:</strong> Retained for 7 years as required by law</li>
+                    <li><strong>Marketing Communications:</strong> Retained until you unsubscribe</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>8. Children's Privacy</h2>
+                <p>Our service does not address anyone under the age of 18. We do not knowingly collect personally identifiable information from children under 18.</p>
+                <p>If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us. If we become aware that we have collected personal information from children without verification of parental consent, we take steps to remove that information from our servers.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>9. Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+                <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>10. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                
+                <ul>
+                    <li>By email: privacy@smartspaceliving.com</li>
+                    <li>By phone: +91 98765 43210</li>
+                    <li>By visiting this page on our website: www.smartspaceliving.com/contact</li>
+                    <li>By mail: Smartspace Living, Design Center, Bandra Kurla Complex, Mumbai - 400051</li>
+                </ul>
+            </div>
+
+            <div class="last-updated">
+                <p><strong>Last Updated:</strong> January 15, 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Have Questions About Your Privacy?</h2>
+            <div class="gold-divider"></div>
+            <p>Our privacy team is here to help you understand how we protect your information and address any concerns you may have.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>privacy@smartspaceliving.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Response Time</h3>
+                    <p>Within 24-48 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="siteFooter">
+        <footer>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Smartspace Living</h3>
+                    <p>Creating beautiful, functional spaces that reflect your personality and lifestyle since 2012.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Our Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <a href="privacy-policy.html" class="active">Privacy Policy</a>
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+                    <a href="cancellation-policy.html">Cancellation Policy</a>
+                    <a href="refund-policy.html">Refund Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> hello@smartspaceliving.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Multiple locations across India</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9AM - 7PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Smartspace Living. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: #D4AF37;"></i> in India</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        function initializeThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const isDark = body.classList.contains('dark-theme');
+                    
+                    if (isDark) {
+                        body.classList.remove('dark-theme');
+                        body.classList.add('light-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        body.classList.remove('light-theme');
+                        body.classList.add('dark-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+
+                // Load saved theme
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                if (savedTheme === 'light') {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeThemeToggle();
+        });
+
+        // Load Header and Footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+                initializeThemeToggle();
+            })
+            .catch(error => console.log('Header not found'));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteFooter').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not found'));
+    </script>
+</body>
+</html>

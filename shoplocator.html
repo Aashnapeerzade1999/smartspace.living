@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Store Locator | Smartspace Living</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+
+        /* Hero Section */
+        .locator-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 2rem auto;
+        }
+
+        /* Main Content */
+        .locator-main {
+            padding: 3rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .locator-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 3rem;
+        }
+
+        /* Search & Filters */
+        .search-section {
+            background: var(--card-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            background: var(--bg-color);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .filter-section {
+            margin-bottom: 2rem;
+        }
+
+        .filter-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--text-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+        }
+
+        /* Store List */
+        .stores-section {
+            background: var(--card-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .stores-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .stores-header h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .results-count {
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .stores-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .store-card {
+            background: var(--bg-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .store-card:hover, .store-card.active {
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .store-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .store-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .store-badge {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .store-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .store-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .store-detail i {
+            color: var(--secondary);
+            width: 16px;
+        }
+
+        .store-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px 16px;
+            border: 1px solid var(--secondary);
+            background: transparent;
+            color: var(--secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .action-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Map Section */
+        .map-section {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+        }
+
+        .map-container {
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        #storeMap {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.7;
+        }
+
+        /* Custom Map Popup */
+        .leaflet-popup-content-wrapper {
+            background: var(--card-color);
+            color: var(--text-color);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--secondary);
+        }
+
+        .leaflet-popup-tip {
+            background: var(--card-color);
+            border: 1px solid var(--secondary);
+        }
+
+        .map-popup {
+            padding: 1rem;
+            min-width: 250px;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .popup-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .popup-badge {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .popup-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .popup-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .popup-detail i {
+            color: var(--secondary);
+            width: 16px;
+        }
+
+        .popup-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .popup-btn {
+            flex: 1;
+            padding: 6px 12px;
+            border: 1px solid var(--secondary);
+            background: transparent;
+            color: var(--secondary);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .popup-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .locator-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-section {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .store-actions {
+                flex-direction: column;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scrollbar Styling */
+        .stores-section::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .stores-section::-webkit-scrollbar-track {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 3px;
+        }
+
+        .stores-section::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+        
+    </style>
+    </head>
+    <body class="dark-theme">
+        <!-- Header -->
+        <div id="siteHeader">
+
+        </div>
+
+        <!-- Hero Section -->
+        <section class="locator-hero">
+            <div class="hero-content">
+                <h1>Find Our Stores</h1>
+                <div class="gold-divider"></div>
+                <p>Visit our design studios and experience centers across Mumbai
+                    and Navi Mumbai</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-container">
+                <h2>Store Services</h2>
+                <div class="gold-divider"></div>
+                <p>All our locations offer comprehensive interior design
+                    services and consultations</p>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h3>Design Consultation</h3>
+                        <p>Free one-on-one consultations with our expert
+                            designers at all locations</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-couch"></i>
+                        </div>
+                        <h3>Material Selection</h3>
+                        <p>Extensive collection of samples and materials for you
+                            to choose from</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h3>3D Visualization</h3>
+                        <p>Experience your future space through immersive 3D
+                            walkthroughs</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Project Management</h3>
+                        <p>End-to-end project coordination and execution from
+                            any store</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="services-container">
+                <h2>Visit Our Studio</h2>
+                <div class="gold-divider"></div>
+                <p>Explore our stores across Mumbai and Navi Mumbai. Use the
+                    filters to find a location near you.</p>
+                <div id="location">
+
+                    <p>We invite you to visit our Navi Mumbai studio to discuss
+                        your project and explore our design solutions. Our team
+                        is ready to help you create the space of your
+                        dreams.</p>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.178611123998!2d73.0230373!3d19.011849599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3eebfc659cd%3A0x63447d4b1f289abf!2sSmart%20Space%20Interior%20Designer-Best%20Interior%20Designer%20In%20Navi%20Mumbai!5e0!3m2!1sen!2sin!4v1760532334626!5m2!1sen!2sin"
+                            width="100%" height="450" style="border:0;"
+                            allowfullscreen loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2 style="color: #000000;"">Can't Visit Our Store?</h2>
+                    <p>Schedule a virtual consultation with our design experts
+                        from the comfort of your home</p>
+                
+
+                   <button class="btn-primary" onclick="openWhatsApp()">Book Consultation</button>
+
+                    <script>
+                    function openWhatsApp() {
+                        let number = "918591463486"; // Remove + and spaces
+                        let message = "Hello, I want to book a consultation.";
+                        window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank");
+                    }
+                    </script>
+
+
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <div id="siteFooter">
+
+            </div>
+
+            <script
+                src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+            <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+
+        // Store Data
+        const stores = [
+            {
+                id: 1,
+                name: "Smartspace Living - Fort",
+                type: "flagship",
+                city: "south-mumbai",
+                address: "123 Design Street, Fort, Mumbai 400001",
+                phone: "+91 22 1234 5678",
+                hours: "10:00 AM - 8:00 PM",
+                services: ["Design Consultation", "Material Library", "3D Visualization"],
+                coordinates: [18.9356, 72.8356],
+                badge: "Flagship"
+            },
+            {
+                id: 2,
+                name: "Design Studio - Bandra",
+                type: "studio",
+                city: "western",
+                address: "45 Hill Road, Bandra West, Mumbai 400050",
+                phone: "+91 22 2345 6789",
+                hours: "10:00 AM - 8:00 PM",
+                services: ["Design Consultation", "Custom Furniture"],
+                coordinates: [19.0544, 72.8258],
+                badge: "Studio"
+            },
+            {
+                id: 3,
+                name: "Experience Center - Andheri",
+                type: "experience",
+                city: "western",
+                address: "78 SV Road, Andheri West, Mumbai 400058",
+                phone: "+91 22 3456 7890",
+                hours: "10:00 AM - 8:00 PM",
+                services: ["Full Home Experience", "Smart Home Solutions"],
+                coordinates: [19.1197, 72.8466],
+                badge: "Experience"
+            },
+            {
+                id: 4,
+                name: "Design Hub - Lower Parel",
+                type: "studio",
+                city: "central",
+                address: "12 High Street Phoenix, Lower Parel, Mumbai 400013",
+                phone: "+91 22 4567 8901",
+                hours: "10:00 AM - 9:00 PM",
+                services: ["Luxury Design", "Brand Collaboration"],
+                coordinates: [18.9942, 72.8256],
+                badge: "Luxury"
+            },
+            {
+                id: 5,
+                name: "Smartspace Living - Vashi",
+                type: "flagship",
+                city: "navi-mumbai",
+                address: "34 Sector 17, Vashi, Navi Mumbai 400703",
+                phone: "+91 22 5678 9012",
+                hours: "10:00 AM - 8:00 PM",
+                services: ["Complete Interior", "Project Management"],
+                coordinates: [19.0825, 72.9982],
+                badge: "Flagship"
+            },
+            {
+                id: 6,
+                name: "Design Studio - Kharghar",
+                type: "studio",
+                city: "navi-mumbai",
+                address: "56 Sector 12, Kharghar, Navi Mumbai 410210",
+                phone: "+91 22 6789 0123",
+                hours: "10:00 AM - 8:00 PM",
+                services: ["Budget Solutions", "Space Planning"],
+                coordinates: [19.0382, 73.0625],
+                badge: "Studio"
+            },
+            {
+                id: 7,
+                name: "Experience Center - Thane",
+                type: "experience",
+                city: "thane",
+                address: "90 Eastern Express Highway, Thane West 400601",
+                phone: "+91 22 7890 1234",
+                hours: "10:00 AM - 8:00 PM",
+                services: ["Modular Kitchen", "Wardrobe Solutions"],
+                coordinates: [19.2183, 72.9781],
+                badge: "Experience"
+            },
+            {
+                id: 8,
+                name: "Design Studio - Powai",
+                type: "studio",
+                city: "central",
+                address: "23 Hiranandani Gardens, Powai, Mumbai 400076",
+                phone: "+91 22 8901 2345",
+                hours: "10:00 AM - 8:00 PM",
+                services: ["Premium Residential", "Office Design"],
+                coordinates: [19.1176, 72.9060],
+                badge: "Premium"
+            }
+        ];
+
+        // Initialize Map
+        let map = L.map('storeMap').setView([19.0760, 72.8777], 11);
+
+        // Add Tile Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Store Markers
+        let markers = [];
+        let currentCity = 'all';
+        let currentType = 'all';
+        let currentStores = [...stores];
+
+        // Initialize Stores
+        function initializeStores() {
+            const storesList = document.getElementById('storesList');
+            storesList.innerHTML = '';
+
+            // Clear existing markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            currentStores.forEach(store => {
+                // Create store card
+                const storeCard = document.createElement('div');
+                storeCard.className = 'store-card';
+                storeCard.setAttribute('data-id', store.id);
+                
+                storeCard.innerHTML = `
+                    <div class="store-header">
+                        <div>
+                            <div class="store-name">${store.name}</div>
+                            <div class="store-badge">${store.badge}</div>
+                        </div>
+                    </div>
+                    <div class="store-info">
+                        <div class="store-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${store.address}</span>
+                        </div>
+                        <div class="store-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>${store.phone}</span>
+                        </div>
+                        <div class="store-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>${store.hours}</span>
+                        </div>
+                    </div>
+                    <div class="store-actions">
+                        <button class="action-btn" onclick="getDirections(${store.coordinates[0]}, ${store.coordinates[1]})">
+                            <i class="fas fa-directions"></i> Directions
+                        </button>
+                        <button class="action-btn" onclick="callStore('${store.phone}')">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                    </div>
+                `;
+                
+                storesList.appendChild(storeCard);
+
+                // Add marker to map
+                const marker = L.marker(store.coordinates)
+                    .addTo(map)
+                    .bindPopup(`
+                        <div class="map-popup">
+                            <div class="popup-header">
+                                <div class="popup-name">${store.name}</div>
+                                <div class="popup-badge">${store.badge}</div>
+                            </div>
+                            <div class="popup-info">
+                                <div class="popup-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>${store.address}</span>
+                                </div>
+                                <div class="popup-detail">
+                                    <i class="fas fa-phone"></i>
+                                    <span>${store.phone}</span>
+                                </div>
+                                <div class="popup-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>${store.hours}</span>
+                                </div>
+                            </div>
+                            <div class="popup-actions">
+                                <button class="popup-btn" onclick="getDirections(${store.coordinates[0]}, ${store.coordinates[1]})">
+                                    Directions
+                                </button>
+                                <button class="popup-btn" onclick="callStore('${store.phone}')">
+                                    Call
+                                </button>
+                            </div>
+                        </div>
+                    `);
+
+                markers.push(marker);
+
+                // Add click event to store card
+                storeCard.addEventListener('click', () => {
+                    document.querySelectorAll('.store-card').forEach(card => card.classList.remove('active'));
+                    storeCard.classList.add('active');
+                    
+                    map.setView(store.coordinates, 15);
+                    marker.openPopup();
+                });
+            });
+
+            // Update results count
+            document.getElementById('resultsCount').textContent = `${currentStores.length} stores found`;
+        }
+
+        // Filter Functions
+        document.querySelectorAll('.filter-btn[data-city]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn[data-city]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentCity = this.getAttribute('data-city');
+                filterStores();
+            });
+        });
+
+        document.querySelectorAll('.filter-btn[data-type]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn[data-type]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentType = this.getAttribute('data-type');
+                filterStores();
+            });
+        });
+
+        // Search Functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            filterStores();
+        });
+
+        function filterStores() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            currentStores = stores.filter(store => {
+                const matchesCity = currentCity === 'all' || store.city === currentCity;
+                const matchesType = currentType === 'all' || store.type === currentType;
+                const matchesSearch = searchTerm === '' || 
+                    store.name.toLowerCase().includes(searchTerm) ||
+                    store.address.toLowerCase().includes(searchTerm) ||
+                    store.city.toLowerCase().includes(searchTerm);
+
+                return matchesCity && matchesType && matchesSearch;
+            });
+
+            initializeStores();
+        }
+
+        // Utility Functions
+        function getDirections(lat, lng) {
+            const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+            window.open(url, '_blank');
+        }
+
+        function callStore(phone) {
+            window.open(`tel:${phone}`, '_self');
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeStores();
+            
+            // Add animation to store cards
+            const storeCards = document.querySelectorAll('.store-card');
+            storeCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Add animation to service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        serviceCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+            <!-- Script to load header and footer -->
+            <script>
+    // Load Header
+  fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('siteHeader').innerHTML = data;
+
+    // Run header JS only after it's loaded
+    const menuToggle = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  });
+
+
+    // Load Footer
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error("Footer not found");
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('siteFooter').innerHTML = data;
+      })
+      .catch(error => console.error("Footer load error:", error));
+  </script>
+        </body>
+    </html>

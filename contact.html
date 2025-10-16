@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us | Smartspace Living</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .contact-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 2rem auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            padding-right: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .info-card {
+            background: var(--card-color);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .info-card p {
+            margin-bottom: 0;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--card-color);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--bg-color);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0 2rem 5rem;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .map-placeholder {
+            height: 400px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.7;
+        }
+
+        .map-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .map-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .map-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .faq-question i {
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+    </head>
+    <body class="dark-theme">
+        <div id="siteHeader">
+            <!-- <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-palette"></i>
+                    SmartspaceLiving
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header> -->
+        </div>
+
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="hero-content">
+                <h1>Get In Touch</h1>
+                <div class="gold-divider"></div>
+                <p>Let's discuss how we can transform your space into a
+                    masterpiece of design and functionality</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Let's Start Your Project</h2>
+                    <p>We're excited to hear about your interior design vision.
+                        Reach out to us through any of the following channels,
+                        and our team will get back to you within 24 hours.</p>
+
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Visit Our Studio</h3>
+                        <p>123 Design District, Interior Avenue<br>Mumbai,
+                            Maharashtra 400001</p>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>+91 98765 43210<br>+91 91234 56789</p>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>info@smartspaceliving.com<br>projects@smartspaceliving.com</p>
+                    </div>
+
+                    <h3
+                        style="margin-top: 2rem; color: var(--secondary);">Follow
+                        Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-houzz"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2
+                        style="margin-bottom: 2rem; color: var(--secondary);">Send
+                        Us a Message</h2>
+                    <form id="contactForm"
+                        action="https://script.google.com/macros/s/AKfycbx0umetrj-h3Zeo46EkuRL4N6VEd1LsboAapuudgjkxj78nnFGwsLqq7YX4NxvDAv75cg/exec"
+                        method="post">
+
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name"
+                                class="form-control"
+                                placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email"
+                                class="form-control"
+                                placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="form-control"
+                                placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project">Project Type</label>
+                            <select id="project" name="project"
+                                class="form-control" required>
+                                <option value>Select project type</option>
+                                <option value="Residential Design">Residential
+                                    Design</option>
+                                <option value="Commercial Design">Commercial
+                                    Design</option>
+                                <option value="Office Space">Office
+                                    Space</option>
+                                <option value="Renovation">Renovation</option>
+                                <option value="Design Consultation">Design
+                                    Consultation</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Project Budget</label>
+                            <select id="budget" name="budget"
+                                class="form-control" required>
+                                <option value>Select budget range</option>
+                                <option value="₹5-10 Lakhs">₹5-10 Lakhs</option>
+                                <option value="₹10-25 Lakhs">₹10-25
+                                    Lakhs</option>
+                                <option value="₹25-50 Lakhs">₹25-50
+                                    Lakhs</option>
+                                <option value="₹50 Lakhs+">₹50 Lakhs+</option>
+                                <option value="Not Sure Yet">Not Sure
+                                    Yet</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message"
+                                class="form-control"
+                                placeholder="Tell us about your project, requirements, and vision..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Send
+                            Message</button>
+
+                            
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="map-content">
+                        <h3>Visit Our Design Studio</h3>
+                        <p>Our studio is located in the heart of Mumbai's design
+                            district. Come experience our work firsthand and
+                            discuss your project with our design team.</p>
+                        <button class="btn-primary"
+                            style="width: auto; padding: 12px 25px;">Get
+                            Directions</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does a typical interior design project
+                            take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The timeline varies based on project scope and
+                            complexity. A standard residential project typically
+                            takes 8-12 weeks from concept to completion, while
+                            larger commercial projects may take 3-6 months. We
+                            provide a detailed timeline during our initial
+                            consultation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you work within a specific budget?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We believe great design should be
+                            accessible at various budget levels. We work closely
+                            with you to understand your budget constraints and
+                            create a design plan that maximizes value while
+                            delivering exceptional results.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What areas do you serve?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While our primary studio is in Mumbai, we undertake
+                            projects across India. We've successfully completed
+                            residential and commercial projects in Delhi,
+                            Bangalore, Hyderabad, Chennai, and other major
+                            cities. International projects are considered on a
+                            case-by-case basis.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide 3D visualizations?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we create detailed 3D visualizations for all our
+                            projects. This allows you to virtually walk through
+                            your space before implementation begins, ensuring
+                            the final result matches your vision perfectly.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is your design process?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our process includes: Initial consultation, concept
+                            development, detailed design planning, 3D
+                            visualization, material selection, project
+                            management, and final installation. We maintain
+                            transparent communication throughout every
+                            stage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 style="color: #000000;">Ready to Begin Your Design
+                    Journey?</h2>
+                <p>Schedule a complimentary consultation with our design experts
+                    today.</p>
+                <button class="btn-primary"
+                    style="width: auto; padding: 15px 40px;">Book Free
+                    Consultation</button>
+            </div>
+        </section>
+
+        <div id="siteFooter">
+
+        </div>
+        <script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbx0umetrj-h3Zeo46EkuRL4N6VEd1LsboAapuudgjkxj78nnFGwsLqq7YX4NxvDAv75cg/exec";
+
+const data = { name: "Test", email: "test@example.com", phone: "9999999999", project: "Residential", budget: "₹5-10 Lakhs", message: "Hello" };
+
+fetch(scriptURL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+})
+.then(res => res.text())
+.then(txt => console.log(txt))
+.catch(err => console.error(err));
+
+
+</script>
+
+        <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const project = document.getElementById('project').value;
+            
+            // In a real application, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you ${name}! Your message has been sent successfully. We will contact you at ${email} regarding your ${project} project soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Add some interactive elements to the form
+        const budgetSelect = document.getElementById('budget');
+        const projectSelect = document.getElementById('project');
+        
+        // Show a custom message based on budget selection
+        budgetSelect.addEventListener('change', function() {
+            if (this.value === 'not-sure') {
+                // You could show additional information or guidance
+                console.log('User is unsure about budget - might need guidance');
+            }
+        });
+    // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeThemeToggle();
+            
+            // Animate stats when page loads
+            setTimeout(animateStats, 1000);
+        });
+
+    </script>
+
+        <!-- Script to load header and footer -->
+        <script>
+    // Load Header
+  fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('siteHeader').innerHTML = data;
+
+    // Run header JS only after it's loaded
+    const menuToggle = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  });
+
+
+    // Load Footer
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error("Footer not found");
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('siteFooter').innerHTML = data;
+      })
+      .catch(error => console.error("Footer load error:", error));
+  </script>
+
+        <script>
+    // ✅ Desktop dropdown positioning fix (Smart auto-detect)
+document.querySelectorAll('nav ul li').forEach(li => {
+  const dropdown = li.querySelector('.dropdown');
+  if (!dropdown) return;
+
+  li.addEventListener('mouseenter', () => {
+    if (window.innerWidth <= 768) return;
+
+    // Wait until dropdown is visible in the next frame
+    requestAnimationFrame(() => {
+      dropdown.style.left = '';
+      dropdown.style.right = '';
+
+      const rect = dropdown.getBoundingClientRect();
+
+      // ✅ If dropdown overflows right edge
+      if (rect.right > window.innerWidth) {
+        dropdown.style.left = 'auto';
+        dropdown.style.right = '0';
+      }
+
+      // ✅ If dropdown overflows left edge (rare)
+      if (rect.left < 0) {
+        dropdown.style.left = '0';
+        dropdown.style.right = 'auto';
+      }
+    });
+  });
+
+  // Optional: reset on mouseleave
+  li.addEventListener('mouseleave', () => {
+    dropdown.style.left = '';
+    dropdown.style.right = '';
+  });
+});
+
+  </script>
+    </body>
+</html>

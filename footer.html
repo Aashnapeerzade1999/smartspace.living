@@ -1,0 +1,352 @@
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<script src="assets/script.js"> </script>
+   <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <h3>💬 Support Chat</h3>
+                <div class="status">
+                    <span class="status-dot"></span>
+                    <span>Online</span>
+                </div>
+                <button class="close-btn" id="closeChat">×</button>
+            </div>
+            
+            <div class="chatbot-body" id="chatbotBody">
+                <div class="message bot-message">
+                    <div class="message-bubble">
+                        Hello! I'm here to assist you. Please provide your details and we'll connect you via WhatsApp.
+                    </div>
+                </div>
+                
+                <div class="message bot-message">
+                    <div class="message-bubble">
+                        Let me get some information from you first.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatbot-footer">
+                <div class="form-container active" id="formContainer">
+                    <form id="userForm"
+                    action="https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                          <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="Enter your mobile number" required>
+
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <button type="submit" class="btn">Submit & Continue to WhatsApp</button>
+                    </form>
+                </div>
+                
+                <div class="success-message" id="successMessage">
+                    <div class="whatsapp-icon">📱</div>
+                    <h3>Thank You!</h3>
+                    <p>Your information has been submitted successfully.</p>
+                    <p>Redirecting to WhatsApp...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chatbot-toggle minimized" id="chatbotToggle">
+            <div class="chatbot-icon">
+                <span class="chat-icon">💬</span>
+                <span class="close-icon">✕</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Toggle chatbot visibility
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChat = document.getElementById('closeChat');
+        
+        chatbotToggle.addEventListener('click', function() {
+            chatbotContainer.classList.toggle('active');
+            chatbotToggle.classList.toggle('minimized');
+        });
+        
+        closeChat.addEventListener('click', function() {
+            chatbotContainer.classList.remove('active');
+            chatbotToggle.classList.add('minimized');
+        });
+        
+   
+        
+        // Add some chatbot interaction
+        setTimeout(() => {
+            const chatBody = document.getElementById('chatbotBody');
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'typing-indicator';
+            typingIndicator.innerHTML = `
+                <div class="message-bubble">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+            chatBody.appendChild(typingIndicator);
+            chatBody.scrollTop = chatBody.scrollHeight;
+            
+            setTimeout(() => {
+                chatBody.removeChild(typingIndicator);
+                const newMessage = document.createElement('div');
+                newMessage.className = 'message bot-message';
+                newMessage.innerHTML = `
+                    <div class="message-bubble">
+                        Please fill out the form below with your details.
+                    </div>
+                `;
+                chatBody.appendChild(newMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 1500);
+        }, 1000);
+
+
+        //form 
+   
+const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+document.getElementById('userForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    // Validate mobile
+    if (!/^\d{10}$/.test(mobile)) {
+        alert('Please enter a valid 10-digit mobile number');
+        return;
+    }
+
+    // Prepare FormData for Google Sheets
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('mobile', mobile);
+    formData.append('email', email);
+
+    // Fire-and-forget: send to Google Sheet asynchronously
+    fetch(scriptURL, { method: 'POST', body: formData })
+        .then(res => res.text())
+        .then(txt => console.log('Sheet Response:', txt))
+        .catch(err => console.error('Error sending to Sheet:', err));
+
+    // Immediate WhatsApp redirect (lazy loader)
+    const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+    const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappURL, '_blank');
+
+    // Show chatbot success message immediately
+    document.getElementById('formContainer').classList.remove('active');
+    document.getElementById('successMessage').classList.add('active');
+
+    const chatBody = document.getElementById('chatbotBody');
+    const userMessage = document.createElement('div');
+    userMessage.className = 'message user-message';
+    userMessage.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+    chatBody.appendChild(userMessage);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // Reset form after 3 seconds
+    setTimeout(() => {
+        document.getElementById('formContainer').classList.add('active');
+        document.getElementById('successMessage').classList.remove('active');
+        document.getElementById('userForm').reset();
+    }, 3000);
+});
+
+
+</script>
+
+
+
+    </script>
+ <!-- Footer -->
+    <footer class="site-footer">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="footer-container">
+            <!-- Brand & Tagline -->
+            <div class="footer-brand">
+                <h2>Smartspace<span>Living</span></h2>
+                <p>Premium Interior Design Solutions</p>
+                
+                <!-- Social Links -->
+               <div class="footer-social">
+    <a href="https://www.facebook.com/smartspace" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://twitter.com/smartspace" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://www.instagram.com/smartspacelivin/?igsh=cWNxdjFhOGh3MmIz&utm_source=qr#" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.pinterest.com/smartspace/" target="_blank" aria-label="Pinterest">
+        <i class="fab fa-pinterest"></i>
+    </a>
+    <a href="https://www.youtube.com/channel/UCyfOXXDxxyf5xGtU7K4-Cag" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+    </a>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/918591463486" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Gmail / Email -->
+    <a href="mailto:smartspacelivin@gmail.com" target="_blank" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+                
+                <!-- Newsletter Subscription -->
+                <div class="newsletter">
+                    <h4>Subscribe to Our Newsletter</h4>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Company Links -->
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Offerings</h4>
+                    <ul>
+                        <li><a href="#">Interiors</a></li>
+                        <li><a href="https://www.smartspace.com/?utm_source=smartspace.com&utm_medium=footer_menu&utm_content=furnishings_click" target="_blank">Furnishings</a></li>
+                        <li><a href="#">Get Inspired</a></li>
+                        <li><a href="#">Design Ideas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://smartspace.living/in/refer-a-friend" target="_blank">Refer a friend</a></li>
+                        <li><a href="work.html" target="_blank">How it works</a></li>
+                    
+                        <li><a href="about.html" target="_blank">About us</a></li>
+                        <li><a href="contact.html" target="_blank">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support & Info</h4>
+                    <ul>
+                        <li><a href="policies.html" target="_blank">Policies & Privacy</a></li>
+                        <li><a href="terms_con.html" target="_blank">Terms & conditions</a></li>
+                        <li><a href="faqs.html" target="_blank">FAQs</a></li>
+                        <!-- <li><a href="https://www.smartspace.com/partner-program/" target="_blank">Own a franchise</a></li>
+                        <li><a href="https://smartspace.living/in/page/smartspace-reviews" target="_blank">Smartspace Reviews</a></li> -->
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact">
+                        <a href="tel:1800-309-0930">
+                            <i class="fas fa-phone"></i> 1800-309-0930
+                        </a>
+                        <a href="mailto:care@smartspace.com">
+                            <i class="fas fa-envelope"></i> care@smartspace.com
+                        </a>
+                        <a href="mailto:care@smartspace.com">
+                            <i class="fas fa-envelope"></i> hr@smartspace.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright & Country -->
+        <div class="footer-bottom">
+            <div>
+                <span>&copy; 2025 Smartspace Living. All rights reserved.</span>
+                <span class="country-selector">
+                    <!-- <a href="https://smartspace.living/in">IND</a>  -->
+                    <!-- <a href="https://smartspace.living/sa-ar">SA</a> -->
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('.newsletter-input').value;
+            
+            // Simple validation
+            if (email && email.includes('@')) {
+                // In a real application, you would send this to your backend
+                alert(`Thank you for subscribing with: ${email}`);
+                newsletterForm.reset();
+            } else {
+                alert('Please enter a valid email address');
+            }
+        });
+        
+        // Add loading animation to footer elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const footerElements = document.querySelectorAll('.footer-brand, .footer-col');
+            
+            // Create intersection observer to trigger animations when footer comes into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            footerElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Smartspace Living | Premium Interior Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .light-theme {
+            --bg-color: var(--bg-light);
+            --text-color: var(--text-light);
+            --card-color: var(--card-light);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 10px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: rotate(15deg);
+        }
+
+        /* Hero Section */
+        .faq-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--accent);
+            opacity: 0.95;
+        }
+
+        .gold-divider {
+            width: 120px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 2.5rem auto;
+        }
+
+        /* FAQ Content */
+        .faq-content {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: var(--card-color);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            color: var(--text-color);
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .faq-section {
+            margin-bottom: 3rem;
+        }
+
+        .faq-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            text-align: center;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-item {
+            background: var(--card-color);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .faq-answer.show {
+            padding: 0 2rem 2rem;
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .faq-answer p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .faq-answer ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Quick Help Section */
+        .quick-help {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .help-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .help-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .help-item {
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .help-item:hover {
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .help-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .help-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .help-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cta-container p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .faq-hero {
+                min-height: 40vh;
+                padding: 8rem 2rem 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .faq-question {
+                padding: 1.25rem 1.5rem;
+                font-size: 1.1rem;
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem;
+            }
+
+            .faq-answer.show {
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .faq-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .category-btn {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+    <div id="siteHeader">
+        <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-palette"></i>
+                    SmartspaceLiving
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="hero-content">
+            <h1>Frequently Asked Questions</h1>
+            <div class="gold-divider"></div>
+            <p>Find answers to common questions about our interior design services and process</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="faq-container">
+            <div class="faq-categories">
+                <button class="category-btn active" data-category="all">All Questions</button>
+                <button class="category-btn" data-category="process">Design Process</button>
+                <button class="category-btn" data-category="pricing">Pricing & Payments</button>
+                <button class="category-btn" data-category="timeline">Project Timeline</button>
+                <button class="category-btn" data-category="materials">Materials & Quality</button>
+            </div>
+
+            <!-- Design Process FAQs -->
+            <div class="faq-section" data-category="process">
+                <h2>Design Process</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is your design process?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our design process follows these key stages:</p>
+                        <ul>
+                            <li><strong>Initial Consultation:</strong> Understanding your requirements, budget, and vision</li>
+                            <li><strong>Site Measurement:</strong> Detailed measurement and analysis of your space</li>
+                            <li><strong>Concept Development:</strong> Creating initial design concepts and mood boards</li>
+                            <li><strong>Design Presentation:</strong> Presenting 3D visualizations and material samples</li>
+                            <li><strong>Finalization:</strong> Refining designs based on your feedback</li>
+                            <li><strong>Execution:</strong> Project management and quality control during implementation</li>
+                            <li><strong>Handover:</strong> Final walkthrough and project completion</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide 3D design visualizations?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide detailed 3D visualizations for all our projects. This includes:</p>
+                        <ul>
+                            <li>Photorealistic 3D renders of each room</li>
+                            <li>Virtual walkthroughs of the entire space</li>
+                            <li>Multiple angle views for better understanding</li>
+                            <li>Material and color variations</li>
+                            <li>Furniture layout simulations</li>
+                        </ul>
+                        <p>These visualizations help you see exactly how your space will look before we begin execution.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I be involved in the design process?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We believe in collaborative design. Your involvement includes:</p>
+                        <ul>
+                            <li>Regular design review meetings</li>
+                            <li>Feedback sessions at every major milestone</li>
+                            <li>Material and finish selection participation</li>
+                            <li>Site visits during execution</li>
+                            <li>Final approval before each phase begins</li>
+                        </ul>
+                        <p>We consider you an essential part of our design team.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & Payments FAQs -->
+            <div class="faq-section" data-category="pricing">
+                <h2>Pricing & Payments</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is your pricing structure?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our pricing is transparent and structured as follows:</p>
+                        <ul>
+                            <li><strong>Design Fee:</strong> 10-15% of project cost (includes concepts, drawings, project management)</li>
+                            <li><strong>Material Cost:</strong> Actual cost of materials with no markup</li>
+                            <li><strong>Labor Cost:</strong> Based on project complexity and duration</li>
+                            <li><strong>Payment Schedule:</strong> 40% advance, 40% during execution, 20% on completion</li>
+                        </ul>
+                        <p>We provide detailed quotations with complete cost breakdowns.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are there any hidden costs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, we maintain complete transparency in our pricing. All potential costs are discussed upfront, including:</p>
+                        <ul>
+                            <li>Government taxes and duties</li>
+                            <li>Permit and approval fees</li>
+                            <li>Site preparation costs</li>
+                            <li>Material transportation charges</li>
+                            <li>Waste disposal fees</li>
+                        </ul>
+                        <p>Any additional costs arising during the project are communicated immediately and require your approval.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer EMI or payment plans?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer flexible payment options:</p>
+                        <ul>
+                            <li><strong>Standard Payment Plan:</strong> 40-40-20 as per project milestones</li>
+                            <li><strong>Extended Payment Plan:</strong> Monthly installments over 3-6 months</li>
+                            <li><strong>Bank Financing:</strong> Partnership with leading banks for home improvement loans</li>
+                            <li><strong>Credit Card:</strong> EMI options available through partner banks</li>
+                        </ul>
+                        <p>We can customize payment plans based on your financial comfort.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Timeline FAQs -->
+            <div class="faq-section" data-category="timeline">
+                <h2>Project Timeline</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does a typical project take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on scope and complexity:</p>
+                        <ul>
+                            <li><strong>1 BHK Apartment:</strong> 4-6 weeks</li>
+                            <li><strong>2 BHK Apartment:</strong> 6-8 weeks</li>
+                            <li><strong>3 BHK Apartment:</strong> 8-10 weeks</li>
+                            <li><strong>Villa/Bungalow:</strong> 12-16 weeks</li>
+                            <li><strong>Office Space:</strong> 6-10 weeks</li>
+                            <li><strong>Commercial Retail:</strong> 8-12 weeks</li>
+                        </ul>
+                        <p>These are estimated timelines and may vary based on specific requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What factors can affect the project timeline?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Several factors can impact project duration:</p>
+                        <ul>
+                            <li><strong>Client Decisions:</strong> Timely approvals and material selections</li>
+                            <li><strong>Material Availability:</strong> Imported or custom materials may have longer lead times</li>
+                            <li><strong>Site Conditions:</strong> Structural issues or unexpected repairs</li>
+                            <li><strong>Weather Conditions:</strong> For projects involving exterior work</li>
+                            <li><strong>Government Approvals:</strong> Permit processing times</li>
+                            <li><strong>Festival Seasons:</strong> Labor availability during major holidays</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I stay in my home during renovation?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This depends on the scope of work:</p>
+                        <ul>
+                            <li><strong>Partial Renovation:</strong> Usually possible with proper planning</li>
+                            <li><strong>Complete Home Makeover:</strong> Recommended to arrange alternative accommodation</li>
+                            <li><strong>Kitchen/Bathroom Renovation:</strong> Temporary kitchen setup can be arranged</li>
+                            <li><strong>Dust and Noise:</strong> We implement dust containment systems</li>
+                        </ul>
+                        <p>We assess each situation and provide recommendations for your comfort and safety.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materials & Quality FAQs -->
+            <div class="faq-section" data-category="materials">
+                <h2>Materials & Quality</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What quality of materials do you use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use premium quality materials from trusted brands:</p>
+                        <ul>
+                            <li><strong>Plywood:</strong> Greenply, Centuryply, or equivalent BWR grade</li>
+                            <li><strong>Hardware:</strong> Hettich, Hafele, or equivalent premium brands</li>
+                            <li><strong>Paints:</strong> Asian Paints, Berger, or Dulux premium range</li>
+                            <li><strong>Sanitaryware:</strong> Jaquar, Kohler, or equivalent</li>
+                            <li><strong>Flooring:</strong> Kajaria, Somany, or imported options</li>
+                            <li><strong>Lighting:</strong> Philips, Wipro, or specialized lighting brands</li>
+                        </ul>
+                        <p>All materials come with manufacturer warranties.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide material warranties?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide comprehensive warranties:</p>
+                        <ul>
+                            <li><strong>Workmanship Warranty:</strong> 12 months on all executed work</li>
+                            <li><strong>Material Warranty:</strong> As per manufacturer terms (typically 5-25 years)</li>
+                            <li><strong>Annual Maintenance:</strong> Optional AMC available</li>
+                            <li><strong>Emergency Support:</strong> 24/7 support for critical issues</li>
+                        </ul>
+                        <p>All warranty details are clearly mentioned in our contract.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I source my own materials?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While we recommend using our sourcing for quality assurance, you can source materials with these conditions:</p>
+                        <ul>
+                            <li>Materials must meet our quality standards</li>
+                            <li>We need to approve technical specifications</li>
+                            <li>You handle delivery and storage</li>
+                            <li>Material warranties become your responsibility</li>
+                            <li>Project timeline may be affected by delivery delays</li>
+                        </ul>
+                        <p>We'll guide you on specifications if you choose to source materials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Help Section -->
+    <section class="quick-help">
+        <div class="help-container">
+            <h2>Quick Help Resources</h2>
+            <div class="gold-divider"></div>
+            <p>Can't find what you're looking for? Here are some quick resources</p>
+            
+            <div class="help-grid">
+                <div class="help-item">
+                    <i class="fas fa-book"></i>
+                    <h3>Design Guides</h3>
+                    <p>Comprehensive guides on interior design styles, trends, and planning</p>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Budget Calculator</h3>
+                    <p>Estimate your project cost with our interactive budget calculator</p>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-video"></i>
+                    <h3>Video Tutorials</h3>
+                    <p>Watch our design process and get tips from our experts</p>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>Live Chat</h3>
+                    <p>Instant answers from our design consultants</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="cta-container">
+            <h2>Still Have Questions?</h2>
+            <p>Our design experts are ready to answer all your questions and help you start your dream project.</p>
+            <button class="btn-primary" onclick="contactUs()">
+                <i class="fas fa-headset" style="margin-right: 10px;"></i>
+                Contact Our Experts
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="siteFooter">
+        <footer>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Smartspace Living</h3>
+                    <p>Creating beautiful, functional spaces that reflect your personality and lifestyle since 2012.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Our Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <a href="faq.html" class="active">FAQ</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+                    <a href="cancellation-policy.html">Cancellation Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> hello@smartspaceliving.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Multiple locations across India</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9AM - 7PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Smartspace Living. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: #D4AF37;"></i> in India</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        function initializeThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const isDark = body.classList.contains('dark-theme');
+                    
+                    if (isDark) {
+                        body.classList.remove('dark-theme');
+                        body.classList.add('light-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        body.classList.remove('light-theme');
+                        body.classList.add('dark-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+
+                // Load saved theme
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                if (savedTheme === 'light') {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+        }
+
+        // FAQ Accordion Functionality
+        function initializeFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').classList.remove('show');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    answer.classList.toggle('show');
+                });
+            });
+
+            // Category Filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const faqSections = document.querySelectorAll('.faq-section');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.getAttribute('data-category');
+                    
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Show/hide sections
+                    faqSections.forEach(section => {
+                        if (category === 'all' || section.getAttribute('data-category') === category) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        // Contact Function
+        function contactUs() {
+            window.location.href = 'contact.html';
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeThemeToggle();
+            initializeFAQ();
+        });
+
+        // Load Header and Footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+                initializeThemeToggle();
+            })
+            .catch(error => console.log('Header not found'));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteFooter').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not found'));
+    </script>
+</body>
+</html>

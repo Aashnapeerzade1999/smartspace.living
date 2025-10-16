@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Work | Smartspace Living</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .process-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 2rem auto;
+        }
+
+        /* Process Overview */
+        .process-overview {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .overview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .overview-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: var(--card-color);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .process-step:hover::before {
+            transform: scaleX(1);
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-icon {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .process-step p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Detailed Process */
+        .detailed-process {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 4rem;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 4rem;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -30px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -30px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .timeline-features {
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-duration {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .choose-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--card-color);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .member-role {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .faq-item {
+            background: var(--card-color);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--secondary);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .faq-question i {
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-marker {
+                left: -30px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+      <div id="siteHeader">
+        <!-- <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-palette"></i>
+                    SmartspaceLiving
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header> -->
+    </div>
+    <!-- Hero Section -->
+    <section class="process-hero">
+        <div class="hero-content">
+            <h1>How We Work</h1>
+            <div class="gold-divider"></div>
+            <p>Discover our meticulous design process that transforms your vision into reality with precision and creativity</p>
+        </div>
+    </section>
+
+    <!-- Process Overview -->
+    <section class="process-overview">
+        <div class="overview-container">
+            <h2>Our Design Process</h2>
+            <div class="gold-divider"></div>
+            <p>We follow a structured 6-step approach to ensure your interior design project is executed seamlessly from concept to completion</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Initial Consultation</h3>
+                    <p>We begin with understanding your requirements, preferences, and budget to create a design brief.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Concept Development</h3>
+                    <p>Our designers create mood boards, layouts, and 3D visualizations to bring your vision to life.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Detailed Planning</h3>
+                    <p>We develop comprehensive plans including materials, furniture, lighting, and color schemes.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Execution</h3>
+                    <p>Our team manages the entire implementation process with precision and attention to detail.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>We conduct thorough inspections to ensure every detail meets our quality standards.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Handover</h3>
+                    <p>We deliver your dream space on time and ensure complete satisfaction with the final result.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Process -->
+    <section class="detailed-process">
+        <div class="process-container">
+            <h2>Our Detailed Workflow</h2>
+            <div class="gold-divider"></div>
+            
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-marker">1</div>
+                        <h3>Discovery & Consultation</h3>
+                        <p>We start with an in-depth consultation to understand your lifestyle, preferences, and vision for the space.</p>
+                        
+                        <div class="timeline-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Needs Assessment</h4>
+                                    <p>Understanding your requirements and expectations</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Site Measurement</h4>
+                                    <p>Detailed measurement of your space</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Budget Planning</h4>
+                                    <p>Transparent cost estimation and planning</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>1-2 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-marker">2</div>
+                        <h3>Concept & Design Development</h3>
+                        <p>Our creative team develops comprehensive design concepts tailored to your vision.</p>
+                        
+                        <div class="timeline-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Mood Boards</h4>
+                                    <p>Visual representation of design direction</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>3D Visualizations</h4>
+                                    <p>Virtual walkthrough of your future space</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Material Selection</h4>
+                                    <p>Curated selection of finishes and materials</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>2-3 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-marker">3</div>
+                        <h3>Detailed Planning & Documentation</h3>
+                        <p>We create comprehensive technical drawings and documentation for precise execution.</p>
+                        
+                        <div class="timeline-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Technical Drawings</h4>
+                                    <p>Detailed floor plans and elevations</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Material Specifications</h4>
+                                    <p>Complete list of materials and finishes</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Project Timeline</h4>
+                                    <p>Detailed schedule and milestones</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>2 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-marker">4</div>
+                        <h3>Execution & Project Management</h3>
+                        <p>Our experienced team manages the entire implementation process with precision.</p>
+                        
+                        <div class="timeline-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Material Procurement</h4>
+                                    <p>Sourcing and quality checking of all materials</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Site Supervision</h4>
+                                    <p>Daily monitoring and quality control</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Regular Updates</h4>
+                                    <p>Weekly progress reports and meetings</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>4-12 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-marker">5</div>
+                        <h3>Quality Assurance & Finishing</h3>
+                        <p>We conduct thorough quality checks and add final touches to perfect your space.</p>
+                        
+                        <div class="timeline-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Quality Inspection</h4>
+                                    <p>Comprehensive quality checks</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Final Touches</h4>
+                                    <p>Styling and accessorizing</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Client Walkthrough</h4>
+                                    <p>Final inspection with client</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>1-2 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-marker">6</div>
+                        <h3>Project Handover & Support</h3>
+                        <p>We deliver your completed project and provide ongoing support for your satisfaction.</p>
+                        
+                        <div class="timeline-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Final Handover</h4>
+                                    <p>Official project completion and keys handover</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Warranty & Support</h4>
+                                    <p>Comprehensive warranty and after-service support</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Maintenance Guide</h4>
+                                    <p>Care and maintenance instructions</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>1 Week</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="choose-container">
+            <h2>Why Choose Our Process</h2>
+            <div class="gold-divider"></div>
+            <p>Our proven methodology ensures exceptional results and complete client satisfaction</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Client-Centric Approach</h3>
+                    <p>Your vision drives our design process. We prioritize your needs and preferences at every step.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Rigorous quality checks at every stage ensure flawless execution and lasting results.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Timely Delivery</h3>
+                    <p>Structured project management ensures we deliver on time, every time.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Expert Craftsmanship</h3>
+                    <p>Skilled artisans and technicians bring our designs to life with precision and care.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Transparent Communication</h3>
+                    <p>Regular updates and open communication keep you informed throughout the process.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Proven Track Record</h3>
+                    <p>12 years of excellence with 500+ satisfied clients across Mumbai and Navi Mumbai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2>Meet Your Design Team</h2>
+            <div class="gold-divider"></div>
+            <p>Our experienced professionals will guide you through every step of the process</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Anika Sharma</h3>
+                    <div class="member-role">Project Manager</div>
+                    <p>Coordinates all project activities and ensures seamless execution</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Rahul Kapoor</h3>
+                    <div class="member-role">Senior Designer</div>
+                    <p>Creates innovative design concepts and detailed plans</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Priya Patel</h3>
+                    <div class="member-role">Space Planner</div>
+                    <p>Optimizes space utilization and functional layouts</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Vikram Singh</h3>
+                    <div class="member-role">Site Supervisor</div>
+                    <p>Manages on-site execution and quality control</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="gold-divider"></div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does the entire design process take?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The complete process typically takes 10-20 weeks depending on project complexity. Residential projects average 12 weeks, while commercial spaces may take 16-20 weeks. We provide a detailed timeline during the initial consultation.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need to be present during the entire process?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Not at all! We handle everything and provide regular updates. We only need your presence for key decisions, approvals, and the final handover. Our project manager will coordinate everything seamlessly.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do you handle changes during the project?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We have a structured change management process. Minor adjustments can be accommodated easily, while major changes may require design revisions and timeline adjustments. We maintain transparent communication about any impacts.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What happens if there are delays?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We build buffer time into our schedules and proactively manage risks. In case of unavoidable delays, we immediately communicate the situation and revised timeline. Our track record shows 95% on-time delivery.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you provide warranty for your work?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer a comprehensive 2-year warranty on all workmanship and 1-year on materials. We also provide lifetime support for any queries or guidance you may need after project completion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 style="color: #000000;">Ready to Start Your Project?</h2>
+            <p>Let's begin the journey to transform your space into a masterpiece</p>
+            <button class="btn-primary">Schedule Free Consultation</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+      <div id="siteFooter">
+    
+    </div> 
+
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Add animation to process steps on scroll
+        const processSteps = document.querySelectorAll('.process-step');
+        const timelineItems = document.querySelectorAll('.timeline-content');
+        const benefitCards = document.querySelectorAll('.benefit-card');
+        const teamMembers = document.querySelectorAll('.team-member');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe all animated elements
+        [...processSteps, ...timelineItems, ...benefitCards, ...teamMembers].forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(element);
+        });
+
+        // Add hover effect to team members
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+        });
+
+        // Add click effect to CTA button
+        const ctaButton = document.querySelector('.btn-primary');
+        ctaButton.addEventListener('click', function() {
+            this.style.transform = 'translateY(-1px)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-3px)';
+            }, 150);
+        });
+    </script>
+
+          <!-- Script to load header and footer -->
+  <script>
+    // Load Header
+  fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('siteHeader').innerHTML = data;
+
+    // Run header JS only after it's loaded
+    const menuToggle = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  });
+
+
+    // Load Footer
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error("Footer not found");
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('siteFooter').innerHTML = data;
+      })
+      .catch(error => console.error("Footer load error:", error));
+  </script>
+</body>
+</html>

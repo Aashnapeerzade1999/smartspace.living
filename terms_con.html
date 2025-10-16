@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Smartspace Living | Premium Interior Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .light-theme {
+            --bg-color: var(--bg-light);
+            --text-color: var(--text-light);
+            --card-color: var(--card-light);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 10px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: rotate(15deg);
+        }
+
+        /* Hero Section */
+        .terms-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--accent);
+            opacity: 0.95;
+        }
+
+        .gold-divider {
+            width: 120px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 2.5rem auto;
+        }
+
+        /* Terms Content */
+        .terms-content {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .terms-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .terms-section {
+            margin-bottom: 4rem;
+            background: var(--card-color);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .terms-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .terms-section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary);
+        }
+
+        .terms-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .terms-section ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .terms-section li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .terms-section strong {
+            color: var(--secondary);
+        }
+
+        .notice-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .notice-box h4 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .terms-hero {
+                min-height: 40vh;
+                padding: 8rem 2rem 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .terms-section {
+                padding: 2rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .terms-section {
+                padding: 1.5rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+    <div id="siteHeader">
+        <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-palette"></i>
+                    SmartspaceLiving
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="hero-content">
+            <h1>Terms & Conditions</h1>
+            <div class="gold-divider"></div>
+            <p>Please read these terms carefully before using our services</p>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="terms-content">
+        <div class="terms-container">
+            <div class="notice-box">
+                <h4>Important Notice</h4>
+                <p>By accessing our website and using our services, you agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, you may not access our services.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>These Terms and Conditions govern your use of Smartspace Living's website and services. By accessing or using our services, you acknowledge that you have read, understood, and agree to be bound by these terms.</p>
+                
+                <h3>1.1 Eligibility</h3>
+                <ul>
+                    <li>You must be at least 18 years old to use our services</li>
+                    <li>You must have the legal capacity to enter into binding contracts</li>
+                    <li>You agree to provide accurate and complete information</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>2. Services Description</h2>
+                <p>Smartspace Living provides premium interior design services including:</p>
+                
+                <ul>
+                    <li><strong>Residential Interior Design:</strong> Complete home interiors, room-specific designs</li>
+                    <li><strong>Commercial Interior Design:</strong> Office spaces, retail stores, hospitality venues</li>
+                    <li><strong>Consultation Services:</strong> Design advice, space planning, material selection</li>
+                    <li><strong>Project Management:</strong> End-to-end project execution and coordination</li>
+                </ul>
+
+                <h3>2.1 Service Modifications</h3>
+                <p>We reserve the right to modify, suspend, or discontinue any aspect of our services at any time without prior notice.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>3. Client Responsibilities</h2>
+                <p>As our client, you agree to:</p>
+                
+                <ul>
+                    <li>Provide accurate and complete project requirements</li>
+                    <li>Grant necessary access to the project site</li>
+                    <li>Make timely decisions and provide feedback</li>
+                    <li>Ensure the project site is safe and accessible</li>
+                    <li>Obtain necessary permits and approvals</li>
+                    <li>Make payments as per agreed schedule</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>4. Payments and Pricing</h2>
+                
+                <h3>4.1 Payment Structure</h3>
+                <ul>
+                    <li><strong>Advance Payment:</strong> 40% upon project confirmation</li>
+                    <li><strong>Progress Payment:</strong> 40% upon project commencement</li>
+                    <li><strong>Final Payment:</strong> 20% upon project completion</li>
+                </ul>
+
+                <h3>4.2 Pricing Changes</h3>
+                <p>All prices are subject to change without notice. However, once a project is confirmed, the quoted price will be honored for 30 days.</p>
+
+                <h3>4.3 Additional Costs</h3>
+                <p>Client is responsible for additional costs including but not limited to:</p>
+                <ul>
+                    <li>Government taxes and duties</li>
+                    <li>Permit and approval fees</li>
+                    <li>Site preparation costs</li>
+                    <li>Changes requested after project commencement</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>5. Project Timeline</h2>
+                <p>Project timelines are estimates and may be affected by:</p>
+                
+                <ul>
+                    <li>Client decision-making delays</li>
+                    <li>Material availability and delivery</li>
+                    <li>Site conditions and accessibility</li>
+                    <li>Weather conditions</li>
+                    <li>Government regulations and approvals</li>
+                    <li>Force majeure events</li>
+                </ul>
+
+                <p>We will make reasonable efforts to meet projected timelines but cannot guarantee exact completion dates.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>6. Intellectual Property</h2>
+                
+                <h3>6.1 Design Rights</h3>
+                <p>All designs, drawings, concepts, and creative work produced by Smartspace Living remain our intellectual property until full payment is received.</p>
+
+                <h3>6.2 Usage Rights</h3>
+                <p>Upon full payment, clients receive:</p>
+                <ul>
+                    <li>License to use the design for the specified project</li>
+                    <li>Non-exclusive rights to the implemented design</li>
+                    <li>Right to make minor modifications for maintenance</li>
+                </ul>
+
+                <h3>6.3 Portfolio Usage</h3>
+                <p>We reserve the right to use completed project photographs and details in our portfolio, marketing materials, and social media unless otherwise agreed in writing.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>7. Cancellation and Refund Policy</h2>
+                
+                <h3>7.1 Client Cancellation</h3>
+                <ul>
+                    <li><strong>Before Project Start:</strong> 90% refund of advance payment</li>
+                    <li><strong>During Project:</strong> Refund based on work completed</li>
+                    <li><strong>After Project Completion:</strong> No refunds</li>
+                </ul>
+
+                <h3>7.2 Company Cancellation</h3>
+                <p>We reserve the right to cancel projects due to:</p>
+                <ul>
+                    <li>Non-payment or delayed payments</li>
+                    <li>Client misconduct or unreasonable demands</li>
+                    <li>Safety concerns at project site</li>
+                    <li>Force majeure circumstances</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>8. Warranties and Guarantees</h2>
+                
+                <h3>8.1 Workmanship Warranty</h3>
+                <p>We provide a 12-month warranty on workmanship from project completion date.</p>
+
+                <h3>8.2 Material Guarantees</h3>
+                <p>Material warranties are provided by manufacturers. We will assist in claiming manufacturer warranties but are not responsible for material defects.</p>
+
+                <h3>8.3 Limitations</h3>
+                <p>Warranties do not cover:</p>
+                <ul>
+                    <li>Normal wear and tear</li>
+                    <li>Damage from improper use or maintenance</li>
+                    <li>Modifications by third parties</li>
+                    <li>Acts of nature or accidents</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>9. Liability Limitations</h2>
+                <p>Our total liability to you for any claim shall not exceed the total amount paid for the specific project.</p>
+                
+                <p>We are not liable for:</p>
+                <ul>
+                    <li>Indirect, incidental, or consequential damages</li>
+                    <li>Loss of profits or business opportunities</li>
+                    <li>Delays beyond our reasonable control</li>
+                    <li>Client-provided materials or specifications</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>10. Dispute Resolution</h2>
+                
+                <h3>10.1 Negotiation</h3>
+                <p>Parties agree to attempt to resolve disputes through good-faith negotiations.</p>
+
+                <h3>10.2 Mediation</h3>
+                <p>If negotiation fails, parties agree to mediation before pursuing legal action.</p>
+
+                <h3>10.3 Jurisdiction</h3>
+                <p>These terms are governed by the laws of India. Any legal proceedings shall be conducted in Mumbai courts.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>11. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of our services after changes constitutes acceptance of modified terms.</p>
+                
+                <p>Major changes will be communicated via:</p>
+                <ul>
+                    <li>Email notification to registered users</li>
+                    <li>Notice on our website</li>
+                    <li>Updated terms document</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>12. Contact Information</h2>
+                <p>For questions about these Terms & Conditions, contact us:</p>
+                
+                <ul>
+                    <li><strong>Email:</strong> legal@smartspaceliving.com</li>
+                    <li><strong>Phone:</strong> +91 98765 43210</li>
+                    <li><strong>Address:</strong> Smartspace Living, Design Center, Bandra Kurla Complex, Mumbai - 400051</li>
+                    <li><strong>Business Hours:</strong> Monday - Saturday, 9:00 AM - 7:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="last-updated">
+                <p><strong>Last Updated:</strong> January 15, 2024</p>
+                <p><strong>Effective Date:</strong> January 15, 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Questions About Our Terms?</h2>
+            <div class="gold-divider"></div>
+            <p>Our legal team is available to clarify any aspect of our Terms & Conditions and address your concerns.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Legal Email</h3>
+                    <p>legal@smartspaceliving.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Legal Helpline</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Response Time</h3>
+                    <p>2-3 Business Days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="siteFooter">
+        <footer>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Smartspace Living</h3>
+                    <p>Creating beautiful, functional spaces that reflect your personality and lifestyle since 2012.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Our Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="designs.html">Design Ideas</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-conditions.html" class="active">Terms & Conditions</a>
+                    <a href="cancellation-policy.html">Cancellation Policy</a>
+                    <a href="refund-policy.html">Refund Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> hello@smartspaceliving.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Multiple locations across India</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9AM - 7PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Smartspace Living. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: #D4AF37;"></i> in India</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        function initializeThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const isDark = body.classList.contains('dark-theme');
+                    
+                    if (isDark) {
+                        body.classList.remove('dark-theme');
+                        body.classList.add('light-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        body.classList.remove('light-theme');
+                        body.classList.add('dark-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+
+                // Load saved theme
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                if (savedTheme === 'light') {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeThemeToggle();
+        });
+
+        // Load Header and Footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+                initializeThemeToggle();
+            })
+            .catch(error => console.log('Header not found'));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteFooter').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not found'));
+    </script>
+</body>
+</html>
