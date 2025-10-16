@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Smartspace Living</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -670,26 +671,12 @@
         }
     </style>
 </head>
+
+
 <body class="dark-theme">
     <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-couch"></i>
-                Smartspace Living
-            </a>
-            <nav class="nav-links">
-                <a href="#">Home</a>
-                <a href="#" class="active">Services</a>
-                <a href="#">Portfolio</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </nav>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
+     <div id="siteHeader">
         </div>
-    </header>
 
     <!-- Hero Section -->
     <section class="services-hero">
@@ -977,53 +964,61 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Ready to Transform Your Space?</h2>
+            
             <p>Schedule a complimentary consultation with our design experts today.</p>
-            <button class="btn-primary">Book Free Consultation</button>
+            <button class="btn-primary" onclick="window.location.href='contact.html'">Book Consultation</button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Smartspace Living</h3>
-                <p>Transforming spaces into luxurious living experiences with innovative design solutions.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <a href="#">Home</a>
-                <a href="#">Services</a>
-                <a href="#">Portfolio</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="footer-col">
-                <h3>Services</h3>
-                <a href="#">Residential Design</a>
-                <a href="#">Commercial Design</a>
-                <a href="#">Space Planning</a>
-                <a href="#">Custom Furniture</a>
-                <a href="#">Renovation</a>
-            </div>
-            <div class="footer-col">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Design Street, Mumbai</p>
-                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> info@smartspaceliving.com</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 Smartspace Living. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="siteFooter">
 
+        </div>
+ <script>
+             // Load Header
+  fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('siteHeader').innerHTML = data;
+
+    // Run header JS only after it's loaded
+    const menuToggle = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  });
+
+
+    // Load Footer
+   fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('siteFooter').innerHTML = data;
+
+    // Chatbot initialization after footer is loaded
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+
+    if(chatbotToggle && chatbotContainer && closeChat){
+      chatbotToggle.addEventListener('click', function() {
+          chatbotContainer.classList.toggle('active');
+          chatbotToggle.classList.toggle('minimized');
+      });
+
+      closeChat.addEventListener('click', function() {
+          chatbotContainer.classList.remove('active');
+          chatbotToggle.classList.add('minimized');
+      });
+
+      // You can include the rest of your chatbot JS here...
+    }
+  });
+    </script>
     <script>
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
@@ -1116,6 +1111,9 @@
             step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             processObserver.observe(step);
         });
+
+    
     </script>
+   
 </body>
 </html>

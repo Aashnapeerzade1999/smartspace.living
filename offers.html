@@ -825,7 +825,7 @@
                                     <div class="countdown-label">Min</div>
                                 </div>
                             </div>
-                            <button class="btn-primary">Claim Offer</button>
+                            <button class="btn-primary" onclick="window.location.href='contact.html'">Claim Offer</button>
                         </div>
                     </div>
                 </div>
@@ -879,7 +879,7 @@
                                     <div class="countdown-label">Min</div>
                                 </div>
                             </div>
-                            <button class="btn-primary">Claim Offer</button>
+                            <button class="btn-primary" onclick="window.location.href='contact.html'">Claim Offer</button>
                         </div>
                     </div>
                 </div>
@@ -926,7 +926,7 @@
                         </div>
                     </div>
                     
-                    <button class="btn-primary" style="width: 100%;">Get This Deal</button>
+                    <button class="btn-primary" style="width: 100%;" onclick="window.location.href='contact.html'">Get This Deal</button>
                 </div>
 
                 <!-- Offer 2 -->
@@ -959,7 +959,7 @@
                         </div>
                     </div>
                     
-                    <button class="btn-primary" style="width: 100%;">Get This Deal</button>
+                    <button class="btn-primary" style="width: 100%;" onclick="window.location.href='contact.html'">Get This Deal</button>
                 </div>
 
                 <!-- Offer 3 -->
@@ -992,7 +992,7 @@
                         </div>
                     </div>
                     
-                    <button class="btn-primary" style="width: 100%;">Get This Deal</button>
+                    <button class="btn-primary" style="width: 100%;" onclick="window.location.href='contact.html'">Get This Deal</button>
                 </div>
             </div>
         </div>
@@ -1037,7 +1037,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn-primary" style="width: 100%;">Book Festive Package</button>
+                        <button class="btn-primary" style="width: 100%;" onclick="window.location.href='contact.html'">Book Festive Package</button>
                     </div>
                 </div>
 
@@ -1071,7 +1071,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn-primary" style="width: 100%;">Weather-Proof My Home</button>
+                        <button class="btn-primary" style="width: 100%;" onclick="window.location.href='contact.html'">Weather-Proof My Home</button>
                     </div>
                 </div>
             </div>
@@ -1115,7 +1115,7 @@
                     </div>
                 </div>
                 
-                <button class="btn-primary btn-large">Become a Member</button>
+                <button class="btn-primary btn-large" onclick="window.location.href='contact.html'">Become a Member</button>
             </div>
         </div>
     </section>
@@ -1125,7 +1125,7 @@
         <div class="cta-content">
             <h2 style="color: #000000;">Ready to Transform Your Space?</h2>
             <p>Contact our design experts to learn more about these exclusive offers and find the perfect package for your home</p>
-            <button class="btn-primary btn-large">Schedule Free Consultation</button>
+            <button class="btn-primary btn-large" onclick="window.location.href='contact.html'">Schedule Free Consultation</button>
         </div>
     </section>
 
@@ -1155,15 +1155,31 @@
 
 
     // Load Footer
-    fetch('footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error("Footer not found");
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('siteFooter').innerHTML = data;
-      })
-      .catch(error => console.error("Footer load error:", error));
+  fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('siteFooter').innerHTML = data;
+
+    // Chatbot initialization after footer is loaded
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+
+    if(chatbotToggle && chatbotContainer && closeChat){
+      chatbotToggle.addEventListener('click', function() {
+          chatbotContainer.classList.toggle('active');
+          chatbotToggle.classList.toggle('minimized');
+      });
+
+      closeChat.addEventListener('click', function() {
+          chatbotContainer.classList.remove('active');
+          chatbotToggle.classList.add('minimized');
+      });
+
+      // You can include the rest of your chatbot JS here...
+    }
+  });
+      
   </script>
 
     <script>

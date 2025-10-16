@@ -648,7 +648,7 @@
                             <i class="fas fa-pencil-ruler"></i>
                         </div>
                         <h3>Design Consultation</h3>
-                        <p>Free one-on-one consultations with our expert
+                        <p> one-on-one consultations with our expert
                             designers at all locations</p>
                     </div>
 
@@ -1064,15 +1064,30 @@
 
 
     // Load Footer
-    fetch('footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error("Footer not found");
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('siteFooter').innerHTML = data;
-      })
-      .catch(error => console.error("Footer load error:", error));
+   fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('siteFooter').innerHTML = data;
+
+    // Chatbot initialization after footer is loaded
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+
+    if(chatbotToggle && chatbotContainer && closeChat){
+      chatbotToggle.addEventListener('click', function() {
+          chatbotContainer.classList.toggle('active');
+          chatbotToggle.classList.toggle('minimized');
+      });
+
+      closeChat.addEventListener('click', function() {
+          chatbotContainer.classList.remove('active');
+          chatbotToggle.classList.add('minimized');
+      });
+
+      // You can include the rest of your chatbot JS here...
+    }
+  });
   </script>
         </body>
     </html>

@@ -1010,7 +1010,8 @@
 
         // CTA Function
         function scheduleConsultation() {
-            alert('Thank you for your interest! Our team will contact you shortly to schedule a consultation.');
+            window.location.href = 'contact.html';
+            //alert('Thank you for your interest! Our team will contact you shortly to schedule a consultation.');
             // In a real application, this would open a form or redirect to a contact page
         }
 
@@ -1046,13 +1047,30 @@
             })
             .catch(error => console.log('Header not found, using fallback'));
 
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('siteFooter').innerHTML = data;
-            })
-            .catch(error => console.log('Footer not found, using fallback'));
-      
+      fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('siteFooter').innerHTML = data;
+
+    // Chatbot initialization after footer is loaded
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+
+    if(chatbotToggle && chatbotContainer && closeChat){
+      chatbotToggle.addEventListener('click', function() {
+          chatbotContainer.classList.toggle('active');
+          chatbotToggle.classList.toggle('minimized');
+      });
+
+      closeChat.addEventListener('click', function() {
+          chatbotContainer.classList.remove('active');
+          chatbotToggle.classList.add('minimized');
+      });
+
+      // You can include the rest of your chatbot JS here...
+    }
+  });
     </script>
 </body>
 </html>

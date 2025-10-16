@@ -839,7 +839,7 @@
     </section>
 
     <!-- Detailed Process -->
-    <section class="detailed-process">
+    <!-- <section class="detailed-process">
         <div class="process-container">
             <h2>Our Detailed Workflow</h2>
             <div class="gold-divider"></div>
@@ -1104,7 +1104,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Why Choose Us -->
     <section class="why-choose">
@@ -1284,6 +1284,28 @@
     
     </div> 
 
+<script>
+    // FAQ Accordion
+    document.addEventListener('DOMContentLoaded', () => {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
 
     <script>
         // Theme Toggle
@@ -1302,25 +1324,7 @@
             }
         });
 
-        // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
-            question.addEventListener('click', () => {
-                // Close all other items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current item
-                item.classList.toggle('active');
-            });
-        });
-
+       
         // Add animation to process steps on scroll
         const processSteps = document.querySelectorAll('.process-step');
         const timelineItems = document.querySelectorAll('.timeline-content');
@@ -1385,16 +1389,30 @@
   });
 
 
-    // Load Footer
     fetch('footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error("Footer not found");
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('siteFooter').innerHTML = data;
-      })
-      .catch(error => console.error("Footer load error:", error));
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('siteFooter').innerHTML = data;
+
+    // Chatbot initialization after footer is loaded
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+
+    if(chatbotToggle && chatbotContainer && closeChat){
+      chatbotToggle.addEventListener('click', function() {
+          chatbotContainer.classList.toggle('active');
+          chatbotToggle.classList.toggle('minimized');
+      });
+
+      closeChat.addEventListener('click', function() {
+          chatbotContainer.classList.remove('active');
+          chatbotToggle.classList.add('minimized');
+      });
+
+      // You can include the rest of your chatbot JS here...
+    }
+  });
   </script>
 </body>
 </html>

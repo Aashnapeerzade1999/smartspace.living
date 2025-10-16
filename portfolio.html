@@ -843,7 +843,7 @@
         <div class="cta-content">
             <h2 style="color: #000000;">Ready to Create Your Dream Space?</h2>
             <p>Let's collaborate to design an environment that reflects your unique style and enhances your lifestyle.</p>
-            <button class="btn-primary">Start Your Design Journey</button>
+            <button class="btn-primary"  onclick="window.location.href='contact.html'">Start Your Design Journey</button>
         </div>
     </section>
 
@@ -956,15 +956,30 @@
 
 
     // Load Footer
-    fetch('footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error("Footer not found");
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('siteFooter').innerHTML = data;
-      })
-      .catch(error => console.error("Footer load error:", error));
+fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('siteFooter').innerHTML = data;
+
+    // Chatbot initialization after footer is loaded
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+
+    if(chatbotToggle && chatbotContainer && closeChat){
+      chatbotToggle.addEventListener('click', function() {
+          chatbotContainer.classList.toggle('active');
+          chatbotToggle.classList.toggle('minimized');
+      });
+
+      closeChat.addEventListener('click', function() {
+          chatbotContainer.classList.remove('active');
+          chatbotToggle.classList.add('minimized');
+      });
+
+      // You can include the rest of your chatbot JS here...
+    }
+  });
   </script>
 </body>
 </html>
