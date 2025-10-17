@@ -640,24 +640,12 @@
 
         .brand-item img {
             max-width: 100%;
-            height: 80px;
+            height: 100px;
             object-fit: contain;
-            filter: grayscale(100%);
+           
             transition: var(--transition);
         }
 
-        .brand-item:hover img {
-            filter: grayscale(0%);
-        }
-  </style>
-
-  </head>
-  <body class="dark-theme">
-
-    <!-- Header -->
-    <div id="siteHeader"></div>
-
-    <style>
 /* ===== Welcome Popup ===== */
 .welcome-popup {
   position: fixed; top:0; left:0; width:100%; height:100%;
@@ -706,7 +694,81 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
 
 /* Responsive */
 @media(max-width:480px){ .welcome-content{max-height:60vh;padding:1.5rem;} h2{font-size:1.5rem;} p{font-size:0.9rem;} .logo-container img{width:60px;height:60px;} .welcome-btn{padding:8px 15px;font-size:0.85rem;} }
-</style>
+    
+    
+    .vediopopup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.vediopopup-content {
+  background: #0a0909;
+  padding: 2rem;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.vsocial-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.vsocial-btn { padding: 0.5rem 1rem; border-radius: 5px; color: #fff; text-decoration: none; }
+ .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+
+.btn-secondary { padding: 0.5rem 1rem; cursor: pointer; background: #555; color: #fff; border: none; border-radius: 5px; }
+    </style>
+
+    <!-- style close -->
+  </head>
+
+  <!-- body started -->
+  <body class="dark-theme">
+
+    <!-- Header -->
+    <div id="siteHeader"></div>
 
     <div class="welcome-popup" id="welcome-popup">
       <div class="welcome-content">
@@ -739,32 +801,32 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
             class="fas fa-times"></i></button>
       </div>
     </div>
-
+    <!-- welcome popup started -->
     <script>
-const popup = document.getElementById('welcome-popup');
-const closeBtn = document.getElementById('close-welcome');
-const claimBtn = document.getElementById('claim-offers');
-const estimateBtn = document.getElementById('get-estimate');
+      const popup = document.getElementById('welcome-popup');
+      const closeBtn = document.getElementById('close-welcome');
+      const claimBtn = document.getElementById('claim-offers');
+      const estimateBtn = document.getElementById('get-estimate');
 
-function closePopup(){ popup.classList.remove('active'); setTimeout(()=>popup.style.display='none',500); }
-document.addEventListener('DOMContentLoaded', ()=>{ setTimeout(()=>popup.classList.add('active'),500); });
+      function closePopup(){ popup.classList.remove('active'); setTimeout(()=>popup.style.display='none',500); }
+      document.addEventListener('DOMContentLoaded', ()=>{ setTimeout(()=>popup.classList.add('active'),500); });
 
-closeBtn.onclick = closePopup;
-popup.onclick = e=>{ if(e.target===popup) closePopup(); }
-document.onkeydown = e=>{ if(e.key==='Escape') closePopup(); }
+      closeBtn.onclick = closePopup;
+      popup.onclick = e=>{ if(e.target===popup) closePopup(); }
+      document.onkeydown = e=>{ if(e.key==='Escape') closePopup(); }
 
-claimBtn.onclick = () => {
-  closePopup();
-  window.location.href = 'offers.html'; // Redirect to offers page
-}
+      claimBtn.onclick = () => {
+        closePopup();
+        window.location.href = 'offers.html'; // Redirect to offers page
+      }
 
-estimateBtn.onclick = () => {
-  closePopup();
-  window.location.href = 'price_calculator.html'; // Redirect to estimate page
-}
+      estimateBtn.onclick = () => {
+        closePopup();
+        window.location.href = 'price_calculator.html'; // Redirect to estimate page
+      }
 
-</script>
-
+    </script>
+    <!-- welcome popup closed  -->
     <!-- Page Content -->
     <main>
       <!-- Enhanced Hero Section -->
@@ -776,13 +838,88 @@ estimateBtn.onclick = () => {
             reality, creating spaces that inspire and elevate your
             lifestyle.</p>
           <div class="hero-buttons">
-            <button class="btn-primary">
-              <i class="fas fa-calendar-check"></i> Book Free Design
-              Consultation
+            <button class="btn-primary"
+              onclick="window.location.href='contact.html'">
+              <i class="fas fa-calendar-check"></i> Book Design Consultation
             </button>
-            <button class="btn-secondary">
+            <!-- Popup vedio popup started-->
+            <button class="btn-secondary" id="watchVideoBtn">
               <i class="fas fa-play-circle"></i> Watch Our Design Story
             </button>
+
+            <div id="designStoryPopup" class="vediopopup dark-theme">
+              <div class="vediopopup-content">
+                <span class="close-btn">&times;</span>
+                <h3>Our Design Story</h3>
+
+                <!-- Iframe Video -->
+                <div class="video-wrapper"
+                  style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+                  </iframe>
+                </div>
+
+                <!-- Social Buttons -->
+                <div class="vsocial-buttons">
+                  <div class="social-links">
+                    <a href="https://www.instagram.com/smartspacelivin/"
+                      target="_blank">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://pin.it/5d2zQb6pP" target="_blank">
+                      <i class="fab fa-pinterest"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.facebook.com/smartspacelivin"
+                      target="_blank">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/smartspacelivin"
+                      target="_blank">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@smartspaceinteriorstudio"
+                      target="_blank">
+                      <i class="fab fa-youtube"></i>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- vedio popup started  -->
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+              const watchBtn = document.getElementById("watchVideoBtn");
+              const popup = document.getElementById("designStoryPopup");
+              const closeBtn = popup.querySelector(".close-btn");
+
+              watchBtn.addEventListener("click", () => {
+                  popup.style.display = "flex";
+              });
+
+              closeBtn.addEventListener("click", () => {
+                  popup.style.display = "none";
+                  const iframe = popup.querySelector("iframe");
+                  if (iframe) iframe.src = iframe.src; // stops YouTube video on close
+              });
+
+              window.addEventListener("click", e => {
+                  if (e.target === popup) {
+                      popup.style.display = "none";
+                      const iframe = popup.querySelector("iframe");
+                      if (iframe) iframe.src = iframe.src; // stops YouTube video on close
+                  }
+              });
+          });
+          </script>
+            <!-- vedio popup script close -->
           </div>
           <div
             style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
@@ -1133,10 +1270,11 @@ estimateBtn.onclick = () => {
         <!-- Enhanced CTA Section -->
         <section class="cta-section">
           <div class="cta-content">
-            
+
             <p>Schedule a complimentary consultation with our design experts and
               take the first step towards your dream space</p>
-            <button class="btn-primary" onclick="window.location.href='contact.html'">
+            <button class="btn-primary"
+              onclick="window.location.href='contact.html'">
               <i class="fas fa-calendar-alt"></i> Book Free Design Consultation
             </button>
             <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
@@ -1273,96 +1411,13 @@ estimateBtn.onclick = () => {
     document.head.appendChild(style);
   </script>
 
-      <script>
-    // Your existing JavaScript for header/footer loading
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => { 
-        document.getElementById('siteHeader').innerHTML = data; 
-        initNav();
-      });
-
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => { 
-        document.getElementById('siteFooter').innerHTML = data;
-      });
-
-    </script>
     </main>
 
     <!-- Footer -->
     <div id="siteFooter"></div>
-
+   
     <script>
-    // Load Header
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('siteHeader').innerHTML = data; });
-
-   fetch('footer.html')
-  .then(response => response.text())
-  .then(data => { 
-      document.getElementById('siteFooter').innerHTML = data;
-
-      // ---- Theme toggle inside footer (if any) ----
-      const themeToggle = document.getElementById('themeToggle');
-      // if (themeToggle) {
-      //     themeToggle.addEventListener('click', () => {
-      //         const body = document.body;
-      //         if (body.classList.contains('light-theme')) {
-      //             body.classList.remove('light-theme');
-      //             body.classList.add('dark-theme');
-      //             themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-      //             localStorage.setItem('theme', 'dark');
-      //         } else {
-      //             body.classList.remove('dark-theme');
-      //             body.classList.add('light-theme');
-      //             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-      //             localStorage.setItem('theme', 'light');
-      //         }
-      //     });
-      // }
-  });
-
-  
-//     // Testimonial Slider
-// let currentSlide = 0;
-// const slides = document.querySelectorAll('.testimonial-slide');
-// const dots = document.querySelectorAll('.dot');
-
-function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    currentSlide = (n + slides.length) % slides.length;
-    
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-}
-
-// Auto slide every 5 seconds
-setInterval(() => {
-    showSlide(currentSlide + 1);
-}, 5000);
-
-// Dot click events
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        showSlide(index);
-    });
-});
-
-
-// Observe all sections for fade-in animation
-document.querySelectorAll('section').forEach(section => {
-    section.classList.add('fade-in');
-    observer.observe(section);
-});
-</script>
-
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     // Testimonial Slider
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
@@ -1390,168 +1445,243 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 5000);
 
 
-});
-</script>
+      });
+      </script>
     <script>
-/* Helper to execute scripts inside fetched HTML */
-function runFetchedScripts(container) {
-  // Execute inline scripts
-  container.querySelectorAll('script').forEach(oldScript => {
-    const newScript = document.createElement('script');
-    if (oldScript.src) {
-      // External script: load it
-      newScript.src = oldScript.src;
-      newScript.defer = oldScript.defer || false;
-    } else {
-      // Inline script: copy content
-      newScript.textContent = oldScript.textContent;
-    }
-    document.body.appendChild(newScript);
-    oldScript.remove();
-  });
-}
+          /* Helper to execute scripts inside fetched HTML */
+          function runFetchedScripts(container) {
+            // Execute inline scripts
+            container.querySelectorAll('script').forEach(oldScript => {
+              const newScript = document.createElement('script');
+              if (oldScript.src) {
+                // External script: load it
+                newScript.src = oldScript.src;
+                newScript.defer = oldScript.defer || false;
+              } else {
+                // Inline script: copy content
+                newScript.textContent = oldScript.textContent;
+              }
+              document.body.appendChild(newScript);
+              oldScript.remove();
+            });
+          }
 
-/* initNav: attach all nav listeners, safe to call multiple times */
-function initNav() {
-  const mobileMenu = document.getElementById('mobileMenu');
-  const closeMenu = document.getElementById('closeMenu');
-  const nav = document.getElementById('mainNav');
-  const body = document.body;
-  if (!nav) return;
+          /* initNav: attach all nav listeners, safe to call multiple times */
+          function initNav() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeMenu = document.getElementById('closeMenu');
+            const nav = document.getElementById('mainNav');
+            const body = document.body;
+            if (!nav) return;
 
-  // Remove previous handlers to avoid duplicates (idempotent)
-  nav.querySelectorAll('[data-listener]').forEach(el => el.removeAttribute('data-listener'));
+            // Remove previous handlers to avoid duplicates (idempotent)
+            nav.querySelectorAll('[data-listener]').forEach(el => el.removeAttribute('data-listener'));
 
-  // Mobile open
-  if (mobileMenu && !mobileMenu.dataset.listenerAttached) {
-    mobileMenu.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nav.classList.add('active');
-      body.style.overflow = 'hidden';
-    });
-    mobileMenu.dataset.listenerAttached = 'true';
-  }
+            // Mobile open
+            if (mobileMenu && !mobileMenu.dataset.listenerAttached) {
+              mobileMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nav.classList.add('active');
+                body.style.overflow = 'hidden';
+              });
+              mobileMenu.dataset.listenerAttached = 'true';
+            }
 
-  // Mobile close
-  if (closeMenu && !closeMenu.dataset.listenerAttached) {
-    closeMenu.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nav.classList.remove('active');
-      body.style.overflow = '';
-      resetDropdowns();
-    });
-    closeMenu.dataset.listenerAttached = 'true';
-  }
+            // Mobile close
+            if (closeMenu && !closeMenu.dataset.listenerAttached) {
+              closeMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nav.classList.remove('active');
+                body.style.overflow = '';
+                resetDropdowns();
+              });
+              closeMenu.dataset.listenerAttached = 'true';
+            }
 
-  function resetDropdowns() {
-    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-    document.querySelectorAll('.dropdown-toggle i').forEach(icon => icon.style.transform = 'rotate(0)');
-  }
+            function resetDropdowns() {
+              document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+              document.querySelectorAll('.dropdown-toggle i').forEach(icon => icon.style.transform = 'rotate(0)');
+            }
 
-  // Delegated mobile dropdown toggles
-  document.addEventListener('click', function mobileDropdownHandler(e) {
-    const toggle = e.target.closest('.dropdown-toggle');
-    if (!toggle) return;
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const dropdown = toggle.nextElementSibling;
-      if (!dropdown || !dropdown.classList.contains('dropdown')) return;
-      // close others
-      document.querySelectorAll('.dropdown.active').forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
-      const isActive = dropdown.classList.toggle('active');
-      const icon = toggle.querySelector('i');
-      if (icon) icon.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0)';
-    }
-  });
+            // Delegated mobile dropdown toggles
+            document.addEventListener('click', function mobileDropdownHandler(e) {
+              const toggle = e.target.closest('.dropdown-toggle');
+              if (!toggle) return;
+              if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const dropdown = toggle.nextElementSibling;
+                if (!dropdown || !dropdown.classList.contains('dropdown')) return;
+                // close others
+                document.querySelectorAll('.dropdown.active').forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
+                const isActive = dropdown.classList.toggle('active');
+                const icon = toggle.querySelector('i');
+                if (icon) icon.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0)';
+              }
+            });
 
-  // Close mobile menu / dropdowns when clicking outside
-  document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) {
-      if (!e.target.closest('#mainNav') && !e.target.closest('#mobileMenu')) {
-        nav.classList.remove('active');
-        body.style.overflow = '';
-        resetDropdowns();
-      }
-    }
-  });
+            // Close mobile menu / dropdowns when clicking outside
+            document.addEventListener('click', (e) => {
+              if (window.innerWidth <= 768) {
+                if (!e.target.closest('#mainNav') && !e.target.closest('#mobileMenu')) {
+                  nav.classList.remove('active');
+                  body.style.overflow = '';
+                  resetDropdowns();
+                }
+              }
+            });
 
-  // Debounced resize handler to reset mobile states
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      if (window.innerWidth > 768 && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        body.style.overflow = '';
-      }
-      resetDropdowns();
-    }, 120);
-  });
+            // Debounced resize handler to reset mobile states
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+              clearTimeout(resizeTimer);
+              resizeTimer = setTimeout(() => {
+                if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                  nav.classList.remove('active');
+                  body.style.overflow = '';
+                }
+                resetDropdowns();
+              }, 120);
+            });
 
-  // Desktop dropdown alignment on hover/focus
-  document.querySelectorAll('nav ul li').forEach(li => {
-    const dropdown = li.querySelector('.dropdown');
-    if (!dropdown) return;
-    li.addEventListener('mouseenter', () => {
-      if (window.innerWidth <= 768) return;
-      dropdown.style.left = '';
-      dropdown.style.right = '';
-      const rect = dropdown.getBoundingClientRect();
-      const overflowRight = rect.right - window.innerWidth;
-      const overflowLeft = rect.left;
-      if (overflowRight > 0 && overflowLeft >= 0) {
-        dropdown.style.left = 'auto';
-        dropdown.style.right = '0';
-      } else {
-        dropdown.style.left = '0';
-        dropdown.style.right = 'auto';
-      }
-    });
-    // keyboard support
-    const link = li.querySelector('a, button');
-    if (link) {
-      link.addEventListener('focus', () => {
-        if (window.innerWidth <= 768) return;
-        dropdown.style.left = '';
-        dropdown.style.right = '';
-        const rect = dropdown.getBoundingClientRect();
-        const overflowRight = rect.right - window.innerWidth;
-        if (overflowRight > 0) {
-          dropdown.style.left = 'auto';
-          dropdown.style.right = '0';
-        } else {
-          dropdown.style.left = '0';
-          dropdown.style.right = 'auto';
+            // Desktop dropdown alignment on hover/focus
+            document.querySelectorAll('nav ul li').forEach(li => {
+              const dropdown = li.querySelector('.dropdown');
+              if (!dropdown) return;
+              li.addEventListener('mouseenter', () => {
+                if (window.innerWidth <= 768) return;
+                dropdown.style.left = '';
+                dropdown.style.right = '';
+                const rect = dropdown.getBoundingClientRect();
+                const overflowRight = rect.right - window.innerWidth;
+                const overflowLeft = rect.left;
+                if (overflowRight > 0 && overflowLeft >= 0) {
+                  dropdown.style.left = 'auto';
+                  dropdown.style.right = '0';
+                } else {
+                  dropdown.style.left = '0';
+                  dropdown.style.right = 'auto';
+                }
+              });
+              // keyboard support
+              const link = li.querySelector('a, button');
+              if (link) {
+                link.addEventListener('focus', () => {
+                  if (window.innerWidth <= 768) return;
+                  dropdown.style.left = '';
+                  dropdown.style.right = '';
+                  const rect = dropdown.getBoundingClientRect();
+                  const overflowRight = rect.right - window.innerWidth;
+                  if (overflowRight > 0) {
+                    dropdown.style.left = 'auto';
+                    dropdown.style.right = '0';
+                  } else {
+                    dropdown.style.left = '0';
+                    dropdown.style.right = 'auto';
+                  }
+                });
+              }
+            });
+          }
+
+
+        </script>
+    <!-- Script to load header and footer -->
+    <script>
+          // Load Header
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('siteHeader').innerHTML = data;
+
+          // Run header JS only after it's loaded
+          const menuToggle = document.querySelector('.mobile-menu');
+          const nav = document.querySelector('nav');
+
+          if (menuToggle && nav) {
+            menuToggle.addEventListener('click', () => {
+              nav.classList.toggle('active');
+            });
+          }
+        });
+
+
+         fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('siteFooter').innerHTML = data;
+
+    // --- After footer is loaded, initialize chatbot and form ---
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+    const userForm = document.getElementById('userForm');
+    const formContainer = document.getElementById('formContainer');
+    const successMessage = document.getElementById('successMessage');
+    const chatBody = document.getElementById('chatbotBody');
+
+    if(chatbotToggle && chatbotContainer && closeChat && userForm){
+      // Chatbot toggle
+      chatbotToggle.addEventListener('click', () => {
+        chatbotContainer.classList.toggle('active');
+        chatbotToggle.classList.toggle('minimized');
+      });
+
+      closeChat.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+        chatbotToggle.classList.add('minimized');
+      });
+
+      // Form submit
+      userForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const email = document.getElementById('email').value.trim();
+
+        if(!name || !email || !/^\d{10}$/.test(mobile)){
+          alert('Please enter valid details.');
+          return;
         }
+
+        // --- WhatsApp redirect ---
+        const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+        const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+        const win = window.open(whatsappURL, '_blank');
+        if(!win) alert("Popup blocked! Allow popups to open WhatsApp.");
+
+        // --- Google Sheet ---
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('mobile', mobile);
+        formData.append('email', email);
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+          .then(res => console.log('Sheet Response:', res))
+          .catch(err => console.error('Sheet Error:', err));
+
+        // --- Update UI ---
+        formContainer.classList.remove('active');
+        successMessage.classList.add('active');
+
+        const userMsg = document.createElement('div');
+        userMsg.className = 'message user-message';
+        userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+        chatBody.appendChild(userMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        setTimeout(() => {
+          formContainer.classList.add('active');
+          successMessage.classList.remove('active');
+          userForm.reset();
+        }, 3000);
       });
     }
-  });
-}
+  })
+  .catch(err => console.error('Footer load error:', err));
+      
+    </script>
 
-/* --- Fetch header and footer safely and init nav after insertion --- */
-function loadPartial(id, path, cb) {
-  fetch(path)
-    .then(r => {
-      if (!r.ok) throw new Error('Failed to load ' + path);
-      return r.text();
-    })
-    .then(html => {
-      const container = document.getElementById(id);
-      if (!container) return;
-      container.innerHTML = html;
-      // execute inline/external scripts inside the fetched HTML
-      runFetchedScripts(container);
-      // callback (e.g., initNav)
-      if (typeof cb === 'function') cb();
-    })
-    .catch(err => console.error(err));
-}
-
-/* Usage: load header then initNav */
-loadPartial('siteHeader', 'header.html', initNav);
-loadPartial('siteFooter', 'footer.html', function() {
-  // if footer has scripts that need init, call here
-});
-</script>
-
+    
   </body>
+</html>

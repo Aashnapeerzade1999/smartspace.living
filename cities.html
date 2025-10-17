@@ -801,75 +801,204 @@
     </div>
 
     <script>
-        // Theme Toggle Functionality
-        function initializeThemeToggle() {
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    const isDark = body.classList.contains('dark-theme');
-                    
-                    if (isDark) {
-                        body.classList.remove('dark-theme');
-                        body.classList.add('light-theme');
-                        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                        localStorage.setItem('theme', 'light');
-                    } else {
-                        body.classList.remove('light-theme');
-                        body.classList.add('dark-theme');
-                        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                        localStorage.setItem('theme', 'dark');
-                    }
-                });
-
-                // Load saved theme
-                const savedTheme = localStorage.getItem('theme') || 'dark';
-                if (savedTheme === 'light') {
-                    body.classList.remove('dark-theme');
-                    body.classList.add('light-theme');
-                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                }
-            }
-        }
 
         // Project Data
         const projects = [
-            {
-                id: 1,
-                title: "Luxury Sea-Facing Apartment",
-                location: "South Mumbai",
-                city: "south-mumbai",
-                type: "residential",
-                bhk: "3",
-                area: "1800 sq. ft.",
-                completion: "Jan 2023",
-                description: "A stunning sea-facing apartment in South Mumbai with panoramic views and luxurious finishes.",
-                images: [
-                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                ],
-                tags: ["Luxury", "Sea View", "Modern"]
-            },
-            {
-                id: 2,
-                title: "Corporate Office - Bandra Kurla Complex",
-                location: "Central Mumbai",
-                city: "central-mumbai",
-                type: "commercial",
-                bhk: "office",
-                area: "5000 sq. ft.",
-                completion: "Mar 2023",
-                description: "Modern corporate office space in BKC designed for productivity and collaboration.",
-                images: [
-                    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
-                    "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
-                ],
-                tags: ["Corporate", "BKC", "Office"]
-            }
-            // Add more projects as needed...
-        ];
+  {
+    id: 1,
+    title: "Luxury Sea-Facing Apartment",
+    location: "South Mumbai",
+    city: "south-mumbai",
+    type: "residential",
+    bhk: "3",
+    area: "1800 sq. ft.",
+    completion: "Jan 2023",
+    description: "A stunning sea-facing apartment in South Mumbai with panoramic views and luxurious finishes.",
+    images: [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Luxury", "Sea View", "Modern"]
+  },
+  {
+    id: 2,
+    title: "Corporate Office - Bandra Kurla Complex",
+    location: "Central Mumbai",
+    city: "central-mumbai",
+    type: "commercial",
+    bhk: "office",
+    area: "5000 sq. ft.",
+    completion: "Mar 2023",
+    description: "Modern corporate office space in BKC designed for productivity and collaboration.",
+    images: [
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2069&q=80",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2069&q=80"
+    ],
+    tags: ["Corporate", "BKC", "Office"]
+  },
+  {
+    id: 3,
+    title: "Penthouse Retreat - Worli",
+    location: "Worli, Mumbai",
+    city: "south-mumbai",
+    type: "residential",
+    bhk: "4",
+    area: "3200 sq. ft.",
+    completion: "Dec 2022",
+    description: "A luxurious penthouse retreat featuring an open terrace garden and contemporary interiors.",
+    images: [
+      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Luxury", "Penthouse", "Terrace"]
+  },
+  {
+    id: 4,
+    title: "Modern Villa - Lonavala",
+    location: "Lonavala",
+    city: "lonavala",
+    type: "residential",
+    bhk: "5",
+    area: "4500 sq. ft.",
+    completion: "Apr 2023",
+    description: "A scenic villa with infinity pool and nature-inspired interiors for weekend getaways.",
+    images: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1600585153837-30d3c67e09b4?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Villa", "Nature", "Luxury"]
+  },
+  {
+    id: 5,
+    title: "Boutique Café - Andheri",
+    location: "Andheri West, Mumbai",
+    city: "andheri",
+    type: "commercial",
+    bhk: "café",
+    area: "1200 sq. ft.",
+    completion: "Jul 2023",
+    description: "A cozy café designed with rustic aesthetics and warm lighting for a perfect ambiance.",
+    images: [
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0b?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Café", "Rustic", "Commercial"]
+  },
+  {
+    id: 6,
+    title: "Minimalist Apartment - Thane",
+    location: "Thane West",
+    city: "thane",
+    type: "residential",
+    bhk: "2",
+    area: "950 sq. ft.",
+    completion: "May 2023",
+    description: "A minimalistic home emphasizing functionality and comfort with sleek furnishings.",
+    images: [
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1618213837799-3a5d7dcf47a8?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Minimal", "Comfort", "Modern"]
+  },
+  {
+    id: 7,
+    title: "Luxury Spa & Salon - Powai",
+    location: "Powai, Mumbai",
+    city: "powai",
+    type: "commercial",
+    bhk: "salon",
+    area: "2200 sq. ft.",
+    completion: "Aug 2023",
+    description: "Premium spa and salon interior with natural textures and soft lighting for a relaxing vibe.",
+    images: [
+      "https://images.unsplash.com/photo-1592878895206-8cb9e2b1a061?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1582719471137-c3967ffb1c9c?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Spa", "Luxury", "Commercial"]
+  },
+  {
+    id: 8,
+    title: "Coastal Home - Alibaug",
+    location: "Alibaug",
+    city: "alibaug",
+    type: "residential",
+    bhk: "3",
+    area: "2400 sq. ft.",
+    completion: "Oct 2022",
+    description: "A coastal-themed home blending indoor-outdoor spaces with sea breeze aesthetics.",
+    images: [
+      "https://images.unsplash.com/photo-1600047503659-a76afc7a56c3?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1600585154311-3a06e3e0f8ef?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Coastal", "Resort Style", "Luxury"]
+  },
+  {
+    id: 9,
+    title: "Modern Studio Apartment - Navi Mumbai",
+    location: "Navi Mumbai",
+    city: "navi-mumbai",
+    type: "residential",
+    bhk: "1",
+    area: "550 sq. ft.",
+    completion: "Feb 2023",
+    description: "Compact yet stylish studio designed for young professionals with efficient storage solutions.",
+    images: [
+      "https://images.unsplash.com/photo-1617093727343-3744b4797b61?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1618213679124-0664b6baf892?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Studio", "Compact", "Functional"]
+  },
+  {
+    id: 10,
+    title: "Showroom Interior - Lower Parel",
+    location: "Lower Parel, Mumbai",
+    city: "lower-parel",
+    type: "commercial",
+    bhk: "showroom",
+    area: "3000 sq. ft.",
+    completion: "Nov 2023",
+    description: "A high-end retail showroom designed with accent lighting and premium materials.",
+    images: [
+      "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Retail", "Showroom", "Modern"]
+  },
+  {
+    id: 11,
+    title: "Heritage Bungalow Restoration - Pune",
+    location: "Pune",
+    city: "pune",
+    type: "residential",
+    bhk: "4",
+    area: "3500 sq. ft.",
+    completion: "Jan 2024",
+    description: "A classic bungalow restored with a fusion of traditional charm and modern amenities.",
+    images: [
+      "https://images.unsplash.com/photo-1617806118233-18e1c7c1bba9?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1617093727312-b7b9e7c7d4e4?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Restoration", "Traditional", "Luxury"]
+  },
+  {
+    id: 12,
+    title: "Smart Home - Chembur",
+    location: "Chembur, Mumbai",
+    city: "chembur",
+    type: "residential",
+    bhk: "3",
+    area: "1600 sq. ft.",
+    completion: "Jun 2024",
+    description: "A fully automated smart home integrating technology with elegant interior design.",
+    images: [
+      "https://images.unsplash.com/photo-1618213839408-0a4c8b3adbb1?auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=2070&q=80"
+    ],
+    tags: ["Smart Home", "Technology", "Modern"]
+  }
+];
+
 
         // Filter Variables
         let currentCity = 'all';
@@ -1037,40 +1166,147 @@
             });
         });
 
-        // Simple header/footer loading (commented out as files don't exist)
-        
-        fetch('header.html')
+     // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeThemeToggle();
+            
+            // Animate stats when page loads
+            setTimeout(animateStats, 1000);
+        });
+
+        </script>
+
+        <!-- Script to load header and footer -->
+        <script>
+            // Load Header
+            fetch('header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('siteHeader').innerHTML = data;
-                initializeThemeToggle(); // Re-initialize theme toggle after loading header
-            })
-            .catch(error => console.log('Header not found, using fallback'));
 
-      fetch('footer.html')
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
+
+                if (menuToggle && nav) {
+                menuToggle.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                });
+                }
+            });
+
+fetch('footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('siteFooter').innerHTML = data;
 
-    // Chatbot initialization after footer is loaded
+    // --- After footer is loaded, initialize chatbot and form ---
     const chatbotToggle = document.getElementById('chatbotToggle');
     const chatbotContainer = document.getElementById('chatbotContainer');
     const closeChat = document.getElementById('closeChat');
+    const userForm = document.getElementById('userForm');
+    const formContainer = document.getElementById('formContainer');
+    const successMessage = document.getElementById('successMessage');
+    const chatBody = document.getElementById('chatbotBody');
 
-    if(chatbotToggle && chatbotContainer && closeChat){
-      chatbotToggle.addEventListener('click', function() {
-          chatbotContainer.classList.toggle('active');
-          chatbotToggle.classList.toggle('minimized');
+    if(chatbotToggle && chatbotContainer && closeChat && userForm){
+      // Chatbot toggle
+      chatbotToggle.addEventListener('click', () => {
+        chatbotContainer.classList.toggle('active');
+        chatbotToggle.classList.toggle('minimized');
       });
 
-      closeChat.addEventListener('click', function() {
-          chatbotContainer.classList.remove('active');
-          chatbotToggle.classList.add('minimized');
+      closeChat.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+        chatbotToggle.classList.add('minimized');
       });
 
-      // You can include the rest of your chatbot JS here...
+      // Form submit
+      userForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const email = document.getElementById('email').value.trim();
+
+        if(!name || !email || !/^\d{10}$/.test(mobile)){
+          alert('Please enter valid details.');
+          return;
+        }
+
+        // --- WhatsApp redirect ---
+        const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+        const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+        const win = window.open(whatsappURL, '_blank');
+        if(!win) alert("Popup blocked! Allow popups to open WhatsApp.");
+
+        // --- Google Sheet ---
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('mobile', mobile);
+        formData.append('email', email);
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+          .then(res => console.log('Sheet Response:', res))
+          .catch(err => console.error('Sheet Error:', err));
+
+        // --- Update UI ---
+        formContainer.classList.remove('active');
+        successMessage.classList.add('active');
+
+        const userMsg = document.createElement('div');
+        userMsg.className = 'message user-message';
+        userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+        chatBody.appendChild(userMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        setTimeout(() => {
+          formContainer.classList.add('active');
+          successMessage.classList.remove('active');
+          userForm.reset();
+        }, 3000);
+      });
     }
+  })
+  .catch(err => console.error('Footer load error:', err));
+  </script>
+
+        <script>
+        // ✅ Desktop dropdown positioning fix (Smart auto-detect)
+            document.querySelectorAll('nav ul li').forEach(li => {
+  const dropdown = li.querySelector('.dropdown');
+  if (!dropdown) return;
+
+  li.addEventListener('mouseenter', () => {
+    if (window.innerWidth <= 768) return;
+
+    // Wait until dropdown is visible in the next frame
+    requestAnimationFrame(() => {
+      dropdown.style.left = '';
+      dropdown.style.right = '';
+
+      const rect = dropdown.getBoundingClientRect();
+
+      // ✅ If dropdown overflows right edge
+      if (rect.right > window.innerWidth) {
+        dropdown.style.left = 'auto';
+        dropdown.style.right = '0';
+      }
+
+      // ✅ If dropdown overflows left edge (rare)
+      if (rect.left < 0) {
+        dropdown.style.left = '0';
+        dropdown.style.right = 'auto';
+      }
+    });
   });
-    </script>
+
+  // Optional: reset on mouseleave
+  li.addEventListener('mouseleave', () => {
+    dropdown.style.left = '';
+    dropdown.style.right = '';
+  });
+});
+</script>
 </body>
 </html>

@@ -69,109 +69,91 @@
         </div>
     </div>
 
-    <script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // --- One-time DOM references ---
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+    const chatBody = document.getElementById('chatbotBody');
+    const formContainer = document.getElementById('formContainer');
+    const successMessage = document.getElementById('successMessage');
+    const userForm = document.getElementById('userForm');
 
-        // Toggle chatbot visibility
-        const chatbotToggle = document.getElementById('chatbotToggle');
-        const chatbotContainer = document.getElementById('chatbotContainer');
-        const closeChat = document.getElementById('closeChat');
-        
-        chatbotToggle.addEventListener('click', function() {
-            chatbotContainer.classList.toggle('active');
-            chatbotToggle.classList.toggle('minimized');
-        });
-        
-        closeChat.addEventListener('click', function() {
-            chatbotContainer.classList.remove('active');
-            chatbotToggle.classList.add('minimized');
-        });
-        
-   
-        
-        // Add some chatbot interaction
-        setTimeout(() => {
-            const chatBody = document.getElementById('chatbotBody');
-            const typingIndicator = document.createElement('div');
-            typingIndicator.className = 'typing-indicator';
-            typingIndicator.innerHTML = `
-                <div class="message-bubble">
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                </div>
-            `;
-            chatBody.appendChild(typingIndicator);
-            chatBody.scrollTop = chatBody.scrollHeight;
-            
-            setTimeout(() => {
-                chatBody.removeChild(typingIndicator);
-                const newMessage = document.createElement('div');
-                newMessage.className = 'message bot-message';
-                newMessage.innerHTML = `
-                    <div class="message-bubble">
-                        Please fill out the form below with your details.
-                    </div>
-                `;
-                chatBody.appendChild(newMessage);
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }, 1500);
-        }, 1000);
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
 
+    // --- Chatbot Toggle ---
+    chatbotToggle.addEventListener('click', () => {
+        chatbotContainer.classList.toggle('active');
+        chatbotToggle.classList.toggle('minimized');
+    });
+    closeChat.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+        chatbotToggle.classList.add('minimized');
+    });
 
-        //form 
-   
-const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
-
-document.getElementById('userForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
-    const mobile = document.getElementById('mobile').value.trim();
-    const email = document.getElementById('email').value.trim();
-
-    // Validate mobile
-    if (!/^\d{10}$/.test(mobile)) {
-        alert('Please enter a valid 10-digit mobile number');
-        return;
+    // --- Initial Bot Message ---
+    function addBotMessage(message) {
+        const msg = document.createElement('div');
+        msg.className = 'message bot-message';
+        msg.innerHTML = `<div class="message-bubble">${message}</div>`;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // Prepare FormData for Google Sheets
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('mobile', mobile);
-    formData.append('email', email);
+    setTimeout(() => addBotMessage("Please fill out the form below with your details."), 1000);
 
-    // Fire-and-forget: send to Google Sheet asynchronously
-    fetch(scriptURL, { method: 'POST', body: formData })
-        .then(res => res.text())
-        .then(txt => console.log('Sheet Response:', txt))
-        .catch(err => console.error('Error sending to Sheet:', err));
+    // --- Form Submission ---
+    userForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    // Immediate WhatsApp redirect (lazy loader)
-    const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
-    const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappURL, '_blank');
+        const name = document.getElementById('name').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const email = document.getElementById('email').value.trim();
 
-    // Show chatbot success message immediately
-    document.getElementById('formContainer').classList.remove('active');
-    document.getElementById('successMessage').classList.add('active');
+        // Validation
+        if (!name || !email || !/^\d{10}$/.test(mobile)) {
+            alert("Please enter a valid Name, 10-digit Mobile, and Email.");
+            return;
+        }
 
-    const chatBody = document.getElementById('chatbotBody');
-    const userMessage = document.createElement('div');
-    userMessage.className = 'message user-message';
-    userMessage.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
-    chatBody.appendChild(userMessage);
-    chatBody.scrollTop = chatBody.scrollHeight;
+        // --- WhatsApp Redirect first ---
+        const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+        const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-        document.getElementById('formContainer').classList.add('active');
-        document.getElementById('successMessage').classList.remove('active');
-        document.getElementById('userForm').reset();
-    }, 3000);
+        const win = window.open(whatsappURL, '_blank');
+        if (!win) {
+            alert("Popup blocked! Please allow popups to open WhatsApp.");
+            return;
+        }
+
+        // --- Send to Google Sheet ---
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('mobile', mobile);
+        formData.append('email', email);
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+            .then(res => console.log('Sheet Response:', res))
+            .catch(err => console.error('Error sending to Sheet:', err));
+
+        // --- Update Chatbot UI ---
+        formContainer.classList.remove('active');
+        successMessage.classList.add('active');
+
+        const userMsg = document.createElement('div');
+        userMsg.className = 'message user-message';
+        userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+        chatBody.appendChild(userMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        setTimeout(() => {
+            formContainer.classList.add('active');
+            successMessage.classList.remove('active');
+            userForm.reset();
+        }, 3000);
+    });
 });
-
-
 </script>
 
         <!-- Footer -->
@@ -190,31 +172,43 @@ document.getElementById('userForm').addEventListener('submit', function(e) {
                 <p>Premium Interior Design Solutions</p>
                 
                 <!-- Social Links -->
-               <div class="footer-social">
-                    <a href="https://www.facebook.com/smartspace" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com/smartspace" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.instagram.com/smartspacelivin/?igsh=cWNxdjFhOGh3MmIz&utm_source=qr#" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.pinterest.com/smartspace/" target="_blank" aria-label="Pinterest">
-                        <i class="fab fa-pinterest"></i>
-                    </a>
-                    <a href="#" target="_blank" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/918591463486" target="_blank" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <!-- Gmail / Email -->
-                    <a href="mailto:hr@smartspace.living" target="_blank" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
+              <div class="footer-social">
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/smartspace" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <!-- Twitter / X -->
+  <a href="https://twitter.com/smartspacelivin" target="_blank" aria-label="Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/smartspacelivin/?igsh=cWNxdjFhOGh3MmIz&utm_source=qr" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <!-- Pinterest -->
+  <a href="https://in.pinterest.com/smartspacelivin/?invite_code=b3711595dcbe4c119cb579371fb9a06a&sender=918312317677261932" target="_blank" aria-label="Pinterest">
+    <i class="fab fa-pinterest"></i>
+  </a>
+
+  <!-- YouTube -->
+  <a href="https://www.youtube.com/@smartspaceinteriorstudio" target="_blank" aria-label="YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/918591463486" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:hr@smartspace.living" target="_blank" aria-label="Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+</div>
+
 
                 <!-- Newsletter Subscription -->
                 <!-- <div class="newsletter">
