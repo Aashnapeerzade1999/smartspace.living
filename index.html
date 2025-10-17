@@ -759,7 +759,15 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
 
 
 .btn-secondary { padding: 0.5rem 1rem; cursor: pointer; background: #555; color: #fff; border: none; border-radius: 5px; }
-    </style>
+  
+  @media (max-width: 768px) {
+  #watchVideoBtn {
+ visibility: hidden;
+  }
+}
+
+  
+  </style>
 
     <!-- style close -->
   </head>
@@ -842,83 +850,7 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
               onclick="window.location.href='contact.html'">
               <i class="fas fa-calendar-check"></i> Book Design Consultation
             </button>
-            <!-- Popup vedio popup started-->
-            <button class="btn-secondary" id="watchVideoBtn">
-              <i class="fas fa-play-circle"></i> Watch Our Design Story
-            </button>
-
-            <div id="designStoryPopup" class="vediopopup dark-theme">
-              <div class="vediopopup-content">
-                <span class="close-btn">&times;</span>
-                <h3>Our Design Story</h3>
-
-                <!-- Iframe Video -->
-                <div class="video-wrapper"
-                  style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    style="position: absolute; top:0; left:0; width:100%; height:100%;">
-                  </iframe>
-                </div>
-
-                <!-- Social Buttons -->
-                <div class="vsocial-buttons">
-                  <div class="social-links">
-                    <a href="https://www.instagram.com/smartspacelivin/"
-                      target="_blank">
-                      <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://pin.it/5d2zQb6pP" target="_blank">
-                      <i class="fab fa-pinterest"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/" target="_blank">
-                      <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.facebook.com/smartspacelivin"
-                      target="_blank">
-                      <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://twitter.com/smartspacelivin"
-                      target="_blank">
-                      <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@smartspaceinteriorstudio"
-                      target="_blank">
-                      <i class="fab fa-youtube"></i>
-                    </a>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- vedio popup started  -->
-            <script>
-              document.addEventListener("DOMContentLoaded", () => {
-              const watchBtn = document.getElementById("watchVideoBtn");
-              const popup = document.getElementById("designStoryPopup");
-              const closeBtn = popup.querySelector(".close-btn");
-
-              watchBtn.addEventListener("click", () => {
-                  popup.style.display = "flex";
-              });
-
-              closeBtn.addEventListener("click", () => {
-                  popup.style.display = "none";
-                  const iframe = popup.querySelector("iframe");
-                  if (iframe) iframe.src = iframe.src; // stops YouTube video on close
-              });
-
-              window.addEventListener("click", e => {
-                  if (e.target === popup) {
-                      popup.style.display = "none";
-                      const iframe = popup.querySelector("iframe");
-                      if (iframe) iframe.src = iframe.src; // stops YouTube video on close
-                  }
-              });
-          });
-          </script>
+        
             <!-- vedio popup script close -->
           </div>
           <div
