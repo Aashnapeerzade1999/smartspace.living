@@ -621,6 +621,8 @@ section {
             font-weight: 700;
             letter-spacing: 1px;
         }
+.logo-container img { width:100%px;height:50%;margin: 0px !important; border-radius:50%;border:3px solid #D4AF37; box-shadow:0 0 20px rgba(212,175,55,0.4); animation:pulse 3s infinite; margin-bottom:1rem; }
+@keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.05);box-shadow:0 0 30px rgba(212,175,55,0.6);}}
 
         .logo span {
             color: var(--accent);
@@ -630,7 +632,10 @@ section {
         nav {
             display: flex;
             align-items: center;
+            z-index: 9999;
         }
+/* Ensure the header and nav stay on top */
+
 
         nav ul {
             display: flex;
@@ -878,9 +883,62 @@ section {
             .dropdown-columns {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .logo-container img{width:60px;height:60px;}
         }
 
         @media (max-width: 768px) {
+          header {
+  
+  z-index: 9999;
+}
+
+#mainNav {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.98);
+  transition: left 0.3s ease-in-out;
+  z-index: 10000; /* Higher than all content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* When menu is active */
+#mainNav.active {
+  left: 0;
+}
+
+/* Prevent background scroll when menu open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Style adjustments for menu buttons */
+.mobile-menu {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+          
+          
             body {
                 padding-top: 120px;
             }
@@ -908,7 +966,7 @@ section {
                 visibility: hidden;
                 transition: all 0.3s ease;
                 overflow-y: auto;
-                z-index: 999;
+                z-index: 999 !important;
             }
             
             nav.active {
@@ -965,12 +1023,14 @@ section {
             .header-actions {
                 margin-left: auto;
             }
+            .logo-container img{width:60px;height:60px;}
         }
 
         @media (max-width: 480px) {
             .header-container {
                 padding: 0.8rem;
             }
+            .logo-container img{width:60px;height:60px;}
             
             .logo h1 {
                 font-size: 1.5rem;
@@ -1006,6 +1066,7 @@ section {
             .close-menu {
                 display: block;
             }
+            
         }
         @media (max-width: 768px) {
     .dropdown {
@@ -1950,4 +2011,8 @@ nav ul li:hover > .dropdown {
                 height: 70vh;
                 right: 5vw;
                 bottom: 70px;
-            }}
+            }
+        
+        }
+
+            
