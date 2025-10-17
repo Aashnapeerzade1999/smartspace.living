@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions - Smartspace Living | Premium Interior Design</title>
+    <title>Smart Space Living | Terms & Conditions</title>
+<meta name="description" content="Review the terms and conditions for using Smart Space Living’s website, products, and services.">
+<meta name="keywords" content="terms and conditions, Smart Space Living, website terms, service terms">
+<meta property="og:title" content="Smart Space Living | Terms & Conditions">
+<meta property="og:description" content="Our terms for products and services usage.">
+<meta property="og:image" content="assets/images/og-terms.jpg">
+<meta property="og:url" content="https://www.smartspaceliving.com/termsandconditions.html">
+<meta name="robots" content="index, follow">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -407,7 +415,7 @@
         }
     </style>
 </head>
-<body class="dark-theme">
+<body class="light-theme">
     <!-- Header -->
     <div id="siteHeader">
         <header>
@@ -760,62 +768,64 @@
             })
             .catch(error => console.log('Header not found'));
 
-    fetch('footer.html')
+  // Load Footer
+// Load Footer and initialize chatbot
+fetch('footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('siteFooter').innerHTML = data;
 
-    // --- After footer is loaded, initialize chatbot and form ---
+    // --- Grab elements after footer is loaded ---
     const chatbotToggle = document.getElementById('chatbotToggle');
     const chatbotContainer = document.getElementById('chatbotContainer');
     const closeChat = document.getElementById('closeChat');
+    const chatBody = document.getElementById('chatbotBody');
     const userForm = document.getElementById('userForm');
     const formContainer = document.getElementById('formContainer');
     const successMessage = document.getElementById('successMessage');
-    const chatBody = document.getElementById('chatbotBody');
 
-    if(chatbotToggle && chatbotContainer && closeChat && userForm){
-      // Chatbot toggle
-      chatbotToggle.addEventListener('click', () => {
+    if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) return;
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+    // --- Chatbot toggle ---
+    chatbotToggle.addEventListener('click', () => {
         chatbotContainer.classList.toggle('active');
         chatbotToggle.classList.toggle('minimized');
-      });
-
-      closeChat.addEventListener('click', () => {
+    });
+    closeChat.addEventListener('click', () => {
         chatbotContainer.classList.remove('active');
         chatbotToggle.classList.add('minimized');
-      });
+    });
 
-      // Form submit
-      userForm.addEventListener('submit', (e) => {
+    // --- Form submission ---
+    userForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const name = document.getElementById('name').value.trim();
         const mobile = document.getElementById('mobile').value.trim();
         const email = document.getElementById('email').value.trim();
 
         if(!name || !email || !/^\d{10}$/.test(mobile)){
-          alert('Please enter valid details.');
-          return;
+            alert('Please enter valid details.');
+            return;
         }
 
-        // --- WhatsApp redirect ---
+        // WhatsApp redirect
         const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
         const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
         const win = window.open(whatsappURL, '_blank');
         if(!win) alert("Popup blocked! Allow popups to open WhatsApp.");
 
-        // --- Google Sheet ---
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+        // Google Sheet
         const formData = new FormData();
         formData.append('name', name);
         formData.append('mobile', mobile);
         formData.append('email', email);
-
         fetch(scriptURL, { method: 'POST', body: formData })
-          .then(res => console.log('Sheet Response:', res))
-          .catch(err => console.error('Sheet Error:', err));
+            .then(res => console.log('Sheet Response:', res))
+            .catch(err => console.error('Sheet Error:', err));
 
-        // --- Update UI ---
+        // Update chatbot UI
         formContainer.classList.remove('active');
         successMessage.classList.add('active');
 
@@ -826,14 +836,47 @@
         chatBody.scrollTop = chatBody.scrollHeight;
 
         setTimeout(() => {
-          formContainer.classList.add('active');
-          successMessage.classList.remove('active');
-          userForm.reset();
+            formContainer.classList.add('active');
+            successMessage.classList.remove('active');
+            userForm.reset();
         }, 3000);
-      });
+    });
+
+    // --- Auto messages every 15s ---
+    function showChatbot() {
+        chatbotContainer.classList.add('active');
+        chatbotToggle.classList.remove('minimized');
     }
+
+    function addAutoMessage(text) {
+        const msg = document.createElement('div');
+        msg.className = 'message bot-message';
+        msg.innerHTML = `<div class="message-bubble">${text}</div>`;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    let userActive = false;
+
+    function resetActivity() {
+        userActive = true;
+    }
+
+    ['click','mousemove','keydown','scroll','touchstart'].forEach(evt => {
+        document.addEventListener(evt, resetActivity);
+    });
+
+    setInterval(() => {
+        showChatbot();
+        if(!userActive){
+            addAutoMessage("👋 Hi there! How can I help you today?");
+        }
+        userActive = false;
+    }, 15000); // every 15 seconds
+
   })
   .catch(err => console.error('Footer load error:', err));
+
     </script>
 </body>
 </html>

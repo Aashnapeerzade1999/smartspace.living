@@ -1,6 +1,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <script src="assets/script.js"> </script>
    <!-- Chatbot Widget -->
     <div class="chatbot-widget">
@@ -153,6 +154,37 @@ document.addEventListener("DOMContentLoaded", () => {
             userForm.reset();
         }, 3000);
     });
+});
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const chatBody = document.getElementById('chatbotBody');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const chatbotToggle = document.getElementById('chatbotToggle');
+
+    if (!chatBody || !chatbotContainer || !chatbotToggle) return;
+
+    // Ensure chatbot is visible on first auto message
+    function showChatbot() {
+        chatbotContainer.classList.add('active');
+        chatbotToggle.classList.remove('minimized');
+    }
+
+    // Add auto message
+    function addAutoMessage() {
+        const msg = document.createElement('div');
+        msg.className = 'message bot-message';
+        msg.innerHTML = `<div class="message-bubble">👋 Hi there! How can I help you today?</div>`;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // Start interval every 15 seconds
+    setInterval(() => {
+        showChatbot();
+        addAutoMessage();
+    }, 60000); 
 });
 </script>
 

@@ -3,11 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/index.css">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Smartspace Living - Premium Interior Design Solutions</title>
+    <title>Smart Space Living | Premium Furniture & Interiors</title>
+    <meta name="description"
+      content="Smart Space Living offers premium furniture, interiors, and design solutions for your home and office. Explore our unique collections and services.">
+    <meta name="keywords"
+      content="Smart Space Living, furniture, interior design, home decor, office interiors, premium furniture">
+    <meta property="og:title"
+      content="Smart Space Living | Furniture & Interiors">
+    <meta property="og:description"
+      content="Discover Smart Space Living for premium furniture and interiors.">
+    <meta property="og:image" content="assets/images/og-home.jpg">
+    <meta property="og:url" content="https://www.smartspaceliving.com/">
+    <meta name="robots" content="index, follow">
+
     <style>
     /* Dark Theme Base */
     :root {
@@ -32,35 +45,39 @@
     }
 
     /* Enhanced Hero Section */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.95) 100%), 
-                  url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      overflow: hidden;
-    }
+.hero {
+  position: relative;
+  min-height: 100vh;
+  height: 100vh; /* Ensure full screen height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.95) 100%), 
+              url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover; /* Full coverage */
+  background-repeat: no-repeat; /* Prevent tiling */
+  background-position: center center; /* Perfect center alignment */
+  background-attachment: fixed; /* Parallax-style fixed background */
+  overflow: hidden;
+}
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
-      animation: pulse 8s ease-in-out infinite;
-    }
+/* Gold light pulse overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+  animation: pulse 8s ease-in-out infinite;
+}
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.1); }
-    }
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
 
     .hero-content {
       text-align: center;
@@ -773,7 +790,7 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
   </head>
 
   <!-- body started -->
-  <body class="dark-theme">
+  <body class="light-theme">
 
     <!-- Header -->
     <div id="siteHeader"></div>
@@ -850,7 +867,7 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
               onclick="window.location.href='contact.html'">
               <i class="fas fa-calendar-check"></i> Book Design Consultation
             </button>
-        
+
             <!-- vedio popup script close -->
           </div>
           <div
@@ -1347,7 +1364,7 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
 
     <!-- Footer -->
     <div id="siteFooter"></div>
-   
+
     <script>
     document.addEventListener('DOMContentLoaded', function() {
     // Testimonial Slider
@@ -1537,62 +1554,64 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
         });
 
 
-         fetch('footer.html')
+         // Load Footer
+// Load Footer and initialize chatbot
+fetch('footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('siteFooter').innerHTML = data;
 
-    // --- After footer is loaded, initialize chatbot and form ---
+    // --- Grab elements after footer is loaded ---
     const chatbotToggle = document.getElementById('chatbotToggle');
     const chatbotContainer = document.getElementById('chatbotContainer');
     const closeChat = document.getElementById('closeChat');
+    const chatBody = document.getElementById('chatbotBody');
     const userForm = document.getElementById('userForm');
     const formContainer = document.getElementById('formContainer');
     const successMessage = document.getElementById('successMessage');
-    const chatBody = document.getElementById('chatbotBody');
 
-    if(chatbotToggle && chatbotContainer && closeChat && userForm){
-      // Chatbot toggle
-      chatbotToggle.addEventListener('click', () => {
+    if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) return;
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+    // --- Chatbot toggle ---
+    chatbotToggle.addEventListener('click', () => {
         chatbotContainer.classList.toggle('active');
         chatbotToggle.classList.toggle('minimized');
-      });
-
-      closeChat.addEventListener('click', () => {
+    });
+    closeChat.addEventListener('click', () => {
         chatbotContainer.classList.remove('active');
         chatbotToggle.classList.add('minimized');
-      });
+    });
 
-      // Form submit
-      userForm.addEventListener('submit', (e) => {
+    // --- Form submission ---
+    userForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const name = document.getElementById('name').value.trim();
         const mobile = document.getElementById('mobile').value.trim();
         const email = document.getElementById('email').value.trim();
 
         if(!name || !email || !/^\d{10}$/.test(mobile)){
-          alert('Please enter valid details.');
-          return;
+            alert('Please enter valid details.');
+            return;
         }
 
-        // --- WhatsApp redirect ---
+        // WhatsApp redirect
         const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
         const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
         const win = window.open(whatsappURL, '_blank');
         if(!win) alert("Popup blocked! Allow popups to open WhatsApp.");
 
-        // --- Google Sheet ---
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+        // Google Sheet
         const formData = new FormData();
         formData.append('name', name);
         formData.append('mobile', mobile);
         formData.append('email', email);
-
         fetch(scriptURL, { method: 'POST', body: formData })
-          .then(res => console.log('Sheet Response:', res))
-          .catch(err => console.error('Sheet Error:', err));
+            .then(res => console.log('Sheet Response:', res))
+            .catch(err => console.error('Sheet Error:', err));
 
-        // --- Update UI ---
+        // Update chatbot UI
         formContainer.classList.remove('active');
         successMessage.classList.add('active');
 
@@ -1603,17 +1622,49 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
         chatBody.scrollTop = chatBody.scrollHeight;
 
         setTimeout(() => {
-          formContainer.classList.add('active');
-          successMessage.classList.remove('active');
-          userForm.reset();
+            formContainer.classList.add('active');
+            successMessage.classList.remove('active');
+            userForm.reset();
         }, 3000);
-      });
+    });
+
+    // --- Auto messages every 15s ---
+    function showChatbot() {
+        chatbotContainer.classList.add('active');
+        chatbotToggle.classList.remove('minimized');
     }
+
+    function addAutoMessage(text) {
+        const msg = document.createElement('div');
+        msg.className = 'message bot-message';
+        msg.innerHTML = `<div class="message-bubble">${text}</div>`;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    let userActive = false;
+
+    function resetActivity() {
+        userActive = true;
+    }
+
+    ['click','mousemove','keydown','scroll','touchstart'].forEach(evt => {
+        document.addEventListener(evt, resetActivity);
+    });
+
+    setInterval(() => {
+        showChatbot();
+        if(!userActive){
+            addAutoMessage("👋 Hi there! How can I help you today?");
+        }
+        userActive = false;
+    }, 15000); // every 15 seconds
+
   })
   .catch(err => console.error('Footer load error:', err));
+
       
     </script>
 
-    
   </body>
 </html>
