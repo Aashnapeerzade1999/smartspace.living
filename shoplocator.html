@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Smart Space Living | Store Locator</title>
-        <meta name="description"
-            content="Find the nearest Smart Space Living store or showroom for furniture and interior products.">
-        <meta name="keywords"
-            content="store locator, Smart Space Living, furniture store, showroom, interiors">
-        <meta property="og:title" content="Smart Space Living | Store Locator">
-        <meta property="og:description" content="Locate our stores near you.">
-        <meta property="og:image" content="assets/images/og-shoplocator.jpg">
-        <meta property="og:url"
-            content="https://www.smartspaceliving.com/shoplocator.html">
-        <meta name="robots" content="index, follow">
-        <link rel="stylesheet" href="assets/style.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-        <style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Space Living | Store Locator</title>
+    <meta name="description"
+        content="Find the nearest Smart Space Living store or showroom for furniture and interior products.">
+    <meta name="keywords" content="store locator, Smart Space Living, furniture store, showroom, interiors">
+    <meta property="og:title" content="Smart Space Living | Store Locator">
+    <meta property="og:description" content="Locate our stores near you.">
+    <meta property="og:image" content="assets/images/og-shoplocator.jpg">
+    <meta property="og:url" content="https://www.smartspaceliving.com/shoplocator.html">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -57,8 +54,8 @@
 
         /* Hero Section */
         .locator-hero {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             min-height: 50vh;
@@ -176,7 +173,8 @@
             font-weight: 500;
         }
 
-        .filter-btn.active, .filter-btn:hover {
+        .filter-btn.active,
+        .filter-btn:hover {
             background: var(--secondary);
             color: var(--primary);
             border-color: var(--secondary);
@@ -226,7 +224,8 @@
             cursor: pointer;
         }
 
-        .store-card:hover, .store-card.active {
+        .store-card:hover,
+        .store-card.active {
             border-color: var(--secondary);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
@@ -302,7 +301,7 @@
             color: var(--primary);
         }
 
-        
+
 
         /* Services Section */
         .services-section {
@@ -433,7 +432,8 @@
             color: var(--secondary);
         }
 
-        .footer-col p, .footer-col a {
+        .footer-col p,
+        .footer-col a {
             color: var(--accent);
             opacity: 0.8;
             margin-bottom: 1rem;
@@ -565,7 +565,7 @@
             .locator-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .search-section {
                 position: static;
             }
@@ -591,8 +591,15 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Scrollbar Styling */
@@ -609,104 +616,103 @@
             background: var(--secondary);
             border-radius: 3px;
         }
-        
     </style>
-    </head>
-    <body class="light-theme">
-        <!-- Header -->
-        <div id="siteHeader">
+</head>
 
+<body class="light-theme">
+    <!-- Header -->
+    <div id="siteHeader">
+
+    </div>
+
+    <!-- Hero Section -->
+    <section class="locator-hero">
+        <div class="hero-content">
+            <h1>Find Our Stores</h1>
+            <div class="gold-divider"></div>
+            <p>Visit our design studios and experience centers across Mumbai
+                and Navi Mumbai</p>
         </div>
+    </section>
 
-        <!-- Hero Section -->
-        <section class="locator-hero">
-            <div class="hero-content">
-                <h1>Find Our Stores</h1>
-                <div class="gold-divider"></div>
-                <p>Visit our design studios and experience centers across Mumbai
-                    and Navi Mumbai</p>
-            </div>
-        </section>
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <h2>Store Services</h2>
+            <div class="gold-divider"></div>
+            <p>All our locations offer comprehensive interior design
+                services and consultations</p>
 
-        <!-- Services Section -->
-        <section class="services-section">
-            <div class="services-container">
-                <h2>Store Services</h2>
-                <div class="gold-divider"></div>
-                <p>All our locations offer comprehensive interior design
-                    services and consultations</p>
-
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-pencil-ruler"></i>
-                        </div>
-                        <h3>Design Consultation</h3>
-                        <p> one-on-one consultations with our expert
-                            designers at all locations</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
                     </div>
+                    <h3>Design Consultation</h3>
+                    <p> one-on-one consultations with our expert
+                        designers at all locations</p>
+                </div>
 
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-couch"></i>
-                        </div>
-                        <h3>Material Selection</h3>
-                        <p>Extensive collection of samples and materials for you
-                            to choose from</p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
                     </div>
+                    <h3>Material Selection</h3>
+                    <p>Extensive collection of samples and materials for you
+                        to choose from</p>
+                </div>
 
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-vr-cardboard"></i>
-                        </div>
-                        <h3>3D Visualization</h3>
-                        <p>Experience your future space through immersive 3D
-                            walkthroughs</p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-vr-cardboard"></i>
                     </div>
+                    <h3>3D Visualization</h3>
+                    <p>Experience your future space through immersive 3D
+                        walkthroughs</p>
+                </div>
 
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Project Management</h3>
-                        <p>End-to-end project coordination and execution from
-                            any store</p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
                     </div>
+                    <h3>Project Management</h3>
+                    <p>End-to-end project coordination and execution from
+                        any store</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-     
 
-            <!-- CTA Section -->
-            <section class="cta-section">
-                <div class="cta-content">
-                    <h2 style="color: #000000;"">Can't Visit Our Store?</h2>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 style="color: #000000;"">Can't Visit Our Store?</h2>
                     <p>Schedule a virtual consultation with our design experts
                         from the comfort of your home</p>
 
-                    <button class="btn-primary" onclick="openWhatsApp()">Book
-                        Consultation</button>
+                    <button class=" btn-primary" onclick="openWhatsApp()">Book
+                Consultation</button>
 
-                    <script>
+                <script>
                     function openWhatsApp() {
                         let number = "918591463486"; // Remove + and spaces
                         let message = "Hello, I want to book a consultation.";
                         window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank");
                     }
-                    </script>
+                </script>
 
-                </div>
-            </section>
+        </div>
+    </section>
 
-            <!-- Footer -->
-            <div id="siteFooter">
+    <!-- Footer -->
+    <div id="siteFooter">
 
-            </div>
+    </div>
 
-            <script
-                src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-            <script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
@@ -851,7 +857,7 @@
                 const storeCard = document.createElement('div');
                 storeCard.className = 'store-card';
                 storeCard.setAttribute('data-id', store.id);
-                
+
                 storeCard.innerHTML = `
                     <div class="store-header">
                         <div>
@@ -882,7 +888,7 @@
                         </button>
                     </div>
                 `;
-                
+
                 storesList.appendChild(storeCard);
 
                 // Add marker to map
@@ -925,7 +931,7 @@
                 storeCard.addEventListener('click', () => {
                     document.querySelectorAll('.store-card').forEach(card => card.classList.remove('active'));
                     storeCard.classList.add('active');
-                    
+
                     map.setView(store.coordinates, 15);
                     marker.openPopup();
                 });
@@ -937,7 +943,7 @@
 
         // Filter Functions
         document.querySelectorAll('.filter-btn[data-city]').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 document.querySelectorAll('.filter-btn[data-city]').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 currentCity = this.getAttribute('data-city');
@@ -946,7 +952,7 @@
         });
 
         document.querySelectorAll('.filter-btn[data-type]').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 document.querySelectorAll('.filter-btn[data-type]').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 currentType = this.getAttribute('data-type');
@@ -955,17 +961,17 @@
         });
 
         // Search Functionality
-        document.getElementById('searchInput').addEventListener('input', function() {
+        document.getElementById('searchInput').addEventListener('input', function () {
             filterStores();
         });
 
         function filterStores() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            
+
             currentStores = stores.filter(store => {
                 const matchesCity = currentCity === 'all' || store.city === currentCity;
                 const matchesType = currentType === 'all' || store.type === currentType;
-                const matchesSearch = searchTerm === '' || 
+                const matchesSearch = searchTerm === '' ||
                     store.name.toLowerCase().includes(searchTerm) ||
                     store.address.toLowerCase().includes(searchTerm) ||
                     store.city.toLowerCase().includes(searchTerm);
@@ -989,7 +995,7 @@
         // Initialize on load
         document.addEventListener('DOMContentLoaded', () => {
             initializeStores();
-            
+
             // Add animation to store cards
             const storeCards = document.querySelectorAll('.store-card');
             storeCards.forEach((card, index) => {
@@ -1015,135 +1021,134 @@
             observer.observe(card);
         });
     </script>
-            <!-- Script to load header and footer -->
-            <script>
-    // Load Header
-  fetch('header.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('siteHeader').innerHTML = data;
+    <!-- Script to load header and footer -->
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
 
-    // Run header JS only after it's loaded
-    const menuToggle = document.querySelector('.mobile-menu');
-    const nav = document.querySelector('nav');
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
 
-    if (menuToggle && nav) {
-      menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-      });
-    }
-  });
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+                }
+            });
 
 
-   // Load Footer
-// Load Footer and initialize chatbot
-fetch('footer.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('siteFooter').innerHTML = data;
+        // Load Footer
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load Footer and initialize chatbot
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
 
-    // --- Grab elements after footer is loaded ---
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatbotContainer = document.getElementById('chatbotContainer');
-    const closeChat = document.getElementById('closeChat');
-    const chatBody = document.getElementById('chatbotBody');
-    const userForm = document.getElementById('userForm');
-    const formContainer = document.getElementById('formContainer');
-    const successMessage = document.getElementById('successMessage');
+                    // Delay a little to ensure DOM updates
+                    setTimeout(() => {
+                        const chatbotToggle = document.getElementById('chatbotToggle');
+                        const chatbotContainer = document.getElementById('chatbotContainer');
+                        const closeChat = document.getElementById('closeChat');
+                        const chatBody = document.getElementById('chatbotBody');
+                        const userForm = document.getElementById('userForm');
+                        const formContainer = document.getElementById('formContainer');
+                        const successMessage = document.getElementById('successMessage');
 
-    if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) return;
+                        if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) {
+                            console.warn("⚠️ Chatbot elements not found in footer.html");
+                            return;
+                        }
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
 
-    // --- Chatbot toggle ---
-    chatbotToggle.addEventListener('click', () => {
-        chatbotContainer.classList.toggle('active');
-        chatbotToggle.classList.toggle('minimized');
-    });
-    closeChat.addEventListener('click', () => {
-        chatbotContainer.classList.remove('active');
-        chatbotToggle.classList.add('minimized');
-    });
+                        // --- Chatbot toggle ---
+                        chatbotToggle.addEventListener('click', () => {
+                            chatbotContainer.classList.toggle('active');
+                            chatbotToggle.classList.toggle('minimized');
+                        });
+                        closeChat.addEventListener('click', () => {
+                            chatbotContainer.classList.remove('active');
+                            chatbotToggle.classList.add('minimized');
+                        });
 
-    // --- Form submission ---
-    userForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const mobile = document.getElementById('mobile').value.trim();
-        const email = document.getElementById('email').value.trim();
+                        // --- Form submission ---
+                        userForm.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            const name = document.getElementById('name').value.trim();
+                            const mobile = document.getElementById('mobile').value.trim();
+                            const email = document.getElementById('email').value.trim();
 
-        if(!name || !email || !/^\d{10}$/.test(mobile)){
-            alert('Please enter valid details.');
-            return;
-        }
+                            // WhatsApp redirect
+                            const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+                            const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+                            const win = window.open(whatsappURL, '_blank');
+                            if (!win) alert("Popup blocked! Allow popups to open WhatsApp.");
 
-        // WhatsApp redirect
-        const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
-        const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
-        const win = window.open(whatsappURL, '_blank');
-        if(!win) alert("Popup blocked! Allow popups to open WhatsApp.");
+                            // Google Sheet submission
+                            const formData = new FormData();
+                            formData.append('name', name);
+                            formData.append('mobile', mobile);
+                            formData.append('email', email);
+                            fetch(scriptURL, { method: 'POST', body: formData })
+                                .then(res => console.log('Sheet Response:', res))
+                                .catch(err => console.error('Sheet Error:', err));
 
-        // Google Sheet
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('mobile', mobile);
-        formData.append('email', email);
-        fetch(scriptURL, { method: 'POST', body: formData })
-            .then(res => console.log('Sheet Response:', res))
-            .catch(err => console.error('Sheet Error:', err));
+                            // Update chatbot UI
+                            formContainer.classList.remove('active');
+                            successMessage.classList.add('active');
 
-        // Update chatbot UI
-        formContainer.classList.remove('active');
-        successMessage.classList.add('active');
+                            const userMsg = document.createElement('div');
+                            userMsg.className = 'message user-message';
+                            userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                            chatBody.appendChild(userMsg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
 
-        const userMsg = document.createElement('div');
-        userMsg.className = 'message user-message';
-        userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
-        chatBody.appendChild(userMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
+                            setTimeout(() => {
+                                formContainer.classList.add('active');
+                                successMessage.classList.remove('active');
+                                userForm.reset();
+                            }, 3000);
+                        });
 
-        setTimeout(() => {
-            formContainer.classList.add('active');
-            successMessage.classList.remove('active');
-            userForm.reset();
-        }, 3000);
-    });
+                        // --- Auto messages every 15s ---
+                        function showChatbot() {
+                            chatbotContainer.classList.add('active');
+                            chatbotToggle.classList.remove('minimized');
+                        }
 
-    // --- Auto messages every 15s ---
-    function showChatbot() {
-        chatbotContainer.classList.add('active');
-        chatbotToggle.classList.remove('minimized');
-    }
+                        function addAutoMessage(text) {
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${text}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                        }
 
-    function addAutoMessage(text) {
-        const msg = document.createElement('div');
-        msg.className = 'message bot-message';
-        msg.innerHTML = `<div class="message-bubble">${text}</div>`;
-        chatBody.appendChild(msg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
+                        let userActive = false;
+                        function resetActivity() {
+                            userActive = true;
+                        }
+                        ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
+                            document.addEventListener(evt, resetActivity);
+                        });
 
-    let userActive = false;
+                        setInterval(() => {
+                            showChatbot();
+                            if (!userActive) {
+                                addAutoMessage("👋 Hi there! How can I help you today?");
+                            }
+                            userActive = false;
+                        }, 15000);
+                    }, 500); // 0.5s delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
+    </script>
+</body>
 
-    function resetActivity() {
-        userActive = true;
-    }
-
-    ['click','mousemove','keydown','scroll','touchstart'].forEach(evt => {
-        document.addEventListener(evt, resetActivity);
-    });
-
-    setInterval(() => {
-        showChatbot();
-        if(!userActive){
-            addAutoMessage("👋 Hi there! How can I help you today?");
-        }
-        userActive = false;
-    }, 15000); // every 15 seconds
-
-  })
-  .catch(err => console.error('Footer load error:', err));
-
-  </script>
-        </body>
-    </html>
+</html>

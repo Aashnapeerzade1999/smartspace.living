@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Space Living | Price Calculator</title>
-<meta name="description" content="Use Smart Space Living’s price calculator to estimate the cost of furniture, interiors, and services for your space.">
-<meta name="keywords" content="price calculator, Smart Space Living, furniture cost, interiors cost, estimate">
-<meta property="og:title" content="Smart Space Living | Price Calculator">
-<meta property="og:description" content="Estimate project costs using our calculator.">
-<meta property="og:image" content="assets/images/og-calculator.jpg">
-<meta property="og:url" content="https://www.smartspaceliving.com/pricecalculator.html">
-<meta name="robots" content="index, follow">
+    <meta name="description"
+        content="Use Smart Space Living’s price calculator to estimate the cost of furniture, interiors, and services for your space.">
+    <meta name="keywords" content="price calculator, Smart Space Living, furniture cost, interiors cost, estimate">
+    <meta property="og:title" content="Smart Space Living | Price Calculator">
+    <meta property="og:description" content="Estimate project costs using our calculator.">
+    <meta property="og:image" content="assets/images/og-calculator.jpg">
+    <meta property="og:url" content="https://www.smartspaceliving.com/pricecalculator.html">
+    <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -130,8 +132,8 @@
 
         /* Hero Section */
         .calculator-hero {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
             min-height: 60vh;
@@ -330,7 +332,7 @@
             background: rgba(212, 175, 55, 0.2);
             border-radius: 4px;
             outline: none;
-            -webkit-appearance: none;
+
         }
 
         .range-slider::-webkit-slider-thumb {
@@ -505,7 +507,7 @@
             .calculator-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .calculator-sidebar {
                 position: static;
             }
@@ -531,15 +533,23 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body class="light-theme">
     <!-- Header -->
     <div id="siteHeader">
-  
+
     </div>
     <!-- Hero Section -->
     <section class="calculator-hero">
@@ -613,7 +623,7 @@
                         <h2>Space Details</h2>
                         <p>Provide details about your space</p>
                     </div>
-                    
+
                     <!-- House/Apartment Options -->
                     <div id="residential-options">
                         <div class="range-container">
@@ -623,13 +633,14 @@
                             </div>
                             <input type="range" id="bhk" min="1" max="5" value="2" class="range-slider">
                         </div>
-                        
+
                         <div class="range-container">
                             <div class="range-header">
                                 <label for="area">Carpet Area (sq. ft.)</label>
                                 <span class="range-value" id="area-value">1000 sq. ft.</span>
                             </div>
-                            <input type="range" id="area" min="500" max="5000" value="1000" step="100" class="range-slider">
+                            <input type="range" id="area" min="500" max="5000" value="1000" step="100"
+                                class="range-slider">
                         </div>
                     </div>
 
@@ -642,7 +653,7 @@
                             </div>
                             <input type="range" id="floors" min="1" max="5" value="1" class="range-slider">
                         </div>
-                        
+
                         <div class="range-container">
                             <div class="range-header">
                                 <label for="rooms">Number of Rooms/Cabins</label>
@@ -659,7 +670,8 @@
                                 <label for="shop-area">Shop Area (sq. ft.)</label>
                                 <span class="range-value" id="shop-area-value">500 sq. ft.</span>
                             </div>
-                            <input type="range" id="shop-area" min="100" max="2000" value="500" step="50" class="range-slider">
+                            <input type="range" id="shop-area" min="100" max="2000" value="500" step="50"
+                                class="range-slider">
                         </div>
                     </div>
 
@@ -725,7 +737,7 @@
                         <h2>Additional Features</h2>
                         <p>Select additional features for your space</p>
                     </div>
-                    
+
                     <!-- Residential Features -->
                     <div id="residential-features">
                         <h3 style="margin-bottom: 1rem; color: var(--secondary);">Home Features</h3>
@@ -835,7 +847,7 @@
                         <h2>Budget & Timeline</h2>
                         <p>Set your budget and preferred timeline</p>
                     </div>
-                    
+
                     <div class="range-container">
                         <div class="range-header">
                             <label for="budget">Budget Range (₹ Lakhs)</label>
@@ -870,7 +882,7 @@
                         <h2>Your Quote</h2>
                         <p>Estimated project cost</p>
                     </div>
-                    
+
                     <div class="quote-total">
                         <div class="quote-amount">₹0</div>
                         <p>Total Estimated Cost</p>
@@ -914,7 +926,7 @@
 
 
 
-    
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
@@ -923,141 +935,140 @@
             <button class="btn-primary">Schedule Free Consultation</button>
         </div>
     </section>
-   <div id="siteFooter">
-    
-    </div> 
+    <div id="siteFooter">
 
- 
-      <!-- Script to load header and footer -->
-  <script>
-    // Load Header
-  fetch('header.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('siteHeader').innerHTML = data;
+    </div>
 
-    // Run header JS only after it's loaded
-    const menuToggle = document.querySelector('.mobile-menu');
-    const nav = document.querySelector('nav');
 
-    if (menuToggle && nav) {
-      menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-      });
-    }
-  });
- // Load Footer
-// Load Footer and initialize chatbot
-fetch('footer.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('siteFooter').innerHTML = data;
-
-    // --- Grab elements after footer is loaded ---
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatbotContainer = document.getElementById('chatbotContainer');
-    const closeChat = document.getElementById('closeChat');
-    const chatBody = document.getElementById('chatbotBody');
-    const userForm = document.getElementById('userForm');
-    const formContainer = document.getElementById('formContainer');
-    const successMessage = document.getElementById('successMessage');
-
-    if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) return;
-
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
-
-    // --- Chatbot toggle ---
-    chatbotToggle.addEventListener('click', () => {
-        chatbotContainer.classList.toggle('active');
-        chatbotToggle.classList.toggle('minimized');
-    });
-    closeChat.addEventListener('click', () => {
-        chatbotContainer.classList.remove('active');
-        chatbotToggle.classList.add('minimized');
-    });
-
-    // --- Form submission ---
-    userForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const mobile = document.getElementById('mobile').value.trim();
-        const email = document.getElementById('email').value.trim();
-
-        if(!name || !email || !/^\d{10}$/.test(mobile)){
-            alert('Please enter valid details.');
-            return;
-        }
-
-        // WhatsApp redirect
-        const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
-        const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
-        const win = window.open(whatsappURL, '_blank');
-        if(!win) alert("Popup blocked! Allow popups to open WhatsApp.");
-
-        // Google Sheet
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('mobile', mobile);
-        formData.append('email', email);
-        fetch(scriptURL, { method: 'POST', body: formData })
-            .then(res => console.log('Sheet Response:', res))
-            .catch(err => console.error('Sheet Error:', err));
-
-        // Update chatbot UI
-        formContainer.classList.remove('active');
-        successMessage.classList.add('active');
-
-        const userMsg = document.createElement('div');
-        userMsg.className = 'message user-message';
-        userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
-        chatBody.appendChild(userMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-
-        setTimeout(() => {
-            formContainer.classList.add('active');
-            successMessage.classList.remove('active');
-            userForm.reset();
-        }, 3000);
-    });
-
-    // --- Auto messages every 15s ---
-    function showChatbot() {
-        chatbotContainer.classList.add('active');
-        chatbotToggle.classList.remove('minimized');
-    }
-
-    function addAutoMessage(text) {
-        const msg = document.createElement('div');
-        msg.className = 'message bot-message';
-        msg.innerHTML = `<div class="message-bubble">${text}</div>`;
-        chatBody.appendChild(msg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    let userActive = false;
-
-    function resetActivity() {
-        userActive = true;
-    }
-
-    ['click','mousemove','keydown','scroll','touchstart'].forEach(evt => {
-        document.addEventListener(evt, resetActivity);
-    });
-
-    setInterval(() => {
-        showChatbot();
-        if(!userActive){
-            addAutoMessage("👋 Hi there! How can I help you today?");
-        }
-        userActive = false;
-    }, 15000); // every 15 seconds
-
-  })
-  .catch(err => console.error('Footer load error:', err));
-
-  </script>
+    <!-- Script to load header and footer -->
     <script>
-      
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
+
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+                }
+            });
+        // Load Footer
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load Footer and initialize chatbot
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
+
+                    // Delay a little to ensure DOM updates
+                    setTimeout(() => {
+                        const chatbotToggle = document.getElementById('chatbotToggle');
+                        const chatbotContainer = document.getElementById('chatbotContainer');
+                        const closeChat = document.getElementById('closeChat');
+                        const chatBody = document.getElementById('chatbotBody');
+                        const userForm = document.getElementById('userForm');
+                        const formContainer = document.getElementById('formContainer');
+                        const successMessage = document.getElementById('successMessage');
+
+                        if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) {
+                            console.warn("⚠️ Chatbot elements not found in footer.html");
+                            return;
+                        }
+
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+                        // --- Chatbot toggle ---
+                        chatbotToggle.addEventListener('click', () => {
+                            chatbotContainer.classList.toggle('active');
+                            chatbotToggle.classList.toggle('minimized');
+                        });
+                        closeChat.addEventListener('click', () => {
+                            chatbotContainer.classList.remove('active');
+                            chatbotToggle.classList.add('minimized');
+                        });
+
+                        // --- Form submission ---
+                        userForm.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            const name = document.getElementById('name').value.trim();
+                            const mobile = document.getElementById('mobile').value.trim();
+                            const email = document.getElementById('email').value.trim();
+
+                            // WhatsApp redirect
+                            const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+                            const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+                            const win = window.open(whatsappURL, '_blank');
+                            if (!win) alert("Popup blocked! Allow popups to open WhatsApp.");
+
+                            // Google Sheet submission
+                            const formData = new FormData();
+                            formData.append('name', name);
+                            formData.append('mobile', mobile);
+                            formData.append('email', email);
+                            fetch(scriptURL, { method: 'POST', body: formData })
+                                .then(res => console.log('Sheet Response:', res))
+                                .catch(err => console.error('Sheet Error:', err));
+
+                            // Update chatbot UI
+                            formContainer.classList.remove('active');
+                            successMessage.classList.add('active');
+
+                            const userMsg = document.createElement('div');
+                            userMsg.className = 'message user-message';
+                            userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                            chatBody.appendChild(userMsg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+
+                            setTimeout(() => {
+                                formContainer.classList.add('active');
+                                successMessage.classList.remove('active');
+                                userForm.reset();
+                            }, 3000);
+                        });
+
+                        // --- Auto messages every 15s ---
+                        function showChatbot() {
+                            chatbotContainer.classList.add('active');
+                            chatbotToggle.classList.remove('minimized');
+                        }
+
+                        function addAutoMessage(text) {
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${text}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                        }
+
+                        let userActive = false;
+                        function resetActivity() {
+                            userActive = true;
+                        }
+                        ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
+                            document.addEventListener(evt, resetActivity);
+                        });
+
+                        setInterval(() => {
+                            showChatbot();
+                            if (!userActive) {
+                                addAutoMessage("👋 Hi there! How can I help you today?");
+                            }
+                            userActive = false;
+                        }, 15000);
+                    }, 500); // 0.5s delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
+
+    </script>
+    <script>
+
 
         // Project Data Storage
         let projectData = {
@@ -1077,7 +1088,7 @@ fetch('footer.html')
         function nextStep(step) {
             document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
             document.getElementById(`step-${step}`).classList.add('active');
-            
+
             document.querySelectorAll('.step-dot').forEach((dot, index) => {
                 if (index < step - 1) {
                     dot.classList.add('completed');
@@ -1097,24 +1108,24 @@ fetch('footer.html')
 
         // Project Type Selection
         document.querySelectorAll('.selection-card[data-type]').forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 document.querySelectorAll('.selection-card[data-type]').forEach(c => c.classList.remove('selected'));
                 this.classList.add('selected');
                 projectData.type = this.getAttribute('data-type');
-                
+
                 // Show/hide appropriate options
-                document.getElementById('residential-options').style.display = 
+                document.getElementById('residential-options').style.display =
                     (projectData.type === 'house' || projectData.type === 'apartment') ? 'block' : 'none';
-                document.getElementById('office-options').style.display = 
+                document.getElementById('office-options').style.display =
                     projectData.type === 'office' ? 'block' : 'none';
-                document.getElementById('shop-options').style.display = 
+                document.getElementById('shop-options').style.display =
                     projectData.type === 'shop' ? 'block' : 'none';
             });
         });
 
         // Design Style Selection
         document.querySelectorAll('.selection-card[data-style]').forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 document.querySelectorAll('.selection-card[data-style]').forEach(c => c.classList.remove('selected'));
                 this.classList.add('selected');
                 projectData.style = this.getAttribute('data-style');
@@ -1122,32 +1133,32 @@ fetch('footer.html')
         });
 
         // Range Sliders
-        document.getElementById('bhk').addEventListener('input', function() {
+        document.getElementById('bhk').addEventListener('input', function () {
             document.getElementById('bhk-value').textContent = `${this.value} BHK`;
             projectData.bhk = parseInt(this.value);
         });
 
-        document.getElementById('area').addEventListener('input', function() {
+        document.getElementById('area').addEventListener('input', function () {
             document.getElementById('area-value').textContent = `${this.value} sq. ft.`;
             projectData.area = parseInt(this.value);
         });
 
-        document.getElementById('floors').addEventListener('input', function() {
+        document.getElementById('floors').addEventListener('input', function () {
             document.getElementById('floors-value').textContent = `${this.value} Floor${this.value > 1 ? 's' : ''}`;
             projectData.floors = parseInt(this.value);
         });
 
-        document.getElementById('rooms').addEventListener('input', function() {
+        document.getElementById('rooms').addEventListener('input', function () {
             document.getElementById('rooms-value').textContent = `${this.value} Room${this.value > 1 ? 's' : ''}`;
             projectData.rooms = parseInt(this.value);
         });
 
-        document.getElementById('shop-area').addEventListener('input', function() {
+        document.getElementById('shop-area').addEventListener('input', function () {
             document.getElementById('shop-area-value').textContent = `${this.value} sq. ft.`;
             projectData.shopArea = parseInt(this.value);
         });
 
-        document.getElementById('budget').addEventListener('input', function() {
+        document.getElementById('budget').addEventListener('input', function () {
             const value = parseInt(this.value);
             let rangeText = '';
             if (value <= 10) rangeText = '₹5-10 Lakhs';
@@ -1155,28 +1166,28 @@ fetch('footer.html')
             else if (value <= 30) rangeText = '₹20-30 Lakhs';
             else if (value <= 40) rangeText = '₹30-40 Lakhs';
             else rangeText = '₹40-50 Lakhs';
-            
+
             document.getElementById('budget-value').textContent = rangeText;
             projectData.budget = value;
         });
 
-        document.getElementById('timeline').addEventListener('input', function() {
+        document.getElementById('timeline').addEventListener('input', function () {
             const value = parseInt(this.value);
             let rangeText = '';
             if (value <= 8) rangeText = '4-8 Weeks';
             else if (value <= 16) rangeText = '8-16 Weeks';
             else rangeText = '16-24 Weeks';
-            
+
             document.getElementById('timeline-value').textContent = rangeText;
             projectData.timeline = value;
         });
 
         // Feature Selection
         document.querySelectorAll('.checkbox-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 this.classList.toggle('selected');
                 const feature = this.getAttribute('data-feature');
-                
+
                 if (this.classList.contains('selected')) {
                     if (!projectData.features.includes(feature)) {
                         projectData.features.push(feature);
@@ -1192,9 +1203,9 @@ fetch('footer.html')
             let basePrice = 0;
             let featureCost = 0;
             let styleMultiplier = 1;
-            
+
             // Base price based on project type
-            switch(projectData.type) {
+            switch (projectData.type) {
                 case 'house':
                     basePrice = projectData.area * 1200;
                     break;
@@ -1210,9 +1221,9 @@ fetch('footer.html')
                 default:
                     basePrice = 0;
             }
-            
+
             // Style multiplier
-            switch(projectData.style) {
+            switch (projectData.style) {
                 case 'modern':
                     styleMultiplier = 1.1;
                     break;
@@ -1228,10 +1239,10 @@ fetch('footer.html')
                 default:
                     styleMultiplier = 1;
             }
-            
+
             // Feature costs
             projectData.features.forEach(feature => {
-                switch(feature) {
+                switch (feature) {
                     case 'modular-kitchen':
                         featureCost += 50000;
                         break;
@@ -1279,16 +1290,16 @@ fetch('footer.html')
                         break;
                 }
             });
-            
+
             const totalCost = (basePrice * styleMultiplier) + featureCost;
-            
+
             // Update quote display
             document.querySelector('.quote-amount').textContent = `₹${formatNumber(totalCost)}`;
-            
+
             // Update quote details
             const details = document.querySelectorAll('.quote-details .value');
             details[0].textContent = projectData.type.charAt(0).toUpperCase() + projectData.type.slice(1);
-            
+
             let spaceDetails = '';
             if (projectData.type === 'house' || projectData.type === 'apartment') {
                 spaceDetails = `${projectData.bhk} BHK, ${projectData.area} sq. ft.`;
@@ -1298,16 +1309,16 @@ fetch('footer.html')
                 spaceDetails = `${projectData.shopArea} sq. ft.`;
             }
             details[1].textContent = spaceDetails;
-            
+
             details[2].textContent = projectData.style ? projectData.style.charAt(0).toUpperCase() + projectData.style.slice(1) : '-';
             details[3].textContent = projectData.features.length > 0 ? `${projectData.features.length} features` : '-';
-            
+
             let timelineText = '';
             if (projectData.timeline <= 8) timelineText = '4-8 Weeks';
             else if (projectData.timeline <= 16) timelineText = '8-16 Weeks';
             else timelineText = '16-24 Weeks';
             details[4].textContent = timelineText;
-            
+
             // Enable action buttons
             document.querySelectorAll('.quote-actions button').forEach(btn => {
                 btn.disabled = false;
@@ -1329,4 +1340,5 @@ fetch('footer.html')
         document.getElementById('timeline').dispatchEvent(new Event('input'));
     </script>
 </body>
+
 </html>

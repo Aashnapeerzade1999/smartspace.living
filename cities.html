@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,8 +131,8 @@
 
         /* Hero Section */
         .gallery-hero {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
             min-height: 60vh;
@@ -204,7 +205,8 @@
             font-weight: 500;
         }
 
-        .filter-btn.active, .filter-btn:hover {
+        .filter-btn.active,
+        .filter-btn:hover {
             background: var(--secondary);
             color: var(--primary);
         }
@@ -229,7 +231,8 @@
             font-weight: 500;
         }
 
-        .city-btn.active, .city-btn:hover {
+        .city-btn.active,
+        .city-btn:hover {
             background: var(--secondary);
             color: var(--primary);
             border-color: var(--secondary);
@@ -452,7 +455,8 @@
             color: var(--secondary);
         }
 
-        .footer-col p, .footer-col a {
+        .footer-col p,
+        .footer-col a {
             color: var(--accent);
             opacity: 0.8;
             margin-bottom: 1rem;
@@ -635,11 +639,12 @@
         }
     </style>
 </head>
+
 <body class="light-theme">
     <!-- Single Header Placeholder -->
     <div id="siteHeader">
         <!-- Fallback header if external header fails to load -->
-     
+
     </div>
 
     <!-- Hero Section -->
@@ -741,7 +746,7 @@
     <!-- Single Footer Placeholder -->
     <div id="siteFooter">
         <!-- Fallback footer if external footer fails to load -->
-       
+
     </div>
 
     <!-- Project Modal -->
@@ -757,7 +762,7 @@
                     <!-- Gallery images will be inserted here -->
                 </div>
                 <p id="modalDescription" style="margin-bottom: 1.5rem;"></p>
-                
+
                 <div class="project-details">
                     <div class="detail-item">
                         <div class="detail-icon">
@@ -804,200 +809,200 @@
 
         // Project Data
         const projects = [
-  {
-    id: 1,
-    title: "Luxury Sea-Facing Apartment",
-    location: "South Mumbai",
-    city: "south-mumbai",
-    type: "residential",
-    bhk: "3",
-    area: "1800 sq. ft.",
-    completion: "Jan 2023",
-    description: "A stunning sea-facing apartment in South Mumbai with panoramic views and luxurious finishes.",
-    images: [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Luxury", "Sea View", "Modern"]
-  },
-  {
-    id: 2,
-    title: "Corporate Office - Bandra Kurla Complex",
-    location: "Central Mumbai",
-    city: "central-mumbai",
-    type: "commercial",
-    bhk: "office",
-    area: "5000 sq. ft.",
-    completion: "Mar 2023",
-    description: "Modern corporate office space in BKC designed for productivity and collaboration.",
-    images: [
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2069&q=80",
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2069&q=80"
-    ],
-    tags: ["Corporate", "BKC", "Office"]
-  },
-  {
-    id: 3,
-    title: "Penthouse Retreat - Worli",
-    location: "Worli, Mumbai",
-    city: "south-mumbai",
-    type: "residential",
-    bhk: "4",
-    area: "3200 sq. ft.",
-    completion: "Dec 2022",
-    description: "A luxurious penthouse retreat featuring an open terrace garden and contemporary interiors.",
-    images: [
-      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Luxury", "Penthouse", "Terrace"]
-  },
-  {
-    id: 4,
-    title: "Modern Villa - Lonavala",
-    location: "Lonavala",
-    city: "lonavala",
-    type: "residential",
-    bhk: "5",
-    area: "4500 sq. ft.",
-    completion: "Apr 2023",
-    description: "A scenic villa with infinity pool and nature-inspired interiors for weekend getaways.",
-    images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1600585153837-30d3c67e09b4?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Villa", "Nature", "Luxury"]
-  },
-  {
-    id: 5,
-    title: "Boutique Café - Andheri",
-    location: "Andheri West, Mumbai",
-    city: "andheri",
-    type: "commercial",
-    bhk: "café",
-    area: "1200 sq. ft.",
-    completion: "Jul 2023",
-    description: "A cozy café designed with rustic aesthetics and warm lighting for a perfect ambiance.",
-    images: [
-      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0b?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Café", "Rustic", "Commercial"]
-  },
-  {
-    id: 6,
-    title: "Minimalist Apartment - Thane",
-    location: "Thane West",
-    city: "thane",
-    type: "residential",
-    bhk: "2",
-    area: "950 sq. ft.",
-    completion: "May 2023",
-    description: "A minimalistic home emphasizing functionality and comfort with sleek furnishings.",
-    images: [
-      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1618213837799-3a5d7dcf47a8?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Minimal", "Comfort", "Modern"]
-  },
-  {
-    id: 7,
-    title: "Luxury Spa & Salon - Powai",
-    location: "Powai, Mumbai",
-    city: "powai",
-    type: "commercial",
-    bhk: "salon",
-    area: "2200 sq. ft.",
-    completion: "Aug 2023",
-    description: "Premium spa and salon interior with natural textures and soft lighting for a relaxing vibe.",
-    images: [
-      "https://images.unsplash.com/photo-1592878895206-8cb9e2b1a061?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1582719471137-c3967ffb1c9c?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Spa", "Luxury", "Commercial"]
-  },
-  {
-    id: 8,
-    title: "Coastal Home - Alibaug",
-    location: "Alibaug",
-    city: "alibaug",
-    type: "residential",
-    bhk: "3",
-    area: "2400 sq. ft.",
-    completion: "Oct 2022",
-    description: "A coastal-themed home blending indoor-outdoor spaces with sea breeze aesthetics.",
-    images: [
-      "https://images.unsplash.com/photo-1600047503659-a76afc7a56c3?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1600585154311-3a06e3e0f8ef?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Coastal", "Resort Style", "Luxury"]
-  },
-  {
-    id: 9,
-    title: "Modern Studio Apartment - Navi Mumbai",
-    location: "Navi Mumbai",
-    city: "navi-mumbai",
-    type: "residential",
-    bhk: "1",
-    area: "550 sq. ft.",
-    completion: "Feb 2023",
-    description: "Compact yet stylish studio designed for young professionals with efficient storage solutions.",
-    images: [
-      "https://images.unsplash.com/photo-1617093727343-3744b4797b61?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1618213679124-0664b6baf892?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Studio", "Compact", "Functional"]
-  },
-  {
-    id: 10,
-    title: "Showroom Interior - Lower Parel",
-    location: "Lower Parel, Mumbai",
-    city: "lower-parel",
-    type: "commercial",
-    bhk: "showroom",
-    area: "3000 sq. ft.",
-    completion: "Nov 2023",
-    description: "A high-end retail showroom designed with accent lighting and premium materials.",
-    images: [
-      "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Retail", "Showroom", "Modern"]
-  },
-  {
-    id: 11,
-    title: "Heritage Bungalow Restoration - Pune",
-    location: "Pune",
-    city: "pune",
-    type: "residential",
-    bhk: "4",
-    area: "3500 sq. ft.",
-    completion: "Jan 2024",
-    description: "A classic bungalow restored with a fusion of traditional charm and modern amenities.",
-    images: [
-      "https://images.unsplash.com/photo-1617806118233-18e1c7c1bba9?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1617093727312-b7b9e7c7d4e4?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Restoration", "Traditional", "Luxury"]
-  },
-  {
-    id: 12,
-    title: "Smart Home - Chembur",
-    location: "Chembur, Mumbai",
-    city: "chembur",
-    type: "residential",
-    bhk: "3",
-    area: "1600 sq. ft.",
-    completion: "Jun 2024",
-    description: "A fully automated smart home integrating technology with elegant interior design.",
-    images: [
-      "https://images.unsplash.com/photo-1618213839408-0a4c8b3adbb1?auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=2070&q=80"
-    ],
-    tags: ["Smart Home", "Technology", "Modern"]
-  }
-];
+            {
+                id: 1,
+                title: "Luxury Sea-Facing Apartment",
+                location: "South Mumbai",
+                city: "south-mumbai",
+                type: "residential",
+                bhk: "3",
+                area: "1800 sq. ft.",
+                completion: "Jan 2023",
+                description: "A stunning sea-facing apartment in South Mumbai with panoramic views and luxurious finishes.",
+                images: [
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Luxury", "Sea View", "Modern"]
+            },
+            {
+                id: 2,
+                title: "Corporate Office - Bandra Kurla Complex",
+                location: "Central Mumbai",
+                city: "central-mumbai",
+                type: "commercial",
+                bhk: "office",
+                area: "5000 sq. ft.",
+                completion: "Mar 2023",
+                description: "Modern corporate office space in BKC designed for productivity and collaboration.",
+                images: [
+                    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2069&q=80",
+                    "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2069&q=80"
+                ],
+                tags: ["Corporate", "BKC", "Office"]
+            },
+            {
+                id: 3,
+                title: "Penthouse Retreat - Worli",
+                location: "Worli, Mumbai",
+                city: "south-mumbai",
+                type: "residential",
+                bhk: "4",
+                area: "3200 sq. ft.",
+                completion: "Dec 2022",
+                description: "A luxurious penthouse retreat featuring an open terrace garden and contemporary interiors.",
+                images: [
+                    "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Luxury", "Penthouse", "Terrace"]
+            },
+            {
+                id: 4,
+                title: "Modern Villa - Lonavala",
+                location: "Lonavala",
+                city: "lonavala",
+                type: "residential",
+                bhk: "5",
+                area: "4500 sq. ft.",
+                completion: "Apr 2023",
+                description: "A scenic villa with infinity pool and nature-inspired interiors for weekend getaways.",
+                images: [
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1600585153837-30d3c67e09b4?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Villa", "Nature", "Luxury"]
+            },
+            {
+                id: 5,
+                title: "Boutique Café - Andheri",
+                location: "Andheri West, Mumbai",
+                city: "andheri",
+                type: "commercial",
+                bhk: "café",
+                area: "1200 sq. ft.",
+                completion: "Jul 2023",
+                description: "A cozy café designed with rustic aesthetics and warm lighting for a perfect ambiance.",
+                images: [
+                    "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0b?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Café", "Rustic", "Commercial"]
+            },
+            {
+                id: 6,
+                title: "Minimalist Apartment - Thane",
+                location: "Thane West",
+                city: "thane",
+                type: "residential",
+                bhk: "2",
+                area: "950 sq. ft.",
+                completion: "May 2023",
+                description: "A minimalistic home emphasizing functionality and comfort with sleek furnishings.",
+                images: [
+                    "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1618213837799-3a5d7dcf47a8?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Minimal", "Comfort", "Modern"]
+            },
+            {
+                id: 7,
+                title: "Luxury Spa & Salon - Powai",
+                location: "Powai, Mumbai",
+                city: "powai",
+                type: "commercial",
+                bhk: "salon",
+                area: "2200 sq. ft.",
+                completion: "Aug 2023",
+                description: "Premium spa and salon interior with natural textures and soft lighting for a relaxing vibe.",
+                images: [
+                    "https://images.unsplash.com/photo-1592878895206-8cb9e2b1a061?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1582719471137-c3967ffb1c9c?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Spa", "Luxury", "Commercial"]
+            },
+            {
+                id: 8,
+                title: "Coastal Home - Alibaug",
+                location: "Alibaug",
+                city: "alibaug",
+                type: "residential",
+                bhk: "3",
+                area: "2400 sq. ft.",
+                completion: "Oct 2022",
+                description: "A coastal-themed home blending indoor-outdoor spaces with sea breeze aesthetics.",
+                images: [
+                    "https://images.unsplash.com/photo-1600047503659-a76afc7a56c3?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1600585154311-3a06e3e0f8ef?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Coastal", "Resort Style", "Luxury"]
+            },
+            {
+                id: 9,
+                title: "Modern Studio Apartment - Navi Mumbai",
+                location: "Navi Mumbai",
+                city: "navi-mumbai",
+                type: "residential",
+                bhk: "1",
+                area: "550 sq. ft.",
+                completion: "Feb 2023",
+                description: "Compact yet stylish studio designed for young professionals with efficient storage solutions.",
+                images: [
+                    "https://images.unsplash.com/photo-1617093727343-3744b4797b61?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1618213679124-0664b6baf892?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Studio", "Compact", "Functional"]
+            },
+            {
+                id: 10,
+                title: "Showroom Interior - Lower Parel",
+                location: "Lower Parel, Mumbai",
+                city: "lower-parel",
+                type: "commercial",
+                bhk: "showroom",
+                area: "3000 sq. ft.",
+                completion: "Nov 2023",
+                description: "A high-end retail showroom designed with accent lighting and premium materials.",
+                images: [
+                    "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Retail", "Showroom", "Modern"]
+            },
+            {
+                id: 11,
+                title: "Heritage Bungalow Restoration - Pune",
+                location: "Pune",
+                city: "pune",
+                type: "residential",
+                bhk: "4",
+                area: "3500 sq. ft.",
+                completion: "Jan 2024",
+                description: "A classic bungalow restored with a fusion of traditional charm and modern amenities.",
+                images: [
+                    "https://images.unsplash.com/photo-1617806118233-18e1c7c1bba9?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1617093727312-b7b9e7c7d4e4?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Restoration", "Traditional", "Luxury"]
+            },
+            {
+                id: 12,
+                title: "Smart Home - Chembur",
+                location: "Chembur, Mumbai",
+                city: "chembur",
+                type: "residential",
+                bhk: "3",
+                area: "1600 sq. ft.",
+                completion: "Jun 2024",
+                description: "A fully automated smart home integrating technology with elegant interior design.",
+                images: [
+                    "https://images.unsplash.com/photo-1618213839408-0a4c8b3adbb1?auto=format&fit=crop&w=2070&q=80",
+                    "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=2070&q=80"
+                ],
+                tags: ["Smart Home", "Technology", "Modern"]
+            }
+        ];
 
 
         // Filter Variables
@@ -1014,8 +1019,8 @@
 
             const filteredProjects = projects.filter(project => {
                 return (currentCity === 'all' || project.city === currentCity) &&
-                       (currentType === 'all' || project.type === currentType) &&
-                       (currentBhk === 'all' || project.bhk === currentBhk);
+                    (currentType === 'all' || project.type === currentType) &&
+                    (currentBhk === 'all' || project.bhk === currentBhk);
             });
 
             if (filteredProjects.length === 0) {
@@ -1032,7 +1037,7 @@
                 const projectElement = document.createElement('div');
                 projectElement.className = 'gallery-item';
                 projectElement.setAttribute('data-id', project.id);
-                
+
                 projectElement.innerHTML = `
                     <div class="gallery-img">
                         <img src="${project.images[0]}" alt="${project.title}" loading="lazy">
@@ -1054,7 +1059,7 @@
                         <button class="btn-primary" onclick="openProjectModal(${project.id})">View Project</button>
                     </div>
                 `;
-                
+
                 galleryGrid.appendChild(projectElement);
             });
         }
@@ -1063,7 +1068,7 @@
         function initializeFilters() {
             // City filter
             document.querySelectorAll('.city-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentCity = this.getAttribute('data-city');
@@ -1073,7 +1078,7 @@
 
             // Type filter
             document.querySelectorAll('.filter-btn[data-type]').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     document.querySelectorAll('.filter-btn[data-type]').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentType = this.getAttribute('data-type');
@@ -1083,7 +1088,7 @@
 
             // BHK filter
             document.querySelectorAll('.filter-btn[data-bhk]').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     document.querySelectorAll('.filter-btn[data-bhk]').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentBhk = this.getAttribute('data-bhk');
@@ -1106,7 +1111,7 @@
 
             const modalGallery = document.getElementById('modalGallery');
             modalGallery.innerHTML = '';
-            
+
             project.images.forEach(imgSrc => {
                 const img = document.createElement('img');
                 img.src = imgSrc;
@@ -1114,7 +1119,7 @@
                 img.loading = 'lazy';
                 modalGallery.appendChild(img);
             });
-            
+
             document.getElementById('projectModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1145,7 +1150,7 @@
         }
 
         // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initializeThemeToggle();
             initializeGallery();
             initializeFilters();
@@ -1166,20 +1171,20 @@
             });
         });
 
-     // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
             initializeThemeToggle();
-            
+
             // Animate stats when page loads
             setTimeout(animateStats, 1000);
         });
 
-        </script>
+    </script>
 
-        <!-- Script to load header and footer -->
-        <script>
-            // Load Header
-            fetch('header.html')
+    <!-- Script to load header and footer -->
+    <script>
+        // Load Header
+        fetch('header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('siteHeader').innerHTML = data;
@@ -1189,158 +1194,158 @@
                 const nav = document.querySelector('nav');
 
                 if (menuToggle && nav) {
-                menuToggle.addEventListener('click', () => {
-                    nav.classList.toggle('active');
-                });
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
                 }
             });
- // Load Footer
-// Load Footer and initialize chatbot
-fetch('footer.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('siteFooter').innerHTML = data;
+        // Load Footer
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load Footer and initialize chatbot
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
 
-    // --- Grab elements after footer is loaded ---
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatbotContainer = document.getElementById('chatbotContainer');
-    const closeChat = document.getElementById('closeChat');
-    const chatBody = document.getElementById('chatbotBody');
-    const userForm = document.getElementById('userForm');
-    const formContainer = document.getElementById('formContainer');
-    const successMessage = document.getElementById('successMessage');
+                    // Delay a little to ensure DOM updates
+                    setTimeout(() => {
+                        const chatbotToggle = document.getElementById('chatbotToggle');
+                        const chatbotContainer = document.getElementById('chatbotContainer');
+                        const closeChat = document.getElementById('closeChat');
+                        const chatBody = document.getElementById('chatbotBody');
+                        const userForm = document.getElementById('userForm');
+                        const formContainer = document.getElementById('formContainer');
+                        const successMessage = document.getElementById('successMessage');
 
-    if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) return;
+                        if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) {
+                            console.warn("⚠️ Chatbot elements not found in footer.html");
+                            return;
+                        }
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
 
-    // --- Chatbot toggle ---
-    chatbotToggle.addEventListener('click', () => {
-        chatbotContainer.classList.toggle('active');
-        chatbotToggle.classList.toggle('minimized');
-    });
-    closeChat.addEventListener('click', () => {
-        chatbotContainer.classList.remove('active');
-        chatbotToggle.classList.add('minimized');
-    });
+                        // --- Chatbot toggle ---
+                        chatbotToggle.addEventListener('click', () => {
+                            chatbotContainer.classList.toggle('active');
+                            chatbotToggle.classList.toggle('minimized');
+                        });
+                        closeChat.addEventListener('click', () => {
+                            chatbotContainer.classList.remove('active');
+                            chatbotToggle.classList.add('minimized');
+                        });
 
-    // --- Form submission ---
-    userForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const mobile = document.getElementById('mobile').value.trim();
-        const email = document.getElementById('email').value.trim();
+                        // --- Form submission ---
+                        userForm.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            const name = document.getElementById('name').value.trim();
+                            const mobile = document.getElementById('mobile').value.trim();
+                            const email = document.getElementById('email').value.trim();
 
-        if(!name || !email || !/^\d{10}$/.test(mobile)){
-            alert('Please enter valid details.');
-            return;
-        }
+                            // WhatsApp redirect
+                            const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+                            const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+                            const win = window.open(whatsappURL, '_blank');
+                            if (!win) alert("Popup blocked! Allow popups to open WhatsApp.");
 
-        // WhatsApp redirect
-        const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
-        const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
-        const win = window.open(whatsappURL, '_blank');
-        if(!win) alert("Popup blocked! Allow popups to open WhatsApp.");
+                            // Google Sheet submission
+                            const formData = new FormData();
+                            formData.append('name', name);
+                            formData.append('mobile', mobile);
+                            formData.append('email', email);
+                            fetch(scriptURL, { method: 'POST', body: formData })
+                                .then(res => console.log('Sheet Response:', res))
+                                .catch(err => console.error('Sheet Error:', err));
 
-        // Google Sheet
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('mobile', mobile);
-        formData.append('email', email);
-        fetch(scriptURL, { method: 'POST', body: formData })
-            .then(res => console.log('Sheet Response:', res))
-            .catch(err => console.error('Sheet Error:', err));
+                            // Update chatbot UI
+                            formContainer.classList.remove('active');
+                            successMessage.classList.add('active');
 
-        // Update chatbot UI
-        formContainer.classList.remove('active');
-        successMessage.classList.add('active');
+                            const userMsg = document.createElement('div');
+                            userMsg.className = 'message user-message';
+                            userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                            chatBody.appendChild(userMsg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
 
-        const userMsg = document.createElement('div');
-        userMsg.className = 'message user-message';
-        userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
-        chatBody.appendChild(userMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
+                            setTimeout(() => {
+                                formContainer.classList.add('active');
+                                successMessage.classList.remove('active');
+                                userForm.reset();
+                            }, 3000);
+                        });
 
-        setTimeout(() => {
-            formContainer.classList.add('active');
-            successMessage.classList.remove('active');
-            userForm.reset();
-        }, 3000);
-    });
+                        // --- Auto messages every 15s ---
+                        function showChatbot() {
+                            chatbotContainer.classList.add('active');
+                            chatbotToggle.classList.remove('minimized');
+                        }
 
-    // --- Auto messages every 15s ---
-    function showChatbot() {
-        chatbotContainer.classList.add('active');
-        chatbotToggle.classList.remove('minimized');
-    }
+                        function addAutoMessage(text) {
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${text}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                        }
 
-    function addAutoMessage(text) {
-        const msg = document.createElement('div');
-        msg.className = 'message bot-message';
-        msg.innerHTML = `<div class="message-bubble">${text}</div>`;
-        chatBody.appendChild(msg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
+                        let userActive = false;
+                        function resetActivity() {
+                            userActive = true;
+                        }
+                        ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
+                            document.addEventListener(evt, resetActivity);
+                        });
 
-    let userActive = false;
+                        setInterval(() => {
+                            showChatbot();
+                            if (!userActive) {
+                                addAutoMessage("👋 Hi there! How can I help you today?");
+                            }
+                            userActive = false;
+                        }, 15000);
+                    }, 500); // 0.5s delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
 
-    function resetActivity() {
-        userActive = true;
-    }
+    </script>
 
-    ['click','mousemove','keydown','scroll','touchstart'].forEach(evt => {
-        document.addEventListener(evt, resetActivity);
-    });
-
-    setInterval(() => {
-        showChatbot();
-        if(!userActive){
-            addAutoMessage("👋 Hi there! How can I help you today?");
-        }
-        userActive = false;
-    }, 15000); // every 15 seconds
-
-  })
-  .catch(err => console.error('Footer load error:', err));
-
-  </script>
-
-        <script>
+    <script>
         // ✅ Desktop dropdown positioning fix (Smart auto-detect)
-            document.querySelectorAll('nav ul li').forEach(li => {
-  const dropdown = li.querySelector('.dropdown');
-  if (!dropdown) return;
+        document.querySelectorAll('nav ul li').forEach(li => {
+            const dropdown = li.querySelector('.dropdown');
+            if (!dropdown) return;
 
-  li.addEventListener('mouseenter', () => {
-    if (window.innerWidth <= 768) return;
+            li.addEventListener('mouseenter', () => {
+                if (window.innerWidth <= 768) return;
 
-    // Wait until dropdown is visible in the next frame
-    requestAnimationFrame(() => {
-      dropdown.style.left = '';
-      dropdown.style.right = '';
+                // Wait until dropdown is visible in the next frame
+                requestAnimationFrame(() => {
+                    dropdown.style.left = '';
+                    dropdown.style.right = '';
 
-      const rect = dropdown.getBoundingClientRect();
+                    const rect = dropdown.getBoundingClientRect();
 
-      // ✅ If dropdown overflows right edge
-      if (rect.right > window.innerWidth) {
-        dropdown.style.left = 'auto';
-        dropdown.style.right = '0';
-      }
+                    // ✅ If dropdown overflows right edge
+                    if (rect.right > window.innerWidth) {
+                        dropdown.style.left = 'auto';
+                        dropdown.style.right = '0';
+                    }
 
-      // ✅ If dropdown overflows left edge (rare)
-      if (rect.left < 0) {
-        dropdown.style.left = '0';
-        dropdown.style.right = 'auto';
-      }
-    });
-  });
+                    // ✅ If dropdown overflows left edge (rare)
+                    if (rect.left < 0) {
+                        dropdown.style.left = '0';
+                        dropdown.style.right = 'auto';
+                    }
+                });
+            });
 
-  // Optional: reset on mouseleave
-  li.addEventListener('mouseleave', () => {
-    dropdown.style.left = '';
-    dropdown.style.right = '';
-  });
-});
-</script>
+            // Optional: reset on mouseleave
+            li.addEventListener('mouseleave', () => {
+                dropdown.style.left = '';
+                dropdown.style.right = '';
+            });
+        });
+    </script>
 </body>
+
 </html>

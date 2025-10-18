@@ -1,756 +1,1094 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/index.css">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Smart Space Living | Premium Furniture & Interiors</title>
+    <title>About Smart Space Living | Furniture & Interiors</title>
     <meta name="description"
-      content="Smart Space Living offers premium furniture, interiors, and design solutions for your home and office. Explore our unique collections and services.">
-    <meta name="keywords"
-      content="Smart Space Living, furniture, interior design, home decor, office interiors, premium furniture">
-    <meta property="og:title"
-      content="Smart Space Living | Furniture & Interiors">
-    <meta property="og:description"
-      content="Discover Smart Space Living for premium furniture and interiors.">
-    <meta property="og:image" content="assets/images/og-home.jpg">
-    <meta property="og:url" content="https://www.smartspaceliving.com/">
+        content="Learn more about Smart Space Living, our journey, mission, and team behind premium furniture and interior design services.">
+    <meta name="keywords" content="about Smart Space Living, furniture, interiors, team, mission, vision">
+    <meta property="og:title" content="About Smart Space Living">
+    <meta property="og:description" content="Meet the team and know our story.">
+    <meta property="og:image" content="assets/images/og-about.jpg">
+    <meta property="og:url" content="https://www.smartspaceliving.com/about.html">
     <meta name="robots" content="index, follow">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    /* Dark Theme Base */
-    :root {
-      --primary: #000000;
-      --secondary: #D4AF37;
-      --accent: #FFFFFF;
-      --bg-dark: #0a0a0a;
-      --bg-card: #1a1a1a;
-      --text-primary: #ffffff;
-      --text-secondary: #b0b0b0;
-      --border: rgba(212, 175, 55, 0.2);
-      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    body {
-      font-family: 'Playfair Display', 'Times New Roman', serif;
-      background-color: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-      transition: var(--transition);
-    }
-
-    /* Enhanced Hero Section */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  height: 100vh; /* Ensure full screen height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.95) 100%), 
-              url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-  background-size: cover; /* Full coverage */
-  background-repeat: no-repeat; /* Prevent tiling */
-  background-position: center center; /* Perfect center alignment */
-  background-attachment: fixed; /* Parallax-style fixed background */
-  overflow: hidden;
-}
-
-/* Gold light pulse overlay */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
-  animation: pulse 8s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.1); }
-}
-
-
-    .hero-content {
-      text-align: center;
-      color: var(--text-primary);
-      z-index: 2;
-      max-width: 800px;
-      padding: 0 2rem;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .hero-content h2 {
-      font-size: 4rem;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      background: linear-gradient(45deg, #D4AF37, #FFD700, #F0E68C);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-content p {
-      font-size: 1.4rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.9;
-      line-height: 1.6;
-      color: var(--text-secondary);
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary, .btn-secondary {
-      padding: 15px 35px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: var(--transition);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary {
-      background: linear-gradient(45deg, #D4AF37, #FFD700);
-      color: #000;
-      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #D4AF37;
-      border: 2px solid #D4AF37;
-    }
-
-    .btn-secondary:hover {
-      background: #D4AF37;
-      color: #000;
-      transform: translateY(-3px);
-    }
-
-    /* Enhanced Services Section */
-    .services {
-      padding: 100px 2rem;
-      background: var(--bg-dark);
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-title h2 {
-      font-size: 3rem;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-      position: relative;
-    }
-
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: var(--secondary);
-    }
-
-    .section-title p {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      transition: var(--transition);
-      border: 1px solid var(--border);
-      position: relative;
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
-      border-color: var(--secondary);
-    }
-
-    .service-img {
-      height: 250px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .service-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover .service-img img {
-      transform: scale(1.1);
-    }
-
-    .service-content {
-      padding: 2rem;
-      position: relative;
-    }
-
-    .service-content h3 {
-      font-size: 1.5rem;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-    }
-
-    .service-content p {
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .service-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .feature-tag {
-      background: rgba(212, 175, 55, 0.1);
-      color: var(--secondary);
-      padding: 5px 12px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-    }
-
-    .service-link {
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: gap 0.3s ease;
-    }
-
-    .service-link:hover {
-      gap: 1rem;
-    }
-
-    /* Enhanced Portfolio Section */
-    .portfolio {
-      padding: 100px 2rem;
-      background: var(--bg-dark);
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .portfolio-item {
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      height: 400px;
-      cursor: pointer;
-      border: 1px solid var(--border);
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .portfolio-item:hover img {
-      transform: scale(1.1);
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.95));
-      color: white;
-      padding: 2rem;
-      transform: translateY(20px);
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-
-    .portfolio-item:hover .portfolio-overlay {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .portfolio-overlay h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      color: var(--secondary);
-    }
-
-    /* Enhanced Process Section */
-    .process {
-      padding: 100px 2rem;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-      color: var(--text-primary);
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .process-step {
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      background: var(--bg-card);
-      border-radius: 15px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-    }
-
-    .process-step:hover {
-      transform: translateY(-5px);
-      border-color: var(--secondary);
-      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
-    }
-
-    .step-number {
-      width: 60px;
-      height: 60px;
-      background: var(--secondary);
-      color: #000;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0 auto 1.5rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .process-step h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: var(--secondary);
-    }
-
-    .process-step p {
-      opacity: 0.8;
-      line-height: 1.6;
-      color: var(--text-secondary);
-    }
-
-    /* Enhanced Testimonials */
-    .testimonials {
-      padding: 100px 2rem;
-      background: var(--bg-dark);
-    }
-
-    .testimonials-container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .testimonial-slider {
-      position: relative;
-      height: 300px;
-      overflow: hidden;
-      margin: 3rem 0;
-    }
-
-    .testimonial-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transform: translateX(50px);
-      transition: all 0.5s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .testimonial-slide.active {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .testimonial-text {
-      font-size: 1.3rem;
-      font-style: italic;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      max-width: 800px;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    .testimonial-text::before,
-    .testimonial-text::after {
-      content: '"';
-      font-size: 4rem;
-      color: var(--secondary);
-      opacity: 0.3;
-      position: absolute;
-    }
-
-    .testimonial-text::before {
-      top: -20px;
-      left: -40px;
-    }
-
-    .testimonial-text::after {
-      bottom: -40px;
-      right: -40px;
-    }
-
-    .testimonial-author {
-      font-weight: 700;
-      color: var(--secondary);
-      font-size: 1.1rem;
-    }
-
-    .testimonial-dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #333;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .dot.active {
-      background: var(--secondary);
-      transform: scale(1.2);
-    }
-
-    /* Enhanced CTA Section */
-    .cta-section {
-      padding: 100px 2rem;
-      background: linear-gradient(135deg, var(--secondary) 0%, #c19b2e 100%);
-      color: #000;
-      text-align: center;
-    }
-
-    .cta-content h2 {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-content p {
-      font-size: 1.3rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.9;
-    }
-
-    .cta-section .btn-primary {
-      background: #000;
-      color: var(--secondary);
-    }
-
-    .cta-section .btn-primary:hover {
-      background: #333;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    /* Stats Counter */
-    .stats-section {
-      padding: 80px 2rem;
-      background: var(--bg-dark);
-      text-align: center;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .stat-item {
-      padding: 2rem;
-      background: var(--bg-card);
-      border-radius: 15px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-    }
-
-    .stat-item:hover {
-      border-color: var(--secondary);
-      transform: translateY(-5px);
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--secondary);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-content h2 {
-        font-size: 2.5rem;
-      }
-      
-      .hero-content p {
-        font-size: 1.1rem;
-      }
-      
-      .section-title h2 {
-        font-size: 2.2rem;
-      }
-      
-      .services-grid,
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .btn-primary, .btn-secondary {
-        width: 100%;
-        max-width: 300px;
-      }
-      
-      .process-steps {
-        grid-template-columns: 1fr;
-      }
-    }
-
-      /* Brands Section */
-        .brands-section {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a3c5a;
+            --secondary: #c9a96e;
+            --accent: #2c5a7d;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 60, 90, 0.8), rgba(26, 60, 90, 0.9)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #b8975a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Form - Smaller Version */
+        .contact-form {
+            background: rgb(0, 0, 0);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-subtitle {
+            color: #aaa;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: white;
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: var(--transition);
+            background-color: #222;
+            color: white;
+        }
+
+        .form-control::placeholder {
+            color: #888;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(201, 169, 110, 0.2);
+        }
+
+        .btn-primary {
+            width: 100%;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #b8975a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-note {
+            text-align: left;
+            margin-top: 15px;
+            font-size: 12px !important;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        .form-note a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #b8975a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(201, 169, 110, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--secondary);
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Technologies Section */
+        .technologies {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tech-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-content {
+            padding: 30px;
+        }
+
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(201, 169, 110, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 24px;
+        }
+
+        .tech-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .tech-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background-color: rgba(201, 169, 110, 0.1);
+            color: var(--secondary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Warranty Section */
+        .warranty {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .warranty-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .warranty-text {
+            flex: 1;
+        }
+
+        .warranty-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .warranty-text p {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .warranty-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .warranty-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .warranty-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .warranty-feature {
+            display: flex;
+            align-items: center;
+        }
+
+        .warranty-feature i {
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .warranty-content {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .warranty-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .features-grid,
+            .stats-grid,
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .light-theme {
+            --bg-color: var(--bg-light);
+            --text-color: var(--text-light);
+            --card-color: var(--card-light);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 70vh;
+            display: flex;
+
+            justify-content: center;
+            text-align: left;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--accent);
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .contact-form {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gold-divider {
+            width: 120px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 2.5rem auto;
+            animation: expandWidth 1s ease-out 0.6s both;
+        }
+
+        /* Story Section */
+        .story-section {
             padding: 6rem 2rem;
             background: var(--bg-color);
         }
 
-        .brands-container {
-            max-width: 1200px;
+        .story-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .story-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 2rem;
+            background: rgb(237, 237, 232);
+            color: var(--primary);
+        }
+
+        .values-container {
+            max-width: 1400px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .brands-container h2 {
+        .values-container h2 {
             font-size: 3rem;
             margin-bottom: 3rem;
             color: var(--secondary);
         }
 
-        .brands-grid {
+        .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            padding: 3rem 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(50, 49, 48, 0.3);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .value-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            background: var(--card-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 2rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .member-role {
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .member-bio {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stats-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-card {
+            padding: 2.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .process-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .process-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
 
-        .brand-item {
-            padding: 2rem;
+        .process-step {
+            padding: 2.5rem;
             background: var(--card-color);
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.2);
             transition: var(--transition);
+            position: relative;
         }
 
-        .brand-item:hover {
+        .process-step:hover {
             transform: translateY(-5px);
             border-color: var(--secondary);
         }
 
-        .brand-item img {
-            max-width: 100%;
-            height: 100px;
-            object-fit: contain;
-           
-            transition: var(--transition);
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
-/* ===== Welcome Popup ===== */
-.welcome-popup {
-  position: fixed; top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.9); display:flex; justify-content:center; align-items:center;
-  opacity:0; visibility:hidden; z-index:9999; transition:0.5s ease;
-}
-.welcome-popup.active { opacity:1; visibility:visible; }
+        .step-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
 
-.welcome-content {
-  position: relative; background: linear-gradient(135deg,#0a0a0a,#1a1a1a);
-  color:#fff; border-radius:25px; padding:2rem; text-align:center;
-  max-width:500px; width:90%; max-height:55vh; overflow:hidden;
-  transform: scale(0.8); opacity:0; transition:0.5s ease;
-  display:flex; flex-direction:column; justify-content:center;
-  border:1px solid rgba(212,175,55,0.3); box-shadow:0 20px 40px rgba(0,0,0,0.7);
-}
-.welcome-popup.active .welcome-content { transform: scale(1); opacity:1; }
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
 
-/* Floating elements */
-.floating-elements { position:absolute; width:100%; height:100%; top:0; left:0; overflow:hidden; z-index:1; }
-.floating-element { position:absolute; border-radius:50%; background:rgba(212,175,55,0.1); animation:float 10s infinite ease-in-out; }
-.floating-element:nth-child(1){width:70px;height:70px;top:10%;left:10%;}
-.floating-element:nth-child(2){width:50px;height:50px;top:70%;left:80%; animation-delay:2s;}
-.floating-element:nth-child(3){width:40px;height:40px;top:40%;left:85%; animation-delay:4s;}
-.floating-element:nth-child(4){width:60px;height:60px;top:80%;left:20%; animation-delay:6s;}
-@keyframes float {0%,100%{transform:translateY(0);}33%{transform:translateY(-15px);}66%{transform:translateY(8px);}}
+        .process-step p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
 
-/* Logo */
-.logo-container img { width:80px;height:80px;border-radius:50%;border:3px solid #D4AF37; box-shadow:0 0 20px rgba(212,175,55,0.4); animation:pulse 3s infinite; margin-bottom:1rem; }
-@keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.05);box-shadow:0 0 30px rgba(212,175,55,0.6);}}
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            color: var(--text-color);
+        }
 
-/* Text & buttons */
-h2 { font-size:2rem; margin-bottom:0.8rem; background:linear-gradient(45deg,#D4AF37,#FFD700); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:700; }
-p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
-.welcome-buttons { display:flex; flex-direction:column; gap:1rem; margin-bottom:1rem; }
-.welcome-btn { padding:12px 25px; border-radius:50px; font-weight:600; font-size:1rem; cursor:pointer; border:none; display:flex; align-items:center; justify-content:center; gap:8px; text-transform:uppercase; transition:0.3s ease; }
-.welcome-btn.primary { background:linear-gradient(45deg,#D4AF37,#FFD700); color:#000; }
-.welcome-btn.primary:hover { transform:translateY(-3px); box-shadow:0 10px 20px rgba(212,175,55,0.5); }
-.welcome-btn.secondary { background:transparent; color:#D4AF37; border:2px solid #D4AF37; }
-.welcome-btn.secondary:hover { background:#D4AF37;color:#000; transform:translateY(-3px); }
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-.close-popup { position:absolute; top:15px; right:15px; background:rgba(255,255,255,0.1); border:none; color:#D4AF37; width:35px; height:35px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:0.3s ease; }
-.close-popup:hover { background:rgba(212,175,55,0.2); transform:rotate(90deg); }
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
 
-.gold-divider { height:2px;width:60px;margin:1rem auto; background:linear-gradient(90deg,transparent,#D4AF37,transparent); z-index:2; }
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
 
-/* Responsive */
-@media(max-width:480px){ .welcome-content{max-height:60vh;padding:1.5rem;} h2{font-size:1.5rem;} p{font-size:0.9rem;} .logo-container img{width:60px;height:60px;} .welcome-btn{padding:8px 15px;font-size:0.85rem;} }
-    
-    
-    .vediopopup {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-}
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
 
-.vediopopup-content {
-  background: #0a0909;
-  padding: 2rem;
-  max-width: 700px;
-  width: 90%;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
-}
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
 
-.close-btn {
-  position: absolute;
-  top: 10px; right: 15px;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 5rem 2rem 2rem;
+        }
 
-.vsocial-buttons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+        }
 
-.vsocial-btn { padding: 0.5rem 1rem; border-radius: 5px; color: #fff; text-decoration: none; }
- .social-links {
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: var(--accent);
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             margin-top: 2rem;
         }
 
@@ -758,913 +1096,1270 @@ p { font-size:1rem; margin-bottom:1.5rem; opacity:0.9; line-height:1.5; }
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            color: var(--secondary);
-            text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .social-links a:hover {
             background: var(--secondary);
             color: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 120px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .values-grid,
+            .team-grid,
+            .stats-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .story-content h2,
+            .values-container h2,
+            .team-container h2,
+            .stats-container h2,
+            .process-container h2,
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .btn-primary {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== Welcome Popup ===== */
+        .welcome-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+            transition: 0.5s ease;
+        }
+
+        .welcome-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .welcome-content {
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: #fff;
+            border-radius: 25px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            max-height: 55vh;
+            overflow: hidden;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .welcome-popup.active .welcome-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Floating elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 70px;
+            height: 70px;
+            top: 10%;
+            left: 10%;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 50px;
+            height: 50px;
+            top: 70%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            top: 40%;
+            left: 85%;
+            animation-delay: 4s;
+        }
+
+        .floating-element:nth-child(4) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            33% {
+                transform: translateY(-15px);
+            }
+
+            66% {
+                transform: translateY(8px);
+            }
+        }
+
+        /* Logo */
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            animation: pulse 3s infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        /* Text & buttons */
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .welcome-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            transition: 0.3s ease;
+        }
+
+        .welcome-btn.primary {
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            color: #000;
+        }
+
+        .welcome-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .welcome-btn.secondary {
+            background: transparent;
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+        }
+
+        .welcome-btn.secondary:hover {
+            background: #D4AF37;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #D4AF37;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+        }
+
+        .close-popup:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .gold-divider {
+            height: 2px;
+            width: 60px;
+            margin: 1rem auto;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            z-index: 2;
+        }
+
+        /* Responsive */
+        @media(max-width:480px) {
+            .welcome-content {
+                max-height: 60vh;
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .logo-container img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .welcome-btn {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
         }
 
 
-.btn-secondary { padding: 0.5rem 1rem; cursor: pointer; background: #555; color: #fff; border: none; border-radius: 5px; }
-  
-  @media (max-width: 768px) {
-  #watchVideoBtn {
- visibility: hidden;
-  }
-}
 
-  
-  </style>
 
-    <!-- style close -->
-  </head>
+        /* Trusted Brands Section */
+        .trusted-brands {
+            padding: 4rem 2rem;
+            background: var(--bg-color);
+            text-align: center;
+        }
 
-  <!-- body started -->
-  <body class="light-theme">
+        .trusted-brands h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .brands-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .brands-marquee {
+            display: flex;
+            animation: marquee 15s linear infinite;
+            gap: 2rem;
+            padding: 1.5rem 0;
+        }
+
+        .brand-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 2.5rem;
+            background: var(--card-color);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .brand-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .brand-logo {
+            height: 40px;
+
+            transition: var(--transition);
+        }
+
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="light-theme">
 
     <!-- Header -->
-    <div id="siteHeader"></div>
+    <div id="siteHeader">
+
+    </div>
 
     <div class="welcome-popup" id="welcome-popup">
-      <div class="welcome-content">
-        <div class="floating-elements">
-          <div class="floating-element"></div>
-          <div class="floating-element"></div>
-          <div class="floating-element"></div>
-          <div class="floating-element"></div>
+        <div class="welcome-content">
+            <div class="floating-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+
+            <div class="logo-container">
+                <img src="assets/logos/logo.jpg" alt="Logo">
+            </div>
+            <div class="gold-divider"></div>
+            <h3 style="color: #FFFFFF !important; font-size: 2rem;margin-top: -30px;">Welcome
+                to Smartspace Living</h3>
+
+            <p>Luxury meets functionality. Explore your extraordinary living
+                spaces.</p>
+
+            <div class="welcome-buttons">
+                <button class="welcome-btn primary" id="claim-offers"><i class="fas fa-gift"></i> Claim Offers</button>
+                <button class="welcome-btn secondary" id="get-estimate"><i class="fas fa-calculator"></i> Get
+                    Estimate</button>
+            </div>
+
+            <button class="close-popup" id="close-welcome"><i class="fas fa-times"></i></button>
         </div>
-
-        <div class="logo-container">
-          <img src="assets/logos/logo.jpg" alt="Logo">
-        </div>
-        <div class="gold-divider"></div>
-        <h3
-          style="color: #FFFFFF !important; font-size: 2rem;margin-top: -30px;">Welcome
-          to Smartspace Living</h3>
-
-        <p>Luxury meets functionality. Explore your extraordinary living
-          spaces.</p>
-
-        <div class="welcome-buttons">
-          <button class="welcome-btn primary" id="claim-offers"><i
-              class="fas fa-gift"></i> Claim Offers</button>
-          <button class="welcome-btn secondary" id="get-estimate"><i
-              class="fas fa-calculator"></i> Get Estimate</button>
-        </div>
-
-        <button class="close-popup" id="close-welcome"><i
-            class="fas fa-times"></i></button>
-      </div>
     </div>
     <!-- welcome popup started -->
     <script>
-      const popup = document.getElementById('welcome-popup');
-      const closeBtn = document.getElementById('close-welcome');
-      const claimBtn = document.getElementById('claim-offers');
-      const estimateBtn = document.getElementById('get-estimate');
+        const popup = document.getElementById('welcome-popup');
+        const closeBtn = document.getElementById('close-welcome');
+        const claimBtn = document.getElementById('claim-offers');
+        const estimateBtn = document.getElementById('get-estimate');
 
-      function closePopup(){ popup.classList.remove('active'); setTimeout(()=>popup.style.display='none',500); }
-      document.addEventListener('DOMContentLoaded', ()=>{ setTimeout(()=>popup.classList.add('active'),500); });
+        function closePopup() { popup.classList.remove('active'); setTimeout(() => popup.style.display = 'none', 500); }
+        document.addEventListener('DOMContentLoaded', () => { setTimeout(() => popup.classList.add('active'), 500); });
 
-      closeBtn.onclick = closePopup;
-      popup.onclick = e=>{ if(e.target===popup) closePopup(); }
-      document.onkeydown = e=>{ if(e.key==='Escape') closePopup(); }
+        closeBtn.onclick = closePopup;
+        popup.onclick = e => { if (e.target === popup) closePopup(); }
+        document.onkeydown = e => { if (e.key === 'Escape') closePopup(); }
 
-      claimBtn.onclick = () => {
-        closePopup();
-        window.location.href = 'offers.html'; // Redirect to offers page
-      }
+        claimBtn.onclick = () => {
+            closePopup();
+            window.location.href = 'offers.html'; // Redirect to offers page
+        }
 
-      estimateBtn.onclick = () => {
-        closePopup();
-        window.location.href = 'price_calculator.html'; // Redirect to estimate page
-      }
+        estimateBtn.onclick = () => {
+            closePopup();
+            window.location.href = 'price_calculator.html'; // Redirect to estimate page
+        }
 
     </script>
-    <!-- welcome popup closed  -->
-    <!-- Page Content -->
-    <main>
-      <!-- Enhanced Hero Section -->
-      <section class="hero">
-        <div class="hero-content">
-          <h2>Crafting Extraordinary Living Spaces</h2>
-          <p>Where luxury meets functionality. Experience bespoke interior
-            design solutions that transform your vision into breathtaking
-            reality, creating spaces that inspire and elevate your
-            lifestyle.</p>
-          <div class="hero-buttons">
-            <button class="btn-primary"
-              onclick="window.location.href='contact.html'">
-              <i class="fas fa-calendar-check"></i> Book Design Consultation
+    <!-- Hero Section -->
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Crafting Quality Furniture Since 2005</h1>
+                    <p>With over 15 years of excellence, we've been
+                        transforming homes with premium furniture solutions
+                        that combine style, durability, and
+                        functionality.</p>
+                    <a href="#" class="btn">Explore Our Collection</a>
+                </div>
+
+                <div class="contact-form">
+                    <h2 class="form-title">Get a Free Consultation</h2>
+                    <p class="form-subtitle">Let us help you create your
+                        dream space</p>
+
+                    <form id="consultationForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact">Contact Number</label>
+                            <input type="tel" id="contact" class="form-control" placeholder="Enter your phone number"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email address"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Request
+                            Consultation</button>
+
+                        <p class="form-note">By submitting this form, you
+                            agree to the <a href="policies.html">Privacy &
+                                policy </a> and <a href="terms_con.html">
+                                terms & Conditions</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+            const consultationForm = document.getElementById("consultationForm");
+            if (!consultationForm) return; // if form not on this page, skip
+
+            consultationForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById("name").value.trim();
+                const mobile = document.getElementById("contact").value.trim();
+                const email = document.getElementById("email").value.trim();
+
+                // --- Send to Google Sheet ---
+                const formData = new FormData();
+                formData.append("name", name);
+                formData.append("mobile", mobile);
+                formData.append("email", email);
+
+                fetch(scriptURL, { method: "POST", body: formData })
+                    .then(res => {
+                        console.log("✅ Data sent successfully:", res);
+                        alert("✅ Thank you! Your details have been submitted successfully.");
+                        consultationForm.reset();
+                    })
+                    .catch(err => {
+                        console.error("❌ Error submitting form:", err);
+                        alert("⚠️ There was a problem submitting the form. Please try again.");
+                    });
+            });
+        });
+    </script>
+
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-container">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Founded in 2012 by visionary interior designer Ananya
+                    Sharma, Smartspace Living began as a small studio with a
+                    big dream: to revolutionize interior design in India by
+                    blending traditional craftsmanship with contemporary
+                    aesthetics.</p>
+                <p>What started as a passion project in a Mumbai apartment
+                    has grown into one of India's most trusted interior
+                    design firms, with projects spanning across 25+ cities
+                    and a team of 50+ creative professionals.</p>
+                <p>Our journey has been guided by a simple philosophy: every
+                    space tells a story, and we're here to help you write
+                    yours. From cozy apartments to luxury villas, corporate
+                    offices to boutique hotels, we've had the privilege of
+                    transforming over 500 spaces into beautiful, functional
+                    environments.</p>
+            </div>
+            <div class="story-image">
+                <img src="https://officesnapshots.com/wp-content/uploads/2018/02/microsoft-turn-10-studios-redmond-bh-architects-10.jpg"
+                    alt="Our Design Studio">
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <h2>Our Values</h2>
+            <div class="gold-divider"></div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We constantly push boundaries with creative
+                        solutions, smart technology integration, and
+                        cutting-edge design trends to deliver spaces that
+                        are both beautiful and functional.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>Our love for design drives everything we do. We pour
+                        our hearts into every project, ensuring each space
+                        reflects our commitment to excellence and attention
+                        to detail.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe the best designs emerge from strong
+                        partnerships. We work closely with our clients,
+                        listening to their needs and visions to create
+                        spaces that truly feel like home.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>From material selection to final execution, we
+                        maintain the highest standards of quality. We use
+                        premium materials and work with skilled artisans to
+                        ensure lasting beauty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Brands Section -->
+    <section class="trusted-brands">
+        <div class="container">
+            <h2>Trusted by Leading Brands</h2>
+            <div class="gold-divider"></div>
+            <div class="brands-container">
+                <div class="brands-marquee">
+                    <!-- Brand logos will be duplicated for seamless looping -->
+                    <div class="brand-item">
+                        <img src="assets/logos/asianpaints.jpg" alt="asianpaints" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/centuryply.jpg" alt="centuryply" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/godrej.jpg" alt="godrej" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/hafele.jpg" alt="hafele" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/hettich.jpg" alt="hettich" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/jaquar.jpg" alt="jaguar" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/kohler.jpg" alt="kohler" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/norisys.jpg" alt="norisys" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/polycab.jpg" alt="polycab" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/royale touche.jpg" alt="royale touche" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/sainikmr.jpg" alt="sainikmr" class="brand-logo">
+                    </div>
+
+                    <!-- dublicate -->
+                    <div class="brand-item">
+                        <img src="assets/logos/asianpaints.jpg" alt="asianpaints" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/centuryply.jpg" alt="centuryply" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/godrej.jpg" alt="godrej" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/hafele.jpg" alt="hafele" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/hettich.jpg" alt="hettich" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/jaquar.jpg" alt="jaguar" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/kohler.jpg" alt="kohler" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/norisys.jpg" alt="norisys" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/polycab.jpg" alt="polycab" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/royale touche.jpg" alt="royale touche" class="brand-logo">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/logos/sainikmr.jpg" alt="sainikmr" class="brand-logo">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2>Meet Our Leadership</h2>
+            <div class="gold-divider"></div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80"
+                            alt="Ananya Sharma">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ananya Sharma</h3>
+                        <div class="member-role">Founder & Creative
+                            Director</div>
+                        <p class="member-bio">With a Master's in Interior
+                            Architecture and 15 years of experience, Ananya
+                            leads our creative vision with passion and
+                            precision.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                            alt="Raj Malhotra">
+                    </div>
+                    <div class="member-info">
+                        <h3>Raj Malhotra</h3>
+                        <div class="member-role">Head of Operations</div>
+                        <p class="member-bio">Raj ensures seamless project
+                            execution with his expertise in project
+                            management and client relations spanning 12
+                            years.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.Yduq1xxfRg2_10z6dyJvCwAAAA?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+                            alt="Priya Patel">
+                    </div>
+                    <div class="member-info">
+                        <h3>Priya Patel</h3>
+                        <div class="member-role">Senior Interior
+                            Designer</div>
+                        <p class="member-bio">Priya specializes in
+                            residential spaces and brings 10 years of
+                            experience in creating warm, functional family
+                            homes.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Arjun Kapoor">
+                    </div>
+                    <div class="member-info">
+                        <h3>Arjun Kapoor</h3>
+                        <div class="member-role">Commercial Design
+                            Lead</div>
+                        <p class="member-bio">Arjun excels in creating
+                            innovative commercial spaces that boost
+                            productivity and reflect brand identity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <h2>Our Impact in Numbers</h2>
+            <div class="gold-divider"></div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="500">0+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="25">0+</div>
+                    <div class="stat-label">Cities Covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="98">0%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="12">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="50">0+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <h2>Our Design Process</h2>
+            <div class="gold-divider"></div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Consultation</h3>
+                    <p>We begin with understanding your vision, lifestyle,
+                        and requirements through detailed discussions and
+                        site visits.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Design Development</h3>
+                    <p>Our team creates detailed 3D designs, material
+                        boards, and layouts for your approval before
+                        execution.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Execution</h3>
+                    <p>Skilled craftsmen bring designs to life with
+                        precision, using quality materials and strict
+                        quality control.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Handover</h3>
+                    <p>We deliver your dream space with comprehensive
+                        after-service support and maintenance guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Begin Your Design Journey?</h2>
+            <p>Let's collaborate to create a space that tells your unique
+                story. Our team is ready to bring your vision to life with
+                the same passion and dedication that has defined our work
+                for over a decade.</p>
+            <button class="btn-primary" onclick="scheduleConsultation()">
+                <i class="fas fa-calendar-check" style="margin-right: 10px;"></i>
+                Start Your Project Today
             </button>
-
-            <!-- vedio popup script close -->
-          </div>
-          <div
-            style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-            <div style="text-align: center;">
-              <div
-                style="font-size: 2rem; color: #D4AF37; font-weight: bold;">500+</div>
-              <div style="font-size: 0.9rem; opacity: 0.8;">Projects
-                Completed</div>
-            </div>
-            <div style="text-align: center;">
-              <div
-                style="font-size: 2rem; color: #D4AF37; font-weight: bold;">98%</div>
-              <div style="font-size: 0.9rem; opacity: 0.8;">Client
-                Satisfaction</div>
-            </div>
-            <div style="text-align: center;">
-              <div
-                style="font-size: 2rem; color: #D4AF37; font-weight: bold;">12+</div>
-              <div style="font-size: 0.9rem; opacity: 0.8;">Years
-                Experience</div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Enhanced Services Section -->
-      <section class="services">
-        <div class="section-title">
-          <h2>Our Premium Design Services</h2>
-          <p>Comprehensive interior design solutions tailored to transform every
-            corner of your space into a masterpiece</p>
-        </div>
-
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-img">
-              <img
-                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                alt="Modular Kitchen">
-            </div>
-            <div class="service-content">
-              <h3>Luxury Modular Kitchen Designs</h3>
-              <p>Transform your kitchen into a culinary paradise with our
-                bespoke modular designs that combine German engineering with
-                exquisite aesthetics.</p>
-              <div class="service-features">
-                <span class="feature-tag">Smart Storage</span>
-                <span class="feature-tag">Premium Materials</span>
-                <span class="feature-tag">Ergonomic Design</span>
-              </div>
-              <a href="#" class="service-link">
-                Explore Kitchen Designs <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="service-img">
-              <img
-                src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80"
-                alt="Wardrobe Designs">
-            </div>
-            <div class="service-content">
-              <h3>Custom Wardrobe Solutions</h3>
-              <p>Maximize your storage space with our intelligent wardrobe
-                designs that blend organization with luxury, creating
-                clutter-free living spaces.</p>
-              <div class="service-features">
-                <span class="feature-tag">Custom Fit</span>
-                <span class="feature-tag">Premium Finishes</span>
-                <span class="feature-tag">Smart Organization</span>
-              </div>
-              <a href="#" class="service-link">
-                View Wardrobe Gallery <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="service-img">
-              <img
-                src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                alt="Living Room Designs">
-            </div>
-            <div class="service-content">
-              <h3>Signature Living Room Designs</h3>
-              <p>Create captivating living spaces that reflect your personality
-                while providing ultimate comfort and functionality for everyday
-                living.</p>
-              <div class="service-features">
-                <span class="feature-tag">Custom Furniture</span>
-                <span class="feature-tag">Lighting Design</span>
-                <span class="feature-tag">Space Planning</span>
-              </div>
-              <a href="#" class="service-link">
-                Discover Living Rooms <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Brands Section -->
-      <section class="brands-section">
-        <div class="brands-container">
-          <h2>Trusted Brands</h2>
-          <div class="gold-divider"></div>
-          <p>We partner with the world's leading furniture and decor brands</p>
-
-          <div class="brands-grid">
-            <div class="brand-item">
-              <img src="assets/logos/asianpaints.jpg" alt="asian paints">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/godrej.jpg" alt="Godrej">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/centuryply.jpg" alt="centuryply">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/Wakefit.png" alt="Wakefit">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/Urban.jpg" alt="Urban Ladder">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/sainikmr.jpg" alt="Sainic-MR">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/saintgobbain.jpg" alt="saintgobbain">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/royale touche.jpg" alt="Royal touche">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/hettich.jpg" alt="hettich">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/jaquar.jpg" alt="jaquar">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/norisys.jpg" alt="norisys">
-            </div>
-            <div class="brand-item">
-              <img src="assets/logos/kohler.jpg" alt="kohler">
-            </div>
-          </div>
-        </section>
-        <!-- Stats Section -->
-        <section class="stats-section">
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-number" data-count="500">0</div>
-              <div class="stat-label">Projects Completed</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number" data-count="250">0</div>
-              <div class="stat-label">Happy Families</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number" data-count="12">0</div>
-              <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number" data-count="25">0</div>
-              <div class="stat-label">Awards Won</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Enhanced Portfolio Section -->
-        <section class="portfolio">
-          <div class="portfolio-container">
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
             <div class="section-title">
-              <h2>Our Design Masterpieces</h2>
-              <p>Explore our curated collection of stunning interior
-                transformations that showcase our design expertise</p>
+                <h2>Why Choose Us</h2>
+                <p>We're committed to delivering exceptional value through
+                    our premium products and services</p>
             </div>
-
-            <div class="portfolio-grid">
-              <div class="portfolio-item">
-                <img
-                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                  alt="Modern Apartment">
-                <div class="portfolio-overlay">
-                  <h3>Seaside Luxury Apartment</h3>
-                  <p>Contemporary design with panoramic ocean views and smart
-                    space optimization</p>
-                  <div style="margin-top: 1rem;">
-                    <span class="feature-tag"
-                      style="background: rgba(255,255,255,0.1); color: white;">Mumbai</span>
-                    <span class="feature-tag"
-                      style="background: rgba(255,255,255,0.1); color: white;">3
-                      BHK</span>
-                  </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Flat 10-Year Warranty¹</h3>
+                    <p>Comprehensive protection for your investment with our
+                        industry-leading warranty</p>
                 </div>
-              </div>
-
-              <div class="portfolio-item">
-                <img
-                  src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                  alt="Luxury Villa">
-                <div class="portfolio-overlay">
-                  <h3>Heritage Villa Restoration</h3>
-                  <p>Blending traditional architecture with modern luxury
-                    amenities</p>
-                  <div style="margin-top: 1rem;">
-                    <span class="feature-tag"
-                      style="background: rgba(255,255,255,0.1); color: white;">Alibaug</span>
-                    <span class="feature-tag"
-                      style="background: rgba(255,255,255,0.1); color: white;">Villa</span>
-                  </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Easy EMIs</h3>
+                    <p>Flexible payment options to make premium furniture
+                        accessible to everyone</p>
                 </div>
-              </div>
-
-              <div class="portfolio-item">
-                <img
-                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                  alt="Compact Studio">
-                <div class="portfolio-overlay">
-                  <h3>Urban Studio Transformation</h3>
-                  <p>Maximized functionality in 450 sq ft with multi-purpose
-                    furniture</p>
-                  <div style="margin-top: 1rem;">
-                    <span class="feature-tag"
-                      style="background: rgba(255,255,255,0.1); color: white;">Lower
-                      Parel</span>
-                    <span class="feature-tag"
-                      style="background: rgba(255,255,255,0.1); color: white;">Studio</span>
-                  </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>45-Day Move-In Guarantee²</h3>
+                    <p>Get your furniture delivered and installed within 45
+                        days or get compensation</p>
                 </div>
-              </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>146 Quality Checks</h3>
+                    <p>Rigorous testing at every stage to ensure flawless
+                        products</p>
+                </div>
             </div>
-          </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Enhanced Process Section -->
-        <section class="process">
-          <div class="section-title">
-            <h2 style="color: var(--secondary);">Our Design Journey</h2>
-            <p style="color: var(--text-secondary);">A meticulous 6-step process
-              that ensures perfection from concept to completion</p>
-          </div>
-
-          <div class="process-steps">
-            <div class="process-step">
-              <div class="step-number">1</div>
-              <h3>Discovery & Vision</h3>
-              <p>In-depth consultation to understand your lifestyle,
-                preferences, and vision for the perfect space</p>
-            </div>
-
-            <div class="process-step">
-              <div class="step-number">2</div>
-              <h3>Concept Creation</h3>
-              <p>Our designers craft mood boards, layouts, and 3D visualizations
-                to bring your vision to life</p>
-            </div>
-
-            <div class="process-step">
-              <div class="step-number">3</div>
-              <h3>Detailed Planning</h3>
-              <p>Comprehensive technical drawings, material selection, and
-                project timeline development</p>
-            </div>
-
-            <div class="process-step">
-              <div class="step-number">4</div>
-              <h3>Precision Execution</h3>
-              <p>Expert craftsmen and project managers bring the design to
-                reality with meticulous attention</p>
-            </div>
-
-            <div class="process-step">
-              <div class="step-number">5</div>
-              <h3>Quality Assurance</h3>
-              <p>Rigorous quality checks and finishing touches to ensure
-                perfection in every detail</p>
-            </div>
-
-            <div class="process-step">
-              <div class="step-number">6</div>
-              <h3>Dream Handover</h3>
-              <p>Final walkthrough and handover of your transformed space with
-                ongoing support</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Enhanced Testimonials -->
-        <section class="testimonials">
-          <div class="testimonials-container">
+    <!-- Technologies Section -->
+    <section class="technologies">
+        <div class="container">
             <div class="section-title">
-              <h2>Voices of Delighted Clients</h2>
-              <p>Discover why homeowners across Mumbai trust Smartspace Living
-                for their interior design needs</p>
+                <h2>Our Advanced Technologies</h2>
+                <p>Innovative solutions that enhance durability,
+                    functionality, and aesthetics</p>
             </div>
-
-            <div class="testimonial-slider">
-              <div class="testimonial-slide active">
-                <p
-                  class="testimonial-text">"Smartspace Living transformed our 3BHK apartment beyond our wildest dreams. Their attention to detail and creative space solutions made our home both beautiful and incredibly functional. The team was professional, punctual, and delivered exceptional quality."</p>
-                <p class="testimonial-author">- Priya Sharma, South Mumbai</p>
-                <div style="margin-top: 1rem; color: var(--secondary);">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-content">
+                        <div class="tech-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>DuraBuild Cabinets</h3>
+                        <p>Premium cabinets with soft-closing hinges and
+                            sturdy construction for long-lasting
+                            performance</p>
+                        <span class="tech-tag">Durable</span>
+                    </div>
                 </div>
-              </div>
-
-              <div class="testimonial-slide">
-                <p
-                  class="testimonial-text">"From the initial consultation to the final handover, the experience was seamless. Our modular kitchen is not just aesthetically stunning but also incredibly practical. The smart storage solutions have changed how we use our kitchen space completely."</p>
-                <p class="testimonial-author">- Rajesh Kumar, Bandra West</p>
-                <div style="margin-top: 1rem; color: var(--secondary);">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                <div class="tech-card">
+                    <div class="tech-content">
+                        <div class="tech-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3>AquaBloc Technology</h3>
+                        <p>Advanced moisture protection that repels water
+                            from entering the core material</p>
+                        <span class="tech-tag">Water-Resistant</span>
+                    </div>
                 </div>
-              </div>
-
-              <div class="testimonial-slide">
-                <p
-                  class="testimonial-text">"The designers at Smartspace Living understood our vision perfectly and executed it with precision. Our living room is now the heart of our home, and we receive compliments from every visitor. The project was completed on time and within budget."</p>
-                <p class="testimonial-author">- Anjali Patel, Powai</p>
-                <div style="margin-top: 1rem; color: var(--secondary);">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                <div class="tech-card">
+                    <div class="tech-content">
+                        <div class="tech-icon">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h3>AntiBubble Technology</h3>
+                        <p>Ensures a smooth, seamless finish without bubbles
+                            or imperfections</p>
+                        <span class="tech-tag">Flawless Finish</span>
+                    </div>
                 </div>
-              </div>
+                <div class="tech-card">
+                    <div class="tech-content">
+                        <div class="tech-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Precision Engineered Manufacturing</h3>
+                        <p>Automated processes for error-free cabinets with
+                            perfect dimensions</p>
+                        <span class="tech-tag">Precision</span>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="testimonial-dots">
-              <span class="dot active" data-slide="0"></span>
-              <span class="dot" data-slide="1"></span>
-              <span class="dot" data-slide="2"></span>
+    <!-- Warranty Section -->
+    <section class="warranty">
+        <div class="container">
+            <div class="warranty-content">
+                <div class="warranty-text">
+                    <h2>Our Commitment to Quality</h2>
+                    <p>We stand behind our products with industry-leading
+                        warranties and guarantees that give you peace of
+                        mind for years to come.</p>
+
+                    <div class="warranty-features">
+                        <div class="warranty-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Flat 10-Year Warranty* on all
+                                kitchens</span>
+                        </div>
+                        <div class="warranty-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>45-Day Delivery** guaranteed</span>
+                        </div>
+                        <div class="warranty-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free installation with every
+                                purchase</span>
+                        </div>
+                        <div class="warranty-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dedicated after-sales support</span>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn" style="margin-top: 20px;">View
+                        Warranty Details</a>
+                </div>
+                <div class="warranty-image">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        alt="Premium Kitchen">
+                </div>
             </div>
-          </div>
-        </section>
-
-        <!-- Enhanced CTA Section -->
-        <section class="cta-section">
-          <div class="cta-content">
-
-            <p>Schedule a complimentary consultation with our design experts and
-              take the first step towards your dream space</p>
-            <button class="btn-primary"
-              onclick="window.location.href='contact.html'">
-              <i class="fas fa-calendar-alt"></i> Book Free Design Consultation
-            </button>
-            <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
-              <i class="fas fa-shield-alt"></i> 100% Satisfaction Guarantee •
-              <i class="fas fa-clock"></i> 30-Minute Response Time •
-              <i class="fas fa-home"></i> Free Site Visit Included
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Footer -->
-      <div id="siteFooter"></div>
-
-      <script>
-    // Enhanced Testimonial Slider
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.dot');
-
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        currentSlide = (n + slides.length) % slides.length;
-        
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-
-    // Auto slide every 5 seconds
-    setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
-
-    // Dot click events
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-        });
-    });
-
-    // Scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                
-                // Animate stats counter
-                if (entry.target.classList.contains('stats-section')) {
-                    animateStats();
-                }
-            }
-        });
-    }, observerOptions);
-
-    // Observe all sections for fade-in animation
-    document.querySelectorAll('section').forEach(section => {
-        section.classList.add('fade-in');
-        observer.observe(section);
-    });
-
-    // Stats Counter Animation
-    function animateStats() {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    stat.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    stat.textContent = Math.floor(current) + '+';
-                }
-            }, 50);
-        });
-    }
-
-    // Enhanced button interactions
-    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-        button.addEventListener('click', function() {
-            // Ripple effect
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = event.clientX - rect.left - size / 2;
-            const y = event.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.classList.add('ripple');
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
-
-    // Add ripple effect styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-        }
-        
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-        
-        .btn-primary, .btn-secondary {
-            position: relative;
-            overflow: hidden;
-        }
-    `;
-    document.head.appendChild(style);
-  </script>
-
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
     <div id="siteFooter"></div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Testimonial Slider
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.dot');
-    let currentSlide = 0;
-    
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        currentSlide = (n + slides.length) % slides.length;
-        
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-    
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
+        // Simple animation for stats counter
+        document.addEventListener('DOMContentLoaded', function () {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            // Simple counter animation
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target.toLocaleString() + (target === 3 ? '' : '+');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current).toLocaleString() + (target === 3 ? '' : '+');
+                    }
+                }, 30);
+            });
         });
-    });
-    
-    // Auto-advance slides every 5 seconds
-    setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
-
-
-      });
-      </script>
-    <script>
-          /* Helper to execute scripts inside fetched HTML */
-          function runFetchedScripts(container) {
-            // Execute inline scripts
-            container.querySelectorAll('script').forEach(oldScript => {
-              const newScript = document.createElement('script');
-              if (oldScript.src) {
-                // External script: load it
-                newScript.src = oldScript.src;
-                newScript.defer = oldScript.defer || false;
-              } else {
-                // Inline script: copy content
-                newScript.textContent = oldScript.textContent;
-              }
-              document.body.appendChild(newScript);
-              oldScript.remove();
-            });
-          }
-
-          /* initNav: attach all nav listeners, safe to call multiple times */
-          function initNav() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const closeMenu = document.getElementById('closeMenu');
-            const nav = document.getElementById('mainNav');
-            const body = document.body;
-            if (!nav) return;
-
-            // Remove previous handlers to avoid duplicates (idempotent)
-            nav.querySelectorAll('[data-listener]').forEach(el => el.removeAttribute('data-listener'));
-
-            // Mobile open
-            if (mobileMenu && !mobileMenu.dataset.listenerAttached) {
-              mobileMenu.addEventListener('click', (e) => {
-                e.stopPropagation();
-                nav.classList.add('active');
-                body.style.overflow = 'hidden';
-              });
-              mobileMenu.dataset.listenerAttached = 'true';
-            }
-
-            // Mobile close
-            if (closeMenu && !closeMenu.dataset.listenerAttached) {
-              closeMenu.addEventListener('click', (e) => {
-                e.stopPropagation();
-                nav.classList.remove('active');
-                body.style.overflow = '';
-                resetDropdowns();
-              });
-              closeMenu.dataset.listenerAttached = 'true';
-            }
-
-            function resetDropdowns() {
-              document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-              document.querySelectorAll('.dropdown-toggle i').forEach(icon => icon.style.transform = 'rotate(0)');
-            }
-
-            // Delegated mobile dropdown toggles
-            document.addEventListener('click', function mobileDropdownHandler(e) {
-              const toggle = e.target.closest('.dropdown-toggle');
-              if (!toggle) return;
-              if (window.innerWidth <= 768) {
-                e.preventDefault();
-                const dropdown = toggle.nextElementSibling;
-                if (!dropdown || !dropdown.classList.contains('dropdown')) return;
-                // close others
-                document.querySelectorAll('.dropdown.active').forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
-                const isActive = dropdown.classList.toggle('active');
-                const icon = toggle.querySelector('i');
-                if (icon) icon.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0)';
-              }
-            });
-
-            // Close mobile menu / dropdowns when clicking outside
-            document.addEventListener('click', (e) => {
-              if (window.innerWidth <= 768) {
-                if (!e.target.closest('#mainNav') && !e.target.closest('#mobileMenu')) {
-                  nav.classList.remove('active');
-                  body.style.overflow = '';
-                  resetDropdowns();
-                }
-              }
-            });
-
-            // Debounced resize handler to reset mobile states
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-              clearTimeout(resizeTimer);
-              resizeTimer = setTimeout(() => {
-                if (window.innerWidth > 768 && nav.classList.contains('active')) {
-                  nav.classList.remove('active');
-                  body.style.overflow = '';
-                }
-                resetDropdowns();
-              }, 120);
-            });
-
-            // Desktop dropdown alignment on hover/focus
-            document.querySelectorAll('nav ul li').forEach(li => {
-              const dropdown = li.querySelector('.dropdown');
-              if (!dropdown) return;
-              li.addEventListener('mouseenter', () => {
-                if (window.innerWidth <= 768) return;
-                dropdown.style.left = '';
-                dropdown.style.right = '';
-                const rect = dropdown.getBoundingClientRect();
-                const overflowRight = rect.right - window.innerWidth;
-                const overflowLeft = rect.left;
-                if (overflowRight > 0 && overflowLeft >= 0) {
-                  dropdown.style.left = 'auto';
-                  dropdown.style.right = '0';
-                } else {
-                  dropdown.style.left = '0';
-                  dropdown.style.right = 'auto';
-                }
-              });
-              // keyboard support
-              const link = li.querySelector('a, button');
-              if (link) {
-                link.addEventListener('focus', () => {
-                  if (window.innerWidth <= 768) return;
-                  dropdown.style.left = '';
-                  dropdown.style.right = '';
-                  const rect = dropdown.getBoundingClientRect();
-                  const overflowRight = rect.right - window.innerWidth;
-                  if (overflowRight > 0) {
-                    dropdown.style.left = 'auto';
-                    dropdown.style.right = '0';
-                  } else {
-                    dropdown.style.left = '0';
-                    dropdown.style.right = 'auto';
-                  }
-                });
-              }
-            });
-          }
-
-
-        </script>
-    <!-- Script to load header and footer -->
-    <script>
-          // Load Header
-        fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('siteHeader').innerHTML = data;
-
-          // Run header JS only after it's loaded
-          const menuToggle = document.querySelector('.mobile-menu');
-          const nav = document.querySelector('nav');
-
-          if (menuToggle && nav) {
-            menuToggle.addEventListener('click', () => {
-              nav.classList.toggle('active');
-            });
-          }
-        });
-
-
-         // Load Footer
-// Load Footer and initialize chatbot
-fetch('footer.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('siteFooter').innerHTML = data;
-
-    // --- Grab elements after footer is loaded ---
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatbotContainer = document.getElementById('chatbotContainer');
-    const closeChat = document.getElementById('closeChat');
-    const chatBody = document.getElementById('chatbotBody');
-    const userForm = document.getElementById('userForm');
-    const formContainer = document.getElementById('formContainer');
-    const successMessage = document.getElementById('successMessage');
-
-    if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) return;
-
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
-
-    // --- Chatbot toggle ---
-    chatbotToggle.addEventListener('click', () => {
-        chatbotContainer.classList.toggle('active');
-        chatbotToggle.classList.toggle('minimized');
-    });
-    closeChat.addEventListener('click', () => {
-        chatbotContainer.classList.remove('active');
-        chatbotToggle.classList.add('minimized');
-    });
-
-    // --- Form submission ---
-    userForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const mobile = document.getElementById('mobile').value.trim();
-        const email = document.getElementById('email').value.trim();
-
-        if(!name || !email || !/^\d{10}$/.test(mobile)){
-            alert('Please enter valid details.');
-            return;
-        }
-
-        // WhatsApp redirect
-        const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
-        const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
-        const win = window.open(whatsappURL, '_blank');
-        if(!win) alert("Popup blocked! Allow popups to open WhatsApp.");
-
-        // Google Sheet
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('mobile', mobile);
-        formData.append('email', email);
-        fetch(scriptURL, { method: 'POST', body: formData })
-            .then(res => console.log('Sheet Response:', res))
-            .catch(err => console.error('Sheet Error:', err));
-
-        // Update chatbot UI
-        formContainer.classList.remove('active');
-        successMessage.classList.add('active');
-
-        const userMsg = document.createElement('div');
-        userMsg.className = 'message user-message';
-        userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
-        chatBody.appendChild(userMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-
-        setTimeout(() => {
-            formContainer.classList.add('active');
-            successMessage.classList.remove('active');
-            userForm.reset();
-        }, 3000);
-    });
-
-    // --- Auto messages every 15s ---
-    function showChatbot() {
-        chatbotContainer.classList.add('active');
-        chatbotToggle.classList.remove('minimized');
-    }
-
-    function addAutoMessage(text) {
-        const msg = document.createElement('div');
-        msg.className = 'message bot-message';
-        msg.innerHTML = `<div class="message-bubble">${text}</div>`;
-        chatBody.appendChild(msg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    let userActive = false;
-
-    function resetActivity() {
-        userActive = true;
-    }
-
-    ['click','mousemove','keydown','scroll','touchstart'].forEach(evt => {
-        document.addEventListener(evt, resetActivity);
-    });
-
-    setInterval(() => {
-        showChatbot();
-        if(!userActive){
-            addAutoMessage("👋 Hi there! How can I help you today?");
-        }
-        userActive = false;
-    }, 15000); // every 15 seconds
-
-  })
-  .catch(err => console.error('Footer load error:', err));
-
-      
     </script>
 
-  </body>
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        function initializeThemeToggle() {
+            // Check for saved theme preference or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light-theme';
+            body.className = savedTheme;
+
+            // Update button icon based on current theme
+            updateThemeIcon();
+
+            // Add event listener for theme toggle
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-theme');
+                body.classList.toggle('dark-theme');
+
+                // Save theme preference
+                const currentTheme = body.classList.contains('light-theme') ? 'light-theme' : 'dark-theme';
+                localStorage.setItem('theme', currentTheme);
+
+                // Update button icon
+                updateThemeIcon();
+            });
+        }
+
+        function updateThemeIcon() {
+            const isLightTheme = body.classList.contains('light-theme');
+            themeToggle.innerHTML = isLightTheme ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        }
+
+        // Stats Counter Animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (target === 98 ? '%' : (target === 12 ? '' : '+'));
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (target === 98 ? '%' : (target === 12 ? '' : '+'));
+                    }
+                }, 40);
+            });
+        }
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    if (entry.target.classList.contains('stats-section')) {
+                        animateStats();
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // CTA Function
+        function scheduleConsultation() {
+            window.location.href = 'contact.html';
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeThemeToggle();
+
+            // Animate stats when page loads
+            setTimeout(animateStats, 1000);
+        });
+    </script>
+
+    <!-- Script to load header and footer -->
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
+
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+                }
+            });
+
+
+        // Load Footer
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load Footer and initialize chatbot
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
+
+                    // Delay a little to ensure DOM updates
+                    setTimeout(() => {
+                        const chatbotToggle = document.getElementById('chatbotToggle');
+                        const chatbotContainer = document.getElementById('chatbotContainer');
+                        const closeChat = document.getElementById('closeChat');
+                        const chatBody = document.getElementById('chatbotBody');
+                        const userForm = document.getElementById('userForm');
+                        const formContainer = document.getElementById('formContainer');
+                        const successMessage = document.getElementById('successMessage');
+
+                        if (!chatbotToggle || !chatbotContainer || !chatBody || !userForm) {
+                            console.warn("⚠️ Chatbot elements not found in footer.html");
+                            return;
+                        }
+
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+                        // --- Chatbot toggle ---
+                        chatbotToggle.addEventListener('click', () => {
+                            chatbotContainer.classList.toggle('active');
+                            chatbotToggle.classList.toggle('minimized');
+                        });
+                        closeChat.addEventListener('click', () => {
+                            chatbotContainer.classList.remove('active');
+                            chatbotToggle.classList.add('minimized');
+                        });
+
+                        // --- Form submission ---
+                        userForm.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            const name = document.getElementById('name').value.trim();
+                            const mobile = document.getElementById('mobile').value.trim();
+                            const email = document.getElementById('email').value.trim();
+
+                            // WhatsApp redirect
+                            const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+                            const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+                            const win = window.open(whatsappURL, '_blank');
+                            if (!win) alert("Popup blocked! Allow popups to open WhatsApp.");
+
+                            // Google Sheet submission
+                            const formData = new FormData();
+                            formData.append('name', name);
+                            formData.append('mobile', mobile);
+                            formData.append('email', email);
+                            fetch(scriptURL, { method: 'POST', body: formData })
+                                .then(res => console.log('Sheet Response:', res))
+                                .catch(err => console.error('Sheet Error:', err));
+
+                            // Update chatbot UI
+                            formContainer.classList.remove('active');
+                            successMessage.classList.add('active');
+
+                            const userMsg = document.createElement('div');
+                            userMsg.className = 'message user-message';
+                            userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                            chatBody.appendChild(userMsg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+
+                            setTimeout(() => {
+                                formContainer.classList.add('active');
+                                successMessage.classList.remove('active');
+                                userForm.reset();
+                            }, 3000);
+                        });
+
+                        // --- Auto messages every 15s ---
+                        function showChatbot() {
+                            chatbotContainer.classList.add('active');
+                            chatbotToggle.classList.remove('minimized');
+                        }
+
+                        function addAutoMessage(text) {
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${text}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                        }
+
+                        let userActive = false;
+                        function resetActivity() {
+                            userActive = true;
+                        }
+                        ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
+                            document.addEventListener(evt, resetActivity);
+                        });
+
+                        setInterval(() => {
+                            showChatbot();
+                            if (!userActive) {
+                                addAutoMessage("👋 Hi there! How can I help you today?");
+                            }
+                            userActive = false;
+                        }, 15000);
+                    }, 500); // 0.5s delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
+    </script>
+</body>
+
 </html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smartspace Living | Premium Interior Design</title>
 
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/style.css" />
 
   <style>
@@ -27,10 +27,13 @@
     }
 
     @keyframes pulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1);
         box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
       }
+
       50% {
         transform: scale(1.05);
         box-shadow: 0 0 35px rgba(212, 175, 55, 0.6);
@@ -39,18 +42,36 @@
 
     /* Responsive Logo */
     @media (max-width: 1024px) {
-      .logo img { width: 70px; height: 70px; }
-      .logo h1 { font-size: 1.6rem; }
+      .logo img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .logo h1 {
+        font-size: 1.6rem;
+      }
     }
 
     @media (max-width: 768px) {
-      .logo img { width: 60px; height: 60px; }
-      .logo h1 { font-size: 1.4rem; }
+      .logo img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .logo h1 {
+        font-size: 1.4rem;
+      }
     }
 
     @media (max-width: 480px) {
-      .logo img { width: 55px; height: 55px; }
-      .logo h1 { font-size: 1.2rem; }
+      .logo img {
+        width: 55px;
+        height: 55px;
+      }
+
+      .logo h1 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -78,7 +99,7 @@
         </button>
 
         <ul>
-          <li><a href="index2.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="cities.html">Cities</a></li>
@@ -151,268 +172,270 @@
   <script src="assets/script.js"></script>
 
 
-    <style>
+  <style>
+    /* Social Icons - Right Side Vertical */
+    .social-icons {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      z-index: 99999;
+
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.3rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      background: var(--secondary);
+    }
+
+    .social-icon:hover {
+      background: var(--secondary);
+      color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    }
+
+    .facebook:hover {
+      background: #3b5998;
+      color: white;
+    }
+
+    .twitter:hover {
+      background: #1da1f2;
+      color: white;
+    }
+
+    .instagram:hover {
+      background: linear-gradient(45deg, #e1306c, #fd5949);
+      color: white;
+    }
+
+    .linkedin:hover {
+      background: #0077b5;
+      color: white;
+    }
+
+    .youtube:hover {
+      background: #ff0000;
+      color: white;
+    }
+
+    .whatsapp:hover {
+      background: #25D366;
+      color: white;
+    }
+
+    .pinterest:hover {
+      background: #bd081c;
+      color: white;
+    }
+
+    .social-text {
+      position: absolute;
+      right: 60px;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: var(--accent);
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+      font-weight: 500;
+    }
+
+    .social-icon:hover .social-text {
+      opacity: 1;
+      transform: translateX(-5px);
+    }
 
 
-        /* Social Icons - Right Side Vertical */
-        .social-icons {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            z-index: 99999999999999999;
 
-        }
-        
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.3rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            position: relative;
-            text-decoration: none;
-            background: var(--secondary);
-        }
-        
-        .social-icon:hover {
-            background: var(--secondary);
-            color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-        
-        .facebook:hover {
-            background: #3b5998;
-            color: white;
-        }
-        
-        .twitter:hover {
-            background: #1da1f2;
-            color: white;
-        }
-        
-        .instagram:hover {
-            background: linear-gradient(45deg, #e1306c, #fd5949);
-            color: white;
-        }
-        
-        .linkedin:hover {
-            background: #0077b5;
-            color: white;
-        }
-        
-        .youtube:hover {
-            background: #ff0000;
-            color: white;
-        }
-        
-        .whatsapp:hover {
-            background: #25D366;
-            color: white;
-        }
-        
-        .pinterest:hover {
-            background: #bd081c;
-            color: white;
-        }
-        
-        .social-text {
-            position: absolute;
-            right: 60px;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: var(--accent);
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            opacity: 0;
-            transition: var(--transition);
-            pointer-events: none;
-            font-weight: 500;
-        }
-        
-        .social-icon:hover .social-text {
-            opacity: 1;
-            transform: translateX(-5px);
-        }
-        
-       
-        
-       
-        /* Mobile View - Right Corner */
-        @media (max-width: 768px) {
-            .social-icons {
-                position: fixed;
-                top: 50%;
-                right: 15px;
-                transform: translateY(-50%);
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .social-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-            
-            .social-text {
-                right: 55px;
-                font-size: 0.85rem;
-                padding: 6px 12px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .container {
-                padding: 30px 15px;
-                margin-right: 80px;
-            }
-            
-            .demo-content {
-                padding: 30px 20px;
-            }
-        }
-        
-        /* Small Mobile View */
-        @media (max-width: 480px) {
-            .social-icons {
-                right: 10px;
-                gap: 10px;
-            }
-            
-            .social-icon {
-                width: 42px;
-                height: 42px;
-                font-size: 1.1rem;
-            }
-            
-            .social-text {
-                right: 50px;
-                font-size: 0.8rem;
-                padding: 5px 10px;
-            }
-            
-            .container {
-                margin-right: 70px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-        }
-        
-        /* Very Small Screens */
-        @media (max-width: 360px) {
-            .social-icons {
-                right: 8px;
-                gap: 8px;
-            }
-            
-            .social-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 1rem;
-            }
-            
-            .social-text {
-                right: 45px;
-                font-size: 0.75rem;
-            }
-            
-            .container {
-                margin-right: 60px;
-            }
-        }
 
-        /* Landscape Mode */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .social-icons {
-                top: 60%;
-                gap: 8px;
-            }
-            
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-        }
-    </style>
+    /* Mobile View - Right Corner */
+    @media (max-width: 768px) {
+      .social-icons {
+        position: fixed;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        flex-direction: column;
+        gap: 12px;
+      }
 
-  
-    <!-- Social Media Icons -->
-    <div class="social-icons">
-        <a href="https://www.facebook.com/people/Smart-Space-Interior-Design-Studio/61582641200383/" target="_blank" class="social-icon facebook" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-            <span class="social-text">Facebook</span>
-        </a>
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
 
-        <a href="https://twitter.com/smartspacelivin" target="_blank" class="social-icon twitter" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-            <span class="social-text">Twitter</span>
-        </a>
+      .social-text {
+        right: 55px;
+        font-size: 0.85rem;
+        padding: 6px 12px;
+      }
 
-        <a href="https://www.instagram.com/smartspacelivin/" target="_blank" class="social-icon instagram" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-            <span class="social-text">Instagram</span>
-        </a>
+      h1 {
+        font-size: 2.2rem;
+      }
 
-        <a href="https://www.linkedin.com/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-            <span class="social-text">LinkedIn</span>
-        </a>
+      .container {
+        padding: 30px 15px;
+        margin-right: 80px;
+      }
 
-        <a href="https://www.youtube.com/@smartspaceinteriorstudio" target="_blank" class="social-icon youtube" aria-label="YouTube">
-            <i class="fab fa-youtube"></i>
-            <span class="social-text">YouTube</span>
-        </a>
+      .demo-content {
+        padding: 30px 20px;
+      }
+    }
 
-        <a href="https://wa.me/918591463486" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-            <span class="social-text">WhatsApp</span>
-        </a>
+    /* Small Mobile View */
+    @media (max-width: 480px) {
+      .social-icons {
+        right: 10px;
+        gap: 10px;
+      }
 
-        <a href="https://pin.it/5d2zQb6pP" target="_blank" class="social-icon pinterest" aria-label="Pinterest">
-            <i class="fab fa-pinterest"></i>
-            <span class="social-text">Pinterest</span>
-        </a>
-    </div>
+      .social-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+      }
 
-    <script>
-        // Add touch feedback for mobile devices
-        document.addEventListener('DOMContentLoaded', function() {
-            const socialIcons = document.querySelectorAll('.social-icon');
-            
-            socialIcons.forEach(icon => {
-                icon.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.95)';
-                });
-                
-                icon.addEventListener('touchend', function() {
-                    this.style.transform = '';
-                });
-            });
+      .social-text {
+        right: 50px;
+        font-size: 0.8rem;
+        padding: 5px 10px;
+      }
+
+      .container {
+        margin-right: 70px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    /* Very Small Screens */
+    @media (max-width: 360px) {
+      .social-icons {
+        right: 8px;
+        gap: 8px;
+      }
+
+      .social-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
+
+      .social-text {
+        right: 45px;
+        font-size: 0.75rem;
+      }
+
+      .container {
+        margin-right: 60px;
+      }
+    }
+
+    /* Landscape Mode */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .social-icons {
+        top: 60%;
+        gap: 8px;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+
+  <!-- Social Media Icons -->
+  <div class="social-icons">
+    <a href="https://www.facebook.com/people/Smart-Space-Interior-Design-Studio/61582641200383/" target="_blank"
+      class="social-icon facebook" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+      <span class="social-text">Facebook</span>
+    </a>
+
+    <a href="https://twitter.com/smartspacelivin" target="_blank" class="social-icon twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+      <span class="social-text">Twitter</span>
+    </a>
+
+    <a href="https://www.instagram.com/smartspacelivin/" target="_blank" class="social-icon instagram"
+      aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+      <span class="social-text">Instagram</span>
+    </a>
+
+    <a href="https://www.linkedin.com/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+      <span class="social-text">LinkedIn</span>
+    </a>
+
+    <a href="https://www.youtube.com/@smartspaceinteriorstudio" target="_blank" class="social-icon youtube"
+      aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+      <span class="social-text">YouTube</span>
+    </a>
+
+    <a href="https://wa.me/918591463486" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span class="social-text">WhatsApp</span>
+    </a>
+
+    <a href="https://pin.it/5d2zQb6pP" target="_blank" class="social-icon pinterest" aria-label="Pinterest">
+      <i class="fab fa-pinterest"></i>
+      <span class="social-text">Pinterest</span>
+    </a>
+  </div>
+
+  <script>
+    // Add touch feedback for mobile devices
+    document.addEventListener('DOMContentLoaded', function () {
+      const socialIcons = document.querySelectorAll('.social-icon');
+
+      socialIcons.forEach(icon => {
+        icon.addEventListener('touchstart', function () {
+          this.style.transform = 'scale(0.95)';
         });
-    </script>
 
-  
+        icon.addEventListener('touchend', function () {
+          this.style.transform = '';
+        });
+      });
+    });
+  </script>
+
+
 </body>
+
 </html>
