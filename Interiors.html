@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Space Living | Interior Design Services</title>
+    <meta name="description"
+        content="Smart Space Living provides modern and elegant interior design services for homes, offices, and commercial spaces.">
+    <meta name="keywords" content="interiors, interior design, Smart Space Living, home interiors, office interiors">
+    <meta property="og:title" content="Smart Space Living | Interior Design">
+    <meta property="og:description" content="Transform your spaces with our interior design services.">
+    <meta property="og:image" content="assets/images/og-interiors.jpg">
+    <meta property="og:url" content="https://www.smartspaceliving.com/interiors.html">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .light-theme {
+            --bg-color: var(--bg-light);
+            --text-color: var(--text-light);
+            --card-color: var(--card-light);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 10px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: rotate(15deg);
+        }
+
+        /* Hero Section */
+        .interiors-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--accent);
+            opacity: 0.95;
+        }
+
+        .gold-divider {
+            width: 120px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 2.5rem auto;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--card-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2.5rem;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .service-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .service-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .service-features li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .service-features i {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 6rem 2rem;
+            background: beige;
+            color: var(var(--primary));
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .process-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            padding: 2.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .process-step p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: var(--accent);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+/* Services Section Mobile View - 2 cards per row */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .service-card {
+        margin-bottom: 0 !important;
+        min-height: auto !important;
+    }
+    
+    .service-image {
+        height: 150px !important;
+    }
+    
+    .service-content {
+        padding: 1rem !important;
+    }
+    
+    .service-icon {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    .service-content h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .service-content p {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.8rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .service-features {
+        margin: 1rem 0 !important;
+    }
+    
+    .service-features h4 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .service-features li {
+        font-size: 0.75rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .service-features i {
+        font-size: 0.7rem !important;
+    }
+    
+    .btn-primary {
+        padding: 8px 12px !important;
+        font-size: 0.75rem !important;
+        width: 100% !important;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.8rem !important;
+    }
+    
+    .service-content {
+        padding: 0.8rem !important;
+    }
+    
+    .service-image {
+        height: 120px !important;
+    }
+    
+    .service-icon {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .service-content h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .service-content p {
+        font-size: 0.75rem !important;
+    }
+    
+    .service-features li {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Process Section Mobile View - 2 cards per row */
+@media (max-width: 768px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .process-step {
+        padding: 1.5rem !important;
+        min-height: auto !important;
+    }
+    
+    .step-number {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    .process-step h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .process-step p {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+    }
+}
+
+/* Small Mobile Process */
+@media (max-width: 480px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.8rem !important;
+    }
+    
+    .process-step {
+        padding: 1rem !important;
+    }
+    
+    .step-number {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .process-step h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .process-step p {
+        font-size: 0.75rem !important;
+    }
+}
+        
+    </style>
+</head>
+
+<body class="light-theme">
+    <!-- Header -->
+    <div id="siteHeader">
+
+    </div>
+
+    <!-- Hero Section -->
+    <section class="interiors-hero" style="margin-top: -100px;"> 
+        <div class="hero-content">
+            <h1>Premium Interior Services</h1>
+            <div class="gold-divider"></div>
+            <p>Transform your space with our comprehensive interior design solutions tailored to your lifestyle</p>
+        
+        <div class="hero-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+    <a href="offers.html" class="hero-btn offer-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: #D4AF37; color: #000000;">
+        <i class="fas fa-gift"></i>
+        Special Offers
+    </a>
+    <a href="contact.html" class="hero-btn connect-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: transparent; color: #D4AF37;">
+        <i class="fas fa-comments"></i>
+        Connect With Us
+    </a>
+    <a href="work.html" class="hero-btn process-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: transparent; color: #D4AF37;">
+        <i class="fas fa-cogs"></i>
+        How We Work
+    </a>
+</div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <h2>Our Interior Services</h2>
+            <div class="gold-divider"></div>
+            <p>From concept to completion, we deliver exceptional interior solutions</p>
+
+            <div class="services-grid">
+           
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                            alt="Residential Interiors">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Residential Interiors</h3>
+                        <p>Complete home transformation with personalized designs that reflect your personality and
+                            lifestyle.</p>
+
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Complete space planning</li>
+                                <li><i class="fas fa-check"></i> Custom furniture design</li>
+                                <li><i class="fas fa-check"></i> Lighting design</li>
+                                <li><i class="fas fa-check"></i> Material selection</li>
+                                <li><i class="fas fa-check"></i> Project management</li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+                            alt="Commercial Interiors">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Commercial Interiors</h3>
+                        <p>Professional workspace designs that enhance productivity, brand identity, and employee
+                            well-being.</p>
+
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Office space planning</li>
+                                <li><i class="fas fa-check"></i> Brand integration</li>
+                                <li><i class="fas fa-check"></i> Collaborative zones</li>
+                                <li><i class="fas fa-check"></i> Reception areas</li>
+                                <li><i class="fas fa-check"></i> Meeting rooms</li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                            alt="Luxury Interiors">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Luxury Interiors</h3>
+                        <p>Bespoke luxury interiors featuring premium materials, custom craftsmanship, and exclusive
+                            designs.</p>
+
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Premium material selection</li>
+                                <li><i class="fas fa-check"></i> Custom furniture</li>
+                                <li><i class="fas fa-check"></i> Art curation</li>
+                                <li><i class="fas fa-check"></i> Smart home integration</li>
+                                <li><i class="fas fa-check"></i> Exclusive accessories</li>
+                            </ul>
+                        </div>
+                      
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                            alt="Modular Interiors">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>Modular Interiors</h3>
+                        <p>Smart, space-efficient modular solutions with flexibility for future modifications and
+                            upgrades.</p>
+
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Modular kitchen</li>
+                                <li><i class="fas fa-check"></i> Wardrobe systems</li>
+                                <li><i class="fas fa-check"></i> Storage solutions</li>
+                                <li><i class="fas fa-check"></i> Space optimization</li>
+                                <li><i class="fas fa-check"></i> Easy maintenance</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://mydecorative.com/wp-content/uploads/2021/03/home-renovation-project.jpg"
+                            alt="Renovation Services">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h3>Renovation Services</h3>
+                        <p>Transform your existing space with our expert renovation services while preserving its
+                            character.</p>
+
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Structural assessment</li>
+                                <li><i class="fas fa-check"></i> Space reconfiguration</li>
+                                <li><i class="fas fa-check"></i> Material upgrades</li>
+                                <li><i class="fas fa-check"></i> Modern amenities</li>
+                                <li><i class="fas fa-check"></i> Heritage preservation</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                            alt="Consultation Services">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Design Consultation</h3>
+                        <p>Expert design advice and guidance to help you make informed decisions about your space.</p>
+
+                        <div class="service-features">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Space assessment</li>
+                                <li><i class="fas fa-check"></i> Design recommendations</li>
+                                <li><i class="fas fa-check"></i> Material guidance</li>
+                                <li><i class="fas fa-check"></i> Budget planning</li>
+                                <li><i class="fas fa-check"></i> Vendor recommendations</li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- 
+    <section class="process-section">
+        <div class="process-container">
+            <h2>Our Design Process</h2>
+            <div class="gold-divider"></div>
+            <p>We follow a structured approach to ensure your vision becomes reality</p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We begin with understanding your requirements, lifestyle, and vision through detailed
+                        discussions.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Concept Development</h3>
+                    <p>Our team creates initial design concepts, mood boards, and space planning layouts.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design Presentation</h3>
+                    <p>We present detailed 3D visualizations, material samples, and cost estimates for your approval.
+                    </p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Execution</h3>
+                    <p>Skilled craftsmen bring designs to life with precision and quality control at every stage.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Handover</h3>
+                    <p>We deliver your dream space with comprehensive after-service support and maintenance guidance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+   <!-- Process Overview -->
+     <style>
+  
+        .roadmap-container {
+           
+            width: 100%;
+           
+           
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .roadmap-header {
+          
+            color: var(--secondary);
+            padding: 40px 30px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roadmap-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" opacity="0.1"><path d="M0,50 Q250,0 500,50 T1000,50" fill="none" stroke="white" stroke-width="2"/></svg>'); */
+            background-size: cover;
+        }
+
+        .roadmap-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .roadmap-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+
+        .roadmap-content {
+            padding: 60px 30px;
+            position: relative;
+        }
+
+        /* Desktop: Single Line Horizontal Layout */
+        .horizontal-roadmap {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Main Timeline Line for Desktop */
+        .timeline-line {
+            position: absolute;
+            top: 70px;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            /* background: linear-gradient(90deg, #0ea5a4, #d4af37); */
+            z-index: 1;
+            border-radius: 2px;
+        }
+
+        /* Steps Container */
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Individual Step */
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            width: calc(16.666% - 15px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .step-connector {
+            position: absolute;
+            top: 68px;
+            width: 100%;
+            height: 3px;
+            /* background: linear-gradient(90deg, #d4af37); */
+            z-index: 1;
+            left: 50%;
+        }
+
+        .step:not(:last-child) .step-connector {
+            display: block;
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(10, 10, 10);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(14, 165, 164, 0.3);
+            position: relative;
+            z-index: 3;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover .step-icon {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(14, 165, 164, 0.4);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -50px;
+            right: -20px;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+            z-index: 4;
+        }
+
+        .step-content {
+            background: white;
+            border-radius: 14px;
+            padding: 20px 15px;
+            box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .step:hover .step-content {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .step-description {
+            color: #0b0b0b;
+            line-height: 1.4;
+            font-size: 0.9rem;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Arrow between steps */
+        .step-arrow {
+            position: absolute;
+            top: 68px;
+            right: -12px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid #d4af37;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            z-index: 2;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step:nth-child(1) { animation-delay: 0.2s; }
+        .step:nth-child(2) { animation-delay: 0.3s; }
+        .step:nth-child(3) { animation-delay: 0.4s; }
+        .step:nth-child(4) { animation-delay: 0.5s; }
+        .step:nth-child(5) { animation-delay: 0.6s; }
+        .step:nth-child(6) { animation-delay: 0.7s; }
+
+        /* ===== MOBILE VIEW ===== */
+        @media (max-width: 768px) {
+         
+
+            .roadmap-container {
+                border-radius: 20px;
+            }
+
+            .roadmap-header {
+                padding: 30px 20px 25px;
+            }
+
+            .roadmap-header h1 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+
+            .roadmap-header p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            .roadmap-content {
+                padding: 40px 20px;
+            }
+
+            /* Mobile Vertical Layout */
+            .horizontal-roadmap {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .step {
+                width: 100%;
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+                margin-bottom: 30px;
+                padding-left: 20px;
+                position: relative;
+            }
+
+            .step:last-child {
+                margin-bottom: 0;
+            }
+
+            .step-connector, .step-arrow {
+                display: none;
+            }
+
+            /* Mobile Vertical Timeline */
+            .step::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 35px;
+                bottom: -30px;
+                width: 3px;
+                background: linear-gradient(to bottom, #d4af37, #d4af37);
+                z-index: 1;
+            }
+
+            .step:last-child::before {
+                display: none;
+            }
+
+            .step-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-right: 20px;
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+
+            .step-number {
+                top: -8px;
+                right: -8px;
+                width: 28px;
+                height: 28px;
+                font-size: 0.85rem;
+            }
+
+            .step-content {
+                min-height: auto;
+                flex-grow: 1;
+                padding: 18px 15px;
+                border-radius: 12px;
+            }
+
+            .step-title {
+                font-size: 1.1rem;
+                justify-content: flex-start;
+                margin-bottom: 8px;
+            }
+
+            .step-description {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                text-align: left;
+            }
+
+            /* Mobile Dot Indicator */
+            .step::after {
+                content: '';
+                position: absolute;
+                left: -6px;
+                top: 35px;
+                width: 15px;
+                height: 15px;
+                background: white;
+                border: 3px solid #d4af37;
+                border-radius: 50%;
+                z-index: 2;
+            }
+        }
+
+        /* Small Mobile Optimization */
+        @media (max-width: 480px) {
+            .roadmap-header {
+                padding: 25px 15px 20px;
+            }
+
+            .roadmap-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .roadmap-header p {
+                font-size: 0.95rem;
+            }
+
+            .roadmap-content {
+                padding: 30px 15px;
+            }
+
+            .step {
+                padding-left: 15px;
+                margin-bottom: 25px;
+            }
+
+            .step-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                margin-right: 15px;
+            }
+
+            .step-content {
+                padding: 15px 12px;
+            }
+
+            .step-title {
+                font-size: 1rem;
+            }
+
+            .step-description {
+                font-size: 0.85rem;
+            }
+
+            .step::before {
+                left: -1px;
+                top: 25px;
+            }
+
+            .step::after {
+                left: -7px;
+                top: 25px;
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        /* Tablet View */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .step-content {
+                min-height: 200px;
+                padding: 18px 12px;
+            }
+
+            .step-title {
+                font-size: 1rem;
+            }
+
+            .step-description {
+                font-size: 0.85rem;
+            }
+
+            .step-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Decorative Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #d4af37);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+        }
+
+        /* Progress animation for timeline */
+        @keyframes progress {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+
+        .timeline-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, #d4af37, #d4af37);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: progress 2s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+    </style>
+
+    <div class="roadmap-container">
+        <div class="roadmap-header">
+            <h1>Our Design Journey</h1>
+            <p style="color: #000000;">A seamless 6-step process that transforms your vision into reality with precision and creativity</p>
+        </div>
+
+        <div class="roadmap-content">
+            <div class="floating-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+
+            <div class="horizontal-roadmap">
+                <div class="timeline-line"></div>
+                
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-handshake"></i>
+                            <div class="step-number">1</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">
+                                <i class="fas fa-comments" style="color: #d4af37;"></i>
+                                Consultation
+                            </h3>
+                            <p class="step-description">
+                                Understanding your requirements, preferences, and budget to create a comprehensive design brief.
+                            </p>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-arrow"></div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-lightbulb"></i>
+                            <div class="step-number">2</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">
+                                <i class="fas fa-palette" style="color: #d4af37;"></i>
+                                Concept
+                            </h3>
+                            <p class="step-description">
+                                Transforming ideas into tangible concepts through mood boards and 3D visualizations.
+                            </p>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-arrow"></div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                            <div class="step-number">3</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">
+                                <i class="fas fa-ruler-combined" style="color: #d4af37;"></i>
+                                Planning
+                            </h3>
+                            <p class="step-description">
+                                Comprehensive execution plans with material selection and design specifications.
+                            </p>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-arrow"></div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-hammer"></i>
+                            <div class="step-number">4</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">
+                                <i class="fas fa-tools" style="color: #d4af37;"></i>
+                                Execution
+                            </h3>
+                            <p class="step-description">
+                                Managing implementation with precision and regular progress updates.
+                            </p>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-arrow"></div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="step-number">5</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">
+                                <i class="fas fa-clipboard-check" style="color: #d4af37;"></i>
+                                Quality Check
+                            </h3>
+                            <p class="step-description">
+                                Multi-stage inspections to ensure quality standards and expectations are met.
+                            </p>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-arrow"></div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-key"></i>
+                            <div class="step-number">6</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">
+                                <i class="fas fa-home" style="color: #d4af37;"></i>
+                                Handover
+                            </h3>
+                            <p class="step-description">
+                                Delivering your dream space with walkthroughs and aftercare support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Additional animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            steps.forEach(step => {
+                observer.observe(step);
+            });
+        });
+    </script>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Let's discuss how we can bring your interior design vision to life with our premium services and
+                expertise.</p>
+            <button class="btn-primary" onclick="contactUs()">
+                <i class="fas fa-calendar-check" style="margin-right: 10px;"></i>
+                Schedule Free Consultation
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="siteFooter">
+
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        function initializeThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const isDark = body.classList.contains('dark-theme');
+
+                    if (isDark) {
+                        body.classList.remove('dark-theme');
+                        body.classList.add('light-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        body.classList.remove('light-theme');
+                        body.classList.add('dark-theme');
+                        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+
+                // Load saved theme
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                if (savedTheme === 'light') {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+        }
+
+        // Contact Function
+        function contactUs() {
+            window.location.href = 'contact.html';
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeThemeToggle();
+        });
+
+    </script>
+
+    
+    <!-- Script to load header and footer -->
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
+
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+                }
+            });
+    </script>
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- Load Footer Dynamically ---
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
+
+                    // Delay to ensure DOM updates are fully applied
+                    setTimeout(() => {
+                        // --- Select Elements ---
+                        const voiceToggle = document.getElementById('voiceToggle');        // Toggle for voice notifications
+                        const toggleSwitch = document.getElementById('toggleSwitch');      // Visual switch for toggle
+                        const testVoiceBtn = document.getElementById('testVoice');         // Button to test voice
+                        const chatAlert = document.getElementById("chatAlert");            // Top alert notification
+                        const closeAlert = document.getElementById("closeAlert");          // Close button for alert
+                        const chatbotToggle = document.getElementById('chatbotToggle');    // Button to open chatbot
+                        const chatbotContainer = document.getElementById('chatbotContainer'); // Chatbot container
+                        const closeChat = document.getElementById('closeChat');            // Close button for chatbot
+                        const chatBody = document.getElementById('chatbotBody');           // Chat messages container
+                        const userForm = document.getElementById('userForm');              // Chatbot form
+                        const formContainer = document.getElementById('formContainer');    // Container for form
+                        const successMessage = document.getElementById('successMessage');  // Form success message
+                        const backToTop = document.getElementById('backToTop');            // Back to top button
+
+                        // --- Voice Notification System ---
+                        let voiceEnabled = false;                                           // Voice enabled by default
+                        const speechSynthesis = window.speechSynthesis;                    // Browser speech synthesis
+
+                        // Initialize voice settings
+                        function initVoiceSystem() {
+                            if (!speechSynthesis) {
+                                console.warn("Voice not supported in this browser");
+                                if (voiceToggle) voiceToggle.style.display = 'none';
+                                if (testVoiceBtn) testVoiceBtn.style.display = 'none';
+                                return;
+                            }
+
+                            // Load voice preference from localStorage
+                            const saved = localStorage.getItem('smartspaceVoiceEnabled');
+                            voiceEnabled = saved !== null ? saved === 'false' : true;
+
+                            // Update toggle switch visual
+                            if (voiceEnabled && toggleSwitch) toggleSwitch.classList.add('active');
+                        }
+
+                        // Function to speak text
+                        function speak(text) {
+                            if (!voiceEnabled || !speechSynthesis) return;
+                            speechSynthesis.cancel(); // Cancel any ongoing speech
+
+                            const utterance = new SpeechSynthesisUtterance(text);
+                            utterance.rate = 1.0;
+                            utterance.pitch = 1.0;
+                            utterance.volume = 0.8;
+
+                            // Select English Female voice if available
+                            const voices = speechSynthesis.getVoices();
+                            const englishVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Female'))
+                                || voices.find(v => v.lang.startsWith('en'));
+                            if (englishVoice) utterance.voice = englishVoice;
+
+                            speechSynthesis.speak(utterance);
+                        }
+
+                        // --- Voice Toggle Button ---
+                        if (voiceToggle) {
+                            voiceToggle.addEventListener('click', () => {
+                                voiceEnabled = !voiceEnabled;                      // Toggle state
+                                toggleSwitch.classList.toggle('active');          // Update visual
+                                localStorage.setItem('smartspaceVoiceEnabled', voiceEnabled); // Save preference
+                                speak(voiceEnabled ? "Voice notifications are now enabled" :
+                                    "Voice notifications are now disabled");
+                            });
+                        }
+
+                        // --- Test Voice Button ---
+                        // if (testVoiceBtn) {
+                        //     testVoiceBtn.addEventListener('click', () => {
+                        //         if (voiceEnabled) speak("This is a test of the voice notification system.");
+                        //         else alert("Enable voice notifications first");
+                        //     });
+                        // }
+
+                        // Initialize voice system
+                        initVoiceSystem();
+                        if (speechSynthesis) speechSynthesis.onvoiceschanged = initVoiceSystem;
+
+                        // --- Chat Alert Notification ---
+                        function showAlert() {
+                            if (!chatAlert) return;
+                            chatAlert.classList.add("show"); // Show alert
+                            //if (voiceEnabled) setTimeout(() => speak("We're online. How may I assist you?"), 500);
+                            //setTimeout(() => chatAlert.classList.remove("show"), 5000); // Auto-hide after 5s
+                        }
+
+                        // Close alert on ✕ click
+                        if (closeAlert) closeAlert.addEventListener("click", () => chatAlert.classList.remove("show"));
+
+                        // Show alert immediately and every 1 minute
+                        showAlert();
+                        setInterval(showAlert, 60000);
+
+                        // --- Chatbot Functionality ---
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+                        // Add bot message to chat
+                        function addBotMessage(message, voiceMessage = null) {
+                            if (!chatBody) return;
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${message}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                          //  if (voiceEnabled && voiceMessage) setTimeout(() => speak(voiceMessage), 300);
+                        }
+
+                        // Initial bot message
+                        // setTimeout(() => addBotMessage("Please fill out the form below with your details.",
+                        //     "Please fill out the form below with your details."), 1000);
+
+                        // Chatbot open/close toggle
+                        if (chatbotToggle) {
+                            chatbotToggle.addEventListener('click', () => {
+                                chatbotContainer.classList.toggle('active');
+                                chatbotToggle.classList.toggle('minimized');
+                                // if (voiceEnabled && chatbotContainer.classList.contains('active')) {
+                                //     setTimeout(() => speak("Welcome to Smartspace Living support. How can I assist you today?"), 300);
+                                // }
+                            });
+                        }
+
+                        if (closeChat) {
+                            closeChat.addEventListener('click', () => {
+                                chatbotContainer.classList.remove('active');
+                                chatbotToggle.classList.add('minimized');
+                            });
+                        }
+
+                        // --- Form Submission ---
+                        if (userForm) {
+                            userForm.addEventListener('submit', (e) => {
+                                e.preventDefault();
+
+                                const name = document.getElementById('name').value.trim();
+                                const mobile = document.getElementById('mobile').value.trim();
+                                const email = document.getElementById('email').value.trim();
+
+                                // Simple validation
+                                if (!name || mobile) return alert("Enter valid Name, Mobile & name");
+
+                                // WhatsApp redirect
+                                const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(`Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}.`)}`;
+                                const win = window.open(whatsappURL, '_blank');
+                                if (!win) alert("Popup blocked! Allow popups.");
+
+                                // Google Sheet submission
+                                const formData = new FormData();
+                                formData.append('name', name);
+                                formData.append('mobile', mobile);
+                                formData.append('email', email);
+                                fetch(scriptURL, { method: 'POST', body: formData })
+                                    .then(res => console.log('Sheet Response:', res))
+                                    .catch(err => console.error('Sheet Error:', err));
+
+                                // Update chatbot UI
+                                if (formContainer) formContainer.classList.remove('active');
+                                if (successMessage) successMessage.classList.add('active');
+
+                                const userMsg = document.createElement('div');
+                                userMsg.className = 'message user-message';
+                                userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                                chatBody.appendChild(userMsg);
+                                chatBody.scrollTop = chatBody.scrollHeight;
+
+                                // if (voiceEnabled) setTimeout(() => speak(`Thank you ${name}. Your information has been submitted successfully.`), 500);
+
+                                // Reset form after 5s
+                                setTimeout(() => {
+                                    if (formContainer) formContainer.classList.add('active');
+                                    if (successMessage) successMessage.classList.remove('active');
+                                    userForm.reset();
+                                }, 5000000);
+                            });
+                        }
+
+                        // --- Back To Top Button ---
+                        if (backToTop) {
+                            window.addEventListener('scroll', () => {
+                                backToTop.classList.toggle('visible', window.pageYOffset > 300);
+                            });
+                            backToTop.addEventListener('click', () => {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                // if (voiceEnabled) speak("Scrolling to top of page");
+                            });
+                        }
+
+                        // --- Auto Welcome Message ---
+                        // setTimeout(() => {
+                        //     if (voiceEnabled) speak("Welcome to Smartspace Living. We offer premium interior design solutions for residential and commercial spaces.");
+                        // }, 500000);
+
+                    }, 500); // Delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
+    </script>
+</body>
+
+</html>

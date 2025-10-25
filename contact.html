@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Smart Space Living | Get in Touch</title>
+    <meta name="description" content="Get in touch with Smart Space Living for furniture, interior design, and consultation services. Contact us today!">
+    <meta name="keywords" content="contact, Smart Space Living, furniture, interiors, consultation">
+    <meta property="og:title" content="Contact Smart Space Living">
+    <meta property="og:description" content="Reach out to us for inquiries and consultations.">
+    <meta property="og:image" content="assets/images/og-contact.jpg">
+    <meta property="og:url" content="https://www.smartspaceliving.com/contact.html">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .contact-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            margin-top: -100px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 2rem auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            padding-right: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .info-card {
+            background: var(--card-color);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .info-card p {
+            margin-bottom: 0;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--card-color);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--bg-color);
+            border: 1px solid rgba(9, 9, 9, 0.2);
+            border-radius: 8px;
+            color: black;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(247, 247, 244, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0 2rem 5rem;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .map-placeholder {
+            height: 400px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.adsttc.com/media/images/5bbe/5ee2/f197/ccec/bc00/0034/large_jpg/3T3A9408.jpg?1539202779');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        .map-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .map-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .map-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 2rem;
+            background: white;
+            color: #000000;
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .faq-question i {
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: var(--accent);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.7;
+        }
+
+        .form-note {
+            text-align: left;
+            margin-top: 15px;
+            font-size: 12px !important;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        .form-note a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Map Section */
+        .map-section {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+        }
+
+        .map-container {
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        #storeMap {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+    <!-- header section -->
+    <div id="siteHeader"></div>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <div class="gold-divider"></div>
+            <p>Let's discuss how we can transform your space into a
+                masterpiece of design and functionality</p>
+            <div class="hero-buttons"
+                style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                <a href="offers.html" class="hero-btn offer-btn"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: #D4AF37; color: #000000;">
+                    <i class="fas fa-gift"></i>
+                    Special Offers
+                </a>
+                <a href="contact.html" class="hero-btn connect-btn"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: transparent; color: #D4AF37;">
+                    <i class="fas fa-comments"></i>
+                    Connect With Us
+                </a>
+                <a href="work.html" class="hero-btn process-btn"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: transparent; color: #D4AF37;">
+                    <i class="fas fa-cogs"></i>
+                    How We Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+           
+           <div class="contact-form">
+                <h2 style="margin-bottom: 2rem; color: var(--secondary);">Send
+                    Us a Message</h2>
+                <form id="contactForm"
+                    action="https://script.google.com/macros/s/AKfycbx0umetrj-h3Zeo46EkuRL4N6VEd1LsboAapuudgjkxj78nnFGwsLqq7YX4NxvDAv75cg/exec"
+                    method="post">
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control"
+                            placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control"
+                            placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project">Project Type</label>
+                        <select id="project" name="project" class="form-control" required>
+                            <option value>Select project type</option>
+                            <option value="Residential Design">Residential
+                                Design</option>
+                            <option value="Commercial Design">Commercial
+                                Design</option>
+                            <option value="Office Space">Office
+                                Space</option>
+                            <option value="Renovation">Renovation</option>
+                            <option value="Design Consultation">Design
+                                Consultation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Project Budget</label>
+                        <select id="budget" name="budget" class="form-control" required>
+                            <option value>Select budget range</option>
+                            <option value="₹5-10 Lakhs">₹5-10 Lakhs</option>
+                            <option value="₹10-25 Lakhs">₹10-25
+                                Lakhs</option>
+                            <option value="₹25-50 Lakhs">₹25-50
+                                Lakhs</option>
+                            <option value="₹50 Lakhs+">₹50 Lakhs+</option>
+                            <option value="Not Sure Yet">Not Sure
+                                Yet</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" class="form-control"
+                            placeholder="Tell us about your project, requirements, and vision..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Send
+                        Message</button>
+
+                    <p class="form-note">By submitting this form, you
+                        agree to the <a href="policies.html">Privacy &
+                            policy </a> and <a href="terms_con.html">
+                            terms & Conditions</a></p>
+
+                    <br>
+
+                    <div id="alert"></div>
+
+                </form>
+            </div>
+           
+            <div class="contact-info">
+                <h2>Let's Start Your Project</h2>
+                <p>We're excited to hear about your interior design vision.
+                    Reach out to us through any of the following channels,
+                    and our team will get back to you within 24 hours.</p>
+
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Our Studio</h3>
+                    <h4>Smart Space Living</h4>
+                    <p>Vishal Pride Seawoods Sector 50 New Navi Mumbai</p>
+                    <p>PIN : 400706</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>+91 8591463486</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>care@smartspace.living<br>
+                        hr@smartspace.living</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="map-content">
+            <h3>Visit Our Studio</h3>
+            <div class="gold-divider"></div>
+
+            <div id="location">
+
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.178611123998!2d73.0230373!3d19.011849599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3eebfc659cd%3A0x63447d4b1f289abf!2sSmart%20Space%20Interior%20Designer-Best%20Interior%20Designer%20In%20Navi%20Mumbai!5e0!3m2!1sen!2sin!4v1760532334626!5m2!1sen!2sin"
+                        width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+    </section>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does a typical interior design
+                        project
+                        take?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The timeline varies based on project scope and
+                        complexity. A standard residential project
+                        typically
+                        takes 8-12 weeks from concept to completion,
+                        while
+                        larger commercial projects may take 3-6 months.
+                        We
+                        provide a detailed timeline during our initial
+                        consultation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you work within a specific budget?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We believe great design should be
+                        accessible at various budget levels. We work
+                        closely
+                        with you to understand your budget constraints
+                        and
+                        create a design plan that maximizes value while
+                        delivering exceptional results.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What areas do you serve?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>While our primary studio is in Mumbai, we
+                        undertake
+                        projects across India. We've successfully
+                        completed
+                        residential and commercial projects in Delhi,
+                        Bangalore, Hyderabad, Chennai, and other major
+                        cities. International projects are considered on
+                        a
+                        case-by-case basis.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you provide 3D visualizations?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we create detailed 3D visualizations for all
+                        our
+                        projects. This allows you to virtually walk
+                        through
+                        your space before implementation begins,
+                        ensuring
+                        the final result matches your vision
+                        perfectly.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is your design process?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our process includes: Initial consultation,
+                        concept
+                        development, detailed design planning, 3D
+                        visualization, material selection, project
+                        management, and final installation. We maintain
+                        transparent communication throughout every
+                        stage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Begin Your Design
+                Journey?</h2>
+            <p>Schedule a complimentary consultation with our design
+                experts
+                today.</p>
+            <button class="btn-primary" style="width: auto; padding: 15px 40px;"
+                onclick="window.location.href='https://wa.me/919876543210?text=Hi!%20I%20want%20to%20book%20a%20consultation%20with%20Smart%20Space%20Living.'">
+                Book Consultation
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <div id="siteFooter"> </div>
+
+    <!-- form connection -->
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbx0umetrj-h3Zeo46EkuRL4N6VEd1LsboAapuudgjkxj78nnFGwsLqq7YX4NxvDAv75cg/exec";
+
+        const data = { name: "Test", email: "test@example.com", phone: "9999999999", project: "Residential", budget: "₹5-10 Lakhs", message: "Hello" };
+
+        fetch(scriptURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.text())
+            .then(txt => console.log(txt))
+            .catch(err => console.error(err));
+
+        console.log("Form submitted quickly!");
+        const form = document.getElementById("contactForm");
+        const alertBox = document.getElementById("alert");
+
+
+        form.addEventListener("submit", e => {
+            e.preventDefault(); // prevent default form submission
+
+            // show sending message
+            alertBox.innerHTML = `<p style="color:#555;">Sending your message...</p>`;
+
+            // gather form data
+            const formData = new FormData(form);
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.text())
+                .then(text => {
+                    form.reset(); // clear form
+                    alertBox.innerHTML = `
+                <p style="color: green; background:#e6ffe6; padding:10px; border-radius:6px;">
+                    ✅ Thank you! Your message has been sent successfully.
+                </p>`;
+                    setTimeout(() => { alertBox.innerHTML = ""; }, 5000); // auto-hide
+                })
+                .catch(err => {
+                    alertBox.innerHTML = `
+                <p style="color: red; background:#ffe6e6; padding:10px; border-radius:6px;">
+                    ❌ Oops! Something went wrong. Please try again later.
+                </p>`;
+                    setTimeout(() => { alertBox.innerHTML = ""; }, 5000); // auto-hide
+                });
+        });
+    </script>
+
+    <script>
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const project = document.getElementById('project').value;
+
+            // In a real application, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you ${name}! Your message has been sent successfully. We will contact you at ${email} regarding your ${project} project soon.`);
+
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Add some interactive elements to the form
+        const budgetSelect = document.getElementById('budget');
+        const projectSelect = document.getElementById('project');
+
+        // Show a custom message based on budget selection
+        budgetSelect.addEventListener('change', function () {
+            if (this.value === 'not-sure') {
+                // You could show additional information or guidance
+                console.log('User is unsure about budget - might need guidance');
+            }
+        });
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeThemeToggle();
+
+            // Animate stats when page loads
+            setTimeout(animateStats, 1000);
+        });
+
+    </script>
+
+    <script>
+        // ✅ Desktop dropdown positioning fix (Smart auto-detect)
+        document.querySelectorAll('nav ul li').forEach(li => {
+            const dropdown = li.querySelector('.dropdown');
+            if (!dropdown) return;
+
+            li.addEventListener('mouseenter', () => {
+                if (window.innerWidth <= 768) return;
+
+                // Wait until dropdown is visible in the next frame
+                requestAnimationFrame(() => {
+                    dropdown.style.left = '';
+                    dropdown.style.right = '';
+
+                    const rect = dropdown.getBoundingClientRect();
+
+                    // ✅ If dropdown overflows right edge
+                    if (rect.right > window.innerWidth) {
+                        dropdown.style.left = 'auto';
+                        dropdown.style.right = '0';
+                    }
+
+                    // ✅ If dropdown overflows left edge (rare)
+                    if (rect.left < 0) {
+                        dropdown.style.left = '0';
+                        dropdown.style.right = 'auto';
+                    }
+                });
+            });
+
+            // Optional: reset on mouseleave
+            li.addEventListener('mouseleave', () => {
+                dropdown.style.left = '';
+                dropdown.style.right = '';
+            });
+        });
+
+    </script>
+
+
+
+    <!-- Script to load header and footer -->
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
+
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+                }
+            });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- Load Footer Dynamically ---
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
+
+                    // Delay to ensure DOM updates are fully applied
+                    setTimeout(() => {
+                        // --- Select Elements ---
+                        const voiceToggle = document.getElementById('voiceToggle');        // Toggle for voice notifications
+                        const toggleSwitch = document.getElementById('toggleSwitch');      // Visual switch for toggle
+                        const testVoiceBtn = document.getElementById('testVoice');         // Button to test voice
+                        const chatAlert = document.getElementById("chatAlert");            // Top alert notification
+                        const closeAlert = document.getElementById("closeAlert");          // Close button for alert
+                        const chatbotToggle = document.getElementById('chatbotToggle');    // Button to open chatbot
+                        const chatbotContainer = document.getElementById('chatbotContainer'); // Chatbot container
+                        const closeChat = document.getElementById('closeChat');            // Close button for chatbot
+                        const chatBody = document.getElementById('chatbotBody');           // Chat messages container
+                        const userForm = document.getElementById('userForm');              // Chatbot form
+                        const formContainer = document.getElementById('formContainer');    // Container for form
+                        const successMessage = document.getElementById('successMessage');  // Form success message
+                        const backToTop = document.getElementById('backToTop');            // Back to top button
+
+                        // --- Voice Notification System ---
+                        let voiceEnabled = false;                                           // Voice enabled by default
+                        const speechSynthesis = window.speechSynthesis;                    // Browser speech synthesis
+
+                        // Initialize voice settings
+                        function initVoiceSystem() {
+                            if (!speechSynthesis) {
+                                console.warn("Voice not supported in this browser");
+                                if (voiceToggle) voiceToggle.style.display = 'none';
+                                if (testVoiceBtn) testVoiceBtn.style.display = 'none';
+                                return;
+                            }
+
+                            // Load voice preference from localStorage
+                            const saved = localStorage.getItem('smartspaceVoiceEnabled');
+                            voiceEnabled = saved !== null ? saved === 'false' : true;
+
+                            // Update toggle switch visual
+                            if (voiceEnabled && toggleSwitch) toggleSwitch.classList.add('active');
+                        }
+
+                        // Function to speak text
+                        function speak(text) {
+                            if (!voiceEnabled || !speechSynthesis) return;
+                            speechSynthesis.cancel(); // Cancel any ongoing speech
+
+                            const utterance = new SpeechSynthesisUtterance(text);
+                            utterance.rate = 1.0;
+                            utterance.pitch = 1.0;
+                            utterance.volume = 0.8;
+
+                            // Select English Female voice if available
+                            const voices = speechSynthesis.getVoices();
+                            const englishVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Female'))
+                                || voices.find(v => v.lang.startsWith('en'));
+                            if (englishVoice) utterance.voice = englishVoice;
+
+                            speechSynthesis.speak(utterance);
+                        }
+
+                        // --- Voice Toggle Button ---
+                        if (voiceToggle) {
+                            voiceToggle.addEventListener('click', () => {
+                                voiceEnabled = !voiceEnabled;                      // Toggle state
+                                toggleSwitch.classList.toggle('active');          // Update visual
+                                localStorage.setItem('smartspaceVoiceEnabled', voiceEnabled); // Save preference
+                                speak(voiceEnabled ? "Voice notifications are now enabled" :
+                                    "Voice notifications are now disabled");
+                            });
+                        }
+
+                        // --- Test Voice Button ---
+                        // if (testVoiceBtn) {
+                        //     testVoiceBtn.addEventListener('click', () => {
+                        //         if (voiceEnabled) speak("This is a test of the voice notification system.");
+                        //         else alert("Enable voice notifications first");
+                        //     });
+                        // }
+
+                        // Initialize voice system
+                        initVoiceSystem();
+                        if (speechSynthesis) speechSynthesis.onvoiceschanged = initVoiceSystem;
+
+                        // --- Chat Alert Notification ---
+                        function showAlert() {
+                            if (!chatAlert) return;
+                            chatAlert.classList.add("show"); // Show alert
+                            //if (voiceEnabled) setTimeout(() => speak("We're online. How may I assist you?"), 500);
+                            //setTimeout(() => chatAlert.classList.remove("show"), 5000); // Auto-hide after 5s
+                        }
+
+                        // Close alert on ✕ click
+                        if (closeAlert) closeAlert.addEventListener("click", () => chatAlert.classList.remove("show"));
+
+                        // Show alert immediately and every 1 minute
+                        showAlert();
+                        setInterval(showAlert, 60000);
+
+                        // --- Chatbot Functionality ---
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+                        // Add bot message to chat
+                        function addBotMessage(message, voiceMessage = null) {
+                            if (!chatBody) return;
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${message}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                            //  if (voiceEnabled && voiceMessage) setTimeout(() => speak(voiceMessage), 300);
+                        }
+
+                        // Initial bot message
+                        // setTimeout(() => addBotMessage("Please fill out the form below with your details.",
+                        //     "Please fill out the form below with your details."), 1000);
+
+                        // Chatbot open/close toggle
+                        if (chatbotToggle) {
+                            chatbotToggle.addEventListener('click', () => {
+                                chatbotContainer.classList.toggle('active');
+                                chatbotToggle.classList.toggle('minimized');
+                                // if (voiceEnabled && chatbotContainer.classList.contains('active')) {
+                                //     setTimeout(() => speak("Welcome to Smartspace Living support. How can I assist you today?"), 300);
+                                // }
+                            });
+                        }
+
+                        if (closeChat) {
+                            closeChat.addEventListener('click', () => {
+                                chatbotContainer.classList.remove('active');
+                                chatbotToggle.classList.add('minimized');
+                            });
+                        }
+
+                        // --- Form Submission ---
+                        if (userForm) {
+                            userForm.addEventListener('submit', (e) => {
+                                e.preventDefault();
+
+                                const name = document.getElementById('name').value.trim();
+                                const mobile = document.getElementById('mobile').value.trim();
+                                const email = document.getElementById('email').value.trim();
+
+                                // Simple validation
+                                if (!name || mobile) return alert("Enter valid Name, Mobile & name");
+
+                                // WhatsApp redirect
+                                const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(`Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}.`)}`;
+                                const win = window.open(whatsappURL, '_blank');
+                                if (!win) alert("Popup blocked! Allow popups.");
+
+                                // Google Sheet submission
+                                const formData = new FormData();
+                                formData.append('name', name);
+                                formData.append('mobile', mobile);
+                                formData.append('email', email);
+                                fetch(scriptURL, { method: 'POST', body: formData })
+                                    .then(res => console.log('Sheet Response:', res))
+                                    .catch(err => console.error('Sheet Error:', err));
+
+                                // Update chatbot UI
+                                if (formContainer) formContainer.classList.remove('active');
+                                if (successMessage) successMessage.classList.add('active');
+
+                                const userMsg = document.createElement('div');
+                                userMsg.className = 'message user-message';
+                                userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                                chatBody.appendChild(userMsg);
+                                chatBody.scrollTop = chatBody.scrollHeight;
+
+                                // if (voiceEnabled) setTimeout(() => speak(`Thank you ${name}. Your information has been submitted successfully.`), 500);
+
+                                // Reset form after 5s
+                                setTimeout(() => {
+                                    if (formContainer) formContainer.classList.add('active');
+                                    if (successMessage) successMessage.classList.remove('active');
+                                    userForm.reset();
+                                }, 5000000);
+                            });
+                        }
+
+                        // --- Back To Top Button ---
+                        if (backToTop) {
+                            window.addEventListener('scroll', () => {
+                                backToTop.classList.toggle('visible', window.pageYOffset > 300);
+                            });
+                            backToTop.addEventListener('click', () => {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                // if (voiceEnabled) speak("Scrolling to top of page");
+                            });
+                        }
+
+                        // --- Auto Welcome Message ---
+                        // setTimeout(() => {
+                        //     if (voiceEnabled) speak("Welcome to Smartspace Living. We offer premium interior design solutions for residential and commercial spaces.");
+                        // }, 500000);
+
+                    }, 500); // Delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
+    </script>
+</body>
+
+</html>

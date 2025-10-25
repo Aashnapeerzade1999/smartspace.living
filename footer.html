@@ -1,0 +1,1471 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<style>
+    /* Default: Desktop - Vertical Center Right */
+    /* =================== SOCIAL ICONS =================== */
+    .social-icons {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 9999;
+    }
+
+    .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+
+        border-radius: 100%;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+        text-decoration: none;
+    }
+
+
+    .social-icon.whatsapp:hover {
+        transform: scale(1.1);
+    }
+
+    /* =================== FOOTER =================== */
+    .site-footer {
+
+        padding: 50px 20px 30px;
+        font-family: Arial, sans-serif;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .footer-brand h1 {
+        font-size: 1.8rem;
+    }
+
+
+
+    .footer-brand p {
+        margin: 10px 0 20px;
+        font-size: 0.9rem;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .footer-columns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .footer-col h4 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 8px;
+    }
+
+
+    .footer-contact a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        text-decoration: none;
+        margin-bottom: 8px;
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        border-top: 1px solid #333;
+        padding-top: 15px;
+    }
+
+    /* =================== CHATBOT =================== */
+    .chatbot-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 10000;
+        font-family: Arial, sans-serif;
+    }
+
+    .chatbot-toggle {
+        width: 60px;
+        height: 60px;
+
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        font-size: 1.4rem;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+    }
+
+    .chatbot-toggle:hover {
+        transform: scale(1.1);
+    }
+
+    .chatbot-container {
+        display: none;
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 350px;
+        max-height: 500px;
+
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        flex-direction: column;
+    }
+
+    .chatbot-container.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .chatbot-header {
+
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chatbot-header h3 {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .close-btn {
+
+        border: none;
+
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .chatbot-body {
+        padding: 15px;
+        overflow-y: auto;
+        flex-grow: 1;
+
+    }
+
+    .message {
+        margin-bottom: 12px;
+        display: flex;
+    }
+
+    .bot-message .message-bubble {
+        padding: 10px 15px;
+        border-radius: 15px;
+        max-width: 80%;
+    }
+
+    .user-message .message-bubble {
+
+        padding: 10px 15px;
+        border-radius: 15px;
+        max-width: 80%;
+        margin-left: auto;
+    }
+
+    .chatbot-footer {
+        padding: 15px;
+
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-container input {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .form-container button {
+        padding: 10px;
+        border: none;
+
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .form-container button:hover {
+        background: #1da851;
+    }
+
+    .success-message {
+        display: none;
+        text-align: center;
+        padding: 20px;
+
+    }
+
+    .success-message.active {
+        display: block;
+    }
+
+    .chat-alert {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background: rgb(244, 189, 6);
+        color: black;
+        padding: 10px 15px;
+        border-radius: 25px;
+        font-size: 14px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s;
+        display: flex;
+        align-items: center;
+    }
+
+    .chat-alert.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .close-icon {
+        cursor: pointer;
+        margin-left: 10px;
+        font-weight: bold;
+    }
+
+
+    /* =================== MEDIA QUERIES =================== */
+    @media (max-width: 768px) {
+        .social-icons {
+            top: auto;
+            bottom: 80px;
+            left: 10px;
+            right: auto;
+            flex-direction: row;
+            gap: 8px;
+            transform: none;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.3rem;
+        }
+
+        .chatbot-container {
+            width: 90%;
+            max-width: 100%;
+            right: 5%;
+            bottom: 70px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .chatbot-container {
+            bottom: 60px;
+            max-height: 450px;
+        }
+
+        .chatbot-toggle {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+        }
+
+        .form-container input,
+        .form-container button {
+            font-size: 0.85rem;
+            padding: 8px;
+        }
+    }
+
+    /* =================== ANIMATIONS =================== */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+<!-- WhatsApp - Left Corner (Mobile Only) -->
+<div class="social-icons" aria-label="Social media links">
+    <a href="https://wa.me/918591463486" target="_blank" class="social-icon whatsapp"
+        aria-label="Contact us on WhatsApp"
+        style="display: block; width: 60px; height: 60px; border-radius: 0 50% 50% 0; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+</div>
+
+<div class="voice-controls" style="display:none">
+    <div class="voice-toggle" id="voiceToggle">
+        <span>Voice Notifications</span>
+        <div class="toggle-switch" id="toggleSwitch"></div>
+    </div>
+    <button id="testVoice" class="cta-button" style="padding: 5px 10px; font-size: 0.8rem;">Test Voice</button>
+</div>
+
+<style>
+    .voice-controls {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+        background: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .voice-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    .toggle-switch {
+        width: 40px;
+        height: 20px;
+        background: #ccc;
+        border-radius: 20px;
+        position: relative;
+        transition: background 0.3s;
+    }
+
+    .toggle-switch.active {
+        background: var(--success);
+    }
+
+    .toggle-switch::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: white;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        transition: transform 0.3s;
+    }
+
+    .toggle-switch.active::after {
+        transform: translateX(20px);
+    }
+
+    /* =================== ANIMATIONS =================== */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .pulse {
+        animation: pulse 1s infinite;
+    }
+</style>
+
+
+<div class="chatbot-widget">
+
+    <div class="chat-alert" id="chatAlert">
+        We're online. How may I assist you?
+        <span class="close-icon" id="closeAlert">✕</span>
+    </div>
+    <div class="chatbot-container" id="chatbotContainer">
+        <!-- Mini Popup -->
+
+        <div class="chatbot-header">
+            <h3>💬 Support Chat</h3>
+            <div class="status">
+                <span class="status-dot"></span>
+                <span>Online</span>
+            </div>
+            <button class="close-btn" id="closeChat">×</button>
+        </div>
+
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="message bot-message">
+                <div class="message-bubble">
+                    Hello! I'm here to assist you. Please provide your details and we'll connect you via WhatsApp.
+                </div>
+            </div>
+
+            <div class="message bot-message">
+                <div class="message-bubble">
+                    Let me get some information from you first.
+                </div>
+            </div>
+        </div>
+
+        <div class="chatbot-footer">
+            <div class="form-container active" id="formContainer">
+                <form id="userForm"
+                    action="https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec"
+                    method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" id="mobile" name="mobile" class="form-control"
+                            placeholder="Enter your mobile number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control"
+                            placeholder="Enter your email address">
+                    </div>
+
+                    <button type="submit" class="btn">Submit & Continue to WhatsApp</button>
+
+                    <p class="form-note">By submitting this form, you
+                        agree to the <a href="policies.html">Privacy &
+                            policy </a> and <a href="terms_con.html">
+                            terms & Conditions</a></p>
+                </form>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <div class="whatsapp-icon">📱</div>
+                <h3>Thank You!</h3>
+                <p>Your information has been submitted successfully.</p>
+                <p>Redirecting to WhatsApp...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="chatbot-toggle minimized" id="chatbotToggle">
+        <div class="chatbot-icon">
+            <span class="chat-icon">💬</span>
+            <span class="close-icon">✕</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* ===== CHATBOT MOBILE RESPONSIVE STYLES ===== */
+
+    /* Tablet Devices (768px and below) */
+    @media (max-width: 768px) {
+        .chatbot-widget {
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 20px !important;
+            left: 20px !important;
+            z-index: 9999 !important;
+            scroll-behavior: smooth !important;
+
+        }
+
+        .chatbot-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: 90vh !important;
+            max-height: 550px !important;
+            right: 0 !important;
+            bottom: 70px !important;
+            border-radius: 15px !important;
+
+        }
+
+        .chatbot-toggle {
+            width: 60px !important;
+            height: 60px !important;
+            bottom: 20px !important;
+            right: 20px !important;
+        }
+
+        .chatbot-icon {
+            font-size: 1.4rem !important;
+        }
+
+        .chatbot-header {
+            padding: 15px !important;
+        }
+
+        .chatbot-header h3 {
+            font-size: 1.1rem !important;
+        }
+
+        .chatbot-body {
+            padding: 15px !important;
+        }
+
+        .message-bubble {
+            max-width: 90% !important;
+            font-size: 0.85rem !important;
+            padding: 10px 14px !important;
+        }
+
+        .chatbot-footer {
+            padding: 15px !important;
+        }
+
+        .form-group {
+            margin-bottom: 12px !important;
+        }
+
+        .form-control {
+            padding: 10px 12px !important;
+            font-size: 0.85rem !important;
+        }
+
+        .btn {
+            padding: 12px !important;
+            font-size: 0.9rem !important;
+        }
+
+        .form-note {
+            font-size: 0.7rem !important;
+        }
+    }
+
+    /* Small Mobile Devices (480px and below) */
+    @media (max-width: 480px) {
+        .chatbot-widget {
+            bottom: 15px !important;
+            right: 15px !important;
+            left: 15px !important;
+        }
+
+        .chatbot-container {
+            height: 80vh !important;
+            max-height: 450px !important;
+            bottom: 65px !important;
+            border-radius: 12px !important;
+        }
+
+        .chatbot-toggle {
+            width: 55px !important;
+            height: 55px !important;
+            bottom: 15px !important;
+            right: 15px !important;
+        }
+
+        .chatbot-header {
+            padding: 12px !important;
+        }
+
+        .chatbot-header h3 {
+            font-size: 1rem !important;
+        }
+
+        .status {
+            font-size: 0.75rem !important;
+        }
+
+        .chatbot-body {
+            padding: 12px !important;
+        }
+
+        .message-bubble {
+            max-width: 92% !important;
+            font-size: 0.8rem !important;
+            padding: 8px 12px !important;
+        }
+
+        .chatbot-footer {
+            padding: 12px !important;
+        }
+
+        .form-control {
+            padding: 8px 10px !important;
+            font-size: 0.8rem !important;
+        }
+
+        .btn {
+            padding: 10px !important;
+            font-size: 0.85rem !important;
+        }
+
+        .success-message {
+            padding: 20px 15px !important;
+        }
+
+        .success-message h3 {
+            font-size: 1.1rem !important;
+        }
+
+        .success-message p {
+            font-size: 0.8rem !important;
+        }
+    }
+
+    /* Extra Small Devices (360px and below) */
+    @media (max-width: 360px) {
+        .chatbot-widget {
+            bottom: 10px !important;
+            right: 10px !important;
+            left: 10px !important;
+        }
+
+        .chatbot-container {
+            height: 80vh !important;
+            max-height: 500px !important;
+            bottom: 60px !important;
+            border-radius: 10px !important;
+        }
+
+        .chatbot-toggle {
+            width: 50px !important;
+            height: 50px !important;
+            bottom: 10px !important;
+            right: 10px !important;
+        }
+
+        .chatbot-header {
+            padding: 10px !important;
+        }
+
+        .chatbot-header h3 {
+            font-size: 0.9rem !important;
+        }
+
+        .chatbot-body {
+            padding: 10px !important;
+        }
+
+        .message-bubble {
+            max-width: 95% !important;
+            font-size: 0.75rem !important;
+            padding: 6px 10px !important;
+        }
+
+        .chatbot-footer {
+            padding: 10px !important;
+        }
+
+        .form-group label {
+            font-size: 0.75rem !important;
+        }
+
+        .form-control {
+            padding: 6px 8px !important;
+            font-size: 0.75rem !important;
+        }
+
+        .btn {
+            padding: 8px !important;
+            font-size: 0.8rem !important;
+        }
+
+        .form-note {
+            font-size: 0.65rem !important;
+        }
+    }
+
+    /* Landscape Mode Mobile */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .chatbot-container {
+            height: 80vh !important;
+            max-height: 510px !important;
+        }
+
+        .chatbot-body {
+            max-height: 150px !important;
+            overflow-y: auto !important;
+        }
+
+        .form-group {
+            margin-bottom: 8px !important;
+        }
+
+        .form-control {
+            padding: 6px 8px !important;
+            font-size: 0.8rem !important;
+        }
+    }
+
+    /* Large Mobile Devices (481px to 768px) */
+    @media (min-width: 481px) and (max-width: 768px) {
+        .chatbot-container {
+            width: 90% !important;
+            margin: 0 auto !important;
+            left: 5% !important;
+            right: 5% !important;
+        }
+
+        .chatbot-toggle {
+            width: 65px !important;
+            height: 65px !important;
+        }
+
+        .chatbot-icon {
+            font-size: 1.6rem !important;
+        }
+    }
+
+    /* Prevent horizontal scroll on mobile */
+    @media (max-width: 768px) {
+        .chatbot-container {
+            overflow: hidden !important;
+        }
+
+        .chatbot-body {
+            overflow-x: hidden !important;
+        }
+    }
+
+    /* Touch device optimizations */
+    @media (max-width: 768px) and (hover: none) and (pointer: coarse) {
+        .chatbot-toggle {
+            cursor: pointer !important;
+        }
+
+        .form-control {
+            font-size: 16px !important;
+            /* Prevent zoom on iOS */
+        }
+
+        .btn {
+            min-height: 44px !important;
+            /* Minimum touch target size */
+        }
+
+        .close-btn {
+            width: 40px !important;
+            height: 40px !important;
+            min-height: 44px !important;
+        }
+    }
+
+    /* High DPI Mobile Screens */
+    @media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+        .chatbot-container {
+            border-width: 0.5px !important;
+        }
+
+        .message-bubble {
+            border-width: 0.5px !important;
+        }
+    }
+
+    /* Safe area insets for notch devices */
+    @supports (padding: max(0px)) {
+        @media (max-width: 768px) {
+            .chatbot-widget {
+                bottom: max(15px, env(safe-area-inset-bottom)) !important;
+                right: max(15px, env(safe-area-inset-right)) !important;
+                left: max(15px, env(safe-area-inset-left)) !important;
+            }
+
+            .chatbot-toggle {
+                bottom: max(15px, env(safe-area-inset-bottom)) !important;
+                right: max(15px, env(safe-area-inset-right)) !important;
+            }
+        }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+        .chatbot-container {
+            animation: none !important;
+            transition: none !important;
+        }
+
+        .message {
+            animation: none !important;
+        }
+
+        .chatbot-toggle {
+            animation: none !important;
+        }
+    }
+
+    .mini-popup {
+        position: fixed;
+        bottom: 95px;
+        /* just above chatbot toggle */
+        right: 30px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 12px;
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition: opacity 0.5s, transform 0.5s;
+        z-index: 1001;
+    }
+
+    /* Show popup */
+    .mini-popup.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+            // Chat Alert
+            const chatAlert = document.getElementById("chatAlert");
+            const closeAlert = document.getElementById("closeAlert");
+
+            function showAlert() {
+                chatAlert.classList.add("show");
+
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    chatAlert.classList.remove("show");
+                }, 5000);
+            }
+
+            // Close on clicking ✕
+            closeAlert.addEventListener("click", function() {
+                chatAlert.classList.remove("show");
+            });
+
+            // Show alert immediately
+            showAlert();
+
+            // Repeat every 1 minute
+            setInterval(showAlert, 60000);
+        });
+    document.addEventListener("DOMContentLoaded", () => {
+        // --- One-time DOM references ---
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChat = document.getElementById('closeChat');
+        const chatBody = document.getElementById('chatbotBody');
+        const formContainer = document.getElementById('formContainer');
+        const successMessage = document.getElementById('successMessage');
+        const userForm = document.getElementById('userForm');
+
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+        // --- Chatbot Toggle ---
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+            chatbotToggle.classList.toggle('minimized');
+        });
+        closeChat.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+            chatbotToggle.classList.add('minimized');
+        });
+
+        // --- Initial Bot Message ---
+        function addBotMessage(message) {
+            const msg = document.createElement('div');
+            msg.className = 'message bot-message';
+            msg.innerHTML = `<div class="message-bubble">${message}</div>`;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        setTimeout(() => addBotMessage("Please fill out the form below with your details."), 600000);
+
+        // --- Form Submission ---
+        userForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            // Validation
+            if (!name || !email || !/^\d{10}$/.test(mobile)) {
+                alert("Please enter a valid Name, 10-digit Mobile, and Email.");
+                return;
+            }
+
+            // --- WhatsApp Redirect first ---
+            const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+            const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+
+            const win = window.open(whatsappURL, '_blank');
+            if (!win) {
+                alert("Popup blocked! Please allow popups to open WhatsApp.");
+                return;
+            }
+
+            // --- Send to Google Sheet ---
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('mobile', mobile);
+            formData.append('email', email);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(res => console.log('Sheet Response:', res))
+                .catch(err => console.error('Error sending to Sheet:', err));
+
+            // --- Update Chatbot UI ---
+            formContainer.classList.remove('active');
+            successMessage.classList.add('active');
+
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user-message';
+            userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+            chatBody.appendChild(userMsg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            setTimeout(() => {
+                formContainer.classList.add('active');
+                successMessage.classList.remove('active');
+                userForm.reset();
+            }, 600000);
+        });
+    });
+
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const chatBody = document.getElementById('chatbotBody');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const chatbotToggle = document.getElementById('chatbotToggle');
+
+        if (!chatBody || !chatbotContainer || !chatbotToggle) return;
+
+        // Ensure chatbot is visible on first auto message
+        function showChatbot() {
+            chatbotContainer.classList.add('active');
+            chatbotToggle.classList.remove('minimized');
+        }
+
+        // Add auto message
+        function addAutoMessage() {
+            const msg = document.createElement('div');
+            msg.className = 'message bot-message';
+            msg.innerHTML = `<div class="message-bubble">👋 Hi there! How can I help you today?</div>`;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // Start interval every 15 seconds
+        setInterval(() => {
+            showChatbot();
+            addAutoMessage();
+        }, 60000);
+    });
+</script> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Voice Notification System
+        const voiceToggle = document.getElementById('voiceToggle');
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        const testVoiceBtn = document.getElementById('testVoice');
+        let voiceEnabled = true;
+        let speechSynthesis = window.speechSynthesis;
+
+        // Initialize voice settings
+        function initVoiceSystem() {
+            // Check if browser supports speech synthesis
+            if (!speechSynthesis) {
+                alert("Your browser doesn't support voice notifications. Please use a modern browser like Chrome, Firefox, or Edge.");
+                voiceToggle.style.display = 'none';
+                testVoiceBtn.style.display = 'none';
+                return;
+            }
+
+            // Load voice preference from localStorage
+            const savedVoiceSetting = localStorage.getItem('smartspaceVoiceEnabled');
+            if (savedVoiceSetting !== null) {
+                voiceEnabled = savedVoiceSetting === 'true';
+                if (voiceEnabled) {
+                    toggleSwitch.classList.add('active');
+                }
+            }
+        }
+
+        // Toggle voice notifications
+        voiceToggle.addEventListener('click', function () {
+            voiceEnabled = !voiceEnabled;
+            toggleSwitch.classList.toggle('active');
+
+            // Save preference to localStorage
+            localStorage.setItem('smartspaceVoiceEnabled', voiceEnabled);
+
+            // Provide feedback
+            if (voiceEnabled) {
+                speak("Voice notifications are now enabled");
+            } else {
+                speak("Voice notifications are now disabled");
+            }
+        });
+
+        // Test voice button
+        testVoiceBtn.addEventListener('click', function () {
+            if (voiceEnabled) {
+                speak("This is a test of the voice notification system. Your voice notifications are working correctly.");
+            } else {
+                alert("Please enable voice notifications first");
+            }
+        });
+
+        // Speak function
+        function speak(text) {
+            if (!voiceEnabled) return;
+
+            // Cancel any ongoing speech
+            speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 1.0;
+            utterance.pitch = 1.0;
+            utterance.volume = 0.8;
+
+            // Select a voice
+            const voices = speechSynthesis.getVoices();
+            const englishVoice = voices.find(voice =>
+                voice.lang.startsWith('en') && voice.name.includes('Female')
+            ) || voices.find(voice => voice.lang.startsWith('en'));
+
+            if (englishVoice) {
+                utterance.voice = englishVoice;
+            }
+
+            speechSynthesis.speak(utterance);
+        }
+
+        // Chat Alert
+        const chatAlert = document.getElementById("chatAlert");
+        const closeAlert = document.getElementById("closeAlert");
+
+        function showAlert() {
+            chatAlert.classList.add("show");
+
+            // Voice notification for chat alert
+            if (voiceEnabled) {
+                setTimeout(() => {
+                    speak("We're online. How may I assist you?");
+                }, 500);
+            }
+
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                chatAlert.classList.remove("show");
+            }, 5000);
+        }
+
+        // Close on clicking ✕
+        closeAlert.addEventListener("click", function () {
+            chatAlert.classList.remove("show");
+        });
+
+        // Show alert immediately
+        showAlert();
+
+        // Repeat every 1 minute
+        setInterval(showAlert, 60000);
+
+        // Chatbot Functionality
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChat = document.getElementById('closeChat');
+        const chatBody = document.getElementById('chatbotBody');
+        const formContainer = document.getElementById('formContainer');
+        const successMessage = document.getElementById('successMessage');
+        const userForm = document.getElementById('userForm');
+
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+        // Chatbot Toggle
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+            chatbotToggle.classList.toggle('minimized');
+
+            // Voice notification when opening chatbot
+            if (voiceEnabled && chatbotContainer.classList.contains('active')) {
+                setTimeout(() => {
+                    speak("Welcome to Smartspace Living support. How can I assist you today?");
+                }, 300);
+            }
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+            chatbotToggle.classList.add('minimized');
+        });
+
+        // Initial Bot Message
+        function addBotMessage(message, voiceMessage = null) {
+            const msg = document.createElement('div');
+            msg.className = 'message bot-message';
+            msg.innerHTML = `<div class="message-bubble">${message}</div>`;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Voice notification for bot message
+            if (voiceEnabled && voiceMessage) {
+                setTimeout(() => {
+                    speak(voiceMessage);
+                }, 300);
+            }
+        }
+
+        setTimeout(() => addBotMessage(
+            "Please fill out the form below with your details.",
+            "Please fill out the form below with your details."
+        ), 1000);
+
+        // Form Submission
+        userForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            // Validation
+            if (!name || mobile) {
+                alert("Please enter a valid Name, 10-digit Mobile, and Email.");
+                return;
+            }
+
+            // WhatsApp Redirect first
+            const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile}. I would like to know more about your services.`;
+            const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+
+            const win = window.open(whatsappURL, '_blank');
+            if (!win) {
+                alert("Popup blocked! Please allow popups to open WhatsApp.");
+                return;
+            }
+
+            // Send to Google Sheet
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('mobile', mobile);
+            formData.append('email', email);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(res => console.log('Sheet Response:', res))
+                .catch(err => console.error('Error sending to Sheet:', err));
+
+            // Update Chatbot UI
+            formContainer.classList.remove('active');
+            successMessage.classList.add('active');
+
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user-message';
+            userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+            chatBody.appendChild(userMsg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Voice notification for successful submission
+            if (voiceEnabled) {
+                setTimeout(() => {
+                    speak(`Thank you ${name}. Your information has been submitted successfully. You are now being redirected to WhatsApp.`);
+                }, 500);
+            }
+
+            setTimeout(() => {
+                formContainer.classList.add('active');
+                successMessage.classList.remove('active');
+                userForm.reset();
+            }, 5000);
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Voice notification for scrolling to top
+            if (voiceEnabled) {
+                speak("Scrolling to top of page");
+            }
+        });
+
+        // Auto welcome message when page loads
+        setTimeout(() => {
+            if (voiceEnabled) {
+                speak("Welcome to Smartspace Living. We offer premium interior design solutions for residential and commercial spaces.");
+            }
+        }, 2000);
+
+        // Initialize voice system
+        initVoiceSystem();
+
+        // Load voices when they become available
+        if (speechSynthesis) {
+            speechSynthesis.onvoiceschanged = function () {
+                initVoiceSystem();
+            };
+        }
+    });
+</script>
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="footer-container">
+        <!-- Brand & Tagline -->
+        <div class="footer-brand">
+            <h1>Smart<span>Space</span></h1>
+            <p>Premium Interior Design Solutions</p>
+
+            <!-- Social Links -->
+            <div class="footer-social">
+                <!-- Facebook -->
+                <!-- Facebook Icon Link -->
+                <a href="https://www.facebook.com/profile.php?id=61582641200383" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+
+                <!-- Twitter / X -->
+                <a href="https://twitter.com/smartspacelivin" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/smartspacelivin/?igsh=cWNxdjFhOGh3MmIz&utm_source=qr" target="_blank"
+                    aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <!-- Pinterest -->
+                <a href="https://in.pinterest.com/smartspacelivin/?invite_code=b3711595dcbe4c119cb579371fb9a06a&sender=918312317677261932"
+                    target="_blank" aria-label="Pinterest">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@smartspaceinteriorstudio" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/918591463486" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:hr@smartspace.living" target="_blank" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+
+            <!-- Newsletter Subscription -->
+            <!-- <div class="newsletter">
+                    <h4>Subscribe to Our Newsletter</h4>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div> -->
+        </div>
+
+        <!-- Company Links -->
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>Offerings</h4>
+                <ul>
+                    <li><a href="Interiors.html">Interiors</a></li>
+                    <li><a href="Furnishings.html" target="_blank">Furnishings</a></li>
+                    <!-- <li><a href="services.html">Get Inspired</a></li> -->
+                    <li><a href="portfolio.html">Design Ideas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+
+                    <li><a href="work.html" target="_blank">How it works</a></li>
+                    <li><a href="about.html" target="_blank">About us</a></li>
+                    <li><a href="contact.html" target="_blank">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support & Info</h4>
+                <ul>
+                    <li><a href="policies.html" target="_blank">Policies & Privacy</a></li>
+                    <li><a href="terms_con.html" target="_blank">Terms & conditions</a></li>
+                    <li><a href="faqs.html" target="_blank">FAQs</a></li>
+                    <!-- <li><a href="https://www.smartspace.com/partner-program/" target="_blank">Own a franchise</a></li>
+                        <li><a href="https://smartspace.living/in/page/smartspace-reviews" target="_blank">Smartspace Reviews</a></li> -->
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="footer-contact">
+                    <a href="tel:+918591463486">
+                        <i class="fas fa-phone"></i> +91 8591463486
+                    </a>
+                    <a href="mailto:care@smartspace.living">
+                        <i class="fas fa-envelope"></i> care@smartspace.living
+                    </a>
+                    <a href="mailto:care@smartspace.living">
+                        <i class="fas fa-envelope"></i> hr@smartspace.living
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright & Country -->
+    <div class="footer-btm">
+        <div style="text-align: center !important;">
+            &copy; 2025 Smartspace Living. All rights reserved.
+        </div>
+    </div>
+
+</footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Newsletter Form Submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('.newsletter-input').value;
+
+        // Simple validation
+        if (email && email.includes('@')) {
+            // In a real application, you would send this to your backend
+            alert(`Thank you for subscribing with: ${email}`);
+            newsletterForm.reset();
+        } else {
+            alert('Please enter a valid email address');
+        }
+    });
+
+    // Add loading animation to footer elements
+    document.addEventListener('DOMContentLoaded', () => {
+        const footerElements = document.querySelectorAll('.footer-brand, .footer-col');
+
+        // Create intersection observer to trigger animations when footer comes into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        footerElements.forEach(el => {
+            observer.observe(el);
+        });
+    });
+
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChat = document.getElementById('closeChat');
+
+    chatbotToggle.addEventListener('click', () => {
+        chatbotContainer.classList.toggle('active');
+        chatbotContainer.classList.toggle('minimized');
+    });
+
+    closeChat.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+        chatbotContainer.classList.add('minimized');
+    });
+
+</script>
+
+
+</body>
+
+</html>

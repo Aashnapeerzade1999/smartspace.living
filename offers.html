@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Designer | Exclusive Offers</title>
+    <style>
+        .starting-price {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+
+        }
+
+        .heartbeat-btn {
+            display: inline-block;
+            padding: 15px 45px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #0a0a0a;
+            background-color: var(--secondary);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 0 25px var(--secondary);
+            animation: heartbeat 1.5s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        .heartbeat-btn:hover {
+            background-color: var(--secondary);
+
+        }
+
+        /* Heartbeat pulse animation */
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+
+            }
+
+            25% {
+                transform: scale(1.1);
+
+            }
+
+            50% {
+                transform: scale(0.85);
+
+            }
+
+            75% {
+                transform: scale(1.00);
+
+            }
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #D4AF37;
+            --accent: #ffffff;
+            --light-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --success: #28a745;
+            --danger: #dc3545;
+            --transition: all 0.3s ease;
+        }
+
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 0.5rem auto;
+        }
+
+        /* Hero Section - FIXED */
+        .offers-hero {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            margin-top: 0;
+            padding: 50px;
+        }
+
+        .hero-slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            z-index: 10;
+            animation: pulse 2s infinite;
+
+        }
+
+        .hero-badge a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-btn {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .slide-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Offers Section - IMPROVED */
+        .offers-section {
+            padding: 4rem 1rem;
+            background: var(--light-bg);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .offer-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .offer-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .offer-card:hover .offer-img {
+            transform: scale(1.05);
+        }
+
+        .offer-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-tag {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+
+        .offer-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .offer-desc {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .offer-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .offer-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+        }
+
+        .offer-card .btn {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        /* Savings Banner - IMPROVED */
+        .savings-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, #2a2a2a 100%);
+            color: var(--accent);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin: 4rem auto;
+            text-align: center;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .savings-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        .savings-banner h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            position: relative;
+            z-index: 2;
+        }
+
+        .savings-banner p {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .savings-banner .btn {
+            position: relative;
+            z-index: 2;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Contact Section - IMPROVED */
+        .contact-section {
+            padding: 5rem 1rem;
+            background: var(--light-bg);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding-right: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .info-card p {
+            margin-bottom: 0;
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Contact Form - IMPROVED */
+        .contact-form {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .contact-form h2 {
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--light-bg);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            color: var(--text-dark);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            background: var(--card-bg);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .form-note {
+            text-align: left;
+            margin-top: 15px;
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .form-note a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Map Section - IMPROVED */
+        .services-section {
+            padding: 4rem 1rem;
+            background: var(--light-bg);
+        }
+
+        .map-content {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .map-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .gold-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 1rem auto 2rem;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .map-container iframe {
+            display: block;
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-info {
+                padding-right: 0;
+            }
+
+            .contact-form {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .offers-hero {
+                height: 50vh;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .offers-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .savings-banner {
+                padding: 2rem 1rem;
+                margin: 2rem 1rem;
+            }
+
+            .savings-banner h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .offers-hero {
+                height: 40vh;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-badge {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            .offer-card {
+                margin: 0 0.5rem;
+            }
+
+            .contact-section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Fix for offers section margin */
+        #offers {
+            margin-top: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="siteHeader"></div>
+
+    <section class="offers-hero" style="margin-top: -80px;">
+        <!-- <div class="hero-badge" >
+        <a href="contact.html"><i class="fas fa-bolt"></i> </a>
+    </div> -->
+
+        <!-- Slides with content -s->
+    <div class="hero-slides">
+        < Slide 1 -->
+        <div class="hero-slide active" style="background-image:url('assets/img/COMMERCIAL\ 1.jpg');">
+            <div class="hero-content">
+                <!-- <h2 style="color: black;">Diwali Special Offer</h2>
+                <p style="color: black;">Light up your home this Diwali with our exclusive home makeover packages. Get 25% off on all interior design services!</p> -->
+                <a href="contact.html" class=" heartbeat-btn slide-btn">LIMITED TIME OFFERS</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="background-image:url('assets/img/LRBG8.jpg') !important;">
+            <div class="hero-content">
+                <!-- <h2 style="color: #41ce05;">Christmas Renovation</h2>
+                <p>Transform your space for the holiday season. Special Christmas packages with premium decorations included.</p> -->
+                <a href="Furnishings.html" class=" heartbeat-btn slide-btn">Explore Packages</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="background-image:url('assets/img/OFFICE 3.webp');">
+            <div class="hero-content">
+                <!-- <h2 style="color: #3d011a;">New Year, New Space</h2>
+                <p>Start the new year with a beautifully designed home. Get 30% off on complete home makeovers.</p> -->
+                <a href="Interiors.html" class="heartbeat-btn slide-btn">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="hero-slide" style="background-image:url('assets/img/kidrom2.jpg');">
+            <div class="hero-content">
+                <!-- <h2 style="color: #997a09;">Spring Refresh Sale</h2>
+                <p>Refresh your space for spring with our special seasonal packages. Limited time offer with free consultation.</p> -->
+                <a href="contact.html" class="heartbeat-btn slide-btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="hero-slide" style="background-image:url('assets/img/LRBG11.jpg');">
+            <div class="hero-content">
+                <!-- <h2 style="color: #04284b;">Summer Home Makeover</h2>
+                <p>Create the perfect summer retreat with our exclusive design packages. Save up to 35% on selected services.</p> -->
+                <a href="offers.html" class="heartbeat-btn slide-btn">View Offers</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            let index = 0;
+
+            function showSlide(nextIndex) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[nextIndex].classList.add('active');
+                index = nextIndex;
+            }
+
+            function nextSlide() {
+                let nextIndex = (index + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+
+            setInterval(nextSlide, 5000); // change every 5 seconds
+        });
+
+
+    </script>
+
+
+    <!-- Offers Section -->
+    <section id="offers" class="offers-section">
+        <div class="section-title">
+            <h2>Homes For every budget</h2>
+            <p>Our interior designers work with you keeping in mind your requirements and budget.</p>
+        </div>
+        <div class="offers-grid">
+            <!-- Offer 1 -->
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    alt="Living Room Design" class="offer-img">
+                <div class="offer-content">
+                    <span class="offer-tag">Limited Time</span>
+                    <h3 class="offer-title">Living Room Makeover</h3>
+                    <p class="offer-desc">Complete design consultation with furniture selection</p>
+                    <div class="offer-price">
+                        <h3 class="starting-price">Starting Price</h3>₹1.25 Lac <span>₹2 Lac</span>
+                    </div>
+
+                    <a href="contact.html" class="btn">Claim Offer</a>
+                </div>
+                
+            </div>
+
+            <!-- Offer 2 -->
+            <div class="offer-card">
+                <img src="assets/img/KRBG3.jpg" alt="Kitchen Design" class="offer-img">
+                <div class="offer-content">
+                    <span class="offer-tag">Popular</span>
+                    <h3 class="offer-title">Semi Modular Kitchen</h3>
+                    <p class="offer-desc">Complete kitchen redesign with premium materials</p>
+                    <div class="offer-price">
+                        <h3 class="starting-price">Starting Price</h3>₹1 Lac <span>₹1.25 Lac</span>
+                    </div>
+
+                    <a href="contact.html" class="btn">Claim Offer</a>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <img src="assets/img/KRBG5.jpg" alt="Kitchen Design" class="offer-img">
+                <div class="offer-content">
+                    <span class="offer-tag">Popular</span>
+                    <h3 class="offer-title">Modular Kitchen</h3>
+                    <p class="offer-desc">Complete kitchen redesign with premium materials</p>
+                    <div class="offer-price">
+                        <h3 class="starting-price">Starting Price</h3>₹1.25 Lac <span>₹1.50 Lac</span>
+                    </div>
+
+                    <a href="contact.html" class="btn">Claim Offer</a>
+                </div>
+            </div>
+
+            <!-- Offer 3 -->
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    alt="Bedroom Design" class="offer-img">
+                <div class="offer-content">
+                    <span class="offer-tag">New</span>
+                    <h3 class="offer-title">Luxury Bedroom </h3>
+                    <p class="offer-desc">Create your perfect retreat with custom design</p>
+                    <div class="offer-price">
+                        <h3 class="starting-price">Starting Price</h3>₹2.5 Lac <span>₹3 Lac</span>
+                    </div>
+
+                    <a href="contact.html" class="btn">Claim Offer</a>
+                </div>
+            </div>
+
+            <!-- Offer 4 -->
+            <div class="offer-card">
+                <img src="assets/img/OFFICE 1.jpg" alt="Office Design" class="offer-img">
+                <div class="offer-content">
+                    <span class="offer-tag">Best Value</span>
+                    <h3 class="offer-title">Office Interior</h3>
+                    <p class="offer-desc">Professional workspace design for productivity</p>
+                    <div class="offer-price">
+                        <h3 class="starting-price">Starting Price</h3>₹2.5 Lac<span>₹3 Lac</span>
+                    </div>
+
+                    <a href="contact.html" class="btn">Claim Offer</a>
+                </div>
+            </div>
+
+            <!-- Offer 5 -->
+            <div class="offer-card">
+                <img src="assets/img/COMMERCIAL 2.jpg" alt="Restaurant Design" class="offer-img">
+                <div class="offer-content">
+                    <span class="offer-tag">Commercial</span>
+                    <h3 class="offer-title">Restaurant Interior</h3>
+                    <p class="offer-desc">Complete restaurant design for optimal customer experience</p>
+                    <div class="offer-price">
+                        <h3 class="starting-price">Starting Price</h3>₹2.3 Lac<span>₹3 Lac</span>
+                    </div>
+
+                    <a href="contact.html" class="btn">Claim Offer</a>
+                </div>
+            </div>
+
+            <!-- Offer 6 -->
+            <div class="offer-card">
+                <img src="assets/img/bathr.jpg" alt="Bathroom Design" class="offer-img">
+                <div class="offer-content">
+                    <span class="offer-tag">Limited Time</span>
+                    <h3 class="offer-title">Bathroom Remodel</h3>
+                    <p class="offer-desc">Luxury bathroom transformation with premium fixtures</p>
+                    <div class="offer-price">
+                        <h3 class="starting-price">Starting Price</h3>₹1 lac <span>₹1.50 Lac</span>
+                    </div>
+
+                    <a href="contact.html" class="btn">Claim Offer</a>
+                </div>
+            </div>
+
+            <!-- Offer 7 -->
+            <!-- <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dining Room Design" class="offer-img">
+                    <div class="offer-content">
+                        <span class="offer-tag">New</span>
+                        <h3 class="offer-title">Dining Room Package</h3>
+                        <p class="offer-desc">Elegant dining space design with furniture</p>
+                        <div class="offer-price"> <h3 class="starting-price">Starting Price</h3>₹<span>₹25,999</span></div>
+                       
+                        <a href="contact.html" class="btn">Claim Offer</a>
+                    </div>
+                </div> -->
+
+            <!-- Offer 8 -->
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    alt="Complete Home" class="offer-img">
+                <div class="offer-content">
+                    <span class="offer-tag">Premium</span>
+                    <h3 class="offer-title">Complete Home Makeover</h3>
+                    <p class="offer-desc">Full home interior design with premium finishes</p>
+                    <div class="offer-price">
+                        <h3 class="starting-price">Starting Price</h3>₹6 Lac <span>₹8 Lac</span>
+                    </div>
+
+                    <a href="contact.html" class="btn">Claim Offer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Savings Banner -->
+    <section class="savings-banner">
+        <h2>Save Up To 30% On All Packages</h2>
+        <p>Book your consultation today and get an additional 10% off your first project. Limited time offer for new
+            clients only.</p>
+        <a href="contact.html" class="btn">Book Consultation</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2 style="margin-bottom: 2rem; color: var(--secondary);">Send
+                    Us a Message</h2>
+                <form id="contactForm"
+                    action="https://script.google.com/macros/s/AKfycbx0umetrj-h3Zeo46EkuRL4N6VEd1LsboAapuudgjkxj78nnFGwsLqq7YX4NxvDAv75cg/exec"
+                    method="post">
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control"
+                            placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control"
+                            placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project">Project Type</label>
+                        <select id="project" name="project" class="form-control" required>
+                            <option value>Select project type</option>
+                            <option value="Residential Design">Residential
+                                Design</option>
+                            <option value="Commercial Design">Commercial
+                                Design</option>
+                            <option value="Office Space">Office
+                                Space</option>
+                            <option value="Renovation">Renovation</option>
+                            <option value="Design Consultation">Design
+                                Consultation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Project Budget</label>
+                        <select id="budget" name="budget" class="form-control" required>
+                            <option value>Select budget range</option>
+                            <option value="₹5-10 Lakhs">₹5-10 Lakhs</option>
+                            <option value="₹10-25 Lakhs">₹10-25
+                                Lakhs</option>
+                            <option value="₹25-50 Lakhs">₹25-50
+                                Lakhs</option>
+                            <option value="₹50 Lakhs+">₹50 Lakhs+</option>
+                            <option value="Not Sure Yet">Not Sure
+                                Yet</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" class="form-control"
+                            placeholder="Tell us about your project, requirements, and vision..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Send
+                        Message</button>
+
+                    <p class="form-note">By submitting this form, you
+                        agree to the <a href="policies.html">Privacy &
+                            policy </a> and <a href="terms_con.html">
+                            terms & Conditions</a></p>
+
+                    <br>
+
+                    <div id="alert"></div>
+
+                </form>
+            </div>
+
+
+            <div class="contact-info">
+                <h2>Let's Start Your Project</h2>
+                <p>We're excited to hear about your interior design vision.
+                    Reach out to us through any of the following channels,
+                    and our team will get back to you within 24 hours.</p>
+
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Our Studio</h3>
+                    <h4>Smart Space Living</h4>
+                    <p>Vishal Pride Seawoods Sector 50 New Navi Mumbai</p>
+                    <p>PIN : 400706</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>+91 8591463486</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>care@smartspace.living<br>
+                        hr@smartspace.living</p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="map-content">
+            <h3>Visit Our Studio</h3>
+            <div class="gold-divider"></div>
+
+            <div id="location">
+
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.178611123998!2d73.0230373!3d19.011849599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3eebfc659cd%3A0x63447d4b1f289abf!2sSmart%20Space%20Interior%20Designer-Best%20Interior%20Designer%20In%20Navi%20Mumbai!5e0!3m2!1sen!2sin!4v1760532334626!5m2!1sen!2sin"
+                        width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+    </section>
+    </main>
+    <!-- form connection -->
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbx0umetrj-h3Zeo46EkuRL4N6VEd1LsboAapuudgjkxj78nnFGwsLqq7YX4NxvDAv75cg/exec";
+
+        const data = { name: "Test", email: "test@example.com", phone: "9999999999", project: "Residential", budget: "₹5-10 Lakhs", message: "Hello" };
+
+        fetch(scriptURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.text())
+            .then(txt => console.log(txt))
+            .catch(err => console.error(err));
+
+        console.log("Form submitted quickly!");
+        const form = document.getElementById("contactForm");
+        const alertBox = document.getElementById("alert");
+
+
+        form.addEventListener("submit", e => {
+            e.preventDefault(); // prevent default form submission
+
+            // show sending message
+            alertBox.innerHTML = `<p style="color:#555;">Sending your message...</p>`;
+
+            // gather form data
+            const formData = new FormData(form);
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.text())
+                .then(text => {
+                    form.reset(); // clear form
+                    alertBox.innerHTML = `
+                <p style="color: green; background:#e6ffe6; padding:10px; border-radius:6px;">
+                    ✅ Thank you! Your message has been sent successfully.
+                </p>`;
+                    setTimeout(() => { alertBox.innerHTML = ""; }, 5000); // auto-hide
+                })
+                .catch(err => {
+                    alertBox.innerHTML = `
+                <p style="color: red; background:#ffe6e6; padding:10px; border-radius:6px;">
+                    ❌ Oops! Something went wrong. Please try again later.
+                </p>`;
+                    setTimeout(() => { alertBox.innerHTML = ""; }, 5000); // auto-hide
+                });
+        });
+    </script>
+
+    <script>
+
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+
+            // In a real application, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been sent. We'll get back to you at ${email} soon regarding ${service ? service : 'your inquiry'}.`);
+
+            // Reset the form
+            this.reset();
+        });
+    </script>
+
+
+    <!-- Footer -->
+    <div id="siteFooter"></div>
+
+
+
+    <!-- Script to load header and footer -->
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
+
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+                }
+            });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- Load Footer Dynamically ---
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
+
+                    // Delay to ensure DOM updates are fully applied
+                    setTimeout(() => {
+                        // --- Select Elements ---
+                        const voiceToggle = document.getElementById('voiceToggle');        // Toggle for voice notifications
+                        const toggleSwitch = document.getElementById('toggleSwitch');      // Visual switch for toggle
+                        const testVoiceBtn = document.getElementById('testVoice');         // Button to test voice
+                        const chatAlert = document.getElementById("chatAlert");            // Top alert notification
+                        const closeAlert = document.getElementById("closeAlert");          // Close button for alert
+                        const chatbotToggle = document.getElementById('chatbotToggle');    // Button to open chatbot
+                        const chatbotContainer = document.getElementById('chatbotContainer'); // Chatbot container
+                        const closeChat = document.getElementById('closeChat');            // Close button for chatbot
+                        const chatBody = document.getElementById('chatbotBody');           // Chat messages container
+                        const userForm = document.getElementById('userForm');              // Chatbot form
+                        const formContainer = document.getElementById('formContainer');    // Container for form
+                        const successMessage = document.getElementById('successMessage');  // Form success message
+                        const backToTop = document.getElementById('backToTop');            // Back to top button
+
+                        // --- Voice Notification System ---
+                        let voiceEnabled = false;                                           // Voice enabled by default
+                        const speechSynthesis = window.speechSynthesis;                    // Browser speech synthesis
+
+                        // Initialize voice settings
+                        function initVoiceSystem() {
+                            if (!speechSynthesis) {
+                                console.warn("Voice not supported in this browser");
+                                if (voiceToggle) voiceToggle.style.display = 'none';
+                                if (testVoiceBtn) testVoiceBtn.style.display = 'none';
+                                return;
+                            }
+
+                            // Load voice preference from localStorage
+                            const saved = localStorage.getItem('smartspaceVoiceEnabled');
+                            voiceEnabled = saved !== null ? saved === 'false' : true;
+
+                            // Update toggle switch visual
+                            if (voiceEnabled && toggleSwitch) toggleSwitch.classList.add('active');
+                        }
+
+                        // Function to speak text
+                        function speak(text) {
+                            if (!voiceEnabled || !speechSynthesis) return;
+                            speechSynthesis.cancel(); // Cancel any ongoing speech
+
+                            const utterance = new SpeechSynthesisUtterance(text);
+                            utterance.rate = 1.0;
+                            utterance.pitch = 1.0;
+                            utterance.volume = 0.8;
+
+                            // Select English Female voice if available
+                            const voices = speechSynthesis.getVoices();
+                            const englishVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Female'))
+                                || voices.find(v => v.lang.startsWith('en'));
+                            if (englishVoice) utterance.voice = englishVoice;
+
+                            speechSynthesis.speak(utterance);
+                        }
+
+                        // --- Voice Toggle Button ---
+                        if (voiceToggle) {
+                            voiceToggle.addEventListener('click', () => {
+                                voiceEnabled = !voiceEnabled;                      // Toggle state
+                                toggleSwitch.classList.toggle('active');          // Update visual
+                                localStorage.setItem('smartspaceVoiceEnabled', voiceEnabled); // Save preference
+                                speak(voiceEnabled ? "Voice notifications are now enabled" :
+                                    "Voice notifications are now disabled");
+                            });
+                        }
+
+                        // --- Test Voice Button ---
+                        // if (testVoiceBtn) {
+                        //     testVoiceBtn.addEventListener('click', () => {
+                        //         if (voiceEnabled) speak("This is a test of the voice notification system.");
+                        //         else alert("Enable voice notifications first");
+                        //     });
+                        // }
+
+                        // Initialize voice system
+                        initVoiceSystem();
+                        if (speechSynthesis) speechSynthesis.onvoiceschanged = initVoiceSystem;
+
+                        // --- Chat Alert Notification ---
+                        function showAlert() {
+                            if (!chatAlert) return;
+                            chatAlert.classList.add("show"); // Show alert
+                            //if (voiceEnabled) setTimeout(() => speak("We're online. How may I assist you?"), 500);
+                            //setTimeout(() => chatAlert.classList.remove("show"), 5000); // Auto-hide after 5s
+                        }
+
+                        // Close alert on ✕ click
+                        if (closeAlert) closeAlert.addEventListener("click", () => chatAlert.classList.remove("show"));
+
+                        // Show alert immediately and every 1 minute
+                        showAlert();
+                        setInterval(showAlert, 60000);
+
+                        // --- Chatbot Functionality ---
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+                        // Add bot message to chat
+                        function addBotMessage(message, voiceMessage = null) {
+                            if (!chatBody) return;
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${message}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                            //  if (voiceEnabled && voiceMessage) setTimeout(() => speak(voiceMessage), 300);
+                        }
+
+                        // Initial bot message
+                        // setTimeout(() => addBotMessage("Please fill out the form below with your details.",
+                        //     "Please fill out the form below with your details."), 1000);
+
+                        // Chatbot open/close toggle
+                        if (chatbotToggle) {
+                            chatbotToggle.addEventListener('click', () => {
+                                chatbotContainer.classList.toggle('active');
+                                chatbotToggle.classList.toggle('minimized');
+                                // if (voiceEnabled && chatbotContainer.classList.contains('active')) {
+                                //     setTimeout(() => speak("Welcome to Smartspace Living support. How can I assist you today?"), 300);
+                                // }
+                            });
+                        }
+
+                        if (closeChat) {
+                            closeChat.addEventListener('click', () => {
+                                chatbotContainer.classList.remove('active');
+                                chatbotToggle.classList.add('minimized');
+                            });
+                        }
+
+                        // --- Form Submission ---
+                        if (userForm) {
+                            userForm.addEventListener('submit', (e) => {
+                                e.preventDefault();
+
+                                const name = document.getElementById('name').value.trim();
+                                const mobile = document.getElementById('mobile').value.trim();
+                                const email = document.getElementById('email').value.trim();
+
+                                // Simple validation
+                                if (!name || mobile) return alert("Enter valid Name, Mobile & name");
+
+                                // WhatsApp redirect
+                                const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(`Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}.`)}`;
+                                const win = window.open(whatsappURL, '_blank');
+                                if (!win) alert("Popup blocked! Allow popups.");
+
+                                // Google Sheet submission
+                                const formData = new FormData();
+                                formData.append('name', name);
+                                formData.append('mobile', mobile);
+                                formData.append('email', email);
+                                fetch(scriptURL, { method: 'POST', body: formData })
+                                    .then(res => console.log('Sheet Response:', res))
+                                    .catch(err => console.error('Sheet Error:', err));
+
+                                // Update chatbot UI
+                                if (formContainer) formContainer.classList.remove('active');
+                                if (successMessage) successMessage.classList.add('active');
+
+                                const userMsg = document.createElement('div');
+                                userMsg.className = 'message user-message';
+                                userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                                chatBody.appendChild(userMsg);
+                                chatBody.scrollTop = chatBody.scrollHeight;
+
+                                // if (voiceEnabled) setTimeout(() => speak(`Thank you ${name}. Your information has been submitted successfully.`), 500);
+
+                                // Reset form after 5s
+                                setTimeout(() => {
+                                    if (formContainer) formContainer.classList.add('active');
+                                    if (successMessage) successMessage.classList.remove('active');
+                                    userForm.reset();
+                                }, 5000000);
+                            });
+                        }
+
+                        // --- Back To Top Button ---
+                        if (backToTop) {
+                            window.addEventListener('scroll', () => {
+                                backToTop.classList.toggle('visible', window.pageYOffset > 300);
+                            });
+                            backToTop.addEventListener('click', () => {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                // if (voiceEnabled) speak("Scrolling to top of page");
+                            });
+                        }
+
+                        // --- Auto Welcome Message ---
+                        // setTimeout(() => {
+                        //     if (voiceEnabled) speak("Welcome to Smartspace Living. We offer premium interior design solutions for residential and commercial spaces.");
+                        // }, 500000);
+
+                    }, 500); // Delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Smart Space Living | Furniture & Interiors</title>
+    <meta name="description"
+        content="Learn more about Smart Space Living, our journey, mission, and team behind premium furniture and interior design services.">
+    <meta name="keywords" content="about Smart Space Living, furniture, interiors, team, mission, vision">
+    <meta property="og:title" content="About Smart Space Living">
+    <meta property="og:description" content="Meet the team and know our story.">
+    <meta property="og:image" content="assets/images/og-about.jpg">
+    <meta property="og:url" content="https://www.smartspaceliving.com/about.html">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+    /* Header padding reduce for mobile */
+    header {
+        padding: 8px 15px;
+    }
+
+    /* Hero section padding reduce */
+    .about-hero {
+        padding-top: 10px;   /* top gap kam karo */
+        padding-bottom: 10px; /* bottom gap kam karo */
+        margin-top: -100px;
+    }
+
+    /* Hero content spacing */
+    .about-hero h1,
+    .about-hero p,
+    .about-hero .btn {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+.about-hero .container,
+.about-hero .inner {
+    padding-top: 0;
+    margin-top: 0;
+}
+    /* General Styles */        
+
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .light-theme {
+            --bg-color: var(--bg-light);
+            --text-color: var(--text-light);
+            --card-color: var(--card-light);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 10px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: rotate(15deg);
+        }
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--accent);
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .gold-divider {
+            width: 120px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 2.5rem auto;
+            animation: expandWidth 1s ease-out 0.6s both;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .story-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .story-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 2rem;
+            background: white;
+            color: black;
+        }
+
+        .values-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .values-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            padding: 3rem 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .value-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            background: var(--card-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 2rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .member-role {
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .member-bio {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 6rem 2rem;
+            background: whitesmoke;
+            color: black;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stats-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-card {
+            padding: 2.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 6rem 2rem;
+            background: var(--bg-color);
+        }
+
+        .process-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .process-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            padding: 2.5rem;
+            background: var(--card-color);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .process-step p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: var(--accent);
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.3rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 120px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .values-grid,
+            .team-grid,
+            .stats-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .story-content h2,
+            .values-container h2,
+            .team-container h2,
+            .stats-container h2,
+            .process-container h2,
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .btn-primary {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+
+         /* Hero Buttons Styling */
+    .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border: 2px solid transparent;
+    }
+
+    .offer-btn {
+        background: linear-gradient(45deg, #D4AF37, #FFD700);
+        color: #000;
+        border-color: #D4AF37;
+    }
+
+    .connect-btn {
+        background: transparent;
+        color: #D4AF37;
+        border-color: #D4AF37;
+    }
+
+    .process-btn {
+        background: rgba(212, 175, 55, 0.1);
+        color: #D4AF37;
+        border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .hero-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .offer-btn:hover {
+        background: linear-gradient(45deg, #FFD700, #D4AF37);
+    }
+
+    .connect-btn:hover {
+        background: #D4AF37;
+        color: #000;
+    }
+
+    .process-btn:hover {
+        background: rgba(212, 175, 55, 0.2);
+        border-color: #D4AF37;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-btn {
+            width: 250px;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-btn {
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+    }
+
+    /* Mobile View - Gap Removal */
+@media (max-width: 768px) {
+    /* Header height kam karo */
+    header {
+        height: 60px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .nav-container {
+        padding: 0.5rem 1rem !important;
+        min-height: 60px !important;
+    }
+    
+    /* Body padding adjust karo */
+    body {
+        padding-top: 60px !important;
+    }
+    
+    /* About Hero section gap completely remove karo */
+    .about-hero {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        min-height: 50vh !important; /* Height kam karo */
+    }
+    
+    .hero-content {
+        padding: 1rem !important;
+        margin: 0 !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-content p {
+        font-size: 0.8rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .gold-divider {
+        margin: 0.5rem auto !important;
+        width: 60px !important;
+        height: 2px !important;
+    }
+    
+    /* Hero buttons compact karo */
+    .hero-buttons {
+        margin-top: 0.5rem !important;
+        gap: 0.5rem !important;
+    }
+    
+    .hero-btn {
+        padding: 8px 12px !important;
+        font-size: 0.7rem !important;
+        min-width: 120px !important;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    header {
+        height: 50px !important;
+    }
+    
+    body {
+        padding-top: 50px !important;
+    }
+    
+    .about-hero {
+        min-height: 40vh !important;
+        padding: 0.5rem !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .hero-btn {
+        padding: 6px 10px !important;
+        font-size: 0.65rem !important;
+        min-width: 100px !important;
+    }
+}
+    </style>
+
+    <style>
+        /* ===== MOBILE RESPONSIVE FIXES - FORCE 2 COLUMNS ===== */
+@media (max-width: 768px) {
+
+    .about-hero {
+        padding: 2rem 1rem !important;
+        min-height: 40vh !important;
+        margin-top: 0 !important;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Hero buttons mobile optimization */
+    .hero-buttons {
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-top: 1rem !important;
+    }
+
+    .hero-btn {
+        width: 100% !important;
+        max-width: 250px !important;
+        justify-content: center !important;
+        padding: 10px 15px !important;
+        font-size: 12px !important;
+    }
+
+    /* Story section mobile fix */
+    .story-section {
+        padding: 2rem 1rem !important;
+    }
+
+    .story-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .story-content h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .story-content p {
+        font-size: 0.85rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .story-image img {
+        height: 200px !important;
+    }
+
+    /* ===== FORCE 2 COLUMNS FOR ALL GRIDS ===== */
+    
+    /* Values section - FORCE 2 columns */
+    .values-section {
+        padding: 2rem 1rem !important;
+    }
+
+    .values-container h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .values-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        margin-top: 1rem !important;
+    }
+
+    .value-card {
+        padding: 1rem 0.8rem !important;
+        min-height: 150px !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    .value-icon {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .value-card h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .value-card p {
+        font-size: 0.75rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Team section - FORCE 2 columns */
+    .team-section {
+        padding: 2rem 1rem !important;
+    }
+
+    .team-container h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .team-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        margin-top: 1rem !important;
+    }
+
+    .team-member {
+        margin-bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    .member-image {
+        height: 120px !important;
+    }
+
+    .member-info {
+        padding: 1rem 0.8rem !important;
+    }
+
+    .member-info h3 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+
+    .member-role {
+        font-size: 0.75rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .member-bio {
+        font-size: 0.7rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Stats section - FORCE 2 columns */
+    .stats-section {
+        padding: 2rem 1rem !important;
+    }
+
+    .stats-container h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .stats-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    .stat-card {
+        padding: 1rem 0.8rem !important;
+        min-height: 80px !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    .stat-number {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+
+    .stat-label {
+        font-size: 0.8rem !important;
+    }
+
+    /* Process section - FORCE 2 columns */
+    .process-section {
+        padding: 2rem 1rem !important;
+    }
+
+    .process-container h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .process-steps {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        margin-top: 1rem !important;
+    }
+
+    .process-step {
+        padding: 1rem 0.8rem !important;
+        min-height: 150px !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    .step-number {
+        width: 25px !important;
+        height: 25px !important;
+        font-size: 0.8rem !important;
+        top: -12px !important;
+    }
+
+    .step-icon {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .process-step h3 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .process-step p {
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* CTA section mobile fix */
+    .cta-section {
+        padding: 2rem 1rem !important;
+    }
+
+    .cta-content h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .cta-content p {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .btn-primary {
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* Gold divider mobile adjustment */
+    .gold-divider {
+        width: 60px !important;
+        height: 2px !important;
+        margin: 1rem auto !important;
+    }
+}
+
+/* ===== EXTRA SMALL DEVICES - STILL 2 COLUMNS ===== */
+@media (max-width: 480px) {
+    /* Keep 2 columns even on very small screens */
+    .values-grid,
+    .team-grid,
+    .stats-grid,
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.8rem !important;
+    }
+
+    .about-hero {
+        padding: 1.5rem 1rem !important;
+        min-height: 35vh !important;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .hero-content p {
+        font-size: 0.8rem !important;
+    }
+
+    /* Even smaller cards but still 2 columns */
+    .value-card,
+    .team-member,
+    .stat-card,
+    .process-step {
+        padding: 0.8rem 0.6rem !important;
+        min-height: auto !important;
+    }
+
+    .value-icon {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .member-image {
+        height: 100px !important;
+    }
+
+    .stat-number {
+        font-size: 1.3rem !important;
+    }
+
+    .hero-btn {
+        padding: 8px 12px !important;
+        font-size: 11px !important;
+    }
+
+    /* Adjust text for very small 2-column layout */
+    .value-card p,
+    .member-bio,
+    .process-step p {
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+    }
+}
+
+/* ===== FORCE GRID DISPLAY ===== */
+@media (max-width: 768px) {
+    .values-grid,
+    .team-grid,
+    .stats-grid,
+    .process-steps {
+        display: grid !important;
+        display: -ms-grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        -ms-grid-columns: 1fr 1fr !important;
+    }
+    
+    /* Ensure grid items take full width */
+    .value-card,
+    .team-member,
+    .stat-card,
+    .process-step {
+        grid-column: span 1 !important;
+        -ms-grid-column: span 1 !important;
+    }
+}
+
+/* ===== OVERRIDE ANY FLEXBOX ===== */
+@media (max-width: 768px) {
+    .values-grid,
+    .team-grid,
+    .stats-grid,
+    .process-steps {
+        display: grid !important;
+        flex-direction: unset !important;
+        flex-wrap: unset !important;
+    }
+}
+
+/* ===== HEADER GAP FIX ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 1rem !important;
+    }
+    
+    .nav-container {
+        padding: 0.5rem !important;
+    }
+    
+    .logo {
+        font-size: 1.2rem !important;
+    }
+}
+    </style>
+</head>
+<link rel="stylesheet" href="/assets/style.css">
+
+<script src="/assets/script.js"></script>
+
+<body class="light-theme">
+    <!-- Header -->
+    <div id="siteHeader">
+
+    </div>
+
+<!-- Hero Section -->
+<section class="about-hero">
+    <!-- Video Background -->
+    <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        webkit-playsinline 
+        preload="auto" 
+        class="hero-video"
+    >
+        <source src="assets/img/mobileview.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-content">
+        <h1>Crafting Dreams Into Reality</h1>
+        <div class="gold-divider"></div>
+        <p>With over years of excellence, we transform spaces into personalized sanctuaries that reflect your unique style and enhance your lifestyle.</p>
+
+        <div class="hero-buttons">
+            <a href="offers.html" class="hero-btn offer-btn">
+                <i class="fas fa-gift"></i> Special Offers
+            </a>
+            <a href="contact.html" class="hero-btn connect-btn">
+                <i class="fas fa-comments"></i> Connect With Us
+            </a>
+            <a href="work.html" class="hero-btn process-btn">
+                <i class="fas fa-cogs"></i> How We Work
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Hero Section */
+.about-hero {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Video Background */
+.hero-video {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Hero content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+
+
+.hero-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Show video only on mobile */
+@media (max-width: 767px) {
+    .hero-video {
+        display: block;
+    }
+}
+</style>
+
+
+
+    <!-- Story Section -->
+    <!-- <section class="story-section">
+        <div class="story-container">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Founded in 2012 by visionary interior designer Ananya Sharma, Smartspace Living began as a small
+                    studio with a big dream: to revolutionize interior design in India by blending traditional
+                    craftsmanship with contemporary aesthetics.</p>
+                <p>What started as a passion project in a Mumbai apartment has grown into one of India's most trusted
+                    interior design firms, with projects spanning across 25+ cities and a team of 50+ creative
+                    professionals.</p>
+                <p>Our journey has been guided by a simple philosophy: every space tells a story, and we're here to help
+                    you write yours. From cozy apartments to luxury villas, corporate offices to boutique hotels, we've
+                    had the privilege of transforming over 500 spaces into beautiful, functional environments.</p>
+            </div>
+            <div class="story-image">
+                <img src="https://officesnapshots.com/wp-content/uploads/2018/02/microsoft-turn-10-studios-redmond-bh-architects-10.jpg"
+                    alt="Our Design Studio">
+            </div>
+        </div>
+    </section> -->
+<!-- <style>
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 5%;
+ 
+            position: relative;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><polygon fill="%232c3e50" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-icon img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .service-content p {
+            color: #7f8c8d;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 22px;
+        }
+
+        .service-features li {
+            padding: 6px 0;
+            color: #555;
+            position: relative;
+            padding-left: 22px;
+            font-size: 0.9rem;
+        }
+
+        .service-features li:before {
+            content: '✓';
+            position: relative;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .service-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: var(--secondary-color);
+            color: #000; /* Black text as requested */
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: auto;
+            border: 2px solid transparent;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+            background-color: transparent;
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .services-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .service-icon {
+                height: 180px;
+            }
+        }
+
+        /* Mobile view - 2 cards per row */
+        @media (max-width: 768px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .service-content {
+                padding: 20px;
+            }
+            
+            .service-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .service-features li {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Small mobile view - still 2 cards but smaller gap */
+        @media (max-width: 576px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .service-icon {
+                height: 150px;
+            }
+            
+            .service-content {
+                padding: 15px;
+            }
+            
+            .service-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .service-content p {
+                font-size: 0.85rem;
+            }
+            
+            .service-features {
+                margin-bottom: 15px;
+            }
+            
+            .service-features li {
+                font-size: 0.8rem;
+                padding: 4px 0;
+            }
+            
+            .service-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Extra small mobile view - still maintains 2 cards */
+        @media (max-width: 400px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .service-icon {
+                height: 130px;
+            }
+            
+            .service-content {
+                padding: 12px;
+            }
+        }
+    </style> -->
+<!-- 
+   
+    <section class="services-section">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Transform your space with our comprehensive interior design solutions</p>
+        </div>
+        
+        <div class="services-container">
+            <!-- Wardrobe Design -->
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                   <img src="https://greentechinteriors.in/wp-content/uploads/2023/08/wardrobe-design-scaled.jpg" alt="Wardrobe Design">
+                </div>
+                <div class="service-content">
+                    <h3>Wardrobe Design</h3>
+                    <p>Custom wardrobe solutions that maximize storage while enhancing aesthetics.</p>
+                    <ul class="service-features">
+                        <li>Custom sizing</li>
+                        <li>Premium materials</li>
+                        <li>Smart storage</li>
+                    </ul>
+                    
+                </div>
+            </div> -->
+            
+            <!-- Kitchen Design -->
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://thvnext.bing.com/th/id/OPAC.P6UmhzoKWHwUsg474C474?w=592&h=550&o=5&cb=12&dpr=1.3&pid=21.1" alt="Kitchen Design">
+                </div>
+                <div class="service-content">
+                    <h3>Kitchen Design</h3>
+                    <p>Beautiful and functional kitchen spaces for efficiency and style.</p>
+                    <ul class="service-features">
+                        <li>Ergonomic layout</li>
+                        <li>Custom cabinetry</li>
+                        <li>Appliance integration</li>
+                    </ul>
+                    
+                </div>
+            </div> -->
+            
+            <!-- Bedroom Design -->
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                   <img src="https://www.thespruce.com/thmb/rTwTmEXOLhoRXniZEq_nrJtYioU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/stunning-bedroom-4-588feaf43df78caebc597c43.jpg" alt="Bedroom Design">
+                </div>
+                <div class="service-content">
+                    <h3>Bedroom Design</h3>
+                    <p>Create your personal sanctuary with bespoke bedroom design.</p>
+                    <ul class="service-features">
+                        <li>Furniture selection</li>
+                        <li>Lighting design</li>
+                        <li>Color consultation</li>
+                    </ul>
+                  
+                </div>
+            </div> -->
+            
+            <!-- Living Room Design -->
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                    <img  src="https://tse1.mm.bing.net/th/id/OIP.4OCpyNBHg-fnEtEBAZBBVAHaE7?cb=12&w=1500&h=997&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Living Room Design">
+                </div>
+                <div class="service-content">
+                    <h3>Living Room</h3>
+                    <p>Comfortable and stylish spaces for relaxation and entertainment.</p>
+                    <ul class="service-features">
+                        <li>Furniture arrangement</li>
+                        <li>Entertainment centers</li>
+                        <li>Accent walls</li>
+                    </ul>
+                   
+                </div>
+            </div>
+             -->
+            <!-- Bathroom Design -->
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                   <img src="https://thvnext.bing.com/th/id/OIP.6_vyrllyAfQjfyREMMSIAAHaHa?w=208&h=208&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3s" alt="Bathroom Design">
+                </div>
+                <div class="service-content">
+                    <h3>Bathroom Design</h3>
+                    <p>Luxurious bathroom designs combining style with practicality.</p>
+                    <ul class="service-features">
+                        <li>Fixture selection</li>
+                        <li>Tile selection</li>
+                        <li>Storage solutions</li>
+                    </ul>
+                    
+                </div>
+            </div> -->
+            
+            <!-- Home Office Design -->
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                  <img src="https://www.e-a-a.com/wp-content/uploads/2024/12/Shared-Home-Office-Design-Ideas-25.png" alt="Home Office">
+                </div>
+                <div class="service-content">
+                    <h3>Home Office</h3>
+                    <p>Productive workspaces designed for comfort and efficiency.</p>
+                    <ul class="service-features">
+                        <li>Ergonomic furniture</li>
+                        <li>Cable management</li>
+                        <li>Storage solutions</li>
+                    </ul>
+                   
+                </div>
+            </div> -->
+            
+            <!-- Commercial Design -->
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                     <img src="https://www.movespacelondon.com/wp-content/uploads/2019/06/The-Smiths-Building-Breakout-Space-And-Meeting-Room-1140x760.jpg" alt="Commercial Spaces">
+                </div>
+                <div class="service-content">
+                    <h3>Commercial Spaces</h3>
+                    <p>Professional environments that reflect your brand identity.</p>
+                    <ul class="service-features">
+                        <li>Office planning</li>
+                        <li>Brand integration</li>
+                        <li>Functionality focus</li>
+                    </ul>
+                    
+                </div>
+            </div> -->
+            
+            <!-- Outdoor Design -->
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                   
+                   <img src="https://tse1.mm.bing.net/th/id/OIP.wODqQ3KkZnzmyak9zzNN8wHaM9?cb=12&pid=ImgDet&w=179&h=313&c=7&dpr=1.3&o=7&rm=3" alt="Outdoor Spaces">
+                </div>
+                <div class="service-content">
+                    <h3>Outdoor Spaces</h3>
+                    <p>Beautiful outdoor areas for relaxation and entertainment.</p>
+                    <ul class="service-features">
+                        <li>Landscape design</li>
+                        <li>Patio planning</li>
+                        <li>Outdoor furniture</li>
+                    </ul>
+                    
+                </div>
+            </div> -->
+        <!-- </div>
+    </section> -->
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <h2>Our Values</h2>
+            <div class="gold-divider"></div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We constantly push boundaries with creative solutions, smart technology integration, and
+                        cutting-edge design trends to deliver spaces that are both beautiful and functional.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>Our love for design drives everything we do. We pour our hearts into every project, ensuring each
+                        space reflects our commitment to excellence and attention to detail.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe the best designs emerge from strong partnerships. We work closely with our clients,
+                        listening to their needs and visions to create spaces that truly feel like home.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>From material selection to final execution, we maintain the highest standards of quality. We use
+                        premium materials and work with skilled artisans to ensure lasting beauty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <!-- <section class="team-section">
+        <div class="team-container">
+            <h2>Meet Our Founder</h2>
+            <div class="gold-divider"></div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80"
+                            alt="Ananya Sharma">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ananya Sharma</h3>
+                        <div class="member-role">Founder & Creative Director</div>
+                        <p class="member-bio">With a Master's in Interior Architecture and 15 years of experience,
+                            Ananya leads our creative vision with passion and precision.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                            alt="Raj Malhotra">
+                    </div>
+                    <div class="member-info">
+                        <h3>Raj Malhotra</h3>
+                        <div class="member-role">Head of Operations</div>
+                        <p class="member-bio">Raj ensures seamless project execution with his expertise in project
+                            management and client relations spanning 12 years.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.Yduq1xxfRg2_10z6dyJvCwAAAA?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+                            alt="Priya Patel">
+                    </div>
+                    <div class="member-info">
+                        <h3>Priya Patel</h3>
+                        <div class="member-role">Senior Interior Designer</div>
+                        <p class="member-bio">Priya specializes in residential spaces and brings 10 years of experience
+                            in creating warm, functional family homes.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Arjun Kapoor">
+                    </div>
+                    <div class="member-info">
+                        <h3>Arjun Kapoor</h3>
+                        <div class="member-role">Commercial Design Lead</div>
+                        <p class="member-bio">Arjun excels in creating innovative commercial spaces that boost
+                            productivity and reflect brand identity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <h2>Our Impact in Numbers</h2>
+            <div class="gold-divider"></div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="100">0+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <!-- <div class="stat-card">
+                    <div class="stat-number" data-count="25">0+</div>
+                    <div class="stat-label">Cities Covered</div>
+                </div> -->
+                <!-- <div class="stat-card">
+                    <div class="stat-number" data-count="98">0%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div> -->
+                <div class="stat-card">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="10">0+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <!-- <div class="stat-card">
+                    <div class="stat-number" data-count="1000">0+</div>
+                    <div class="stat-label">Happy Families</div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <h2>Our Design Process</h2>
+            <div class="gold-divider"></div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Consultation</h3>
+                    <p>We begin with understanding your vision, lifestyle, and requirements through detailed discussions
+                        and site visits.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Design Development</h3>
+                    <p>Our team creates detailed 3D designs, material boards, and layouts for your approval before
+                        execution.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Execution</h3>
+                    <p>Skilled craftsmen bring designs to life with precision, using quality materials and strict
+                        quality control.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Handover</h3>
+                    <p>We deliver your dream space with comprehensive after-service support and maintenance guidance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Begin Your Design Journey?</h2>
+            <p>Let's collaborate to create a space that tells your unique story. Our team is ready to bring your vision
+                to life with the same passion and dedication that has defined our work for over a decade.</p>
+            <button class="btn-primary" onclick="scheduleConsultation()">
+                <i class="fas fa-calendar-check" style="margin-right: 10px;"></i>
+                Start Your Project Today
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="siteFooter"></div>
+
+    <script>
+
+        // Stats Counter Animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (target === 98 ? '%' : (target === 12 ? '' : '+'));
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (target === 98 ? '%' : (target === 12 ? '' : '+'));
+                    }
+                }, 40);
+            });
+        }
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    if (entry.target.classList.contains('stats-section')) {
+                        animateStats();
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // CTA Function
+        function scheduleConsultation() {
+            window.location.href = 'contact.html'
+            // alert('Thank you for your interest! Our team will contact you shortly to schedule a consultation.');
+            // In a real application, this would open a form or redirect to a contact page
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeThemeToggle();
+
+            // Animate stats when page loads
+            setTimeout(animateStats, 1000);
+        });
+
+
+    </script>
+    <!-- Script to load header and footer -->
+    
+    <!-- Script to load header and footer -->
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
+
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+                }
+            });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- Load Footer Dynamically ---
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
+
+                    // Delay to ensure DOM updates are fully applied
+                    setTimeout(() => {
+                        // --- Select Elements ---
+                        const voiceToggle = document.getElementById('voiceToggle');        // Toggle for voice notifications
+                        const toggleSwitch = document.getElementById('toggleSwitch');      // Visual switch for toggle
+                        const testVoiceBtn = document.getElementById('testVoice');         // Button to test voice
+                        const chatAlert = document.getElementById("chatAlert");            // Top alert notification
+                        const closeAlert = document.getElementById("closeAlert");          // Close button for alert
+                        const chatbotToggle = document.getElementById('chatbotToggle');    // Button to open chatbot
+                        const chatbotContainer = document.getElementById('chatbotContainer'); // Chatbot container
+                        const closeChat = document.getElementById('closeChat');            // Close button for chatbot
+                        const chatBody = document.getElementById('chatbotBody');           // Chat messages container
+                        const userForm = document.getElementById('userForm');              // Chatbot form
+                        const formContainer = document.getElementById('formContainer');    // Container for form
+                        const successMessage = document.getElementById('successMessage');  // Form success message
+                        const backToTop = document.getElementById('backToTop');            // Back to top button
+
+                        // --- Voice Notification System ---
+                        let voiceEnabled = false;                                           // Voice enabled by default
+                        const speechSynthesis = window.speechSynthesis;                    // Browser speech synthesis
+
+                        // Initialize voice settings
+                        function initVoiceSystem() {
+                            if (!speechSynthesis) {
+                                console.warn("Voice not supported in this browser");
+                                if (voiceToggle) voiceToggle.style.display = 'none';
+                                if (testVoiceBtn) testVoiceBtn.style.display = 'none';
+                                return;
+                            }
+
+                            // Load voice preference from localStorage
+                            const saved = localStorage.getItem('smartspaceVoiceEnabled');
+                            voiceEnabled = saved !== null ? saved === 'false' : true;
+
+                            // Update toggle switch visual
+                            if (voiceEnabled && toggleSwitch) toggleSwitch.classList.add('active');
+                        }
+
+                        // Function to speak text
+                        function speak(text) {
+                            if (!voiceEnabled || !speechSynthesis) return;
+                            speechSynthesis.cancel(); // Cancel any ongoing speech
+
+                            const utterance = new SpeechSynthesisUtterance(text);
+                            utterance.rate = 1.0;
+                            utterance.pitch = 1.0;
+                            utterance.volume = 0.8;
+
+                            // Select English Female voice if available
+                            const voices = speechSynthesis.getVoices();
+                            const englishVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Female'))
+                                || voices.find(v => v.lang.startsWith('en'));
+                            if (englishVoice) utterance.voice = englishVoice;
+
+                            speechSynthesis.speak(utterance);
+                        }
+
+                        // --- Voice Toggle Button ---
+                        if (voiceToggle) {
+                            voiceToggle.addEventListener('click', () => {
+                                voiceEnabled = !voiceEnabled;                      // Toggle state
+                                toggleSwitch.classList.toggle('active');          // Update visual
+                                localStorage.setItem('smartspaceVoiceEnabled', voiceEnabled); // Save preference
+                                speak(voiceEnabled ? "Voice notifications are now enabled" :
+                                    "Voice notifications are now disabled");
+                            });
+                        }
+
+                        // --- Test Voice Button ---
+                        // if (testVoiceBtn) {
+                        //     testVoiceBtn.addEventListener('click', () => {
+                        //         if (voiceEnabled) speak("This is a test of the voice notification system.");
+                        //         else alert("Enable voice notifications first");
+                        //     });
+                        // }
+
+                        // Initialize voice system
+                        initVoiceSystem();
+                        if (speechSynthesis) speechSynthesis.onvoiceschanged = initVoiceSystem;
+
+                        // --- Chat Alert Notification ---
+                        function showAlert() {
+                            if (!chatAlert) return;
+                            chatAlert.classList.add("show"); // Show alert
+                            //if (voiceEnabled) setTimeout(() => speak("We're online. How may I assist you?"), 500);
+                            //setTimeout(() => chatAlert.classList.remove("show"), 5000); // Auto-hide after 5s
+                        }
+
+                        // Close alert on ✕ click
+                        if (closeAlert) closeAlert.addEventListener("click", () => chatAlert.classList.remove("show"));
+
+                        // Show alert immediately and every 1 minute
+                        showAlert();
+                        setInterval(showAlert, 60000);
+
+                        // --- Chatbot Functionality ---
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+                        // Add bot message to chat
+                        function addBotMessage(message, voiceMessage = null) {
+                            if (!chatBody) return;
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${message}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                          //  if (voiceEnabled && voiceMessage) setTimeout(() => speak(voiceMessage), 300);
+                        }
+
+                        // Initial bot message
+                        // setTimeout(() => addBotMessage("Please fill out the form below with your details.",
+                        //     "Please fill out the form below with your details."), 1000);
+
+                        // Chatbot open/close toggle
+                        if (chatbotToggle) {
+                            chatbotToggle.addEventListener('click', () => {
+                                chatbotContainer.classList.toggle('active');
+                                chatbotToggle.classList.toggle('minimized');
+                                // if (voiceEnabled && chatbotContainer.classList.contains('active')) {
+                                //     setTimeout(() => speak("Welcome to Smartspace Living support. How can I assist you today?"), 300);
+                                // }
+                            });
+                        }
+
+                        if (closeChat) {
+                            closeChat.addEventListener('click', () => {
+                                chatbotContainer.classList.remove('active');
+                                chatbotToggle.classList.add('minimized');
+                            });
+                        }
+
+                        // --- Form Submission ---
+                        if (userForm) {
+                            userForm.addEventListener('submit', (e) => {
+                                e.preventDefault();
+
+                                const name = document.getElementById('name').value.trim();
+                                const mobile = document.getElementById('mobile').value.trim();
+                                const email = document.getElementById('email').value.trim();
+
+                                // Simple validation
+                                if (!name || mobile) return alert("Enter valid Name, Mobile & name");
+
+                                // WhatsApp redirect
+                                const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(`Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}.`)}`;
+                                const win = window.open(whatsappURL, '_blank');
+                                if (!win) alert("Popup blocked! Allow popups.");
+
+                                // Google Sheet submission
+                                const formData = new FormData();
+                                formData.append('name', name);
+                                formData.append('mobile', mobile);
+                                formData.append('email', email);
+                                fetch(scriptURL, { method: 'POST', body: formData })
+                                    .then(res => console.log('Sheet Response:', res))
+                                    .catch(err => console.error('Sheet Error:', err));
+
+                                // Update chatbot UI
+                                if (formContainer) formContainer.classList.remove('active');
+                                if (successMessage) successMessage.classList.add('active');
+
+                                const userMsg = document.createElement('div');
+                                userMsg.className = 'message user-message';
+                                userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                                chatBody.appendChild(userMsg);
+                                chatBody.scrollTop = chatBody.scrollHeight;
+
+                                // if (voiceEnabled) setTimeout(() => speak(`Thank you ${name}. Your information has been submitted successfully.`), 500);
+
+                                // Reset form after 5s
+                                setTimeout(() => {
+                                    if (formContainer) formContainer.classList.add('active');
+                                    if (successMessage) successMessage.classList.remove('active');
+                                    userForm.reset();
+                                }, 5000000);
+                            });
+                        }
+
+                        // --- Back To Top Button ---
+                        if (backToTop) {
+                            window.addEventListener('scroll', () => {
+                                backToTop.classList.toggle('visible', window.pageYOffset > 300);
+                            });
+                            backToTop.addEventListener('click', () => {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                // if (voiceEnabled) speak("Scrolling to top of page");
+                            });
+                        }
+
+                        // --- Auto Welcome Message ---
+                        // setTimeout(() => {
+                        //     if (voiceEnabled) speak("Welcome to Smartspace Living. We offer premium interior design solutions for residential and commercial spaces.");
+                        // }, 500000);
+
+                    }, 500); // Delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
+    </script>
+</body>
+
+</html>

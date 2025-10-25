@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Smart Space Living | Price Calculator</title>
+    <meta name="description"
+        content="Use Smart Space Living’s price calculator to estimate the cost of furniture, interiors, and services for your space.">
+    <meta name="keywords" content="price calculator, Smart Space Living, furniture cost, interiors cost, estimate">
+    <meta property="og:title" content="Smart Space Living | Price Calculator">
+    <meta property="og:description" content="Estimate project costs using our calculator.">
+    <meta property="og:image" content="assets/images/og-calculator.jpg">
+    <meta property="og:url" content="https://www.smartspaceliving.com/pricecalculator.html">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #D4AF37;
+            --accent: #FFFFFF;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #f0f0f0;
+            --card-light: #ffffff;
+            --card-dark: #2a2a2a;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .dark-theme {
+            --bg-color: var(--bg-dark);
+            --text-color: var(--text-dark);
+            --card-color: var(--card-dark);
+        }
+
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    height: 70px; /* Fixed height to reduce space */
+        }
+
+        .nav-container {
+              max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.8rem 2rem; /* Reduced from 1rem */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .calculator-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+             padding: 6rem 2rem 2rem; /* Reduced top padding from 8rem to 6rem */
+        }
+
+        .hero-content h1 {
+            font-size: 3rem; /* Reduced from 4rem */
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+    color: var(--secondary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 2rem auto;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            padding: 5rem 2rem;
+            background: var(--bg-color);
+
+        }
+
+        /* Medium screens */
+        @media (max-width: 968px) {
+            .calculator-section {
+                padding: 3rem 1.5rem;
+                z-index: 10000;
+                /* lower than overlays for mobile */
+            }
+        }
+
+        /* Small screens */
+        @media (max-width: 768px) {
+            .calculator-section {
+                padding: 2rem 1rem;
+                z-index: 10000;
+                /* ensure it stays below vertical bars, chatbot, etc. */
+            }
+        }
+
+
+        .calculator-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+
+        }
+
+        .calculator-steps {
+            background: var(--card-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .calculator-sidebar {
+            background: var(--card-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .step-header {
+            margin-bottom: 2rem;
+        }
+
+        .step-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .step-header p {
+            opacity: 0.8;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(212, 175, 55, 0.3);
+            z-index: 1;
+        }
+
+        .step-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .step-dot.active {
+            background: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+        }
+
+        .step-dot.completed {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary);
+        }
+
+        /* Selection Styles */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .selection-card {
+            background: var(--bg-color);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .selection-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .selection-card.selected {
+            border-color: var(--secondary);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .selection-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .selection-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .selection-card p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Range Slider */
+        .range-container {
+            margin-bottom: 2rem;
+        }
+
+        .range-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .range-value {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 8px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            outline: none;
+
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Checkbox Grid */
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: var(--bg-color);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkbox-item:hover {
+            border-color: var(--secondary);
+        }
+
+        .checkbox-item.selected {
+            border-color: var(--secondary);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .checkbox-item input {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .checkbox-item.selected .checkbox-custom {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .checkbox-item.selected .checkbox-custom::after {
+            content: '✓';
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Navigation Buttons */
+        .step-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Quote Summary */
+        .quote-summary {
+            margin-bottom: 2rem;
+        }
+
+        .quote-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quote-header h2 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-total {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .quote-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-details {
+            margin-bottom: 2rem;
+        }
+
+        .quote-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .quote-item:last-child {
+            border-bottom: none;
+        }
+
+        .quote-item .value {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .quote-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .selection-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .checkbox-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Popup Form Container --- */
+        .form-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            /* hidden by default */
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+        }
+
+        .form-popup.active {
+            display: flex;
+        }
+
+        .form-popup form {
+            background: rgb(0, 0, 0);
+
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            
+            padding: 30px 25px;
+            border-radius: 12px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-popup form h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        .form-popup input {
+            padding: 10px 12px;
+            font-size: 1rem;
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+            transition: 0.2s;
+            background-color: #000000;
+            color:white;
+        }
+
+        .form-popup input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Buttons */
+        .form-popup button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .form-popup button[type="submit"] {
+            background-color: var(--secondary);
+            color: #030303;
+        }
+
+        .form-popup button[type="submit"]:hover {
+            background-color: #ffd000;
+        }
+
+        .form-popup button[type="button"] {
+            background-color: var(--secondary);
+            color: #000000;
+        }
+
+        .form-popup button[type="button"]:hover {
+            background-color: #999;
+        }
+
+        /* Success Popup */
+        .success-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+        }
+
+        .success-popup.active {
+            display: flex;
+        }
+
+        .success-popup p {
+            background: #fff;
+            padding: 25px 20px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            color: #333;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .success-popup button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .success-popup button:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 500px) {
+            .form-popup form {
+                width: 90%;
+                padding: 20px 15px;
+            }
+
+            .form-popup h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bot-message .message-bubble {
+            animation: fadeIn 0.6s ease;
+        }
+        
+    </style>
+</head>
+
+<body class="light-theme">
+    <!-- Header -->
+    <div id="siteHeader">
+
+    </div>
+    <!-- Hero Section -->
+    <section class="calculator-hero" style="margin-top: -100px;">
+        <div class="hero-content">
+            <h1>Design Cost Calculator</h1>
+            <div class="gold-divider"></div>
+            <p>Get an instant estimate for your interior design project with our customized calculator</p>
+      <div class="hero-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+    <a href="offers.html" class="hero-btn offer-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: #D4AF37; color: #000000;">
+        <i class="fas fa-gift"></i>
+        Special Offers
+    </a>
+    <a href="contact.html" class="hero-btn connect-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: transparent; color: #D4AF37;">
+        <i class="fas fa-comments"></i>
+        Connect With Us
+    </a>
+    <a href="work.html" class="hero-btn process-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; font-size: 0.9rem; border: 2px solid #D4AF37; background: transparent; color: #D4AF37;">
+        <i class="fas fa-cogs"></i>
+        How We Work
+    </a>
+</div>
+        </div>
+        
+    </section>
+    <br>
+    <div class="gold-divider"></div>
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="calculator-container">
+            <div class="calculator-steps">
+                <!-- Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step-dot active" data-step="1">1</div>
+                    <div class="step-dot" data-step="2">2</div>
+                    <div class="step-dot" data-step="3">3</div>
+                    <div class="step-dot" data-step="4">4</div>
+                    <div class="step-dot" data-step="5">5</div>
+                </div>
+
+                <!-- Step 1: Project Type -->
+                <div class="step active" id="step-1">
+                    <div class="step-header">
+                        <h2>Select Project Type</h2>
+                        <p>Choose the type of space you want to design</p>
+                    </div>
+                    <div class="selection-grid">
+                        <div class="selection-card" data-type="house">
+                            <div class="selection-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>House</h3>
+                            <p>Complete home interior design</p>
+                        </div>
+                        <div class="selection-card" data-type="apartment">
+                            <div class="selection-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Apartment</h3>
+                            <p>Flat or condominium interior</p>
+                        </div>
+                        <div class="selection-card" data-type="office">
+                            <div class="selection-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Office</h3>
+                            <p>Commercial workspace design</p>
+                        </div>
+                        <div class="selection-card" data-type="shop">
+                            <div class="selection-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Retail Shop</h3>
+                            <p>Store or showroom design</p>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <div></div> <!-- Empty div for spacing -->
+                        <button class="btn btn-primary" onclick="nextStep(2)">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Space Details -->
+                <div class="step" id="step-2">
+                    <div class="step-header">
+                        <h2>Space Details</h2>
+                        <p>Provide details about your space</p>
+                    </div>
+
+                    <!-- House/Apartment Options -->
+                    <div id="residential-options">
+                        <div class="range-container">
+                            <div class="range-header">
+                                <label for="bhk">Number of Bedrooms (BHK)</label>
+                                <span class="range-value" id="bhk-value">2 BHK</span>
+                            </div>
+                            <input type="range" id="bhk" min="1" max="5" value="2" class="range-slider">
+                        </div>
+
+                        <div class="range-container">
+                            <div class="range-header">
+                                <label for="area">Carpet Area (sq. ft.)</label>
+                                <span class="range-value" id="area-value">1000 sq. ft.</span>
+                            </div>
+                            <input type="range" id="area" min="500" max="5000" value="1000" step="100"
+                                class="range-slider">
+                        </div>
+                    </div>
+
+                    <!-- Office Options -->
+                    <div id="office-options" style="display: none;">
+                        <div class="range-container">
+                            <div class="range-header">
+                                <label for="floors">Number of Floors</label>
+                                <span class="range-value" id="floors-value">1 Floor</span>
+                            </div>
+                            <input type="range" id="floors" min="1" max="5" value="1" class="range-slider">
+                        </div>
+
+                        <div class="range-container">
+                            <div class="range-header">
+                                <label for="rooms">Number of Rooms/Cabins</label>
+                                <span class="range-value" id="rooms-value">5 Rooms</span>
+                            </div>
+                            <input type="range" id="rooms" min="1" max="20" value="5" class="range-slider">
+                        </div>
+                    </div>
+
+                    <!-- Shop Options -->
+                    <div id="shop-options" style="display: none;">
+                        <div class="range-container">
+                            <div class="range-header">
+                                <label for="shop-area">Shop Area (sq. ft.)</label>
+                                <span class="range-value" id="shop-area-value">500 sq. ft.</span>
+                            </div>
+                            <input type="range" id="shop-area" min="100" max="2000" value="500" step="50"
+                                class="range-slider">
+                        </div>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button class="btn btn-secondary" onclick="prevStep(1)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(3)">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Design Style -->
+                <div class="step" id="step-3">
+                    <div class="step-header">
+                        <h2>Design Style</h2>
+                        <p>Select your preferred interior design style</p>
+                    </div>
+                    <div class="selection-grid">
+                        <div class="selection-card" data-style="modern">
+                            <div class="selection-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h3>Modern</h3>
+                            <p>Clean lines, minimalistic</p>
+                        </div>
+                        <div class="selection-card" data-style="contemporary">
+                            <div class="selection-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>Contemporary</h3>
+                            <p>Current trends, fluid style</p>
+                        </div>
+                        <div class="selection-card" data-style="traditional">
+                            <div class="selection-icon">
+                                <i class="fas fa-archway"></i>
+                            </div>
+                            <h3>Traditional</h3>
+                            <p>Classic, rich details</p>
+                        </div>
+                        <div class="selection-card" data-style="luxury">
+                            <div class="selection-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h3>Luxury</h3>
+                            <p>Premium materials, exclusive</p>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button class="btn btn-secondary" onclick="prevStep(2)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(4)">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Additional Features -->
+                <div class="step" id="step-4">
+                    <div class="step-header">
+                        <h2>Additional Features</h2>
+                        <p>Select additional features for your space</p>
+                    </div>
+
+                    <!-- Residential Features -->
+                    <div id="residential-features">
+                        <h3 style="margin-bottom: 1rem; color: var(--secondary);">Home Features</h3>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item" data-feature="modular-kitchen">
+                                <div class="checkbox-custom"></div>
+                                <span>Modular Kitchen</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="wardrobe">
+                                <div class="checkbox-custom"></div>
+                                <span>Custom Wardrobes</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="false-ceiling">
+                                <div class="checkbox-custom"></div>
+                                <span>False Ceiling</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="lighting">
+                                <div class="checkbox-custom"></div>
+                                <span>Smart Lighting</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="furniture">
+                                <div class="checkbox-custom"></div>
+                                <span>Custom Furniture</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="storage">
+                                <div class="checkbox-custom"></div>
+                                <span>Storage Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office Features -->
+                    <div id="office-features" style="display: none;">
+                        <h3 style="margin-bottom: 1rem; color: var(--secondary);">Office Features</h3>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item" data-feature="reception">
+                                <div class="checkbox-custom"></div>
+                                <span>Reception Area</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="conference">
+                                <div class="checkbox-custom"></div>
+                                <span>Conference Room</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="cabin">
+                                <div class="checkbox-custom"></div>
+                                <span>Executive Cabins</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="workstation">
+                                <div class="checkbox-custom"></div>
+                                <span>Workstations</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="breakout">
+                                <div class="checkbox-custom"></div>
+                                <span>Breakout Area</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="branding">
+                                <div class="checkbox-custom"></div>
+                                <span>Branding Elements</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shop Features -->
+                    <div id="shop-features" style="display: none;">
+                        <h3 style="margin-bottom: 1rem; color: var(--secondary);">Shop Features</h3>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item" data-feature="display">
+                                <div class="checkbox-custom"></div>
+                                <span>Display Units</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="counter">
+                                <div class="checkbox-custom"></div>
+                                <span>Checkout Counter</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="lighting">
+                                <div class="checkbox-custom"></div>
+                                <span>Showcase Lighting</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="storage">
+                                <div class="checkbox-custom"></div>
+                                <span>Storage Solutions</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="branding">
+                                <div class="checkbox-custom"></div>
+                                <span>Branding Elements</span>
+                            </div>
+                            <div class="checkbox-item" data-feature="security">
+                                <div class="checkbox-custom"></div>
+                                <span>Security Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button class="btn btn-secondary" onclick="prevStep(3)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(5)">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Budget & Finalize -->
+                <div class="step" id="step-5">
+                    <div class="step-header">
+                        <h2>Budget & Timeline</h2>
+                        <p>Set your budget and preferred timeline</p>
+                    </div>
+
+                    <div class="range-container">
+                        <div class="range-header">
+                            <label for="budget">Budget Range (₹ Lakhs)</label>
+                            <span class="range-value" id="budget-value">₹10-15 Lakhs</span>
+                        </div>
+                        <input type="range" id="budget" min="5" max="50" value="10" class="range-slider">
+                    </div>
+
+                    <div class="range-container">
+                        <div class="range-header">
+                            <label for="timeline">Project Timeline (Weeks)</label>
+                            <span class="range-value" id="timeline-value">8-12 Weeks</span>
+                        </div>
+                        <input type="range" id="timeline" min="4" max="24" value="8" class="range-slider">
+                    </div>
+
+                    <div class="step-navigation">
+                        <button class="btn btn-secondary" onclick="prevStep(4)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <!-- <button class="btn btn-primary" onclick="calculateQuote()">
+                            Get Quote <i class="fas fa-calculator"></i>
+                        </button> -->
+                        <button class="btn btn-primary" onclick="openUserForm()">
+                            Get Quote <i class="fas fa-calculator"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Get Quote Button -->
+
+
+            <!-- Popup Form -->
+            <div id="formContainer" class="form-popup">
+                <form id="userForm">
+                    <h3>Enter Your Details</h3>
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="tel" id="mobile" placeholder="Mobile Number" required>
+                    <input type="email" id="email" placeholder="Email">
+                    <button type="submit">Submit & Generate Quote</button>
+                    <button type="button" onclick="closeUserForm()">Cancel</button>
+                    <p class="form-note">By submitting this form, you
+                        agree to the <a href="policies.html">Privacy &
+                            policy </a> and <a href="terms_con.html">
+                            terms & Conditions</a></p>
+                </form>
+            </div>
+
+            <div id="successMessage" 
+     class="success-popup" 
+     style="position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background: #ffffff; 
+            color: #333; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2); 
+            padding: 30px 40px; 
+            text-align: center; 
+            font-family: 'Poppins', sans-serif; 
+            display: none; 
+            z-index: 9999;
+            width: 90%;
+            max-width: 400px;">
+    <p style="font-size: 1.1rem; margin-bottom: 20px; color: #28a745; font-weight: 600;">
+        ✅ Thank you! Your request has been submitted.
+    </p>
+    <button onclick="closeSuccess()" 
+            style="background: #28a745; 
+                   color: #fff; 
+                   border: none; 
+                   padding: 10px 25px; 
+                   border-radius: 6px; 
+                   font-size: 1rem; 
+                   cursor: pointer; 
+                   transition: background 0.3s;">
+        Close
+    </button>
+</div>
+
+<script>
+    // Function to show the success popup
+    function showSuccess() {
+        document.getElementById('successMessage').style.display = 'block';
+    }
+
+    // Function to close the success popup
+    function closeSuccess() {
+        document.getElementById('successMessage').style.display = 'none';
+    }
+</script>
+
+
+            <script>
+                const formContainer = document.getElementById('formContainer');
+                const successMessage = document.getElementById('successMessage');
+                const userForm = document.getElementById('userForm');
+
+                const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+                // Open Form
+                function openUserForm() {
+                    formContainer.classList.add('active');
+                }
+
+                function closeUserForm() {
+                    formContainer.classList.remove('active');
+                }
+
+                function closeSuccess() {
+                    successMessage.classList.remove('active');
+                }
+
+                // --- Form Submission ---
+                userForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('name').value.trim();
+                    const mobile = document.getElementById('mobile').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                 
+
+                    // --- WhatsApp Redirect ---
+                    const whatsappMessage = `Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}. I would like to know more about your services.`;
+                    const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(whatsappMessage)}`;
+                    const win = window.open(whatsappURL, '_blank');
+                    if (!win) {
+                        alert("Popup blocked! Please allow popups to open WhatsApp.");
+                        return;
+                    }
+
+                    // --- Send to Google Sheet ---
+                    const formData = new FormData();
+                    formData.append('name', name);
+                    formData.append('mobile', mobile);
+                    formData.append('email', email);
+
+                    fetch(scriptURL, { method: 'POST', body: formData })
+                        .then(res => console.log('Sheet Response:', res))
+                        .catch(err => console.error('Error sending to Sheet:', err));
+
+                    // --- Close Form & Show Success ---
+                    formContainer.classList.remove('active');
+                    successMessage.classList.add('active');
+
+                    // --- Store in Chatbot UI (if using your chat widget) ---
+                    if (typeof chatBody !== 'undefined') {
+                        const userMsg = document.createElement('div');
+                        userMsg.className = 'message user-message';
+                        userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                        chatBody.appendChild(userMsg);
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    }
+
+                    // --- Generate Quote after form submission ---
+                    calculateQuote(); // call your existing quote generator
+                });
+            </script>
+
+
+
+            <!-- Quote Sidebar -->
+            <div class="calculator-sidebar">
+                <div class="quote-summary">
+                    <div class="quote-header">
+                        <h2>Your Quote</h2>
+                        <p>Estimated project cost</p>
+                    </div>
+
+                    <div class="quote-total">
+                        <div class="quote-amount">₹0</div>
+                        <p>Total Estimated Cost</p>
+                    </div>
+
+                    <div class="quote-details">
+                        <div class="quote-item">
+                            <span>Project Type:</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="quote-item">
+                            <span>Space Details:</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="quote-item">
+                            <span>Design Style:</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="quote-item">
+                            <span>Additional Features:</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="quote-item">
+                            <span>Timeline:</span>
+                            <span class="value">-</span>
+                        </div>
+                    </div>
+
+                    <div class="quote-actions">
+                        <!-- <button class="btn btn-primary btn-full" disabled>
+                            <i class="fas fa-download"></i> Download Detailed Quote
+                        </button> -->
+                        <!-- <button class="btn btn-secondary btn-full" onclick="window.location.href = 'contact.html';">
+                            <i class="fas fa-calendar"></i> Schedule Consultation
+                        </button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        document.getElementById('generateQuoteBtn').addEventListener('click', function () {
+            const name = document.getElementById('userName').value.trim();
+            const contact = document.getElementById('userContact').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+
+            
+
+            // Prepare WhatsApp message content
+            let msg = `Hello! Here are the details from the quote request:\n\n`;
+            msg += `Name: ${name}\n`;
+            msg += `Contact: ${contact}\n`;
+            msg += `Email: ${email}\n\n`;
+            msg += `Project Type: ${projectData.type || '-'}\n`;
+
+            if (projectData.type === 'house' || projectData.type === 'apartment') {
+                msg += `BHK: ${projectData.bhk}, Area: ${projectData.area} sq.ft.\n`;
+            } else if (projectData.type === 'office') {
+                msg += `Floors: ${projectData.floors}, Rooms: ${projectData.rooms}\n`;
+            } else if (projectData.type === 'shop') {
+                msg += `Shop Area: ${projectData.shopArea} sq.ft.\n`;
+            }
+
+            msg += `Style: ${projectData.style || '-'}\n`;
+            msg += `Features: ${projectData.features.length ? projectData.features.join(", ") : '-'}\n`;
+            msg += `Budget: ${projectData.budget} Lakhs\n`;
+            msg += `Timeline: ${projectData.timeline} Weeks\n`;
+
+            // Encode message for URL
+            const encodedMsg = encodeURIComponent(msg);
+
+            // Replace this number with your WhatsApp number (with country code, no +)
+            const whatsappNumber = "919876543210";
+
+            // Open WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMsg}`, "_blank");
+
+            // Now generate quote
+            calculateQuote();
+        });
+    </script>
+
+
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's begin the journey to transform your space into a masterpiece</p>
+            <button class="btn-primary">Schedule Free Consultation</button>
+        </div>
+    </section>
+    <div id="siteFooter">
+
+    </div>
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // -------------------------
+        // Project Data Storage
+        // -------------------------
+        let projectData = {
+            type: '',
+            style: '',
+            features: [],
+            bhk: 2,
+            area: 1000,
+            floors: 1,
+            rooms: 5,
+            shopArea: 500,
+            budget: 10,
+            timeline: 8
+        };
+
+        // Store all quotes for chart
+        let allQuotes = [];
+        let quoteChartInstance;
+
+        // -------------------------
+        // Step Navigation
+        // -------------------------
+        function nextStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step-${step}`).classList.add('active');
+
+            document.querySelectorAll('.step-dot').forEach((dot, index) => {
+                if (index < step - 1) {
+                    dot.classList.add('completed');
+                    dot.classList.remove('active');
+                } else if (index === step - 1) {
+                    dot.classList.add('active');
+                    dot.classList.remove('completed');
+                } else {
+                    dot.classList.remove('active', 'completed');
+                }
+            });
+        }
+
+        function prevStep(step) {
+            nextStep(step);
+        }
+
+        // -------------------------
+        // Project Type Selection
+        // -------------------------
+        document.querySelectorAll('.selection-card[data-type]').forEach(card => {
+            card.addEventListener('click', function () {
+                document.querySelectorAll('.selection-card[data-type]').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                projectData.type = this.getAttribute('data-type');
+
+                document.getElementById('residential-options').style.display =
+                    (projectData.type === 'house' || projectData.type === 'apartment') ? 'block' : 'none';
+                document.getElementById('office-options').style.display =
+                    projectData.type === 'office' ? 'block' : 'none';
+                document.getElementById('shop-options').style.display =
+                    projectData.type === 'shop' ? 'block' : 'none';
+            });
+        });
+
+        // -------------------------
+        // Design Style Selection
+        // -------------------------
+        document.querySelectorAll('.selection-card[data-style]').forEach(card => {
+            card.addEventListener('click', function () {
+                document.querySelectorAll('.selection-card[data-style]').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                projectData.style = this.getAttribute('data-style');
+            });
+        });
+
+        // -------------------------
+        // Range Sliders
+        // -------------------------
+        const rangeInputs = ['bhk', 'area', 'floors', 'rooms', 'shop-area', 'budget', 'timeline'];
+        rangeInputs.forEach(id => {
+            const input = document.getElementById(id);
+            input.addEventListener('input', () => {
+                switch (id) {
+                    case 'bhk':
+                        document.getElementById('bhk-value').textContent = `${input.value} BHK`;
+                        projectData.bhk = parseInt(input.value);
+                        break;
+                    case 'area':
+                        document.getElementById('area-value').textContent = `${input.value} sq. ft.`;
+                        projectData.area = parseInt(input.value);
+                        break;
+                    case 'floors':
+                        document.getElementById('floors-value').textContent = `${input.value} Floor${input.value > 1 ? 's' : ''}`;
+                        projectData.floors = parseInt(input.value);
+                        break;
+                    case 'rooms':
+                        document.getElementById('rooms-value').textContent = `${input.value} Room${input.value > 1 ? 's' : ''}`;
+                        projectData.rooms = parseInt(input.value);
+                        break;
+                    case 'shop-area':
+                        document.getElementById('shop-area-value').textContent = `${input.value} sq. ft.`;
+                        projectData.shopArea = parseInt(input.value);
+                        break;
+                    case 'budget':
+                        let rangeText = '';
+                        const val = parseInt(input.value);
+                        if (val <= 5) rangeText = '₹5-10 Lakhs';
+                        else if (val <= 10) rangeText = '₹10-20 Lakhs';
+                        else if (val <= 20) rangeText = '₹20-30 Lakhs';
+                        else if (val <= 30) rangeText = '₹30-40 Lakhs';
+                        else rangeText = '₹40-50 Lakhs';
+                        document.getElementById('budget-value').textContent = rangeText;
+                        projectData.budget = val;
+                        break;
+                    case 'timeline':
+                        let timelineText = '';
+                        const tVal = parseInt(input.value);
+                        if (tVal <= 8) timelineText = '4-8 Weeks';
+                        else if (tVal <= 16) timelineText = '8-16 Weeks';
+                        else timelineText = '16-24 Weeks';
+                        document.getElementById('timeline-value').textContent = timelineText;
+                        projectData.timeline = tVal;
+                        break;
+                }
+            });
+            input.dispatchEvent(new Event('input'));
+        });
+
+        // -------------------------
+        // Feature Selection
+        // -------------------------
+        document.querySelectorAll('.checkbox-item').forEach(item => {
+            item.addEventListener('click', function () {
+                this.classList.toggle('selected');
+                const feature = this.getAttribute('data-feature');
+                if (this.classList.contains('selected')) {
+                    if (!projectData.features.includes(feature)) projectData.features.push(feature);
+                } else {
+                    projectData.features = projectData.features.filter(f => f !== feature);
+                }
+            });
+        });
+
+        // -------------------------
+        // Quote Calculation
+        // -------------------------
+        function calculateQuote() {
+            let basePrice = 0, featureCost = 0, styleMultiplier = 1;
+
+            switch (projectData.type) {
+                case 'house': basePrice = projectData.area * 1; break;
+                case 'apartment': basePrice = projectData.area * 1; break;
+                case 'office': basePrice = (projectData.rooms * 1) + (projectData.floors * 1000); break;
+                case 'shop': basePrice = projectData.shopArea * 1; break;
+                default: basePrice = 0;
+            }
+
+            switch (projectData.style) {
+                case 'modern': styleMultiplier = 1.1; break;
+                case 'contemporary': styleMultiplier = 1.2; break;
+                case 'traditional': styleMultiplier = 1.3; break;
+                case 'luxury': styleMultiplier = 1.8; break;
+            }
+
+            projectData.features.forEach(feature => {
+                switch (feature) {
+                    case 'modular-kitchen': featureCost += 50000; break;
+                    case 'wardrobe': featureCost += 80000; break;
+                    case 'false-ceiling': featureCost += 50000; break;
+                    case 'lighting': featureCost += 40000; break;
+                    case 'furniture': featureCost += 100000; break;
+                    case 'storage': featureCost += 60000; break;
+                    case 'reception': featureCost += 80000; break;
+                    case 'conference': featureCost += 12000; break;
+                    case 'cabin': featureCost += 70000; break;
+                    case 'workstation': featureCost += 5000; break;
+                    case 'breakout': featureCost += 9000; break;
+                    case 'branding': featureCost += 6000; break;
+                    case 'display': featureCost += 10000; break;
+                    case 'counter': featureCost += 5000; break;
+                    case 'security': featureCost += 8000; break;
+                }
+            });
+
+            const totalCost = (basePrice * styleMultiplier) + featureCost;
+            document.querySelector('.quote-amount').textContent = `₹${formatNumber(totalCost)}`;
+
+            // Quote Details
+            const details = document.querySelectorAll('.quote-details .value');
+            details[0].textContent = projectData.type ? projectData.type.charAt(0).toUpperCase() + projectData.type.slice(1) : '-';
+            let spaceDetails = '';
+            if (projectData.type === 'house' || projectData.type === 'apartment') spaceDetails = `${projectData.bhk} BHK, ${projectData.area} sq. ft.`;
+            else if (projectData.type === 'office') spaceDetails = `${projectData.floors} Floor(s), ${projectData.rooms} Room(s)`;
+            else if (projectData.type === 'shop') spaceDetails = `${projectData.shopArea} sq. ft.`;
+            details[1].textContent = spaceDetails;
+            details[2].textContent = projectData.style ? projectData.style.charAt(0).toUpperCase() + projectData.style.slice(1) : '-';
+            details[3].textContent = projectData.features.length ? `${projectData.features.length} features` : '-';
+            details[4].textContent = projectData.timeline <= 8 ? '4-8 Weeks' : projectData.timeline <= 16 ? '8-16 Weeks' : '16-24 Weeks';
+
+            document.querySelectorAll('.quote-actions button').forEach(btn => btn.disabled = false);
+
+            // -------------------------
+            // Chart Update
+            // -------------------------
+            updateChart(totalCost);
+        }
+
+        // -------------------------
+        // Number Formatting
+        // -------------------------
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // -------------------------
+        // Chart.js Integration
+        // -------------------------
+        function updateChart(latestTotal) {
+            // Save latest quote
+            const currentQuote = {
+                type: projectData.type,
+                total: latestTotal
+            };
+            allQuotes.push(currentQuote);
+
+            const filter = document.getElementById('chartFilter')?.value || 'all';
+            const filteredQuotes = filter === 'all' ? allQuotes : allQuotes.filter(q => q.type === filter);
+
+            const labels = filteredQuotes.map((q, i) => `${q.type}-${i + 1}`);
+            const data = filteredQuotes.map(q => q.total);
+
+            if (quoteChartInstance) quoteChartInstance.destroy();
+
+            const ctx = document.getElementById('quoteChart')?.getContext('2d');
+            if (!ctx) return;
+
+            quoteChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Quote Amount (₹)',
+                        data: data,
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true } } }
+            });
+        }
+
+        // -------------------------
+        // Chart Filter Event
+        // -------------------------
+        document.getElementById('chartFilter')?.addEventListener('change', () => {
+            updateChart(0); // Re-draw chart with filter
+        });
+
+        // -------------------------
+        // Replace calculateQuote calls with this
+        // -------------------------
+        function calculateQuoteWithChart() {
+            calculateQuote();
+        }
+    </script>
+
+    <!-- Script to load header and footer -->
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('siteHeader').innerHTML = data;
+
+                // Run header JS only after it's loaded
+                const menuToggle = document.querySelector('.mobile-menu');
+                const nav = document.querySelector('nav');
+
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                    });
+                }
+            });
+    </script>
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- Load Footer Dynamically ---
+            fetch('footer.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('siteFooter').innerHTML = data;
+
+                    // Delay to ensure DOM updates are fully applied
+                    setTimeout(() => {
+                        // --- Select Elements ---
+                        const voiceToggle = document.getElementById('voiceToggle');        // Toggle for voice notifications
+                        const toggleSwitch = document.getElementById('toggleSwitch');      // Visual switch for toggle
+                        const testVoiceBtn = document.getElementById('testVoice');         // Button to test voice
+                        const chatAlert = document.getElementById("chatAlert");            // Top alert notification
+                        const closeAlert = document.getElementById("closeAlert");          // Close button for alert
+                        const chatbotToggle = document.getElementById('chatbotToggle');    // Button to open chatbot
+                        const chatbotContainer = document.getElementById('chatbotContainer'); // Chatbot container
+                        const closeChat = document.getElementById('closeChat');            // Close button for chatbot
+                        const chatBody = document.getElementById('chatbotBody');           // Chat messages container
+                        const userForm = document.getElementById('userForm');              // Chatbot form
+                        const formContainer = document.getElementById('formContainer');    // Container for form
+                        const successMessage = document.getElementById('successMessage');  // Form success message
+                        const backToTop = document.getElementById('backToTop');            // Back to top button
+
+                        // --- Voice Notification System ---
+                        let voiceEnabled = false;                                           // Voice enabled by default
+                        const speechSynthesis = window.speechSynthesis;                    // Browser speech synthesis
+
+                        // Initialize voice settings
+                        function initVoiceSystem() {
+                            if (!speechSynthesis) {
+                                console.warn("Voice not supported in this browser");
+                                if (voiceToggle) voiceToggle.style.display = 'none';
+                                if (testVoiceBtn) testVoiceBtn.style.display = 'none';
+                                return;
+                            }
+
+                            // Load voice preference from localStorage
+                            const saved = localStorage.getItem('smartspaceVoiceEnabled');
+                            voiceEnabled = saved !== null ? saved === 'false' : true;
+
+                            // Update toggle switch visual
+                            if (voiceEnabled && toggleSwitch) toggleSwitch.classList.add('active');
+                        }
+
+                        // Function to speak text
+                        function speak(text) {
+                            if (!voiceEnabled || !speechSynthesis) return;
+                            speechSynthesis.cancel(); // Cancel any ongoing speech
+
+                            const utterance = new SpeechSynthesisUtterance(text);
+                            utterance.rate = 1.0;
+                            utterance.pitch = 1.0;
+                            utterance.volume = 0.8;
+
+                            // Select English Female voice if available
+                            const voices = speechSynthesis.getVoices();
+                            const englishVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Female'))
+                                || voices.find(v => v.lang.startsWith('en'));
+                            if (englishVoice) utterance.voice = englishVoice;
+
+                            speechSynthesis.speak(utterance);
+                        }
+
+                        // --- Voice Toggle Button ---
+                        if (voiceToggle) {
+                            voiceToggle.addEventListener('click', () => {
+                                voiceEnabled = !voiceEnabled;                      // Toggle state
+                                toggleSwitch.classList.toggle('active');          // Update visual
+                                localStorage.setItem('smartspaceVoiceEnabled', voiceEnabled); // Save preference
+                                speak(voiceEnabled ? "Voice notifications are now enabled" :
+                                    "Voice notifications are now disabled");
+                            });
+                        }
+
+                        // --- Test Voice Button ---
+                        // if (testVoiceBtn) {
+                        //     testVoiceBtn.addEventListener('click', () => {
+                        //         if (voiceEnabled) speak("This is a test of the voice notification system.");
+                        //         else alert("Enable voice notifications first");
+                        //     });
+                        // }
+
+                        // Initialize voice system
+                        initVoiceSystem();
+                        if (speechSynthesis) speechSynthesis.onvoiceschanged = initVoiceSystem;
+
+                        // --- Chat Alert Notification ---
+                        function showAlert() {
+                            if (!chatAlert) return;
+                            chatAlert.classList.add("show"); // Show alert
+                            //if (voiceEnabled) setTimeout(() => speak("We're online. How may I assist you?"), 500);
+                            //setTimeout(() => chatAlert.classList.remove("show"), 5000); // Auto-hide after 5s
+                        }
+
+                        // Close alert on ✕ click
+                        if (closeAlert) closeAlert.addEventListener("click", () => chatAlert.classList.remove("show"));
+
+                        // Show alert immediately and every 1 minute
+                        showAlert();
+                        setInterval(showAlert, 60000);
+
+                        // --- Chatbot Functionality ---
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbzS1SUEe3wqBJutgNg6CXQIu4ZdEKH6-wFuMxtcoIZq8QRWqaswTNeAO49eFQsaN8Jr2Q/exec";
+
+                        // Add bot message to chat
+                        function addBotMessage(message, voiceMessage = null) {
+                            if (!chatBody) return;
+                            const msg = document.createElement('div');
+                            msg.className = 'message bot-message';
+                            msg.innerHTML = `<div class="message-bubble">${message}</div>`;
+                            chatBody.appendChild(msg);
+                            chatBody.scrollTop = chatBody.scrollHeight;
+                          //  if (voiceEnabled && voiceMessage) setTimeout(() => speak(voiceMessage), 300);
+                        }
+
+                        // Initial bot message
+                        // setTimeout(() => addBotMessage("Please fill out the form below with your details.",
+                        //     "Please fill out the form below with your details."), 1000);
+
+                        // Chatbot open/close toggle
+                        if (chatbotToggle) {
+                            chatbotToggle.addEventListener('click', () => {
+                                chatbotContainer.classList.toggle('active');
+                                chatbotToggle.classList.toggle('minimized');
+                                // if (voiceEnabled && chatbotContainer.classList.contains('active')) {
+                                //     setTimeout(() => speak("Welcome to Smartspace Living support. How can I assist you today?"), 300);
+                                // }
+                            });
+                        }
+
+                        if (closeChat) {
+                            closeChat.addEventListener('click', () => {
+                                chatbotContainer.classList.remove('active');
+                                chatbotToggle.classList.add('minimized');
+                            });
+                        }
+
+                        // --- Form Submission ---
+                        if (userForm) {
+                            userForm.addEventListener('submit', (e) => {
+                                e.preventDefault();
+
+                                const name = document.getElementById('name').value.trim();
+                                const mobile = document.getElementById('mobile').value.trim();
+                                const email = document.getElementById('email').value.trim();
+
+                                // Simple validation
+                                // if (!name || mobile) return alert("Enter valid Name, Mobile & name");
+
+                                // WhatsApp redirect
+                                const whatsappURL = `https://wa.me/918591463486?text=${encodeURIComponent(`Hello, I'm ${name}. My mobile number is ${mobile} and email is ${email}.`)}`;
+                                const win = window.open(whatsappURL, '_blank');
+                                if (!win) alert("Popup blocked! Allow popups.");
+
+                                // Google Sheet submission
+                                const formData = new FormData();
+                                formData.append('name', name);
+                                formData.append('mobile', mobile);
+                                formData.append('email', email);
+                                fetch(scriptURL, { method: 'POST', body: formData })
+                                    .then(res => console.log('Sheet Response:', res))
+                                    .catch(err => console.error('Sheet Error:', err));
+
+                                // Update chatbot UI
+                                if (formContainer) formContainer.classList.remove('active');
+                                if (successMessage) successMessage.classList.add('active');
+
+                                const userMsg = document.createElement('div');
+                                userMsg.className = 'message user-message';
+                                userMsg.innerHTML = `<div class="message-bubble">Submitted: ${name}, ${mobile}, ${email}</div>`;
+                                chatBody.appendChild(userMsg);
+                                chatBody.scrollTop = chatBody.scrollHeight;
+
+                                // if (voiceEnabled) setTimeout(() => speak(`Thank you ${name}. Your information has been submitted successfully.`), 500);
+
+                                // Reset form after 5s
+                                setTimeout(() => {
+                                    if (formContainer) formContainer.classList.add('active');
+                                    if (successMessage) successMessage.classList.remove('active');
+                                    userForm.reset();
+                                }, 5000000);
+                            });
+                        }
+
+                        // --- Back To Top Button ---
+                        if (backToTop) {
+                            window.addEventListener('scroll', () => {
+                                backToTop.classList.toggle('visible', window.pageYOffset > 300);
+                            });
+                            backToTop.addEventListener('click', () => {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                // if (voiceEnabled) speak("Scrolling to top of page");
+                            });
+                        }
+
+                        // --- Auto Welcome Message ---
+                        // setTimeout(() => {
+                        //     if (voiceEnabled) speak("Welcome to Smartspace Living. We offer premium interior design solutions for residential and commercial spaces.");
+                        // }, 500000);
+
+                    }, 500); // Delay ensures footer is fully rendered
+                })
+                .catch(err => console.error('Footer load error:', err));
+        });
+    </script>
+
+</body>
+
+</html>
