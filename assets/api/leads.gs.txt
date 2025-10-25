@@ -1,0 +1,31 @@
+function doPost(e) {
+  try {
+    if (!e) return ContentService.createTextOutput("Error: e is undefined");
+
+    let data;
+    if (e.postData && e.postData.type === "application/json") {
+      data = JSON.parse(e.postData.contents);
+    } else {
+      data = e.parameter;
+    }
+
+    const name = data.name || '';
+    const mobile = data.mobile || '';
+    const email = data.email || '';
+
+    if (!name && !email) return ContentService.createTextOutput("No data received");
+
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName("Sheet2") || ss.insertSheet("Sheet2");
+
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(["Timestamp", "Name", "Mobile", "Email"]);
+    }
+
+    sheet.appendRow([new Date(), name, mobile, email]);
+    return ContentService.createTextOutput("Success");
+  } catch(err) {
+    console.error(err);
+    return ContentService.createTextOutput("Error: " + err);
+  }
+}

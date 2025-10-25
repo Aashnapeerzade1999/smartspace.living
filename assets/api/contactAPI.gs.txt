@@ -1,0 +1,30 @@
+function doPost(e) {
+  try {
+    console.log("doPost triggered");
+
+    if (!e) return ContentService.createTextOutput("Error: e is undefined");
+
+    // Read form data from e.parameter
+    var name = e.parameter.name || '';
+    var email = e.parameter.email || '';
+    var phone = e.parameter.phone || '';
+    var project = e.parameter.project || '';
+    var budget = e.parameter.budget || '';
+    var message = e.parameter.message || '';
+
+    if (!name && !email && !message) {
+      return ContentService.createTextOutput("No data received");
+    }
+
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName("Sheet1") || ss.getSheets()[0];
+
+    // Append row in correct order
+    sheet.appendRow([new Date(), name, email, phone, project, budget, message]);
+
+    return ContentService.createTextOutput("Success");
+  } catch (err) {
+    console.error(err);
+    return ContentService.createTextOutput("Error: " + err);
+  }
+}
